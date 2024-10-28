@@ -2,37 +2,49 @@
 
 export const Sidebar = () => {
     return (
-        <div className="space-y-4 flex flex-col text-primary bg-secondary">
-            <div className="p-3 flex-1 justify-center">
-                <div className="space-y-5">
-                    <h2 className="text-3xl mb-10">Routes</h2>
-                    <div>
-                        <h3 className="text-2xl mb-2 sticky top-0 bg-secondary py-3">Yesterday</h3>
-                        <ul>
-                            <li>Ветхий Завет - Бытие - Глава 48</li>
-                            <li>Ветхий Завет - Бытие - Глава 49</li>
-                            <li>Ветхий Завет - Бытие - Глава 50</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 className="text-2xl mb-2 sticky top-0 bg-secondary py-3">1 week ago</h3>
-                        <ul>
-                            <li>Ветхий Завет - Бытие - Глава 48</li>
-                            <li>Ветхий Завет - Бытие - Глава 49</li>
-                            <li>Ветхий Завет - Бытие - Глава 50</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 className="text-2xl mb-2 sticky top-0 bg-secondary py-3">1 year ago</h3>
-                        <ul>
-                            <li>Ветхий Завет - Бытие - Глава 48</li>
-                            <li>Ветхий Завет - Бытие - Глава 49</li>
-                            <li>Ветхий Завет - Бытие - Глава 50</li>
-                        </ul>
-                    </div>
+        <div
+            className="h-full w-64 bg-secondary shadow-lg p-6">
+            <h2 className="text-xl font-bold text-gray-800 mb-6 text-center">Навігатор</h2>
 
-                </div>
+            <div className="mb-8">
+                <h3 className="uppercase text-md font-semibold text-gray-700 mb-2 sticky top-0">Вчора</h3>
+                <ul className="space-y-2">
+                    <li>
+                        <a href="#" className="block p-2 rounded-lg hover:bg-blue-200 transition-colors duration-200">Новый Завет - Послание Иакова - Глава 1</a>
+                    </li>
+                    <li>
+                        <a href="#" className="block p-2 rounded-lg hover:bg-blue-200 transition-colors duration-200">Новый Завет - Послание к Ефесянам - Глава 5</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div className="mb-8">
+                <h3 className="uppercase text-md font-semibold text-gray-700 mb-2 sticky top-0">Місяць тому</h3>
+                <ul className="space-y-2">
+                    <li>
+                        <a href="#" className="block p-2 rounded-lg hover:bg-blue-200 transition-colors duration-200">Путь ко спасению</a>
+                    </li>
+                    <li>
+                        <a href="#" className="block p-2 rounded-lg hover:bg-blue-200 transition-colors duration-200">Просто христианство</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 className="uppercase text-md font-semibold text-gray-700 mb-2 sticky top-0">Рік тому</h3>
+                <ul className="space-y-2">
+                    <li>
+                        <a href="#" className="block p-2 rounded-lg hover:bg-blue-200 transition-colors duration-200">Предмет знания</a>
+                    </li>
+                    <li>
+                        <a href="#" className="block p-2 rounded-lg hover:bg-blue-200 transition-colors duration-200">Ветхозаветный канон у новозаветных писателей</a>
+                    </li>
+                    <li>
+                        <a href="#" className="block p-2 rounded-lg hover:bg-blue-200 transition-colors duration-200">Введение в Ветхий Завет</a>
+                    </li>
+                </ul>
             </div>
         </div>
+
     )
 }
