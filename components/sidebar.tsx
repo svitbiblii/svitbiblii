@@ -2,9 +2,9 @@
 
 export const Sidebar = () => {
     return (
-        <div
-            className="h-full w-64 bg-secondary shadow-lg p-6">
-            <h2 className="text-xl font-bold text-gray-800 mb-6 text-center">Навігатор</h2>
+
+        <div className="h-full w-64 bg-secondary shadow-lg p-6">
+            <h2 className="text-xl font-bold text-gray-800 mb-6 ">Навігатор</h2>
 
             <div className="mb-8">
                 <h3 className="uppercase text-md font-semibold text-gray-700 mb-2 sticky top-0">Вчора</h3>
