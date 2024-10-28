@@ -22,12 +22,10 @@ const RootLayout = ({
                     <Sidebar/>
                 </div>
                 <main className="relative flex  max-w-full flex-1 flex-col overflow-hidden mt-16 px-12">
-                    {children}
                     <Search/>
                     <Categories/>
                     <SourcesOfInformation/>
                     <CreateRoute/>
-
                 </main>
             </div>
         </div>
