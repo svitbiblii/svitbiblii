@@ -2,7 +2,7 @@
 
 export const Search = () => {
     return (
-        <div className="flex items-center max-w-md mx-auto bg-white shadow-md rounded-full p-2">
+        <div className="flex items-center w-full mx-auto bg-white shadow-md rounded-full p-2 my-10">
             <input
                 type="text"
                 placeholder="Search..."
