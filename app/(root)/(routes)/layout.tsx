@@ -9,14 +9,17 @@ const RootLayout = ({
     return ( 
         <div className="h-full">
             <Navbar />
-            <div className="hidden md:flex mt-16 w-20 flex-col fixed inset-y-0">
-             <Sidebar />
+
+            <div className="relative flex h-full w-full overflow-hidden ">
+                <div className="flex-shrink-0 overflow-x-hidden mt-16" style={{width: '256px'}}>
+                    <Sidebar/>
+                </div>
+                <main className="relative flex h-full max-w-full flex-1 flex-col overflow-hidden">
+                    {children}
+                </main>
             </div>
-            <main className="md:pl-20 pt-16 h-full">
-                {children}
-            </main>
         </div>
-     );
+    );
 }
- 
+
 export default RootLayout;
