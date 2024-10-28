@@ -5,6 +5,7 @@ import { Search } from "@/components/search";
 import { Categories } from "@/components/categories";
 import { SourcesOfInformation } from "@/components/sources-of-information";
 import { CreateRoute } from "@/components/create-route";
+import { Footer } from "@/components/footer";
 
 
 const RootLayout = ({
@@ -26,6 +27,7 @@ const RootLayout = ({
                     <Categories/>
                     <SourcesOfInformation/>
                     <CreateRoute/>
+                    <Footer/>
                 </main>
             </div>
         </div>
