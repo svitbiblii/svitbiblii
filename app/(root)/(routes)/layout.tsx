@@ -2,6 +2,7 @@ import { Navbar } from "@/components/navbar";
 import { Sidebar } from "@/components/sidebar";
 import { Search } from "@/components/search";
 import { Categories } from "@/components/categories";
+import { SourcesOfInformation } from "@/components/sources-of-information";
 
 const RootLayout = ({
     children
@@ -20,6 +21,7 @@ const RootLayout = ({
                     {children}
                     <Search/>
                     <Categories/>
+                    <SourcesOfInformation/>
 
 
                 </main>
