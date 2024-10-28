@@ -8,11 +8,7 @@ import { CreateRoute } from "@/components/create-route";
 import { Footer } from "@/components/footer";
 
 
-const RootLayout = ({
-    children
-}: {
-    children: React.ReactNode;
-}) => {
+const RootLayout = () => {
     return ( 
         <div className="h-min-full">
             <Navbar />
