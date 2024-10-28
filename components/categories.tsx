@@ -3,7 +3,7 @@
 export const Categories = () => {
     return (
         <div>
-            <h2 className="text-3xl font-semibold text-gray-800 mb-4 text-center">Категоріі</h2>
+            <h2 className="text-3xl font-semibold mb-4 text-center">Категоріі</h2>
             <ul className="flex py-2 flex-wrap justify-start gap-2 my-10">
                 <li className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-300 transition">
                         Переклади Біблії

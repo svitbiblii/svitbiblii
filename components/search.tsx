@@ -3,9 +3,9 @@
 export const Search = () => {
     return (
         <div className="w-full p-6">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Search and Filter</h2>
+            <h2 className="text-2xl font-semibold mb-4">Search and Filter</h2>
 
-            <div className="flex items-center w-full mx-auto bg-white shadow-md rounded-full p-2">
+            <div className="flex items-center w-full mx-auto dark:border dark:border-white shadow-md rounded-full p-2">
                 <input
                     type="text"
                     placeholder="Search..."
@@ -38,7 +38,7 @@ export const Search = () => {
 
             <div className="space-y-4">
                 <div className="p-4 border border-gray-200 rounded-lg shadow-sm">
-                    <h3 className="text-lg font-medium text-gray-800">Result 1</h3>
+                    <h3 className="text-lg font-medium">Result 1</h3>
                     <p className="text-gray-600">Description of result 1</p>
                 </div>
 
