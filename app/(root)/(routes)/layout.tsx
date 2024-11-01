@@ -2,8 +2,6 @@ import { Navbar } from "@/components/navbar";
 import { About } from "@/components/about";
 import { Sidebar } from "@/components/sidebar";
 import { Search } from "@/components/search";
-import { Categories } from "@/components/categories";
-import { SourcesOfInformation } from "@/components/sources-of-information";
 import { CreateRoute } from "@/components/create-route";
 import { Footer } from "@/components/footer";
 
@@ -20,8 +18,6 @@ const RootLayout = () => {
                 </div>
                 <main className="relative flex  max-w-full flex-1 flex-col overflow-hidden mt-16 px-12">
                     <Search/>
-                    <Categories/>
-                    <SourcesOfInformation/>
                     <CreateRoute/>
                     <Footer/>
                 </main>
