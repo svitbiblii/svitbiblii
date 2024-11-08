@@ -30,10 +30,10 @@ export const Search = () => {
             </div>
 
             <div className="flex justify-center space-x-4 mb-6">
-                <button className="text-xs px-4 py-2 bg-blue-500 text-white hover:bg-blue-600">Все</button>
-                <button className="text-xs px-4 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300">Категорія 1</button>
-                <button className="text-xs px-4 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300">Категорія 2</button>
-                <button className="text-xs px-4 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300">Категорія 3</button>
+                <button className="text-xs px-4 py-2 bg-blue-500 text-white hover:bg-blue-600">Всі</button>
+                <button className="text-xs px-4 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300">Аудіо</button>
+                <button className="text-xs px-4 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300">Відео</button>
+                <button className="text-xs px-4 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300">Наукові тексти</button>
             </div>
 
             <div className="space-y-4">

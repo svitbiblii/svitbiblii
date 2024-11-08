@@ -8,7 +8,7 @@ import { UserButton } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle";
-import {LangSwitcher} from "@/components/lang-switcher";
+import { LangSwitcher } from "@/components/lang-switcher";
 
 const font = Poppins({ weight: "600", subsets: ["latin"] });
 

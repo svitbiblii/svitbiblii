@@ -71,4 +71,11 @@ body,
   body {
     @apply bg-background text-foreground;
   }
+  .slide{
+    @apply w-full lg:w-1/3 mx-6 flex-shrink-0 lg:rounded-2xl relative h-full transition-transform duration-500 ease-in-out;
+    @apply after:bg-gray-500 lg:after:rounded-2xl after:w-full after:h-full after:opacity-50 after:absolute after:top-0 after:z-10;
+    @apply lg:odd:h-screen-90 odd:mx-0;
+  }
 }
+
+

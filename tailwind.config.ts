@@ -9,6 +9,18 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		screens: {
+			'sm': '640px',
+			// => @media (min-width: 640px) { ... }
+			'md': '768px',
+			// => @media (min-width: 768px) { ... }
+			'lg': '1024px',
+			// => @media (min-width: 1024px) { ... }
+			'xl': '1280px',
+			// => @media (min-width: 1280px) { ... }
+			'2xl': '1536px' // => @media (min-width: 1536px) { ... }
+
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -55,7 +67,11 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		height: {
+			'screen-90': '90%',
+			'h-122': '26rem'
+		},
   	}
   },
   plugins: [require("tailwindcss-animate")],
