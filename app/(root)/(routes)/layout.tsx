@@ -12,7 +12,7 @@ const RootLayout = () => {
             <Navbar />
 
             <div className="relative flex h-full w-full overflow-hidden ">
-                <div className="flex-shrink-0 overflow-x-hidden mt-16" style={{width: '256px'}}>
+                <div className="hidden md:flex flex-col flex-shrink-0 overflow-x-hidden mt-16" style={{width: '256px'}}>
                     <About/>
                     <Sidebar/>
                 </div>

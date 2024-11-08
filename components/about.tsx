@@ -2,7 +2,7 @@
 
 export const About = () => {
     return (
-        <nav className="p-4 border-b-4">
+        <nav className="w-64 p-4 border-b-4">
             <ul className="space-y-3">
                 <li className="flex items-center">
                     <a href="/about-us"
@@ -16,7 +16,7 @@ export const About = () => {
                     </a>
                 </li>
                 <li className="flex items-center">
-                    <a href="#"
+                    <a href="/how-it-works"
                        className="flex items-center hover:underline transition">
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 mr-2" fill="none"
                              viewBox="0 0 24 24" stroke="currentColor">
