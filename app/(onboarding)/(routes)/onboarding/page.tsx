@@ -1,4 +1,4 @@
-// onboarding/page.tsx
+// page/onboarding.tsx
 import Carousel from "@/components/carousel";
 
 const slides = [
