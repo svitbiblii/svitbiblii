@@ -1,5 +1,4 @@
 import { BackButton } from "@/components/back-button";
-
 const HowItWorksPage = () => {
     return (
         <div className="p-8 max-w-3xl mx-auto">
@@ -14,5 +13,4 @@ const HowItWorksPage = () => {
         </div>
     );
 }
-
 export default HowItWorksPage;
