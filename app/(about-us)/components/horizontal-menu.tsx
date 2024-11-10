@@ -39,7 +39,7 @@ export const HorizontalMenu = () => {
 
     return (
         <div className="flex items-center text-xl ">
-            <div className="fixed w-screen md:w-[calc(100%-256px)] flex items-center bg-white z-10 pt-6 pb-6 mt-24 border-b-2 px-2">
+            <div className="fixed w-screen md:w-[calc(100%-320px)] xl:w-[calc(100%-356px)] flex items-center bg-white z-10 pt-6 pb-6 mt-16 border-b-2 px-2">
                 <button
                     id="scrollLeft"
                     onClick={() => scroll('left')}

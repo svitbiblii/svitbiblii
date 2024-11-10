@@ -2,7 +2,7 @@
 
 export const About = () => {
     return (
-        <nav className="w-64 p-4 border-b-4">
+        <nav className=" p-4 border-b-4">
             <ul className="space-y-3">
                 <li className="flex items-center">
                     <a href="/about-us"

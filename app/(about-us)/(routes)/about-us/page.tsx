@@ -2,7 +2,7 @@
 
 const AboutUsPage = () => {
     return (
-            <div className="relative flex h-full w-full overflow-hidden px-12">
+            <div className="relative flex h-full w-full overflow-hidden px-4">
                 <main className="relative flex  max-w-full flex-1 flex-col overflow-hidden mt-28">
                     <h1>«Світ Біблії» – «World of the Bible»</h1>
                     <h2>Опис проєкту</h2>

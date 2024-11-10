@@ -12,22 +12,26 @@ const AboutUsLayout = ({
     children: React.ReactNode;
 }) => {
     return (
-    <div>
-        <Navbar/>
+        <div className="h-min-full">
+            <Navbar/>
 
-        <div className="relative flex h-full w-full overflow-hidden ">
-            <div className="hidden md:flex flex-col flex-shrink-0 overflow-x-hidden mt-16" style={{width: '256px'}}>
-                <About/>
-                <Sidebar/>
-            </div>
-            <main className="relative flex  max-w-full flex-1 flex-col overflow-hidden mt-16 ">
-                <HorizontalMenu/>
-                {children}
-                <Footer/>
-            </main>
+                <div className="flex">
+                    <div className="hidden md:block h-screen w-72 min-w-72 mt-16 overflow-y-auto bg-white pb-12 shadow-lg">
+                        <div>
+                            <About/>
+                            <Sidebar/>
+                        </div>
+                    </div>
+                    <div className="h-screen w-full mt-16 overflow-y-auto bg-white p-4 shadow-lg">
+                        <main>
+                            <HorizontalMenu/>
+                            {children}
+                            <Footer/>
+                        </main>
+                    </div>
+                </div>
         </div>
-    </div>
-)
+    )
 }
 
 export default AboutUsLayout;
