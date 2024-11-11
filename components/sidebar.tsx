@@ -12,7 +12,7 @@ export const Sidebar = () => {
                         <a href="#" className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Новий Заповіт - Послання Якова - Глава 1</a>
                     </li>
                     <li>
-                        <a href="#" className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Новий Заповіт - Послання св.Апостола Павла до ефесян - Глава 5</a>
+                        <a href="#" className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Новий Заповіт - Послання св.Апостола Павла до ефесян - Глава 10</a>
                     </li>
                 </ul>
             </div>
