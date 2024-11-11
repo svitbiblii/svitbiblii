@@ -4,10 +4,9 @@ const OnboardingLayout = ({
     children: React.ReactNode;
 }) => {
     return (
-        <div className="mx-auto max-w-4xl h-full w-full">
+        <div className="">
             {children}
         </div>
     )
 }
-
 export default OnboardingLayout;
