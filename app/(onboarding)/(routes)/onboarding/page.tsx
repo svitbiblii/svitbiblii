@@ -168,9 +168,13 @@ export default function OnboardingPage() {
                 </a>
             </section>
 
-            {/* <section className="max-w-full lg:max-w-4xl mx-auto lg:mt-14 lg:mb-4">
+            <section className="hidden lg:block max-w-2xl mx-auto px-4 text-center">
+                test
+            </section>
+
+                {/* <section className="max-w-full lg:max-w-4xl mx-auto lg:mt-14 lg:mb-4">
                 <Carousel slides={slides} />
             </section> */}
         </div>
-    );
+);
 }
