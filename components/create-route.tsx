@@ -8,7 +8,7 @@ export const CreateRoute = () => {
             <p className="text-gray-500 mb-4 text-center">Щоб приєднатися до нас, будь ласка, зареєструйтеся
                 за посиланням нижче:</p>
             <div className="flex justify-center">
-                <a href="#"
+                <a href="/sign-in"
                    className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300">Зареєструватися</a>
             </div>
         </div>
