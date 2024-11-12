@@ -4,6 +4,7 @@ import { Sparkles } from "lucide-react";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button"
@@ -14,6 +15,8 @@ import { MobileSidebar } from "@/components/mobile-sidebar";
 const font = Poppins({ weight: "600", subsets: ["latin"] });
 
 export const Navbar = () => { 
+  const router = useRouter();
+
   return (
       <div
           className="fixed w-full z-50 flex justify-between items-center py-2 px-4 h-16 border-b border-primary/10 bg-secondary">
@@ -29,7 +32,8 @@ export const Navbar = () => {
           <div className="border px-10 py-2 rounded shadow cursor-pointer">Каталог</div>
         </div> */}
         <div className="flex items-center gap-x-3">
-          <Button variant="premium" size="sm">
+          <Button variant="premium" size="sm"
+                  onClick={() => router.push('/catalog')}>
             Каталог
             <Sparkles className="h-4 w-4 fill-white text-white ml-2"/>
           </Button>
