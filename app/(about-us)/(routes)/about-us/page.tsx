@@ -1,4 +1,5 @@
 // pages/about-us.tsx
+import Image from "next/image";
 
 const AboutUsPage = () => {
     return (
@@ -76,7 +77,7 @@ const AboutUsPage = () => {
                             іншій орбіті. Тут, для ілюстрації візії нашого проєкту, хотілося б навести наступний
                             малюнок. </p>
 
-                        <img
+                        <Image
                             className="fit-picture mx-auto block"
                             src="/images/image-about-page.png"
                             alt="image-about-page"/>
