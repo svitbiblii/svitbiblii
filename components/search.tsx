@@ -20,9 +20,9 @@ export const Search = () => {
                         stroke="currentColor"
                     >
                         <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             d="M11 5a7 7 0 100 14 7 7 0 000-14zm0 0l6 6"
                         />
                     </svg>
