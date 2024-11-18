@@ -6,7 +6,7 @@ const OnboardingLayout = ({
     children: React.ReactNode;
 }) => {
     return (
-        <div className="">
+        <div className="h-full">
             <OnboardingSlider/>
             {children}
         </div>
