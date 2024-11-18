@@ -105,7 +105,7 @@ body,
     @apply lg:odd:h-screen-90 odd:mx-0;
   }
 
-  html {
+  html { /*for page about-us*/
     scroll-padding-top: 4rem;
   }
 }

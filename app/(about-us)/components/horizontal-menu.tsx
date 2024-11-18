@@ -57,7 +57,7 @@ export const HorizontalMenu = () => {
 
     return (
         <div className="flex items-center text-xl ">
-            <div className="fixed w-[calc(100%-20px)] md:w-[calc(100%-320px)] xl:w-[calc(100%-356px)] flex bg-white z-10 pt-6 pb-6 mt-10 border-b-2 px-2">
+            <div className="fixed w-[calc(100%-20px)] md:w-[calc(100%-320px)] xl:w-[calc(100%-356px)] flex bg-white z-10 pt-6 pb-6 mt-10 xl:mt-8 border-b-2 px-2">
                 {isMobile && (
                     <button
                         id="scrollLeft"
