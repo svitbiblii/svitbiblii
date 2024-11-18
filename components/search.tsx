@@ -9,7 +9,7 @@ export const Search = () => {
                 <input
                     type="text"
                     placeholder="Пошук..."
-                    className="w-full rounded-full px-4 py-2 text-gray-700 focus:outline-none"
+                    className="w-full rounded-full px-4 py-2 text-gray-700 dark:text-white focus:outline-none"
                 />
                 <button className="text-gray-500 focus:outline-none hover:text-gray-700">
                     <svg
@@ -39,7 +39,7 @@ export const Search = () => {
             <div className="space-y-4">
                 <div className="p-4 border border-gray-200 rounded-lg shadow-sm">
                     <h3 className="text-lg font-medium">Результат 1</h3>
-                    <p className="text-gray-600">Опис результату 1</p>
+                    <p className="text-gray-600 dark:text-white">Опис результату 1</p>
                 </div>
 
             </div>
