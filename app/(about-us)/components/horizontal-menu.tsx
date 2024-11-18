@@ -53,20 +53,13 @@ export const HorizontalMenu = () => {
                     className="flex overflow-hidden scrollbar-hide px-4"
                     onScroll={updateArrows}
                 >
-                    <a href="#annotation" className="text-black font-semibold relative whitespace-nowrap">
-                        Анотація
+                    <a href="#whowe" className="text-black font-semibold relative whitespace-nowrap">
+                        Хто ми?
                         <span className="absolute left-0 -bottom-1 w-full border-b-2 border-black "></span>
                     </a>
-                    <a href="#vision" className="ml-6 whitespace-nowrap-4">Візія</a>
-                    <a href="#mission" className="ml-6 whitespace-nowrap">Місія</a>
-                    <a href="#goal" className="ml-6 whitespace-nowrap">Мета</a>
-                    <a href="#strategy"  className="ml-6 whitespace-nowrap">Стратегія</a>
-                    <a href="#values" className="ml-6 whitespace-nowrap">Цінності</a>
-                    <a href="#achieving_goals" className="ml-6 whitespace-nowrap">Порядок і способи досягнення цілей</a>
-                    <a href="#prop_impl" className="ml-6 whitespace-nowrap">Основні властивості та особливості реалізації</a>
-                    <a href="#exp_impl" className="ml-6 whitespace-nowrap">Очікувані результати реалізації</a>
-                    <a href="#plan" className="ml-6 whitespace-nowrap">Орієнтовний план виконання</a>
-                    <a href="#plan"  className="ml-6 whitespace-nowrap">Бюджет проєкту</a>
+                    <a href="#goal" className="ml-6 whitespace-nowrap-4">Мета проєкту</a>
+                    <a href="#whywe" className="ml-6 whitespace-nowrap">Чому ми?</a>
+                    <a href="#forsponsor" className="ml-6 whitespace-nowrap">Чому для спонсорів важливо інвестувати в нас?</a>
                 </div>
 
                 <button
