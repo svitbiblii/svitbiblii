@@ -9,7 +9,7 @@ export const Sidebar = () => {
                 <h3 className="uppercase text-md font-semibold mb-2 sticky bg-secondary py-2 top-0 z-20 text-left">Вчора</h3>
                 <ul className="space-y-2 list-none pl-0">
                     <li>
-                        <a href="/page" className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Старий Заповіт - Битіє - Глава 1</a>
+                        <a href="/single-page" className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Старий Заповіт - Битіє - Глава 1</a>
                     </li>
                     <li>
                         <a href="#" className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Новий Заповіт - Послання св.Апостола Павла до ефесян - Глава 10</a>

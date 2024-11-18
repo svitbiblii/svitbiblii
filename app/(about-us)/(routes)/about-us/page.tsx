@@ -1,4 +1,4 @@
-// pages/page.tsx
+// pages/single-page.tsx
 import Image from "next/image";
 
 const AboutUsPage = () => {

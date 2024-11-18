@@ -3,7 +3,8 @@ import {About} from "@/components/about";
 import {Sidebar} from "@/components/sidebar";
 import {Footer} from "@/components/footer";
 
-const PageLayout = ({
+
+const SinglePageLayout = ({
     children
 }: {
     children: React.ReactNode;
@@ -30,4 +31,4 @@ const PageLayout = ({
     )
 }
 
-export default PageLayout;
+export default SinglePageLayout;
