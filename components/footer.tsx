@@ -2,7 +2,7 @@
 
 export const Footer = () => {
     return (
-        <div className="flex justify-around p-6 text-center mt-20 mb-10">
+        <div className="flex flex-wrap justify-around p-6 text-center mt-20 mb-10">
             <a href="mailto:mediaglagol@gmail.com"
                className="flex items-center space-x-2 hover:text-blue-500 transition">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
