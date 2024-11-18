@@ -69,7 +69,7 @@ export const OnboardingSlider = () => {
     }, [isMobile]);
 
     return (
-        <div className="flex items-center text-xl h-full lg:h-auto w-full">
+        <div className="flex items-center text-xl h-full lg:h-auto w-full lg:pb-12">
             {isMobile && (
                 <button
                     id="scrollLeft"
@@ -91,7 +91,7 @@ export const OnboardingSlider = () => {
                 onTouchEnd={handleTouchEnd}
             >
 
-                <div className="absolute rounded-3xl z-20 w-[calc(100%-50px)] md:w-1/2 lg:w-5/6 left-0 md:left-1/4 lg:left-5 text-l text-center bottom-9 bg-white ml-6 md:ml-0 p-3 lg:p-2 text-black font-bold uppercase">Почати...</div>
+                <div className="lg:hidden absolute rounded-3xl z-20 w-[calc(100%-50px)] md:w-1/2 lg:w-5/6 left-0 md:left-1/4 lg:left-5 text-l text-center bottom-9 bg-white ml-6 md:ml-0 p-3 lg:p-2 text-black font-bold uppercase">Почати...</div>
                 <div className="min-w-full lg:min-w-[calc(33.33%-40px)] h-full lg:h-auto relative lg:mx-4">
                     <img
                         className="w-full h-full lg:h-auto lg:rounded-xl"
