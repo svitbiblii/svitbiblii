@@ -1,3 +1,5 @@
+import {OnboardingSlider} from "@/app/(onboarding)/components/onboarding-slider";
+
 const OnboardingLayout = ({
     children
 }: {
@@ -5,6 +7,7 @@ const OnboardingLayout = ({
 }) => {
     return (
         <div className="">
+            <OnboardingSlider/>
             {children}
         </div>
     )
