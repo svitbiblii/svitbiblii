@@ -9,7 +9,7 @@ export const Search = () => {
                 <input
                     type="text"
                     placeholder="Пошук..."
-                    className="w-full rounded-full px-4 py-2 text-gray-700 dark:text-white focus:outline-none"
+                    className="w-full rounded-full px-4 py-2 text-gray-700 dark:text-white dark:bg-background focus:outline-none"
                 />
                 <button className="text-gray-500 focus:outline-none hover:text-gray-700">
                     <svg
