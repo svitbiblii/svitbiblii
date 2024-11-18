@@ -1,10 +1,12 @@
 "use client";
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 export const HorizontalMenu = () => {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const scrollAmount = 100;
+    const [isMobile, setIsMobile] = useState<boolean>(false);
+
 
     const updateArrows = () => {
         const scrollContainer = scrollContainerRef.current;
@@ -19,6 +21,7 @@ export const HorizontalMenu = () => {
             if (scrollRightButton) scrollRightButton.style.display = atEnd ? 'none' : 'inline';
         }
     };
+
     const scroll = (direction: 'left' | 'right') => {
         const scrollContainer = scrollContainerRef.current;
         if (scrollContainer) {
@@ -27,9 +30,20 @@ export const HorizontalMenu = () => {
         }
     };
 
+    const checkIsMobile = () => {
+        setIsMobile(window.innerWidth <= 1024);
+    };
+
     useEffect(() => {
-        updateArrows();
-        const handleResize = () => updateArrows();
+        // Initial check for screen size
+        checkIsMobile();
+
+        // Update on resize
+        const handleResize = () => {
+            checkIsMobile();
+            updateArrows();
+        };
+
         window.addEventListener('resize', handleResize);
 
         return () => {
@@ -37,20 +51,28 @@ export const HorizontalMenu = () => {
         };
     }, []);
 
+    useEffect(() => {
+        updateArrows();
+    }, [isMobile]);
+
     return (
         <div className="flex items-center text-xl ">
-            <div className="fixed w-screen md:w-[calc(100%-320px)] xl:w-[calc(100%-356px)] flex items-center bg-white z-10 pt-6 pb-6 mt-16 border-b-2 px-2">
-                <button
-                    id="scrollLeft"
-                    onClick={() => scroll('left')}
-                    className="mr-4 md:mr-8 border rounded hidden px-2 py-1 md:px-4 md:py-2 "
-                >
-                    &larr;
-                </button>
+            <div className="fixed w-[calc(100%-20px)] md:w-[calc(100%-320px)] xl:w-[calc(100%-356px)] flex bg-white z-10 pt-6 pb-6 mt-10 border-b-2 px-2">
+                {isMobile && (
+                    <button
+                        id="scrollLeft"
+                        onClick={() => scroll('left')}
+                        className="mr-4 md:mr-8 border rounded hidden px-2 py-1 md:px-4 md:py-2 "
+                    >
+                        &larr;
+                    </button>
+                )}
 
                 <div
                     ref={scrollContainerRef}
-                    className="flex overflow-hidden scrollbar-hide px-4"
+                    className={`flex items-center overflow-hidden leading-4 px-4 ${
+                        isMobile ? 'scrollbar-hide' : ''
+                    }`}
                     onScroll={updateArrows}
                 >
                     <a href="#whowe" className="text-black font-semibold relative whitespace-nowrap">
@@ -59,19 +81,22 @@ export const HorizontalMenu = () => {
                     </a>
                     <a href="#goal" className="ml-6 whitespace-nowrap-4">Мета проєкту</a>
                     <a href="#whywe" className="ml-6 whitespace-nowrap">Чому ми?</a>
-                    <a href="#forsponsor" className="ml-6 whitespace-nowrap">Чому для спонсорів важливо інвестувати в нас?</a>
+                    <a href="#forsponsor" className="ml-6 whitespace-nowrap-4 min-w-64">Чому для спонсорів важливо
+                        інвестувати в нас?</a>
                 </div>
 
-                <button
-                    id="scrollRight"
-                    onClick={() => scroll('right')}
-                    className="ml-4 md:ml-8 border rounded px-2 py-1 md:px-4 md:py-2"
-                >
-                    &rarr;
-                </button>
+                {isMobile && (
+                    <button
+                        id="scrollRight"
+                        onClick={() => scroll('right')}
+                        className="ml-4 md:ml-8 border rounded px-2 py-1 md:px-4 md:py-2"
+                    >
+                        &rarr;
+                    </button>
+                )}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default HorizontalMenu;

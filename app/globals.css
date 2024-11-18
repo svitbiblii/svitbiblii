@@ -104,6 +104,10 @@ body,
     @apply after:bg-gray-500 lg:after:rounded-2xl after:w-full after:h-full after:opacity-50 after:absolute after:top-0 after:z-10;
     @apply lg:odd:h-screen-90 odd:mx-0;
   }
+
+  html {
+    scroll-padding-top: 4rem;
+  }
 }
 
 

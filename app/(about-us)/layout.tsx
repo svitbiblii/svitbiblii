@@ -16,7 +16,7 @@ const AboutUsLayout = ({
             <Navbar/>
 
                 <div className="flex">
-                    <div className="hidden md:block h-screen w-72 min-w-72 mt-16 overflow-y-auto bg-white pb-12 shadow-lg">
+                    <div className="hidden md:block h-screen mt-16 w-72 min-w-72 overflow-y-auto bg-white pb-12 shadow-lg">
                         <div>
                             <About/>
                             <Sidebar/>
