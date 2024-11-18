@@ -57,7 +57,7 @@ export const HorizontalMenu = () => {
 
     return (
         <div className="flex items-center text-xl ">
-            <div className="fixed w-[calc(100%-20px)] md:w-[calc(100%-320px)] xl:w-[calc(100%-356px)] flex bg-white z-10 pt-6 pb-6 mt-10 xl:mt-8 border-b-2 px-2">
+            <div className="fixed w-[calc(100%-20px)] md:w-[calc(100%-320px)] xl:w-[calc(100%-356px)] flex bg-white dark:bg-background z-10 pt-6 pb-6 mt-10 xl:mt-8 border-b-2 px-2">
                 {isMobile && (
                     <button
                         id="scrollLeft"
@@ -75,9 +75,9 @@ export const HorizontalMenu = () => {
                     }`}
                     onScroll={updateArrows}
                 >
-                    <a href="#whowe" className="text-black font-semibold relative whitespace-nowrap">
+                    <a href="#whowe" className="text-black dark:text-white font-semibold relative whitespace-nowrap">
                         Хто ми?
-                        <span className="absolute left-0 -bottom-1 w-full border-b-2 border-black "></span>
+                        <span className="absolute left-0 -bottom-1 w-full border-b-2 border-black dark:border-white "></span>
                     </a>
                     <a href="#goal" className="ml-6 whitespace-nowrap-4">Мета проєкту</a>
                     <a href="#whywe" className="ml-6 whitespace-nowrap">Чому ми?</a>
