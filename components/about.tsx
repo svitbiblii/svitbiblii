@@ -5,17 +5,6 @@ export const About = () => {
         <nav className=" p-4 border-b-4 dark:border-white">
             <ul className="space-y-3">
                 <li className="flex items-center">
-                    <a href="/"
-                       className="flex items-center hover:underline transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 mr-2" 
-                            x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M 12 2.0996094 L 1 12 L 4 12 L 4 21 L 11 21 L 11 15 L 13 15 L 13 21 L 20 21 L 20 12 L 23 12 L 12 2.0996094 z M 12 4.7910156 L 18 10.191406 L 18 11 L 18 19 L 15 19 L 15 13 L 9 13 L 9 19 L 6 19 L 6 10.191406 L 12 4.7910156 z"></path>
-                        </svg>
-                        Головна
-                    </a>
-                </li>
-
-                <li className="flex items-center">
                     <a href="/about-us"
                        className="flex items-center hover:underline transition">
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 mr-2" fill="none"
