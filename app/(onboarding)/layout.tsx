@@ -7,8 +7,9 @@ const OnboardingLayout = ({
 }) => {
     return (
         <div className="h-full">
-            <OnboardingSlider/>
+
             {children}
+            <OnboardingSlider/>
         </div>
     )
 }
