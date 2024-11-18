@@ -31,38 +31,15 @@ export const OnboardingSlider = () => {
     };
 
     const updateArrows = () => {
-        const scrollContainer = scrollContainerRef.current;
-        if (scrollContainer) {
-            const scrollLeftButton = document.getElementById("scrollLeft");
-            const scrollRightButton = document.getElementById("scrollRight");
-            const atStart = scrollContainer.scrollLeft === 0;
-            const atEnd =
-                scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth;
 
-            if (scrollLeftButton) scrollLeftButton.style.display = atStart ? "none" : "inline";
-            if (scrollRightButton) scrollRightButton.style.display = atEnd ? "none" : "inline";
-        }
     };
 
     const scroll = (direction: "left" | "right") => {
         const scrollContainer = scrollContainerRef.current;
         if (scrollContainer) {
-            const items = Array.from(scrollContainer.querySelectorAll<HTMLAnchorElement>("a")); // Приведення до масиву
-            let newScrollLeft = scrollContainer.scrollLeft;
-
-            for (const item of items) {
-                const itemLeft = item.offsetLeft;
-                const itemRight = itemLeft + item.offsetWidth;
-
-                if (direction === "left" && itemRight <= scrollContainer.scrollLeft) {
-                    newScrollLeft = itemLeft;
-                } else if (direction === "right" && itemLeft >= scrollContainer.scrollLeft + scrollContainer.clientWidth) {
-                    newScrollLeft = itemLeft;
-                    break;
-                }
-            }
-
-            scrollContainer.scrollTo({ left: newScrollLeft, behavior: "smooth" });
+            const itemWidth = scrollContainer.clientWidth; // Ширина одного елемента (100% екрана)
+            const scrollOffset = direction === "left" ? -itemWidth : itemWidth;
+            scrollContainer.scrollBy({ left: scrollOffset, behavior: "smooth" });
         }
     };
 
@@ -93,7 +70,7 @@ export const OnboardingSlider = () => {
 
     return (
         <div className="flex items-center text-xl">
-            <div className="fixed w-[calc(100%-20px)] md:w-[calc(100%-320px)] xl:w-[calc(100%-356px)] flex bg-white dark:bg-background z-10 pt-6 pb-6 mt-10 xl:mt-8 border-b-2 px-2">
+            <div className="w-full flex bg-white dark:bg-background z-10 pt-6 pb-6 mt-10 xl:mt-8 border-b-2 px-2">
                 {isMobile && (
                     <button
                         id="scrollLeft"
@@ -106,7 +83,7 @@ export const OnboardingSlider = () => {
 
                 <div
                     ref={scrollContainerRef}
-                    className={`flex items-center overflow-hidden leading-4 px-4 ${
+                    className={`flex w-full items-center justify-between overflow-hidden leading-4 px-4 ${
                         isMobile ? "scrollbar-hide" : ""
                     }`}
                     onScroll={updateArrows}
@@ -114,14 +91,40 @@ export const OnboardingSlider = () => {
                     onTouchMove={handleTouchMove}
                     onTouchEnd={handleTouchEnd}
                 >
-                    <a href="#whowe" className="text-black dark:text-white font-semibold relative whitespace-nowrap">
+                    <a href="#whowe" className="min-w-full">
                         Хто ми?
-                        <span className="absolute left-0 -bottom-1 w-full border-b-2 border-black dark:border-white"></span>
+                        <img
+                            className="w-full"
+                            alt="Используйте строку поиска, чтобы найти интересующие вас темы или библейские стихи."
+                            fetchPriority="high" decoding="async" data-nimg="fill"
+                            sizes="100vw"
+                            srcSet="/_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=3840&amp;q=75 3840w"
+                            src="/_next/image?url=%2Fimages%2Fslide3.jpeg&amp;w=3840&amp;q=75"/>
                     </a>
-                    <a href="#goal" className="ml-6 whitespace-nowrap-4">Мета проєкту</a>
-                    <a href="#whywe" className="ml-6 whitespace-nowrap">Чому ми?</a>
-                    <a href="#forsponsor" className="ml-6 whitespace-nowrap-4 min-w-64">Чому для спонсорів важливо
-                        інвестувати в нас?</a>
+                    <a href="#whowe" className="min-w-full">
+                        <img
+                        className="w-full"
+                        alt="Используйте строку поиска, чтобы найти интересующие вас темы или библейские стихи."
+                        fetchPriority="high" decoding="async" data-nimg="fill"
+                        sizes="100vw"
+                        srcSet="/_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=3840&amp;q=75 3840w"
+                        src="/_next/image?url=%2Fimages%2Fslide2.jpeg&amp;w=3840&amp;q=75"/></a>
+                    <a href="#whowe" className="min-w-full">
+                        <img
+                        className="w-full"
+                        alt="Используйте строку поиска, чтобы найти интересующие вас темы или библейские стихи."
+                        fetchPriority="high" decoding="async" data-nimg="fill"
+                        sizes="100vw"
+                        srcSet="/_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=3840&amp;q=75 3840w"
+                        src="/_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=3840&amp;q=75"/></a>
+                    <a href="#whowe" className="min-w-full">
+                        <img
+                        className="w-full"
+                        alt="Используйте строку поиска, чтобы найти интересующие вас темы или библейские стихи."
+                        fetchPriority="high" decoding="async" data-nimg="fill"
+                        sizes="100vw"
+                        srcSet="/_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=3840&amp;q=75 3840w"
+                        src="/_next/image?url=%2Fimages%2Fslide1.jpeg&amp;w=3840&amp;q=75"/></a>
                 </div>
 
                 {isMobile && (

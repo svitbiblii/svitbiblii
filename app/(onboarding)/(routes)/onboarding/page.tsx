@@ -1,6 +1,6 @@
 export default function OnboardingPage() {
     return (
-        <div className="pb-12">
+        <div className="pb-12 hidden lg:block">
             <style>
                 {`
                 html {
