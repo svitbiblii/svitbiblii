@@ -1,13 +1,16 @@
+import {OnboardingSlider} from "@/app/(onboarding)/components/onboarding-slider";
+
 const OnboardingLayout = ({
     children
 }: {
     children: React.ReactNode;
 }) => {
     return (
-        <div className="mx-auto max-w-4xl h-full w-full">
+        <div className="h-full">
+
             {children}
+            <OnboardingSlider/>
         </div>
     )
 }
-
 export default OnboardingLayout;

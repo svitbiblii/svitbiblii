@@ -9,7 +9,7 @@ export const Search = () => {
                 <input
                     type="text"
                     placeholder="Пошук..."
-                    className="w-full rounded-full px-4 py-2 text-gray-700 focus:outline-none"
+                    className="w-full rounded-full px-4 py-2 text-gray-700 dark:text-white dark:bg-background focus:outline-none"
                 />
                 <button className="text-gray-500 focus:outline-none hover:text-gray-700">
                     <svg
@@ -20,9 +20,9 @@ export const Search = () => {
                         stroke="currentColor"
                     >
                         <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             d="M11 5a7 7 0 100 14 7 7 0 000-14zm0 0l6 6"
                         />
                     </svg>
@@ -39,7 +39,7 @@ export const Search = () => {
             <div className="space-y-4">
                 <div className="p-4 border border-gray-200 rounded-lg shadow-sm">
                     <h3 className="text-lg font-medium">Результат 1</h3>
-                    <p className="text-gray-600">Опис результату 1</p>
+                    <p className="text-gray-600 dark:text-white">Опис результату 1</p>
                 </div>
 
             </div>

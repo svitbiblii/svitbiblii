@@ -2,11 +2,9 @@ import {Navbar} from "@/components/navbar";
 import {About} from "@/components/about";
 import {Sidebar} from "@/components/sidebar";
 import {Footer} from "@/components/footer";
-import {HorizontalMenu} from "@/app/(about-us)/components/horizontal-menu";
 
 
-
-const AboutUsLayout = ({
+const SinglePageLayout = ({
     children
 }: {
     children: React.ReactNode;
@@ -24,7 +22,6 @@ const AboutUsLayout = ({
                     </div>
                     <div className="h-screen w-full mt-16 overflow-y-auto p-4 shadow-lg">
                         <main>
-                            <HorizontalMenu/>
                             {children}
                             <Footer/>
                         </main>
@@ -34,4 +31,4 @@ const AboutUsLayout = ({
     )
 }
 
-export default AboutUsLayout;
+export default SinglePageLayout;
