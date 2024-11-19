@@ -199,5 +199,4 @@ export const OnboardingSlider = () => {
         </div>
     );
 };
-
 export default OnboardingSlider;
