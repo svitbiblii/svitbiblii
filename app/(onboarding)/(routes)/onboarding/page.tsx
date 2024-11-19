@@ -73,7 +73,7 @@ const slides = [
 
 
 export default function OnboardingPage() {
-    return <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    return <div className="min-h-screen h-screen">
 
 
         <h1 className="hidden lg:block text-4xl font-extrabold py-10 mt-10 text-center uppercase">Світ Біблії — ваш гід у світі
@@ -87,7 +87,7 @@ export default function OnboardingPage() {
                className="max-w-64 mx-auto block bg-blue-600 text-white px-6 py-4 rounded-full hover:bg-blue-700 transition duration-300 mb-8">Почнемо</a>
         </section>
 
-        <section className="max-w-full lg:max-w-4xl mx-auto lg:mt-14 lg:mb-4">
+        <section className="max-w-full lg:max-w-4xl mx-auto lg:mt-14 lg:mb-10">
             <Carousel slides={slides}/>
         </section>
 
