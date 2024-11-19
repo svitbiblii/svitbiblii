@@ -7,6 +7,8 @@ import {Sidebar} from "@/components/sidebar";
 import {Int} from "@/app/(single-page)/components/int";
 import InterpretationPage from "@/app/(single-page)/(routes)/single-page/interpretation-page";
 
+import ContextMenu from "@/app/(single-page)/components/ContextMenu";
+
 const SinglePageLayout = ({
     children
 }: {
@@ -37,8 +39,9 @@ const SinglePageLayout = ({
                                 <InterpretationPage/>
                             )}
                             {children}
-
+                            <ContextMenu/>
                         </div>
+
 
                     </main>
 
