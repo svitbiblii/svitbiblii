@@ -70,7 +70,14 @@ const config: Config = {
   		},
 		height: {
 			'screen-90': '90%',
-			'h-122': '26rem'
+			'h-122': '26rem',
+			'40vh': '40vh'
+		},
+		maxHeight: {
+			'40vh': '40vh'
+		},
+		inset: {
+			'40vh': '40vh', // add custom top
 		},
   	}
   },
