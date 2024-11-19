@@ -1,8 +1,6 @@
 import {Navbar} from "@/components/navbar";
 import {About} from "@/components/about";
 import {Sidebar} from "@/components/sidebar";
-import {Footer} from "@/components/footer";
-
 
 const HowItWorksLayout = ({
     children
