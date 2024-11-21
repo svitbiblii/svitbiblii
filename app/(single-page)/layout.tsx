@@ -37,14 +37,9 @@ const SinglePageLayout = ({
                                 <InterpretationPage/>
                             )}
                             {children}
-                            test123
                         </div>
-
-
                     </main>
-
                 </div>
-
             </div>
         </div>
     )
