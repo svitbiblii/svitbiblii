@@ -1,12 +1,16 @@
 "use client";
 
-export const Sidebar = () => {
-    return (
+import { useState } from "react";
 
-        <div className="bg-secondary shadow-lg p-6">
-            <div className="flex justify-between">
+export const Sidebar = () => {
+    const [activeTab, setActiveTab] = useState(1);
+
+    const tabs = [
+        {
+            id: 1,
+            label: "Навігатор",
+            content: (
                 <div className="navigator">
-                    <h2 className="text-md font-bold mb-6 text-left">Навігатор</h2>
                     <div className="mb-8 relative">
                         <h3 className="text-sm font-semibold mb-2 sticky bg-secondary py-2 top-0 z-20 text-left">Вчора</h3>
                         <ul className="space-y-2 list-none pl-0">
@@ -60,10 +64,62 @@ export const Sidebar = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="book-content"> Содержание книги</div>
-            </div>
+            ),
+        },
+        {
+            id: 2,
+            label: "Каталог",
+            content: (
+                <div>
+                    <ul className="list-disc pl-5">
+                        <li>Point 1</li>
+                        <li>Point 2</li>
+                        <li>Point 3</li>
+                    </ul>
+                </div>
+            ),
+        },
+        {
+            id: 3,
+            label: "Tab 3",
+            content: (
+                <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-blue-100 p-2">Box 1</div>
+                    <div className="bg-blue-200 p-2">Box 2</div>
+                </div>
+            ),
+        },
+    ];
 
+    return (
+        <div className="w-full max-w-md mx-auto mt-8">
+            <div className="flex border-b border-gray-200">
+                {tabs.map((tab) => (
+                    <button
+                        key={tab.id}
+                        className={`flex-1 py-2 text-center text-sm font-medium transition-all duration-200 ${
+                            activeTab === tab.id
+                                ? "border-b-2 border-blue-500 text-blue-500"
+                                : "text-gray-500 hover:text-blue-500"
+                        }`}
+                        onClick={() => setActiveTab(tab.id)}
+                    >
+                        {tab.label}
+                    </button>
+                ))}
+            </div>
+            <div className="mt-4 p-4 border border-gray-200 rounded">
+                {tabs.find((tab) => tab.id === activeTab)?.content}
+            </div>
+        </div>
+    );
+    /*<div className="bg-secondary shadow-lg p-6">
+        <div className="flex justify-between">
+
+            <div className="book-content"> Содержание книги</div>
         </div>
 
-    )
+    </div>
+
+)*/
 }
