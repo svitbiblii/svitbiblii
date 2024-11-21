@@ -79,20 +79,10 @@ export const Sidebar = () => {
                 </div>
             ),
         },
-        {
-            id: 3,
-            label: "Tab 3",
-            content: (
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-blue-100 p-2">Box 1</div>
-                    <div className="bg-blue-200 p-2">Box 2</div>
-                </div>
-            ),
-        },
     ];
 
     return (
-        <div className="w-full max-w-md mx-auto mt-8">
+        <div className="bg-secondary shadow-lg px-6 pt-1 pb-8">
             <div className="flex border-b border-gray-200">
                 {tabs.map((tab) => (
                     <button
@@ -108,18 +98,9 @@ export const Sidebar = () => {
                     </button>
                 ))}
             </div>
-            <div className="mt-4 p-4 border border-gray-200 rounded">
+            <div className="mt-4">
                 {tabs.find((tab) => tab.id === activeTab)?.content}
             </div>
         </div>
     );
-    /*<div className="bg-secondary shadow-lg p-6">
-        <div className="flex justify-between">
-
-            <div className="book-content"> Содержание книги</div>
-        </div>
-
-    </div>
-
-)*/
 }
