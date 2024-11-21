@@ -39,7 +39,8 @@ const SinglePageLayout = ({
                                 <InterpretationPage/>
                             )}
                             {children}
-                            <ContextMenu/>
+                            test
+                            {/*<ContextMenu/>*/}
                         </div>
 
 
