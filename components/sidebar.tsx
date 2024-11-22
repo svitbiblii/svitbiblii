@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 interface SidebarProps {
-    headings?: { id: number; title: string }[];
+    headings?: { id: string; title: string }[];
 }
 
 export const Sidebar = ({ headings }: SidebarProps) => {
@@ -78,10 +78,11 @@ export const Sidebar = ({ headings }: SidebarProps) => {
                     content: (
                         <div>
                             <section>
-                                <h2>Оглавление</h2>
                                 <ul>
-                                    {headings.map((item) => (
-                                        <li key={item.id}>{item.title}</li>
+                                    {headings.map((heading) => (
+                                        <p key={heading.id}>
+                                            <a href={`#${heading.id}`}>{heading.title}</a>
+                                        </p>
                                     ))}
                                 </ul>
                             </section>
