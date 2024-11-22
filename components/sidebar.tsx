@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+interface SidebarProps {
+    headings?: { id: number; title: string }[];
+}
 
-export const Sidebar = () => {
+export const Sidebar = ({ headings }: SidebarProps) => {
     const [activeTab, setActiveTab] = useState(1);
 
     const tabs = [
@@ -66,19 +69,27 @@ export const Sidebar = () => {
                 </div>
             ),
         },
-        {
-            id: 2,
-            label: "Каталог",
-            content: (
-                <div>
-                    <ul className="list-disc pl-5">
-                        <li>Point 1</li>
-                        <li>Point 2</li>
-                        <li>Point 3</li>
-                    </ul>
-                </div>
-            ),
-        },
+
+        ...(headings && headings.length > 0
+            ? [
+                {
+                    id: 2,
+                    label: "Зміст",
+                    content: (
+                        <div>
+                            <section>
+                                <h2>Оглавление</h2>
+                                <ul>
+                                    {headings.map((item) => (
+                                        <li key={item.id}>{item.title}</li>
+                                    ))}
+                                </ul>
+                            </section>
+                        </div>
+                    ),
+                },
+            ]
+            : []),
     ];
 
     return (
