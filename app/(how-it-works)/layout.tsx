@@ -19,7 +19,7 @@ const HowItWorksLayout = ({
 
                 <div className="flex">
                     <div className="relative">
-                        <button onClick={() => setExpanded(curr => !curr)} className={`absolute top-24 z-20 ${expanded ? "left-60" : "left-8"} p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100`}>
+                        <button onClick={() => setExpanded(curr => !curr)} className={`absolute top-24 z-20 ${expanded ? "left-60" : "left-8"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100`}>
                             {expanded? <ChevronFirst /> : <ChevronLast />}   
                         </button>
                     </div>
