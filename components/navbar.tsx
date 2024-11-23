@@ -23,14 +23,12 @@ export const Navbar = () => {
             <div className="flex items-center">
                 <MobileSidebar/>
                 <Link href="/">
-                    <h1 className={cn("hidden md:block text-xl md:text-3xl font-bold text-primary", font.className)}>
                         <Image
-                            className=""
+                            className="mb-0"
                             src="/images/logo.svg"
                             width={75}
                             height={50}
                             alt="logo"/>
-                    </h1>
                 </Link>
             </div>
             <div className="flex items-center gap-x-3">
