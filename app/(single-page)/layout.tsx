@@ -34,8 +34,13 @@ const SinglePageLayout = ({
                         <Int isOpen={isOpen} toggleDiv={toggleDiv}/>
                         <div className="group flex flex-col-reverse lg:flex-row-reverse relative">
                             {isOpen && (
-                                <InterpretationPage/>
+                                <div>
+                                    <div className="divider shadow w-1/2 left-1/4 h-1 absolute top-40vh mt-4 bg-gray-100"></div>
+                                    <InterpretationPage/>
+                                </div>
+
                             )}
+
                             {children}
                         </div>
                     </main>
