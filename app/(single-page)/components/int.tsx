@@ -10,7 +10,7 @@ export const Int: React.FC<IntProps> = ({ isOpen, toggleDiv }) => {
     return (
         <button
             onClick={toggleDiv}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 absolute z-10 right-8"
         >
             {isOpen ? "Закрити" : "Толкование"}
         </button>
