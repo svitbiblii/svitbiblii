@@ -12,7 +12,7 @@ export const About = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                   d="M12 8v4l3 3m0-4l-3 3M12 4a8 8 0 100 16 8 8 0 000-16z"/>
                         </svg>
-                        О нас
+                        Про нас
                     </a>
                 </li>
                 <li className="flex items-center">
