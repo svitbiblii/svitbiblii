@@ -3,8 +3,7 @@ import Image from "next/image";
 
 const AboutUsPage = () => {
     return (
-        <div className="relative flex h-full w-full overflow-hidden px-4">
-            <main className="relative flex  max-w-full flex-1 flex-col overflow-hidden mt-28">
+        <div className="relative h-full w-full overflow-hidden px-4">
                 <h1>«Світ Біблії» – «World of the Bible»</h1>
                 <section id="whowe" className="scroll-mt-40">
                     <h2>Хто ми?</h2>
@@ -46,7 +45,7 @@ const AboutUsPage = () => {
 
 
                 </section>
-                <section id="forsponsor" className="scroll-mt-40">
+                <section id="forsponsor" className="">
                     <h2>Чому для спонсорів важливо інвестувати в нас?</h2>
                     <p>Інвестиції в &quot;Світ Біблії&quot; підтримують важливу культурно-освітницьку ініціативу, що змінює
                         світ на краще через подолання розділень між різними християнськими спільнотами та різними
@@ -69,8 +68,6 @@ const AboutUsPage = () => {
                         світі. Інвестувати в нас - це можливість бути частиною глобальної ініціативи, яка прагне
                         привести людей до глибшого усвідомлення та засвоєння духовних істин.</p>
                 </section>
-
-            </main>
         </div>
     );
 }

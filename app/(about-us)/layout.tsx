@@ -3,10 +3,9 @@ import {About} from "@/components/about";
 import {Sidebar} from "@/components/sidebar";
 import {Footer} from "@/components/footer";
 
-
 const AboutUsLayout = ({
-                           children
-                       }: {
+    children
+}: {
     children: React.ReactNode;
 }) => {
     const headings = [
@@ -18,8 +17,6 @@ const AboutUsLayout = ({
     return (
         <div className="h-min-full">
             <Navbar/>
-
-
             <div className="flex">
                 <div className="hidden md:block h-screen mt-16 w-72 min-w-72 overflow-y-auto bg-white dark:bg-secondary pb-12 shadow-lg">
                     <div>

@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { Sparkles } from "lucide-react";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
@@ -24,13 +24,15 @@ export const Navbar = () => {
           <MobileSidebar/>
           <Link href="/">
             <h1 className={cn("hidden md:block text-xl md:text-3xl font-bold text-primary", font.className)}>
-              Світ Біблії
+                <Image
+                    className=""
+                    src="/images/logo.svg"
+                    width={75}
+                    height={50}
+                    alt="logo"/>
             </h1>
           </Link>
         </div>
-        {/* <div className="flex items-center">
-          <div className="border px-10 py-2 rounded shadow cursor-pointer">Каталог</div>
-        </div> */}
           <div className="flex items-center gap-x-3">
               <Button variant="premium" size="sm"
                       onClick={() => router.push('/catalog')}>
