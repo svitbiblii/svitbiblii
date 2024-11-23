@@ -20,7 +20,7 @@ export const Sidebar = ({ headings }: SidebarProps) => {
                             <li>
                                 <a href="/single-page"
                                    className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Старий
-                                    Заповіт - Битіє - Глава 1</a>
+                                    Заповіт - Буття - Глава 1</a>
                             </li>
                             <li>
                                 <a href="#"

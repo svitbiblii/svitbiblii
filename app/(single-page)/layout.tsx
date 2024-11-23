@@ -8,8 +8,8 @@ import {Int} from "@/app/(single-page)/components/int";
 import InterpretationPage from "@/app/(single-page)/(routes)/single-page/interpretation-page";
 
 const SinglePageLayout = ({
-    children
-}: {
+                              children
+                          }: {
     children: React.ReactNode;
 }) => {
     const [isOpen, setIsOpen] = useState(false);
