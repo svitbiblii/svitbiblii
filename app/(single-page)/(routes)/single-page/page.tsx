@@ -1,13 +1,11 @@
 // pages/single-single-page.tsx
 "use client";
-import HighlightList from '@/app/(single-page)/components/HighlightList'
 
 
 const SinglePagePage = () => {
     return (
         <div className="main-text py-8 px-4 lg:pb-48 w-full lg:group-has-[.interpretation-text]:w-1/2 group-has-[.interpretation-text]:absolute lg:relative group-has-[.interpretation-text]:top-0 group-has-[.interpretation-text]:left-0 group-has-[.interpretation-text]:inset-40vh lg:group-has-[.interpretation-text]:inset-0 h-dvh group-has-[.interpretation-text]:h-40vh lg:group-has-[.interpretation-text]:h-dvh group-has-[.interpretation-text]:max-h-40vh lg:group-has-[.interpretation-text]:max-h-screen overflow-y-auto">
             <h2>Ветхий Завет - Бытие - Глава 1</h2>
-            <HighlightList />
             <div>
                 <p>1. В начале сотворил Бог небо и землю.</p>
                 <p>2. Земля же была безвидна и пуста, и тьма над бездною, и Дух Божий носился над водою.</p>
