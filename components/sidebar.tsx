@@ -1,12 +1,16 @@
 "use client";
 
 import { useState } from "react";
+
 interface SidebarProps {
     headings?: { id: string; title: string }[];
+    headings2?: { id: string; title: string }[];
+    onToggleComponent?: (id: string) => void;
 }
 
-export const Sidebar = ({ headings }: SidebarProps) => {
+export const Sidebar: React.FC<SidebarProps> = ({ headings, headings2 = [], onToggleComponent }: SidebarProps) => {
     const [activeTab, setActiveTab] = useState(1);
+
 
     const tabs = [
         {
@@ -80,9 +84,33 @@ export const Sidebar = ({ headings }: SidebarProps) => {
                             <section>
                                 <ul>
                                     {headings.map((heading) => (
-                                        <p key={heading.id}>
+                                        <li className="list-none" key={heading.id}>
                                             <a href={`#${heading.id}`}>{heading.title}</a>
-                                        </p>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </section>
+                        </div>
+                    ),
+
+                },
+            ]
+            : []),
+        ...(headings2 && headings2.length > 0
+            ? [
+                {
+                    id: 3,
+                    label: "Тлумачення",
+                    content: (
+                        <div>
+                            <section>
+                                <ul>
+                                    {headings2.map((heading2) => (
+                                        <li className="list-none" key={heading2.id}>
+                                                <button className="text-left" onClick={() => onToggleComponent?.(heading2.id)}>
+                                                    {heading2.title}
+                                                </button>
+                                        </li>
                                     ))}
                                 </ul>
                             </section>

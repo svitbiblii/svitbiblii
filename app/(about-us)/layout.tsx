@@ -1,6 +1,6 @@
 "use client";
-
 import { useState } from "react";
+
 import { Navbar } from "@/components/navbar";
 import { About } from "@/components/about";
 import { Sidebar } from "@/components/sidebar";
@@ -38,6 +38,7 @@ const AboutUsLayout = ({
                     <div>
                         <About/>
                         <Sidebar headings={headings}/>
+
                     </div>
                 </div>
                 <div className="h-screen w-full mt-16 overflow-y-auto p-4 shadow-lg">
