@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import {Images} from "lucide-react";
+import Image from "next/image";
 
 export const OnboardingSlider = () => {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -93,13 +95,12 @@ export const OnboardingSlider = () => {
 
                 <a href="/" className="lg:hidden absolute rounded-3xl z-20 w-[calc(100%-50px)] md:w-1/2 lg:w-5/6 left-0 md:left-1/4 lg:left-5 text-l text-center bottom-9 bg-white ml-6 md:ml-0 p-3 lg:p-2 text-black font-bold uppercase">Почати...</a>
                 <div className="min-w-full lg:min-w-[calc(33.33%-40px)] h-full lg:h-auto relative lg:mx-4">
-                    <img
+                    <Image
                         className="w-full h-full lg:h-auto lg:rounded-xl"
-                        alt="Используйте строку поиска, чтобы найти интересующие вас темы или библейские стихи."
-                        fetchPriority="high" decoding="async" data-nimg="fill"
-                        sizes="100vw"
-                        srcSet="/_next/image?url=%2Fimages%2Fback_left.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fback_left.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fback_left.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fback_left.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fback_left.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fback_left.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fback_left.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fback_left.jpg&amp;w=3840&amp;q=75 3840w"
-                        src="/_next/image?url=%2Fimages%2Fback_left.jpg&amp;w=3840&amp;q=75"/>
+                        src="/images/back_left.jpg"
+                        width={600}
+                        height={400}
+                        alt="image-about-page"/>
 
                     <div className="flex absolute z-20 lg:hidden top-2 left-0 w-full">
                         <div className="w-1/3 h-1 bg-gray-300 mx-2">&nbsp;</div>
@@ -123,13 +124,12 @@ export const OnboardingSlider = () => {
                     </div>
                 </div>
                 <div className="min-w-full lg:min-w-[calc(33.33%-40px)] h-full lg:h-auto relative lg:mx-4">
-                    <img
+                    <Image
                         className="w-full h-full lg:h-auto lg:rounded-xl"
-                        alt="Используйте строку поиска, чтобы найти интересующие вас темы или библейские стихи."
-                        fetchPriority="high" decoding="async" data-nimg="fill"
-                        sizes="100vw"
-                        srcSet="/_next/image?url=%2Fimages%2Fback_center.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fback_center.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fback_center.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fback_center.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fback_center.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fback_center.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fback_center.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fback_center.jpg&amp;w=3840&amp;q=75 3840w"
-                        src="/_next/image?url=%2Fimages%2Fback_center.jpg&amp;w=3840&amp;q=75"/>
+                        src="/images/back_center.jpg"
+                        width={600}
+                        height={400}
+                        alt="image-about-page"/>
 
                     <div className="flex absolute z-20 lg:hidden top-2 left-0 w-full">
                         <div className="w-1/3 h-1 bg-white mx-2">&nbsp;</div>
@@ -154,13 +154,12 @@ export const OnboardingSlider = () => {
                     </div>
                 </div>
                 <div className="min-w-full lg:min-w-[calc(33.33%-40px)] h-full lg:h-auto relative lg:mx-4">
-                    <img
+                    <Image
                         className="w-full h-full lg:h-auto lg:rounded-xl"
-                        alt="Используйте строку поиска, чтобы найти интересующие вас темы или библейские стихи."
-                        fetchPriority="high" decoding="async" data-nimg="fill"
-                        sizes="100vw"
-                        srcSet="/_next/image?url=%2Fimages%2Fback_right.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fback_right.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fback_right.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fback_right.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fback_right.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fback_right.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fback_right.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fback_right.jpg&amp;w=3840&amp;q=75 3840w"
-                        src="/_next/image?url=%2Fimages%2Fback_right.jpg&amp;w=3840&amp;q=75"/>
+                        src="/images/back_right.jpg"
+                        width={600}
+                        height={400}
+                        alt="image-about-page"/>
 
                     <div className="flex absolute z-20 lg:hidden top-2 left-0 w-full">
                         <div className="w-1/3 h-1 bg-white mx-2">&nbsp;</div>
