@@ -1,4 +1,4 @@
-import {OnboardingSlider} from "@/app/(onboarding)/components/onboarding-slider";
+/*import {OnboardingSlider} from "@/app/(onboarding)/components/onboarding-slider";*/
 
 const OnboardingLayout = ({
     children
@@ -9,7 +9,7 @@ const OnboardingLayout = ({
         <div className="h-full">
 
             {children}
-            <OnboardingSlider/>
+            {/*<OnboardingSlider/>*/}
         </div>
     )
 }

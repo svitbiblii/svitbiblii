@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import {Images} from "lucide-react";
 import Image from "next/image";
 
 export const OnboardingSlider = () => {
