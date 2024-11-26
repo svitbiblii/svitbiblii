@@ -1,18 +1,14 @@
 "use client";
 import Image from "next/image";
 import { Sparkles } from "lucide-react";
-import { Poppins } from "next/font/google";
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle";
 import { LangSwitcher } from "@/components/lang-switcher";
 import { MobileSidebar } from "@/components/mobile-sidebar";
-
-const font = Poppins({ weight: "600", subsets: ["latin"] });
 
 export const Navbar = () => {
     const router = useRouter();
@@ -42,7 +38,7 @@ export const Navbar = () => {
                 <ModeToggle/>
                 <UserButton/>
 
-                <Link href="/onboarding">
+                <Link href="/">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"
