@@ -112,18 +112,18 @@ export const Sidebar: React.FC<SidebarProps> = ({ headings, headings2 = [], onTo
                             <section>
                                 <ul>
                                     {headings2.map((heading2) => (
-                                        <li className="list-none" key={heading2.id}>
+                                        <li className="list-none border-b-2 py-2" key={heading2.id}>
                                             <button
                                                 className="text-left"
                                                 onClick={() => handleToggleInterpretation(heading2.id)}
                                             >
                                                 <div className={'flex items-center justify-between'}>
                                                     {heading2.title}{" "}
-                                                    {activeInterpretations === heading2.id ? (
+                                                    <span className={'w-6'}>{activeInterpretations === heading2.id ? (
                                                         <BookOpenText/>
                                                     ) : (
                                                         <LibraryBig/>
-                                                    )}
+                                                    )}</span>
                                                 </div>
                                             </button>
 

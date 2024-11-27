@@ -6,6 +6,7 @@ import {About} from "@/components/about";
 import {Sidebar} from "@/components/sidebar";
 import { ChevronFirst, ChevronLast} from "lucide-react";
 import InterpretationPage from "@/app/(single-page)/(routes)/single-page/interpretation-page";
+import InterpretationPage2 from "@/app/(single-page)/(routes)/single-page/interpretation-page2";
 
 const SinglePageLayout = ({
                              children,
@@ -39,6 +40,7 @@ const SinglePageLayout = ({
                         <Sidebar
                             headings2={[
                                 { id: "int1", title: "Толковая Библия А. Лопухина" },
+                                { id: "int2", title: "Библия. Перевод Нового Мира (ПНМ)" },
                             ]}
                             onToggleComponent={handleToggleComponent}
                         />
@@ -49,6 +51,9 @@ const SinglePageLayout = ({
                         <div className="group flex flex-col-reverse lg:flex-row-reverse relative">
                             {visibleComponentId === "int1" && (
                                     <InterpretationPage />
+                            )}
+                            {visibleComponentId === "int2" && (
+                                <InterpretationPage2 />
                             )}
                             {children}
                         </div>
