@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Sparkles } from "lucide-react";
-import { Poppins } from "next/font/google";
+// import { Poppins } from "next/font/google";
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { LangSwitcher } from "@/components/lang-switcher";
 import { MobileSidebar } from "@/components/mobile-sidebar";
 
-const font = Poppins({ weight: "600", subsets: ["latin"] });
+// const font = Poppins({ weight: "600", subsets: ["latin"] });
 
 export const Navbar = () => {
     const router = useRouter();
@@ -23,14 +23,18 @@ export const Navbar = () => {
             <div className="flex items-center">
                 <MobileSidebar/>
                 <Link href="/">
-                    <h1 className={cn("hidden md:block text-xl md:text-3xl font-bold text-primary", font.className)}>
-                        <Image
+                    {/* <Image
                             className="mb-0"
                             src="/images/logo.svg"
                             width={75}
                             height={50}
+                            alt="logo"/> */}
+                        <Image
+                            className="mb-0"
+                            src="/images/logogoryzont.svg"
+                            width={200}
+                            height={125}
                             alt="logo"/>
-                    </h1>
                 </Link>
             </div>
             <div className={cn('flex items-center gap-x-3')}>
