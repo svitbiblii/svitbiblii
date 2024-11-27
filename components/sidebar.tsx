@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import {LibraryBig, BookOpenText} from "lucide-react";
 
 interface SidebarProps {
     headings?: { id: string; title: string }[];
@@ -10,7 +11,12 @@ interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = ({ headings, headings2 = [], onToggleComponent }: SidebarProps) => {
     const [activeTab, setActiveTab] = useState(1);
+    const [activeInterpretations, setActiveInterpretations] = useState<string | null>(null);
 
+    const handleToggleInterpretation = (id: string) => {
+        setActiveInterpretations((prev) => (prev === id ? null : id));
+        onToggleComponent?.(id);
+    };
 
     const tabs = [
         {
@@ -107,9 +113,20 @@ export const Sidebar: React.FC<SidebarProps> = ({ headings, headings2 = [], onTo
                                 <ul>
                                     {headings2.map((heading2) => (
                                         <li className="list-none" key={heading2.id}>
-                                                <button className="text-left" onClick={() => onToggleComponent?.(heading2.id)}>
-                                                    {heading2.title}
-                                                </button>
+                                            <button
+                                                className="text-left"
+                                                onClick={() => handleToggleInterpretation(heading2.id)}
+                                            >
+                                                <div className={'flex items-center justify-between'}>
+                                                    {heading2.title}{" "}
+                                                    {activeInterpretations === heading2.id ? (
+                                                        <BookOpenText/>
+                                                    ) : (
+                                                        <LibraryBig/>
+                                                    )}
+                                                </div>
+                                            </button>
+
                                         </li>
                                     ))}
                                 </ul>
