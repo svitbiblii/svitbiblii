@@ -1,7 +1,6 @@
 "use client";
+
 export default function InterpretationPage() {
-
-
     return (
         <div
             className="interpretation-text mt-6 py-8 px-4 lg:pb-48 w-full lg:w-1/2 absolute lg:relative left-0 inset-40vh lg:inset-0 h-40vh lg:h-auto max-h-40vh lg:max-h-screen overflow-y-auto">
