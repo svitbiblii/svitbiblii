@@ -1,7 +1,7 @@
 // import { BackButton } from "@/components/back-button";
 const HowItWorksPage = () => {
     return (
-        <div className="p-8 max-w-3xl mx-auto">
+        <div className="p-8 max-w-3xl mx-auto min-h-screen">
             {/* <BackButton /> */}
             <h1 className="text-3xl font-bold mt-4">Як це працює</h1>
             <p className="text-lg mt-4 leading-relaxed text-gray-700">

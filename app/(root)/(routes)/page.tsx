@@ -1,11 +1,13 @@
-import { UserButton } from "@clerk/nextjs";
+import { Search } from "@/components/search";
+import { CreateRoute } from "@/components/create-route";
 
-const RootPage = () => {
+const Homepage = () => {
     return (
-    <div>
-      <UserButton afterSignOutUrl="/"/>
-    </div>
+      <div className="relative h-full w-full overflow-hidden px-4 min-h-screen">
+        <Search/>
+        <CreateRoute/>
+      </div>
     );
   }
   
-  export default RootPage;
+export default Homepage;

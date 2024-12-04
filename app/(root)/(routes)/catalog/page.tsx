@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const CatalogPage = () => {
     return (
-        <div className="p-8 max-w-3xl mx-auto">
+        <div className="p-8 max-w-3xl mx-auto min-h-screen">
             <h1>Каталог</h1>
             <ul>
                 <li>
