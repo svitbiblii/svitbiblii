@@ -1,31 +1,9 @@
-// import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
-
-// const isPublicRoute = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)'])
-
-// export default clerkMiddleware((auth, request) => {
-//   if (!isPublicRoute(request)) {
-//     auth().protect()
-//   }
-// })
-
-// export const config = {
-//   matcher: [
-//     // Skip Next.js internals and all static files, unless found in search params
-//     '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-//     // Always run for API routes
-//     '/(api|trpc)(.*)',
-//   ],
-// }
-
-import { clerkMiddleware } from '@clerk/nextjs/server'
-
-export default clerkMiddleware()
-
+import createMiddleware from 'next-intl/middleware';
+import {routing} from './i18n/routing';
+ 
+export default createMiddleware(routing);
+ 
 export const config = {
-  matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // Always run for API routes
-    '/(api|trpc)(.*)',
-  ],
-}
+  // Match only internationalized pathnames
+  matcher: ['/', '/(uk|en)/:path*']
+};

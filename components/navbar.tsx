@@ -2,8 +2,9 @@
 import Image from "next/image";
 import { Sparkles } from "lucide-react";
 // import { Poppins } from "next/font/google";
-import Link from "next/link";
-import { UserButton } from "@clerk/nextjs";
+// import Link from "next/link";
+import { Link } from "@/i18n/routing";
+// import { UserButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
@@ -46,7 +47,7 @@ export const Navbar = () => {
 
                 <LangSwitcher/>
                 <ModeToggle/>
-                <UserButton/>
+                {/* <UserButton/> */}
 
                 <Link href="/onboarding">
                     <svg

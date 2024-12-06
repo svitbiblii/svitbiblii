@@ -1,10 +1,12 @@
 // pages/single-page.tsx
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const AboutUsPage = () => {
+    const t = useTranslations("AboutUs")
     return (
         <div className="relative h-full w-full overflow-hidden px-4">
-            <h1>«Світ Біблії» – «World of the Bible»</h1>
+            <h1>{t('title')}</h1>
             <section id="whowe" className="scroll-mt-40">
                 <h2>Хто ми?</h2>
                 <p>Проєкт &quot;Світ Біблії&quot; реалізується Благодійним фондом «Медіаглагол» (<a href="http://mediaglagol.com.ua" target="_blank">http://mediaglagol.com.ua</a>) — некомерційною організацією, що існує з 2014 року й успішно підтримує християнсько-просвітницьку діяльність на волонтерських засадах.</p>

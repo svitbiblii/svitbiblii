@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import {LibraryBig, BookOpenText} from "lucide-react";
+import { Link } from "@/i18n/routing";
 
 interface SidebarProps {
     headings?: { id: string; title: string }[];
@@ -28,9 +29,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ headings, headings2 = [], onTo
                         <h3 className="text-sm font-semibold mb-2 sticky bg-secondary py-2 top-0 z-20 text-left">Вчора</h3>
                         <ul className="space-y-2 list-none pl-0">
                             <li>
-                                <a href="/single-page"
+                                <Link href="/single-page"
                                    className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Старий
-                                    Заповіт - Буття - Глава 1</a>
+                                    Заповіт - Буття - Глава 1</Link>
                             </li>
                             <li>
                                 <a href="#"
@@ -44,9 +45,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ headings, headings2 = [], onTo
                             тому</h3>
                         <ul className="space-y-2 list-none  pl-0">
                             <li>
-                                <a href="#"
+                                <Link href="#"
                                    className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Шлях
-                                    до порятунку</a>
+                                    до порятунку</Link>
                             </li>
                             <li>
                                 <a href="#"
@@ -60,19 +61,19 @@ export const Sidebar: React.FC<SidebarProps> = ({ headings, headings2 = [], onTo
                             тому</h3>
                         <ul className="space-y-2 list-none  pl-0">
                             <li>
-                                <a href="#"
+                                <Link href="#"
                                    className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Предмет
-                                    знання</a>
+                                    знання</Link>
                             </li>
                             <li>
-                                <a href="#"
+                                <Link href="#"
                                    className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Старозавітний
-                                    канон у новозавітних письменників</a>
+                                    канон у новозавітних письменників</Link>
                             </li>
                             <li>
-                                <a href="#"
+                                <Link href="#"
                                    className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Вступ
-                                    до Старого Завіту</a>
+                                    до Старого Завіту</Link>
                             </li>
                         </ul>
                     </div>
@@ -91,7 +92,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ headings, headings2 = [], onTo
                                 <ul>
                                     {headings.map((heading) => (
                                         <li className="list-none" key={heading.id}>
-                                            <a href={`#${heading.id}`}>{heading.title}</a>
+                                            <Link href={`#${heading.id}`}>{heading.title}</Link>
                                         </li>
                                     ))}
                                 </ul>
