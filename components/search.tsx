@@ -1,14 +1,17 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 export const Search = () => {
+    const t = useTranslations("SearchComponent")
     return (
         <div className="w-full p-6">
-            <h2 className="text-2xl font-semibold mb-4">Пошук та фільтр</h2>
+            <h2 className="text-2xl font-semibold mb-4">{t('search')}</h2>
 
             <div className="flex items-center w-full mx-auto dark:border dark:border-white shadow-md rounded-full p-2">
                 <input
                     type="text"
-                    placeholder="Пошук..."
+                    placeholder={t('placeholder')}
                     className="w-full rounded-full px-4 py-2 text-gray-700 dark:text-white dark:bg-background focus:outline-none"
                 />
                 <button className="text-gray-500 focus:outline-none hover:text-gray-700">

@@ -5,8 +5,8 @@ import {Navbar} from "@/components/navbar";
 import {About} from "@/components/about";
 import {Sidebar} from "@/components/sidebar";
 import { ChevronFirst, ChevronLast} from "lucide-react";
-import InterpretationPage from "@/app/(single-page)/(routes)/single-page/interpretation-page";
-import InterpretationPage2 from "@/app/(single-page)/(routes)/single-page/interpretation-page2";
+import InterpretationPage from "@/app/[locale]/(single-page)/(routes)/single-page/interpretation-page";
+import InterpretationPage2 from "@/app/[locale]/(single-page)/(routes)/single-page/interpretation-page2";
 
 const SinglePageLayout = ({
                              children,

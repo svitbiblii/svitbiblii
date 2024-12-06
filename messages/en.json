@@ -1,0 +1,17 @@
+{
+    "Homepage": {
+      "title": "Hello world!",
+      "search": "Search and filter"
+    },
+    "SearchComponent": {
+      "search": "Search and filter",
+      "placeholder": "Search..."
+    },
+    "About": {
+      "aboutus": "About Us",
+      "howitworks": "How it works"
+    },
+    "AboutUs": {
+      "title": "«World of the Bible» - «Світ Біблії»"
+  }
+  }
