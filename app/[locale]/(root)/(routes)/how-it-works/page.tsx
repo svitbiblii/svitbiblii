@@ -1,14 +1,13 @@
-// import { BackButton } from "@/components/back-button";
+import { useTranslations } from "next-intl";
+
 const HowItWorksPage = () => {
+    const t = useTranslations("HowItWorks")
+
     return (
         <div className="p-8 max-w-3xl mx-auto min-h-screen">
-            {/* <BackButton /> */}
-            <h1 className="text-3xl font-bold mt-4">Як це працює</h1>
+            <h1 className="text-3xl font-bold mt-4">{t('title')}</h1>
             <p className="text-lg mt-4 leading-relaxed text-gray-700">
-            Тут має бути сторінка Як це працює, на якій буде розповідь як користуватися сайтом.
-            На мою думку сюди було б чудово теж додати слайди, на яких буде показано, 
-            що користувач може зробити на сайті. Ці слайди потрібно малювати саме під 
-            цей проєкт. Можливо, була б доречна якась відео-інструкція
+            {t('content')}
             </p>
         </div>
     );
