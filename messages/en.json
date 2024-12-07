@@ -5,7 +5,13 @@
     },
     "SearchComponent": {
       "search": "Search and filter",
-      "placeholder": "Search..."
+      "placeholder": "Search...",
+      "category": "All",
+      "audio": "Audio",
+      "video": "Video",
+      "science": "Scientific texts",
+      "result": "Result 1",
+      "descriptions": "Description of result 1"
     },
     "About": {
       "aboutus": "About Us",
@@ -13,5 +19,13 @@
     },
     "AboutUs": {
       "title": "«World of the Bible» - «Світ Біблії»"
-  }
+    },
+    "HowItWorks": {
+      "title": "How it works",
+      "content":"There should be a How It Works page that explains how to use the site. In my opinion, it would be great to add slides that show what the user can do on the site. These slides need to be drawn specifically for this project. Perhaps some kind of video instruction would be appropriate."
+    },
+    "LocaleSwitcher": {
+      "label": "Change language",
+      "locale": "{locale, select, en {English} uk {Ukranian} other {Unknown}}" 
+    }
   }
