@@ -3,9 +3,7 @@ import Image from "next/image";
 import { Sparkles } from "lucide-react";
 // import { Poppins } from "next/font/google";
 import { Link } from "@/i18n/routing";
-import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle";
 import { LangSwitcher } from "@/components/lang-switcher";
 import { MobileSidebar } from "@/components/mobile-sidebar";
@@ -13,7 +11,6 @@ import { MobileSidebar } from "@/components/mobile-sidebar";
 // const font = Poppins({ weight: "600", subsets: ["latin"] });
 
 export const Navbar = () => {
-    const router = useRouter();
 
     return (
         <div
@@ -36,11 +33,11 @@ export const Navbar = () => {
                 </Link>
             </div>
             <div className={cn('flex items-center gap-x-3')}>
-                <Button variant="premium" size="sm"
-                        onClick={() => router.push('/catalog')}>
+                <Link   href="/catalog" 
+                        className="flex items-center hover:no-underline transition h-9 rounded-md px-3 bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 text-white border-0">
                     Каталог
                     <Sparkles className="h-4 w-4 fill-white text-white ml-2"/>
-                </Button>
+                </Link>
 
                 <LangSwitcher/>
                 <ModeToggle/>
