@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title: "svitbbiblii",
   description: "About Svit Biblii",
 };
-
+                                  
 export default async function LocaleLayout({
   children,
   params: {locale}
