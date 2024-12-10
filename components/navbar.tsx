@@ -7,10 +7,12 @@ import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/mode-toggle";
 import { LangSwitcher } from "@/components/lang-switcher";
 import { MobileSidebar } from "@/components/mobile-sidebar";
+import { useTranslations } from "next-intl";
 
 // const font = Poppins({ weight: "600", subsets: ["latin"] });
 
 export const Navbar = () => {
+    const t = useTranslations("Navbar");
 
     return (
         <div
@@ -35,7 +37,7 @@ export const Navbar = () => {
             <div className={cn('flex items-center gap-x-3')}>
                 <Link   href="/catalog" 
                         className="flex items-center hover:no-underline transition h-9 rounded-md px-3 bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 text-white border-0">
-                    Каталог
+                    {t('catalog')}
                     <Sparkles className="h-4 w-4 fill-white text-white ml-2"/>
                 </Link>
 
@@ -58,8 +60,6 @@ export const Navbar = () => {
                         />
                     </svg>
                 </Link>
-
-
             </div>
         </div>
     );

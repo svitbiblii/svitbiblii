@@ -1,6 +1,8 @@
 {
+  "Navbar": {
+    "catalog": "Catalog"
+  },
     "Homepage": {
-      "title": "Hello world!",
       "search": "Search and filter"
     },
     "SearchComponent": {
@@ -12,6 +14,22 @@
       "science": "Scientific texts",
       "result": "Result 1",
       "descriptions": "Description of result 1"
+    },
+    "CreateRouteComponent": {
+      "title": "Let's create a route to explore the topic together.",
+      "content": "To join us, please register using the link below:",
+      "register": "Register"
+    },
+    "Catalog": {
+      "title": "Catalog",
+      "bibliya": "Bible",
+      "cloud": "Biblical Tradition Cloud",
+      "biblical": "Biblical",
+      "patristics": "Patristics",
+      "philosophy": "Philosophy and history",
+      "dictionaries": "Dictionaries and encyclopedias",
+      "literature": "Fiction",
+      "theology": "Theology"
     },
     "About": {
       "aboutus": "About Us",

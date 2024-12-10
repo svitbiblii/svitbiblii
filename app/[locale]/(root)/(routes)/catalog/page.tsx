@@ -1,33 +1,36 @@
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const CatalogPage = () => {
+    const t = useTranslations("Catalog");
+
     return (
         <div className="p-8 max-w-3xl mx-auto min-h-screen">
-            <h1>Каталог</h1>
-            <ul>
+            <h2>{t('title')}</h2>
+            <ul className="space-y-2 list-none pl-0">
                 <li>
-                    <Link href="/bibliya">Біблія</Link>
+                    <Link href="/bibliya">{t('bibliya')}</Link>
                 </li>
                 <li>
-                    <Link href="/cloud">Хмара біблійного передання</Link>
+                    <Link href="/biblical-tradition-cloud">{t('cloud')}</Link>
                 </li>
                 <li>
-                    <Link href="/biblical">Біблеїстика</Link>
+                    <Link href="/biblical">{t('biblical')}</Link>
                 </li>
                 <li>
-                    <Link href="/patristics">Патристика</Link>
+                    <Link href="/patristics">{t('patristics')}</Link>
                 </li>
                 <li>
-                    <Link href="/philosophy">Філософія і історія</Link>
+                    <Link href="/philosophy-and-history">{t('philosophy')}</Link>
                 </li>
                 <li>
-                    <Link href="/dictionaries">Словники та енциклопедії</Link>
+                    <Link href="/dictionaries-and-encyclopedias">{t('dictionaries')}</Link>
                 </li>
                 <li>
-                    <Link href="/literature">Художня література</Link>
+                    <Link href="/fiction">{t('literature')}</Link>
                 </li>
                 <li>
-                    <Link href="/theology">Богослов&apos;я</Link>
+                    <Link href="/theology">{t('theology')}</Link>
                 </li>
             </ul>
         </div>
