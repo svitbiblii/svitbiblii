@@ -1,6 +1,6 @@
 {
   "Navbar": {
-    "catalog": "Catalog"
+    "library": "Library"
   },
     "Homepage": {
       "search": "Search and filter"
@@ -20,8 +20,8 @@
       "content": "To join us, please register using the link below:",
       "register": "Register"
     },
-    "Catalog": {
-      "title": "Catalog",
+    "Library": {
+      "title": "Library",
       "bibliya": "Bible",
       "cloud": "Biblical Tradition Cloud",
       "biblical": "Biblical",

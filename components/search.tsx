@@ -14,7 +14,10 @@ export const Search = () => {
     const categoryId = searchParams.get("categoryId");
     const name = searchParams.get("name");
 
+    console.log(searchParams)
+
     const [value, setValue] = useState(name || "");
+    
     const debouncedValue =  useDebounce<string>(value, 500);
 
     const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
