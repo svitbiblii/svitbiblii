@@ -1,15 +1,12 @@
 "use client";
 import Image from "next/image";
 import { Sparkles } from "lucide-react";
-// import { Poppins } from "next/font/google";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/mode-toggle";
 import { LangSwitcher } from "@/components/lang-switcher";
 import { MobileSidebar } from "@/components/mobile-sidebar";
 import { useTranslations } from "next-intl";
-
-// const font = Poppins({ weight: "600", subsets: ["latin"] });
 
 export const Navbar = () => {
     const t = useTranslations("Navbar");
@@ -20,12 +17,6 @@ export const Navbar = () => {
             <div className="flex items-center">
                 <MobileSidebar/>
                 <Link href="/">
-                    {/* <Image
-                            className="mb-0"
-                            src="/images/logo.svg"
-                            width={75}
-                            height={50}
-                            alt="logo"/> */}
                         <Image
                             className="mb-0"
                             src="/images/logogoryzont.svg"
