@@ -1,7 +1,7 @@
 // import Link from "next/link";
 import { useTranslations } from "next-intl";
-import books from "@/books.json"
-import Catalog from "@/components/catalog";
+import BooksList from "@/components/books/books-list";
+import { BOOKS_DATA } from "@/books-data";
 
 const CatalogPage = () => {
     const t = useTranslations("Library");
@@ -36,32 +36,12 @@ const CatalogPage = () => {
                 </li>
             </ul> */}
 
-            <Catalog books={books}/>
+
+            <BooksList books={BOOKS_DATA}/>
 
         </div>
     );
 }
 export default CatalogPage;
-
-
-
-
-
-
-// ========================================================================
-
-// import { getAllBooks } from "@/app/[locale]/(server)/api";
-
-// export default async function CatalogPage() {
-//     const allBooks = await getAllBooks();
-
-//     return (
-//         <>
-//         {allBooks.map((book) => (
-//             <li key={book.id}>{book.author}</li>
-//         ))}
-//         </>
-//     )
-// } 
 
   
