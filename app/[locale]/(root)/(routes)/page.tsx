@@ -1,11 +1,14 @@
 "use client"
 
+import { useTranslations } from "next-intl";
 import { useState, useCallback, useEffect} from "react";
 import { Search } from "@/components/search";
 import { CreateRoute } from "@/components/create-route";
 import { BOOKS_DATA } from "@/books-data";
 
 const Homepage = () => {
+  const t = useTranslations("Homepage");
+
   const [inputValue, setInputValue] = useState<string>("");
   const [initialList] = useState(BOOKS_DATA);
   const [filteredList, setFilteredList] = useState(BOOKS_DATA);
@@ -13,8 +16,8 @@ const Homepage = () => {
   // Search Handler
   const searchHandler = useCallback(() => {
     const filteredData = initialList.filter((book) => {
-      return book.title.toLowerCase().includes(inputValue.toLowerCase())
-              // book.author.toLowerCase().includes(inputValue.toLowerCase())
+      return book.title.toLowerCase().includes(inputValue.toLowerCase())||
+              book.author.toLowerCase().includes(inputValue.toLowerCase())
     })
     setFilteredList(filteredData)
   }, [initialList, inputValue])
@@ -40,11 +43,11 @@ const Homepage = () => {
         {inputValue.length !== 0 ? (  filteredList.length == 0 ? 
         (
               <div className="p-4 border border-gray-200 rounded-lg shadow-sm">
-                <p className="text-gray-600 dark:text-white">No result found for this query</p>
+                <p className="text-gray-600 dark:text-white">{t('result')}</p>
               </div>
         ):
       ( filteredList?.map((book) =>   
-      <div key={book.id}  className="space-y-4">
+      <div key={book.id}  className="space-y-4 mb-10">
       <div className="p-4 border border-gray-200 rounded-lg shadow-sm">
           <h3 className="text-lg font-medium">{book.author}
            <span className="ml-5">{book.title}</span>
