@@ -62,5 +62,47 @@ export interface IBooks {
         "title": "A Christmas Carol",
         "anotation": "A Christmas Carol by Charles Dickens is a novella written in the early 19th century. This classic work follows the transformation of Ebenezer Scrooge, a miserly old man, who is visited by the ghost of his former business partner, Jacob Marley, and three spirits representing Christmases Past, Present, and Yet to Come. The novella explores themes of compassion, redemption, and the true meaning of Christmas, inviting readers to reflect on the importance of kindness and generosity. The opening of the story establishes Ebenezer Scrooge as a cold-hearted and greedy miser who dismisses Christmas as humbug. The narrative begins with the assertion of Marley's death, emphasizing the starkness of Scrooge’s character and his isolation. Scrooge's interactions with his cheerful nephew Fred, who invites him to celebrate Christmas, reveal Scrooge's disdain for the holiday spirit. As Scrooge encounters two gentlemen collecting for the poor, he harshly rejects their appeal for charitable donations. The chapter builds a bleak picture of Scrooge's life until the haunting of Marley's ghost serves as the pivotal turning point, setting the stage for the transformative journey that will follow.",
         "genre": "fiction"
+    },
+    {
+        "id": 9,
+        "author": "преп. Іоанн Дамаскін",
+        "title": "Точний виклад православної віри",
+        "anotation": "Немає нічого ціннішого, ніж пізнання, бо пізнання є світло розумної душі. Навпаки, незнання є темрява. Як позбавлення світла є темрява, так і відсутність пізнання є затьмарення розуму. Нерозумним істотам властиве незнання, розумним - пізнання.",
+        "genre": "theology"
+    },
+    {
+        "id": 10,
+        "author": "Джек Лондон",
+        "title": "Біле ікло",
+        "anotation": "Книга «Біле Ікло» Джека Лондона – цікава та пригодницька історія, яка вражає читачів вже понад сто років. Письменник є визнаним майстром написання пригодницьких романів. В основі твору-взаємодія між природою та людиною. Природу в творі представляє вовк, якому автор надає чимало людських почуттів та особливостей, зокрема: доброту, любов та відданість.",
+        "genre": "fiction"
+    },
+    {
+        "id": 11,
+        "author": "Райнер Марія Рільке",
+        "title": "Книга прощ (Про паломництво)",
+        "anotation": "Книга Райнера Марії Рільке — чи не найзнач­ні­­шого поета ХХ століття — у перекладі українською Миколи Бажана. У книзі постає питання про шлях наближення до Бога – про “паломництво”, яке трактується як досягнення того духовного стану, який би дозволив Богу відкритися людині.",
+        "genre": "fiction" 
+    },
+    {
+        "id": 12,
+        "author": "прот. Сергій Булгаков",
+        "title": "Апокаліпсис Іоанна",
+        "anotation": "Апокаліпсис Іоанна Сергія Булгакова (1871-1944) - глибоке богословське дослідження Одкровення Іоанна Богослова. Автор, православний філософ і теолог, розкриває символіку й образи останньої книги Нового Заповіту, пов'язуючи їх із вченням Церкви та духовною традицією. Булгаков пропонує не тільки аналіз тексту, а й його містичне тлумачення, включно з роздумами про апокатастасис і скінченність вічних мук, де апокаліптичне пророцтво стає посланням про торжество Божественної Любові та спасіння людства.",
+        "genre": "biblical" 
+    },
+    {
+        "id": 13,
+        "author": "митр. Сурожський Антоній (Блум)",
+        "title": "Молитва і життя",
+        "anotation": "Молитва і життя, книга, що стала вже класикою духовної літератури, допоможе читачеві тверезо шукати єдності молитви і повсякденного життя, власної внутрішньої цілісності, чесно стояти перед Богом Живим.",
+        "genre": "biblical-tradition-cloud"
+    },
+    {
+        "id": 14,
+        "author": "Samuel Henry Hooke",
+        "title": "Bible in Basic English",
+        "anotation": "The Bible In Basic English was printed in 1965 by Cambridge Press in England. Published without any copyright notice and distributed in America, this work fell immediately and irretrievably into the Public Domain in the United States according to the UCC convention of that time.",
+        "genre": "bibliya"
     }
 ]

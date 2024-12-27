@@ -3,7 +3,7 @@
     "library": "Library"
   },
     "Homepage": {
-      "search": "Search and filter"
+      "result": "No result found for this query"
     },
     "SearchComponent": {
       "search": "Search and filter",
