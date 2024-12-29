@@ -3,7 +3,11 @@
     "library": "Library"
   },
     "Homepage": {
-      "result": "No result found for this query"
+      "result": "No result found for this query",      
+      "category": "All",
+      "audio": "Audio",
+      "video": "Video",
+      "texts": "Texts"
     },
     "SearchComponent": {
       "search": "Search and filter",

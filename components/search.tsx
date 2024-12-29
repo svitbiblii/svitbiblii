@@ -12,7 +12,7 @@ export const Search = ({ inputValue, setInputValue}: Props) => {
     const t = useTranslations("SearchComponent");
 
     return (
-        <div className="w-full p-6">
+        <div className="w-full">
             <h2 className="text-2xl font-semibold mb-4">{t('search')}</h2>
 
             <div className="flex items-center w-full mx-auto dark:border dark:border-white shadow-md rounded-full p-2">
@@ -43,12 +43,12 @@ export const Search = ({ inputValue, setInputValue}: Props) => {
                 </button>
             </div>
 
-            <div className="flex justify-center space-x-4 mb-6">
+            {/* <div className="flex justify-center space-x-4 mb-6">
                 <button className="text-xs px-4 py-2 bg-blue-500 rounded-md text-white hover:bg-blue-600">{t('category')}</button>
                 <button className="text-xs px-4 py-2 bg-gray-200 rounded-md text-gray-700 hover:bg-gray-300">{t('audio')}</button>
                 <button className="text-xs px-4 py-2 bg-gray-200 rounded-md text-gray-700 hover:bg-gray-300">{t('video')}</button>
                 <button className="text-xs px-4 py-2 bg-gray-200 rounded-md text-gray-700 hover:bg-gray-300">{t('science')}</button>
-            </div>
+            </div> */}
 
         </div>
     )
