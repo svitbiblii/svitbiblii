@@ -16,7 +16,7 @@ export interface IBooks {
         "anotation": "A Brief Commentary on the Apocalypse by Sylvester Bliss is a theological analysis written in the mid-19th century. This work focuses on interpreting the Book of Revelation, aiming to demystify its complex symbols and prophetic messages for a Christian audience. The commentary is particularly relevant for those interested in biblical prophecy, exploring meanings and interpretations that have often led to confusion and various contradictory views among readers. The opening of the commentary sets the stage by addressing the perceived challenges surrounding the Book of Revelation, which many regard as a sealed book fraught with enigmatic symbols. The author expresses a belief that the Apocalypse can be understood and provides a rationale for approaching its study, referencing other scholars and their works on the subject. Bliss emphasizes the importance of scriptural interpretation by comparing scripture to scripture, introducing fundamental principles of prophetic interpretation, and providing a clear structure for the commentary that follows. This early section outlines the author's intention to make the Apocalypse accessible and relevant for those eager to grasp its teachings",
         "genre": "biblical",
         "type": "text",
-        "link": ""
+        "link": "/library/sylvester-bliss"
     },
     {
         "id": 2,
@@ -25,7 +25,7 @@ export interface IBooks {
         "anotation": "The Expositor's Bible: The Book of Exodus by G. A. Chadwick is a theological work written in the late 19th century. This text is an exposition on the Book of Exodus from the Old Testament, aiming to explore its spiritual significance and connection to Christianity, presenting an interpretation of the events and characters found within. The author, a notable church leader, seeks to provide insights that are both educational and edifying, reflecting his belief in the enduring authority of biblical scripture. At the start of this volume, the introduction presents the context of the Book of Exodus, discussing the transition from personal stories of the patriarchs to the national narrative of Israel. The preface establishes the significance of Exodus, emphasizing its impact on the Hebrew nation and the underlying spiritual lessons that extend beyond its historical events. The opening sections highlight the oppression of the Israelites in Egypt and introduces Moses, whose birth occurs amid a climate of fear and tyranny. Chadwick elaborates on Moses’ early life, the influence of his parents, his upbringing in Pharaoh's household, and the formative choices that shape his identity and destiny, setting the stage for the significant events that will follow in the narrative",
         "genre": "biblical",
           "type": "text",
-        "link": ""
+        "link": "/library/chadwick"
     },
     {
         "id": 3,
