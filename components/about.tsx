@@ -6,7 +6,7 @@ import { Link } from "@/i18n/routing";
 export const About = () => {
     const t = useTranslations("About")
     return (
-        <nav className=" p-2 border-b-4 dark:border-white">
+        <nav className="p-2 border-b-4 dark:border-white">
             <ul className="space-y-3">
                 <li className="flex items-center">
                     <Link  href="/about-us"
