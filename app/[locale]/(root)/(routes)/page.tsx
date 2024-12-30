@@ -135,7 +135,7 @@ const Homepage = () => {
             ))}
             </div>
 
-        <div className='bg-white p-2 rounded-xl'>
+        <div className='bg-white p-2 rounded-xl dark:text-white dark:bg-background focus:outline-none'>
           {tabs.map((tab, index) => (
             <div
               key={index}
