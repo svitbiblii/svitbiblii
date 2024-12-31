@@ -1,6 +1,6 @@
 // import Link from "next/link";
 import { useTranslations } from "next-intl";
-import BooksList from "@/components/books/books-list";
+import BooksList from "@/components/books-list";
 import { BOOKS_DATA } from "@/books-data";
 
 const CatalogPage = () => {
