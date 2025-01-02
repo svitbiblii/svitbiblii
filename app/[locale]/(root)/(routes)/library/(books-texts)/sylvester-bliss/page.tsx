@@ -1,20 +1,23 @@
 "use client";
 
+import { Link } from "@/i18n/routing";
 import { useState } from "react";
-import LinkedWorldsPage from "../../../(linked-words)/page";
 import { BackButton } from "@/components/back-button";
+import { ChevronDown, ChevronUp, CircleX } from "lucide-react";
 
 export default function SylvesterBlissPage() {
     const [showPage, setShowPage] = useState(false);
+    const [expanded, setExpanded] = useState(false);
 
     const togglePage = () => {
         setShowPage(!showPage)
     };
 
     return (
-        <div className={`mx-auto min-h-screen ${showPage ? "flex" : "block"} `}>
-            {!showPage&&<BackButton/>}
-        <div className={`py-8 px-4   ${showPage ? "w-1/2 overflow-y-auto" : "w-full"} `}>
+        <div className={` min-h-screen ${showPage ? "flex" : "block"} `}>
+            
+        <div className={`py-4 px-4   ${showPage ? "w-1/2 overflow-y-auto" : "w-full"} `}>
+        {!showPage&&<BackButton/>}
         <h2>A Brief Commentary on the Apocalypse Sylvester Bliss</h2>
 
         <p>The 
@@ -36,11 +39,11 @@ These pages have resulted from notes prepared in a familiar course of Bible-clas
 
 Is it merely by chance again that we find in this first of histories examples of the folly of relying upon political connections? As the chief butler remembered not Joseph, nor did he succeed in escaping from prison by securing influence at court, so is the influence of[14] Joseph himself now become vain, although he was the father of Pharaoh and lord of all his house. His romantic history, his fidelity in temptation, and the services by which he had at once cemented the royal power and saved the people, could not keep his memory alive. The hollow wraith of dying fame died wholly. There arose a new king over Egypt who knew not Joseph.
 
-Such is the value of the highest and purest earthly fame, and such the gratitude of the world to its benefactors. The nation which Joseph rescued from starvation is passive in Pharaoh’s hands, and persecutes Israel at his bidding.
+Such is the value of the highest and purest earthly fame, and such the gratitude of the world to its benefactors. The nation which Joseph rescued from starvation is passive in Pharaoh&#39;s hands, and persecutes Israel at his bidding.
 
 And when the actual deliverer arose, his rank and influence were only entanglements through which he had to break.
 
-Meanwhile, except among a few women, obedient to the woman’s heart, we find no trace of independent action, no revolt of conscience against the absolute behest of the sovereign, until selfishness replaces virtue, and despair wrings the cry from his servants, Knowest thou not yet that Egypt is destroyed?
+Meanwhile, except among a few women, obedient to the woman&#39;s heart, we find no trace of independent action, no revolt of conscience against the absolute behest of the sovereign, until selfishness replaces virtue, and despair wrings the cry from his servants, Knowest thou not yet that Egypt is destroyed?
 
 Now, in Genesis we saw the fate of families, blessed in their father Abraham, or cursed for the offence of Ham. For a family is a real entity, and its members, like those of one body, rejoice and suffer together. But the same is true of nations, and here we have reached the national stage in the education of the world. Here is exhibited to us, therefore, a nation suffering with its monarch to the uttermost, until the cry of the maidservant behind the mill is as wild and bitter as the cry of Pharaoh upon his throne. It is indeed the eternal curse of despotism that unlimited calamity may be drawn down upon millions by the caprice of one[15] most unhappy man, himself blinded and half maddened by adulation, by the absence of restraint, by unlimited sensual indulgence if his tendencies be low and animal, and by the pride of power if he be high-spirited and aspiring.
 
@@ -54,16 +57,45 @@ We attain a principle which reaches far into the spiritual world, when we reflec
 
 It was the jealous cruelty of Pharaoh which drew down upon his country the very perils he laboured to turn away. There was no ground for his fear of any league with foreigners against him. Prosperous and unambitious, the people would have[17] remained well content beside the flesh-pots of Egypt, for which they sighed even when emancipated from heavy bondage and eating the bread of heaven. Or else, if they had gone forth in peace, from a land whose hospitality had not failed, to their inheritance in Canaan, they would have become an allied nation upon the side where the heaviest blows were afterwards struck by the Asiatic powers. Cruelty and cunning could not retain them, but it could decimate a population and lose an army in the attempt. And this law prevails in the modern world, England paid twenty millions to set her bondmen free. Because America would not follow her example, she ultimately paid the more terrible ransom of civil war. For the same God was in Jamaica and in Florida as in the field of Zoan. Nor was there ever yet a crooked policy which did not recoil either upon its author, or upon his successors when he had passed away. In this case it fulfilled the plans and the prophecies of God, and the wrath of man was made to praise Him.
 
-There is independent reason for believing that at this period one-third at least of the population of Egypt was of alien blood (Brugsch, History, ii. 100). A politician might fairly be alarmed, especially if this were the time when the Hittites were threatening the eastern frontier, and had reduced Egypt to stand on the defensive, and erect barrier fortresses. And the circumstances of the country made it very easy to enslave the Hebrews. If any stain of Oriental indifference to the rights of the masses had mingled with the God-given insight of Joseph, when he made his benefactor the owner of all the soil, the Egyptian people were fully avenged upon him now. For this arrangement laid his pastoral race helpless at their[18] oppressor’s feet. Forced labour quickly degenerates into slavery, and men who find the story of their misery hard to credit should consider the state of France before the Revolution, and of the Russian serfs before their emancipation. Their wretchedness was probably as bitter as that of the Hebrews at any period but the last climax of their oppression. And they owed it to the same cause—the absolute ownership of the land by others, too remote from them to be sympathetic, to take due account of their feelings, to remember that they were their fellow-men. This was enough to slay compassion, even without the aggravation of dealing with an alien and suspected race.
+There is independent reason for believing that at this period one-third at least of the population of Egypt was of alien blood (Brugsch, History, ii. 100). A politician might fairly be alarmed, especially if this were the time when the Hittites were threatening the eastern frontier, and had reduced Egypt to stand on the defensive, and erect barrier fortresses. And the circumstances of the country made it very easy to enslave the Hebrews. If any stain of Oriental indifference to the rights of the masses had mingled with the God-given insight of Joseph, when he made his benefactor the owner of all the soil, the Egyptian people were fully avenged upon him now. For this arrangement laid his pastoral race helpless at their[18] oppressor&#39;s feet. Forced labour quickly degenerates into slavery, and men who find the story of their misery hard to credit should consider the state of France before the Revolution, and of the Russian serfs before their emancipation. Their wretchedness was probably as bitter as that of the Hebrews at any period but the last climax of their oppression. And they owed it to the same cause—the absolute ownership of the land by others, too remote from them to be sympathetic, to take due account of their feelings, to remember that they were their fellow-men. This was enough to slay compassion, even without the aggravation of dealing with an alien and suspected race.
 
 Now, it is instructive to observe these reappearances of wholesale crime. They warn us that the utmost achievements of human wickedness are human still; not wild and grotesque importations by a fiend, originated in the abyss, foreign to the world we live in. Satan finds the material for his master-strokes in the estrangement of class from class, in the drying up of the fountains of reciprocal human feeling, in the failure of real, fresh, natural affection in our bosom for those who differ widely from us in rank or circumstances. All cruelties are possible when a man does not seem to us really a man, nor his woes really woeful. For when the man has sunk into an animal it is only a step to his vivisection.
 
 Nor does anything tend to deepen such perilous estrangement, more than the very education, culture and refinement, in which men seek a substitute for religion and the sense of brotherhood in Christ. It is quite conceivable that the tyrant who drowned the Hebrew infants was an affectionate father, and pitied his nobles when their children died. But his sympathies[19] could not reach beyond the barriers of a caste. Do our sympathies really overleap such barriers? Would God that even His Church believed aright in the reality of a human nature like our own, soiled, sorrowful, shamed, despairing, drugged into that apathetical insensibility which lies even below despair, yet aching still, in ten thousand bosoms, in every great city of Christendom, every day and every night! Would to God that she understood what Jesus meant, when He called one lost creature by the tender name which she had not yet forfeited, saying, “Woman, where are thine accusers?” and when He asked Simon, who scorned such another, “Seest thou this woman!” Would God that when she prays for the Holy Spirit of Jesus she would really seek a mind like His, not only in piety and prayerfulness, but also in tender and heartfelt brotherhood with all, even the vilest of the weary and heavy-laden!</p>
         </div>
 
-
-        <div className={`py-8 px-4  overflow-y-auto ${showPage ? "w-1/2" : "w-full"} `}>
-            {showPage && <LinkedWorldsPage /> }
+    <div className={`py-8 px-4  overflow-y-auto ${showPage ? "w-1/2" : "w-full"} `}>
+            {showPage && 
+        <div>
+            <button className="float-right text-gray-700 hover:text-blue-400 transition-colors duration-200" 
+                onClick={() => {setShowPage(false)}}>
+                <CircleX/>
+            </button>
+            <ul className=" py-8 px-4 lg:pb-48 w-full overflow-y-auto">
+            <li className="block p-3 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                <div className="flex justify-between">
+                    <Link href='/library/chadwick/#imperfectly' className="text-blue-500">imperfectly
+                        <span className="text-black ml-2 dark:text-white">in the book A Brief Commentary on the Apocalypse by Sylvester Bliss</span>
+                    </Link>
+                    <button onClick={() => setExpanded(curr => !curr)}
+                            className="">
+                        {expanded ? <ChevronUp/> : <ChevronDown/>}
+                    </button>
+                </div>
+               
+                    <p className={`hidden  text-gray-700 mt-5 ${
+                        expanded ? "md:block" : "initial"
+                    }`}>
+                        The Expositor&apos;s Bible: The Book of Exodus by G. A. Chadwick is a theological work written in the late 19th century. This text is an exposition on the Book of Exodus from the Old Testament, aiming to explore its spiritual significance and connection to Christianity, presenting an interpretation of the events and characters found within. The author, a notable church leader, seeks to provide insights that are both educational and edifying, reflecting his belief in the enduring authority of biblical scripture. At the start of this volume, the introduction presents the context of the Book of Exodus, discussing the transition from personal stories of the patriarchs to the national narrative of Israel. The preface establishes the significance of Exodus, emphasizing its impact on the Hebrew nation and the underlying spiritual lessons that extend beyond its historical events. The opening sections highlight the oppression of the Israelites in Egypt and introduces Moses, whose birth occurs amid a climate of fear and tyranny. Chadwick elaborates on Moses&#39; early life, the influence of his parents, his upbringing in Pharaoh&#39;s household, and the formative choices that shape his identity and destiny, setting the stage for the significant events that will follow in the narrative</p>
+                
+                </li>
+            <li className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                <Link href='/library/chadwick/#scientific' className="mr-2 text-blue-500">scientific</Link></li>
+            <li className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                <Link href='/library/chadwick/#corruption' className="mr-2 text-blue-500">corruption</Link></li>
+            
+            </ul>
+        </div> }
         </div> 
         </div>
         
