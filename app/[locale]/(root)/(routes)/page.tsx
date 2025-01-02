@@ -50,15 +50,10 @@ const Homepage = () => {
                 </div>
           ):
         ( filteredList?.map((book) =>   
-          <Link key={book.id} href={book.link} className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-            <div   className="space-y-4 mb-10">
-        <div className="p-4 border border-gray-200 rounded-lg shadow-sm">
-            <h3 className="text-lg font-medium">{book.author}
-             <span className="ml-5">{book.title}</span>
-            </h3>
-            <p className="text-gray-600 dark:text-white">{book.anotation}</p>
-        </div>
-       </div>
+          <Link key={book.id} href={book.link} 
+                className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+            <h3 className="mt-0 mb-2 text-lg font-medium">{book.author} {book.title}</h3>
+            <p className="mb-0 text-gray-600 dark:text-white">{book.anotation}</p>
           </Link>
       ))) : <div></div>
       ),
@@ -66,24 +61,6 @@ const Homepage = () => {
     {
       title: `${t('audio')}`,
       content: (
-      //   inputValue.length !== 0 ? (  filteredList.length == 0 ? 
-      //     (
-      //           <div className="p-4 border border-gray-200 rounded-lg shadow-sm">
-      //             <p className="text-gray-600 dark:text-white">{t('result')}</p>
-      //           </div>
-      //     ):
-      //   ( filteredList?.map((book) =>   
-      //   <div key={book.id}  className="space-y-4 mb-10">
-      //   <div className="p-4 border border-gray-200 rounded-lg shadow-sm">
-      //       {/* <h3 className="text-lg font-medium">{book.author}
-      //        <span className="ml-5">{book.title}</span>
-      //       </h3> */}
-      //       <p className="text-gray-600 dark:text-white">{book.type}</p>
-      //       <p className="text-gray-600 dark:text-white">Тут будуть тульки аудіо-файли</p>
-      //   </div>
-      //  </div> 
-      // ))) : <div></div>
-
       <div className='border-2 border-blue-400 rounded-lg p-4'>
       <h1 className='text-3xl text-blue-600'>Title Test 2</h1>
       <p>
