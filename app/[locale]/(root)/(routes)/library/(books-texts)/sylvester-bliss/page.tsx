@@ -14,9 +14,9 @@ export default function SylvesterBlissPage() {
     };
 
     return (
-        <div className={` min-h-screen ${showPage ? "flex" : "block"} `}>
+        <div className={`min-h-screen ${showPage ? "flex" : "block"} `}>
             
-        <div className={`py-4 px-4   ${showPage ? "w-1/2 overflow-y-auto" : "w-full"} `}>
+        <div className={`py-4 px-4 overflow-y-auto  ${showPage ? "w-1/2" : "w-full"} `}>
         {!showPage&&<BackButton/>}
         <h2>A Brief Commentary on the Apocalypse Sylvester Bliss</h2>
 
@@ -64,7 +64,7 @@ Now, it is instructive to observe these reappearances of wholesale crime. They w
 Nor does anything tend to deepen such perilous estrangement, more than the very education, culture and refinement, in which men seek a substitute for religion and the sense of brotherhood in Christ. It is quite conceivable that the tyrant who drowned the Hebrew infants was an affectionate father, and pitied his nobles when their children died. But his sympathies[19] could not reach beyond the barriers of a caste. Do our sympathies really overleap such barriers? Would God that even His Church believed aright in the reality of a human nature like our own, soiled, sorrowful, shamed, despairing, drugged into that apathetical insensibility which lies even below despair, yet aching still, in ten thousand bosoms, in every great city of Christendom, every day and every night! Would to God that she understood what Jesus meant, when He called one lost creature by the tender name which she had not yet forfeited, saying, “Woman, where are thine accusers?” and when He asked Simon, who scorned such another, “Seest thou this woman!” Would God that when she prays for the Holy Spirit of Jesus she would really seek a mind like His, not only in piety and prayerfulness, but also in tender and heartfelt brotherhood with all, even the vilest of the weary and heavy-laden!</p>
         </div>
 
-    <div className={`py-8 px-4  overflow-y-auto ${showPage ? "w-1/2" : "w-full"} `}>
+    <div className={`py-8 px-4   ${showPage ? "w-1/2" : "w-full"} `}>
             {showPage && 
         <div>
             <button className="float-right text-gray-700 hover:text-blue-400 transition-colors duration-200" 

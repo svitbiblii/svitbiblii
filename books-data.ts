@@ -34,7 +34,7 @@ export interface IBooks {
         "anotation": "The Expositor's Bible: The Epistles of St. John by William Alexander is a theological exposition written in the late 19th century. This work is part of a series that aims to provide in-depth commentary and analysis of Biblical texts, specifically focusing on the epistles attributed to St. John. It explores the historical context, theological significance, and practical implications of these letters, which are crucial for understanding early Christian doctrine and ethics. The opening of the text presents a preface by the author, explaining his long-standing engagement with the Epistles of St. John. He outlines his approach, which combines historical background with exegetical analysis, framing the epistles within the broader context of St. John's life and the challenges faced by the early Church in Asia Minor, particularly Ephesus. The author prepares the reader for a detailed examination of the epistles, highlighting the importance of understanding the unique spiritual and theological insights that St. John offers, especially against the backdrop of contemporary heresies such as Gnosticism. The opening sets the stage for a scholarly yet accessible exploration intended for both serious theological study and general readers interested in the New Testament.",
         "genre": "biblical",
         "type": "text",
-        "link": "" 
+        "link": "/library/john" 
     },
     {
         "id": 4,

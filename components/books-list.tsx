@@ -7,7 +7,7 @@ const BooksList = ({
   books: IBooks[]
 }) => {
   return (
-<ul>        
+<ul className="marker:text-blue-400">        
     {books.map((book) => (
         <li key={book.id}>
           <Link  href={book.link} className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
