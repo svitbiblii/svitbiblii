@@ -215,23 +215,6 @@ Moreover, He treats us as the men of other ages. Instead of dealing with Moses u
                         The Epistles of St. John by William Alexander is a theological exposition written in the late 19th century. This work is part of a series that aims to provide in-depth commentary and analysis of Biblical texts, specifically focusing on the epistles attributed to St. John. It explores the historical context, theological significance, and practical implications of these letters, which are crucial for understanding early Christian doctrine and ethics. The opening of the text presents a preface by the author, explaining his long-standing engagement with the Epistles of St. John. He outlines his approach, which combines historical background with exegetical analysis, framing the epistles within the broader context of St. John&#39;s life and the challenges faced by the early Church in Asia Minor, particularly Ephesus. The author prepares the reader for a detailed examination of the epistles, highlighting the importance of understanding the unique spiritual and theological insights that St. John offers, especially against the backdrop of contemporary heresies such as Gnosticism. The opening sets the stage for a scholarly yet accessible exploration intended for both serious theological study and general readers interested in the New Testament.</p>
                 
             </li>
-            <li className="block p-3 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                <div className="flex justify-between">
-                    <Link href='/library/chadwick/#scientific' className="text-red-500">scientific
-                        <span className="text-black ml-2 dark:text-white">in the book A Brief Commentary on the Apocalypse by Sylvester Bliss</span>
-                    </Link>
-                    <button onClick={() => setExpanded(curr => !curr)}
-                            className="">
-                        {expanded ? <ChevronUp/> : <ChevronDown/>}
-                    </button>
-                </div>
-               
-                    <p className={`hidden  text-gray-700 mt-5 ${
-                        expanded ? "md:block" : "initial"
-                    }`}>
-                        The Expositor&apos;s Bible: The Book of Exodus by G. A. Chadwick is a theological work written in the late 19th century. This text is an exposition on the Book of Exodus from the Old Testament, aiming to explore its spiritual significance and connection to Christianity, presenting an interpretation of the events and characters found within. The author, a notable church leader, seeks to provide insights that are both educational and edifying, reflecting his belief in the enduring authority of biblical scripture. At the start of this volume, the introduction presents the context of the Book of Exodus, discussing the transition from personal stories of the patriarchs to the national narrative of Israel. The preface establishes the significance of Exodus, emphasizing its impact on the Hebrew nation and the underlying spiritual lessons that extend beyond its historical events. The opening sections highlight the oppression of the Israelites in Egypt and introduces Moses, whose birth occurs amid a climate of fear and tyranny. Chadwick elaborates on Moses&#39; early life, the influence of his parents, his upbringing in Pharaoh&#39;s household, and the formative choices that shape his identity and destiny, setting the stage for the significant events that will follow in the narrative.</p>
-                
-            </li>
             <li className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                 <Link href='/library/john/#together' className="mr-2 text-green-500">together</Link></li>
             <li className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
