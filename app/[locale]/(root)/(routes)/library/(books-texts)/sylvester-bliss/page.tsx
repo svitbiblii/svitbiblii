@@ -2,7 +2,7 @@
 
 import { Link } from "@/i18n/routing";
 import { useState } from "react";
-import { BackButton } from "@/components/back-button";
+// import { BackButton } from "@/components/back-button";
 import { ChevronDown, ChevronUp, CircleX } from "lucide-react";
 
 export default function SylvesterBlissPage() {
@@ -17,7 +17,7 @@ export default function SylvesterBlissPage() {
         <div className={`min-h-screen ${showPage ? "flex" : "block"} `}>
             
         <div className={`py-4 px-4 overflow-y-auto  ${showPage ? "w-1/2" : "w-full"} `}>
-        {!showPage&&<BackButton/>}
+        {/* {!showPage&&<BackButton/>} */}
         <h2>A Brief Commentary on the Apocalypse Sylvester Bliss</h2>
 
         <p>The 

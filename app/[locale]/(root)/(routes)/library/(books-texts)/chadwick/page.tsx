@@ -116,7 +116,7 @@ export default function ChadwickPage() {
             Much is now denied or doubted, within the Church itself, concerning the Book of Exodus, which was formerly accepted with confidence by all Christians.
 
 But one thing can neither be doubted nor denied. Jesus Christ did certainly treat this
-<button className="px-2 font-medium" onClick={togglePage}>book</button>, taking it as He found it, as possessed of spiritual authority, a sacred scripture. He taught His disciples to regard it thus, and they did so.
+book, taking it as He found it, as possessed of spiritual authority, a sacred scripture. He taught His disciples to regard it thus, and they did so.
 
 Therefore, however widely His followers may differ about its date and origin, they must admit the right of a Christian teacher to treat this book, taking it as he finds it, as a sacred scripture and invested with spiritual authority. It is the legitimate subject of exposition in the Church.
 
@@ -130,7 +130,7 @@ No task is more difficult than to exhibit the Old Testament in the light of the 
 
 If such an attempt does, in any degree, prove successful and bear fruit, this fact will be of the nature of a <span id="scientific" className="text-green-500">scientific</span> demonstration.
 
-If this ancient Book of Exodus yields solid results to a sober devotional exposition in the nineteenth Christian century, if it is not an idle fancy that its teaching harmonises with the principles and theology of the New Testament, and even demands the New Testament as the true commentary upon the Old, what follows? How comes it that the oak is potentially in the acorn, and the living creature in the egg? No germ is a manufactured article: it is a part of the system of the universe.
+If this ancient Book of Exodus yields <button className="px-2 font-medium" onClick={togglePage}>solid results</button> to a sober devotional exposition in the nineteenth Christian century, if it is not an idle fancy that its teaching harmonises with the principles and theology of the New Testament, and even demands the New Testament as the true commentary upon the Old, what follows? How comes it that the oak is potentially in the acorn, and the living creature in the egg? No germ is a manufactured article: it is a part of the system of the universe.
             </p> 
 
             <p>
