@@ -5,7 +5,7 @@ export interface IBooks {
     anotation: string,
     genre: string,
     type: string,
-    link: string
+    link: string,
   }
   
   export const BOOKS_DATA: IBooks[] = [    

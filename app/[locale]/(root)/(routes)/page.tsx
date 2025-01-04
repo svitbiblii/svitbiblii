@@ -38,7 +38,9 @@ const Homepage = () => {
     }
   }, [searchHandler])
 
-
+  const fData = initialList.filter((book) => book.title.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase())||
+                  book.author.toLowerCase().includes(inputValue.toLowerCase()))
+  
   const tabs = [
     {
       title: `${t('category')}`,
@@ -61,34 +63,55 @@ const Homepage = () => {
     {
       title: `${t('audio')}`,
       content: (
-      <div className='border-2 border-blue-400 rounded-lg p-4'>
-      <h1 className='text-3xl text-blue-600'>Title Test 2</h1>
-      <p>
-      Тут будуть тільки аудіо
-      </p>
-    </div>
+    inputValue.length !== 0 ? (  filteredList.length == 0 ? 
+      (
+            <div className="p-4 border border-gray-200 rounded-lg shadow-sm">
+              <p className="text-gray-600 dark:text-white">{t('result')}</p>
+            </div>
+      ):
+    ( fData.filter((book) => book.type === 'audio').map((book) =>   
+      <Link key={book.id} href={book.link} 
+            className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+        <h3 className="mt-0 mb-2 text-lg font-medium">{book.author} {book.title}</h3>
+        <p className="mb-0 text-gray-600 dark:text-white">{book.anotation}</p>
+      </Link>
+  ))) : <div></div>
       ),
     },
     {
       title: `${t('video')}`,
       content: (
-        <div className='border-2 border-blue-400 rounded-lg p-4'>
-          <h1 className='text-3xl text-blue-600'>Title Test 3</h1>
-          <p>
-          Тут будуть тільки відео-файли
-          </p>
-        </div>
+         inputValue.length !== 0 ? (  filteredList.length == 0 ? 
+          (
+                <div className="p-4 border border-gray-200 rounded-lg shadow-sm">
+                  <p className="text-gray-600 dark:text-white">{t('result')}</p>
+                </div>
+          ):
+        ( fData.filter((book) => book.type === 'video').map((book) =>   
+          <Link key={book.id} href={book.link} 
+                className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+            <h3 className="mt-0 mb-2 text-lg font-medium">{book.author} {book.title}</h3>
+            <p className="mb-0 text-gray-600 dark:text-white">{book.anotation}</p>
+          </Link>
+      ))) : <div></div>
       ),
     },
     {
       title: `${t('texts')}`,
       content: (
-        <div className='border-2 border-blue-400 rounded-lg p-4'>
-          <h1 className='text-3xl text-blue-600'>Title Test 4</h1>
-          <p>
-          Тут будуть тільки книги
-          </p>
-        </div>
+        inputValue.length !== 0 ? (  filteredList.length == 0 ? 
+          (
+                <div className="p-4 border border-gray-200 rounded-lg shadow-sm">
+                  <p className="text-gray-600 dark:text-white">{t('result')}</p>
+                </div>
+          ):
+        ( fData.filter((book) => book.type === 'text').map((book) =>   
+          <Link key={book.id} href={book.link} 
+                className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+            <h3 className="mt-0 mb-2 text-lg font-medium">{book.author} {book.title}</h3>
+            <p className="mb-0 text-gray-600 dark:text-white">{book.anotation}</p>
+          </Link>
+      ))) : <div></div>
       ),
     },
   ];
