@@ -5,8 +5,8 @@ import {Navbar} from "@/components/navbar";
 import {About} from "@/components/about";
 import {Sidebar} from "@/components/sidebar";
 import { ChevronFirst, ChevronLast} from "lucide-react";
-import InterpretationPage from "@/app/[locale]/(single-page)/(routes)/single-page/interpretation-page";
-import InterpretationPage2 from "@/app/[locale]/(single-page)/(routes)/single-page/interpretation-page2";
+import InterpretationPage from "@/app/[locale]/(single-page-!!)/(routes)/single-page/interpretation-page";
+import InterpretationPage2 from "@/app/[locale]/(single-page-!!)/(routes)/single-page/interpretation-page2";
 
 const SinglePageLayout = ({
                              children,
@@ -21,6 +21,7 @@ const SinglePageLayout = ({
     const [expanded, setExpanded] = useState(true);
     return (
         <div className="h-min-full">
+
             <Navbar/>
             <div className="flex">
                 <div className="relative">
@@ -48,7 +49,8 @@ const SinglePageLayout = ({
                 </div>
                 <div className="h-screen w-full mt-16 py-4 pl-4 shadow-lg">
                     <main>
-                        <div className="group flex flex-col-reverse lg:flex-row-reverse relative">
+
+                        <div className="group flex flex-col-reverse lg:flex-row-reverse relative overflow-y-auto">
                             {visibleComponentId === "int1" && (
                                     <InterpretationPage />
                             )}
