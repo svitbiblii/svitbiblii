@@ -30,7 +30,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ headings, headings2 = [], onTo
                         <ul className="space-y-2 list-none pl-0">
                             <li>
                                 <Link href="/single-page"
-                                   className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Старий
+                                      className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Старий
                                     Заповіт - Буття - Глава 1</Link>
                             </li>
                             <li>
@@ -46,7 +46,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ headings, headings2 = [], onTo
                         <ul className="space-y-2 list-none  pl-0">
                             <li>
                                 <Link href="#"
-                                   className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Шлях
+                                      className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Шлях
                                     до порятунку</Link>
                             </li>
                             <li>
@@ -62,17 +62,17 @@ export const Sidebar: React.FC<SidebarProps> = ({ headings, headings2 = [], onTo
                         <ul className="space-y-2 list-none  pl-0">
                             <li>
                                 <Link href="#"
-                                   className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Предмет
+                                      className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Предмет
                                     знання</Link>
                             </li>
                             <li>
                                 <Link href="#"
-                                   className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Старозавітний
+                                      className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Старозавітний
                                     канон у новозавітних письменників</Link>
                             </li>
                             <li>
                                 <Link href="#"
-                                   className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Вступ
+                                      className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Вступ
                                     до Старого Завіту</Link>
                             </li>
                         </ul>

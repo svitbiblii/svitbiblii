@@ -5,17 +5,23 @@ import { Navbar } from "@/components/navbar";
 import { About } from "@/components/about";
 import { Sidebar } from "@/components/sidebar";
 import { Footer } from "@/components/footer";
-import { ChevronFirst, ChevronLast} from "lucide-react";
+import { ChevronFirst, ChevronLast } from "lucide-react";
+import { useRef } from "react";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
+
 
 const HomeLayout = ({
-                           children
-                       }: {
+                        children
+                    }: {
     children: React.ReactNode;
 }) => {
     const [expanded, setExpanded] = useState(true);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     return (
+
         <div className="h-min-full">
+
             <Navbar />
             <div className="flex">
                 <div className="relative">
@@ -29,20 +35,23 @@ const HomeLayout = ({
                         expanded ? "md:block" : "initial"
                     }`}>
                     <div>
-                        <About/>
+                    <About/>
                         <Sidebar/>
 
                     </div>
                 </div>
-                <div className="h-screen w-full mt-16 overflow-y-auto p-4 shadow-lg">
+                <div ref={scrollContainerRef} className="h-screen w-full mt-16 overflow-y-auto p-4 shadow-lg">
                     <main>
                         {children}
                         <Footer/>
                     </main>
+                    <ScrollToTopButton scrollContainerRef={scrollContainerRef} />
                 </div>
             </div>
+
         </div>
     );
 };
+
 
 export default HomeLayout;
