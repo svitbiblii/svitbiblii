@@ -72,37 +72,48 @@ body,
     @apply bg-background text-foreground;
   }
 
-  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5{
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5 {
     @apply text-center font-bold;
   }
-  h1, .h1{
+  h1,
+  .h1 {
     @apply text-3xl lg:text-4xl mt-6 mb-6;
   }
-  h2, .h2{
+  h2,
+  .h2 {
     @apply text-2xl lg:text-3xl mt-4 mb-4;
   }
-  h3, .h3{
+  h3,
+  .h3 {
     @apply text-lg lg:text-xl mt-4 mb-2;
   }
-  p{
+  p {
     @apply mb-1.5;
   }
-  ul{
+  ul {
     @apply list-disc pl-4;
-    li{
+    li {
       @apply mb-1.5;
     }
   }
-  ol{
+  ol {
     @apply list-decimal pl-4;
-    li{
+    li {
       @apply mb-1.5;
     }
   }
 
-  html { /*for single-page*/
+  html {
+    /*for single-page*/
     scroll-padding-top: 4rem;
   }
 }
-
-

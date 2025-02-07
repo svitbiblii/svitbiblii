@@ -1,11 +1,13 @@
 "use client"
 
 import { useTranslations } from "next-intl";
+import Cookies from "js-cookie";
 import { Link } from "@/i18n/routing";
 import { useState, useCallback, useEffect} from "react";
 import { Search } from "@/components/search";
 import { CreateRoute } from "@/components/create-route";
 import { BOOKS_DATA } from "@/books-data";
+// import Image from "next/image";
 
 const Homepage = () => {
   const t = useTranslations("Homepage");
@@ -53,10 +55,28 @@ const Homepage = () => {
           ):
         ( filteredList?.map((book) =>   
           <Link key={book.id} href={book.link} 
+                onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
+                                setTimeout(() => {location.reload()}, 500)}}
                 className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
             <h3 className="mt-0 mb-2 text-lg font-medium">{book.author} {book.title}</h3>
             <p className="mb-0 text-gray-600 dark:text-white">{book.anotation}</p>
           </Link>
+
+//       <Link key={book.id} href={book.link} 
+//       className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+//   <div className="flex justify-between items-center">
+//       <Image
+//                         className="mr-30 fit-picture block"
+//                         src={book.icon}
+//                         width={20}
+//                         height={20}
+//                         alt=""/>
+//       <h3 className="mt-0 mb-2 text-lg font-medium">{book.author} {book.title}</h3>
+//       <p></p>
+  
+//   </div>
+//   <p className="mb-0 text-gray-600 dark:text-white">{book.anotation}</p>
+// </Link>
       ))) : <div></div>
       ),
     },
@@ -70,7 +90,9 @@ const Homepage = () => {
             </div>
       ):
     ( fData.filter((book) => book.type === 'audio').map((book) =>   
-      <Link key={book.id} href={book.link} 
+      <Link key={book.id} href={book.link}
+            onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
+                            setTimeout(() => {location.reload()}, 200)}} 
             className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
         <h3 className="mt-0 mb-2 text-lg font-medium">{book.author} {book.title}</h3>
         <p className="mb-0 text-gray-600 dark:text-white">{book.anotation}</p>
@@ -89,6 +111,8 @@ const Homepage = () => {
           ):
         ( fData.filter((book) => book.type === 'video').map((book) =>   
           <Link key={book.id} href={book.link} 
+                onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
+                                setTimeout(() => {location.reload()}, 200)}}
                 className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
             <h3 className="mt-0 mb-2 text-lg font-medium">{book.author} {book.title}</h3>
             <p className="mb-0 text-gray-600 dark:text-white">{book.anotation}</p>
@@ -107,6 +131,8 @@ const Homepage = () => {
           ):
         ( fData.filter((book) => book.type === 'text').map((book) =>   
           <Link key={book.id} href={book.link} 
+                onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
+                                setTimeout(() => {location.reload()}, 200)}}
                 className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
             <h3 className="mt-0 mb-2 text-lg font-medium">{book.author} {book.title}</h3>
             <p className="mb-0 text-gray-600 dark:text-white">{book.anotation}</p>
@@ -115,7 +141,6 @@ const Homepage = () => {
       ),
     },
   ];
-
 
   return (
       <div className="relative h-full w-full overflow-hidden px-4 min-h-screen">

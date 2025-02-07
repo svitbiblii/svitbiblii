@@ -37,7 +37,6 @@ const HomeLayout = ({
                     <div>
                     <About/>
                         <Sidebar/>
-
                     </div>
                 </div>
                 <div ref={scrollContainerRef} className="h-screen w-full mt-16 overflow-y-auto p-4 shadow-lg">

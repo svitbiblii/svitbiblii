@@ -99,6 +99,7 @@
 import { Link } from "@/i18n/routing";
 import { useState } from "react";
 import { ChevronDown, ChevronUp, CircleX } from "lucide-react";
+import Cookies from "js-cookie";
 
 export default function ChadwickPage() {
     const [showPage, setShowPage] = useState(false);
@@ -200,7 +201,9 @@ Moreover, He treats us as the men of other ages. Instead of dealing with Moses u
             <ul className=" py-8 px-4 lg:pb-48 w-full overflow-y-auto">
             <li className="block p-3 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                 <div className="flex justify-between">
-                    <Link href='/library/john/#conjunction' className="text-red-500">conjunction
+                    <Link   onClick={() => {Cookies.set('3', 'The Epistles - St. John')}}
+                            href='/library/john/#conjunction' 
+                            className="text-red-500">conjunction
                         <span className="text-black ml-2 dark:text-white">in the book The Epistles by St. John</span>
                     </Link>
                     <button onClick={() => setExpanded(curr => !curr)}

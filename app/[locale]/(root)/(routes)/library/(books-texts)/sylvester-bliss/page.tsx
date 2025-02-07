@@ -1,9 +1,10 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import { useState } from "react";
-// import { BackButton } from "@/components/back-button";
+import { useState} from "react";
 import { ChevronDown, ChevronUp, CircleX } from "lucide-react";
+import Cookies from "js-cookie";
+// import BackToTop from "@/components/back-to-top";
 
 export default function SylvesterBlissPage() {
     const [showPage, setShowPage] = useState(false);
@@ -15,10 +16,14 @@ export default function SylvesterBlissPage() {
         setShowPage(!showPage)
     };
 
+//       const setCookie = () => {
+//         Cookies.set('token', 'val')
+//   }
+
     return (
-        <div className={`min-h-screen ${showPage ? "flex" : "block"} `}>
-            
-        <div className={`py-4 px-4 overflow-y-auto  ${showPage ? "w-1/2" : "w-full"} `}>
+        <div className={`min-h-screen  ${showPage ? "flex" : "block"} `}>
+        
+        <div className={`py-4 px-4 h-screen  ${showPage ? "w-1/2 overflow-y-scroll" : "w-full"} `}>
         {/* {!showPage&&<BackButton/>} */}
         <h2>A Brief Commentary on the Apocalypse Sylvester Bliss</h2>
 
@@ -27,8 +32,7 @@ export default function SylvesterBlissPage() {
             onClick={togglePage}>
             Apocalypse
         </button>
-    
-     should be regarded as a peculiarly interesting portion of scripture: a blessing being promised those who read, hear, and keep the things which are written therein. It has been subjected to so many contradictory interpretations, that any attempt to comprehend its meaning is often regarded with distrust; and the impression has become very prevalent, that it is a “sealed book,”—that its meaning is so hidden in unintelligible symbols, that very little can be known respecting it; and that to attempt to unfold its meaning, is to tread presumptuously on forbidden ground.
+ should be regarded as a peculiarly interesting portion of scripture: a blessing being promised those who read, hear, and keep the things which are written therein. It has been subjected to so many contradictory interpretations, that any attempt to comprehend its meaning is often regarded with distrust; and the impression has become very prevalent, that it is a “sealed book,”—that its meaning is so hidden in unintelligible symbols, that very little can be known respecting it; and that to attempt to unfold its meaning, is to tread presumptuously on forbidden ground.
 
 The attention of the Christian community has been called more of late to its study, by the publication of several elaborate Expositions. One in two large volumes, 8vo., by Prof. Stuart, was published at Andover, Mass., in 1845. A large 8vo. volume, by David N. Lord, was issued from the press of the Harpers, in New York, in 1847; and a smaller work, by Rev. Thomas Wickes, appeared in that city in 1851. These are the more important works on the subject which have been published in this country. In England, the “Horæ Apocalypticæ,” by the Rev. E. B. Elliott, A.M., late Vicar of Tuxford, and fellow of Trinity College, Cambridge, has passed through several editions,—the fourth of which, in four large vols. 8vo., was published in London, [pg 006]in 1851. These works, with the writings of Habershon, Cunningham, Croly, Bickersteth, Birks, Brooks, Keith, and other distinguished English writers, have caused the study of the Apocalypse to be regarded with more favor of late than heretofore.
 
@@ -64,21 +68,28 @@ There is independent reason for believing that at this period one-third at least
 Now, it is instructive to observe these reappearances of wholesale crime. They warn us that the utmost achievements of human wickedness are human still; not wild and grotesque importations by a fiend, originated in the abyss, foreign to the world we live in. Satan finds the material for his master-strokes in the estrangement of class from class, in the drying up of the fountains of reciprocal human feeling, in the failure of real, fresh, natural affection in our bosom for those who differ widely from us in rank or circumstances. All cruelties are possible when a man does not seem to us really a man, nor his woes really woeful. For when the man has sunk into an animal it is only a step to his vivisection.
 
 Nor does anything tend to deepen such perilous estrangement, more than the very education, culture and refinement, in which men seek a substitute for religion and the sense of brotherhood in Christ. It is quite conceivable that the tyrant who drowned the Hebrew infants was an affectionate father, and pitied his nobles when their children died. But his sympathies[19] could not reach beyond the barriers of a caste. Do our sympathies really overleap such barriers? Would God that even His Church believed aright in the reality of a human nature like our own, soiled, sorrowful, shamed, despairing, drugged into that apathetical insensibility which lies even below despair, yet aching still, in ten thousand bosoms, in every great city of Christendom, every day and every night! Would to God that she understood what Jesus meant, when He called one lost creature by the tender name which she had not yet forfeited, saying, “Woman, where are thine accusers?” and when He asked Simon, who scorned such another, “Seest thou this woman!” Would God that when she prays for the Holy Spirit of Jesus she would really seek a mind like His, not only in piety and prayerfulness, but also in tender and heartfelt brotherhood with all, even the vilest of the weary and heavy-laden!</p>
+        
+{/* <BackToTop /> */}
+        
         </div>
 
-    <div className={`py-8 px-4   ${showPage ? "w-1/2" : "w-full"} `}>
+    <div className={`py-8 px-4 h-screen   ${showPage ? "w-1/2 overflow-y-scroll" : "w-full"} `}>
             {showPage && 
         <div>
             <button className="float-right text-gray-700 hover:text-blue-400 transition-colors duration-200" 
                 onClick={() => {setShowPage(false)}}>
                 <CircleX/>
             </button>
-            <ul className=" py-8 px-4 lg:pb-48 w-full overflow-y-auto">
+            <ul className=" py-8 px-4 lg:pb-48 w-full ">
             <li className="block p-3 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                 <div className="flex justify-between">
-                    <Link href='/library/chadwick/#imperfectly' className="text-blue-500">imperfectly
-                        <span className="text-black ml-2 dark:text-white">in the book A Brief Commentary on the Apocalypse by Sylvester Bliss</span>
+                    <Link   href='/library/chadwick/#imperfectly'  
+                            onClick={() => {Cookies.set('2', 'G. A. Chadwick - The Book of Exodus')
+                                            setTimeout(() => {location.reload()}, 500)}}
+                            className="text-blue-500">imperfectly
+                        <span className="text-black ml-2 dark:text-white">in the book The Book of Exodus by G. A. Chadwick</span>
                     </Link>
+
                     <button onClick={() => setExpanded(curr => !curr)}
                             className="">
                         {expanded ? <ChevronUp/> : <ChevronDown/>}
@@ -88,13 +99,15 @@ Nor does anything tend to deepen such perilous estrangement, more than the very 
                     <p className={`hidden  text-gray-700 mt-5 ${
                         expanded ? "md:block" : "initial"
                     }`}>
-                        The Expositor&apos;s Bible: The Book of Exodus by G. A. Chadwick is a theological work written in the late 19th century. This text is an exposition on the Book of Exodus from the Old Testament, aiming to explore its spiritual significance and connection to Christianity, presenting an interpretation of the events and characters found within. The author, a notable church leader, seeks to provide insights that are both educational and edifying, reflecting his belief in the enduring authority of biblical scripture. At the start of this volume, the introduction presents the context of the Book of Exodus, discussing the transition from personal stories of the patriarchs to the national narrative of Israel. The preface establishes the significance of Exodus, emphasizing its impact on the Hebrew nation and the underlying spiritual lessons that extend beyond its historical events. The opening sections highlight the oppression of the Israelites in Egypt and introduces Moses, whose birth occurs amid a climate of fear and tyranny. Chadwick elaborates on Moses&#39; early life, the influence of his parents, his upbringing in Pharaoh&#39;s household, and the formative choices that shape his identity and destiny, setting the stage for the significant events that will follow in the narrative</p>
-                
+                        The Expositor&apos;s Bible: The Book of Exodus by G. A. Chadwick is a theological work written in the late 19th century. This text is an exposition on the Book of Exodus from the Old Testament, aiming to explore its spiritual significance and connection to Christianity, presenting an interpretation of the events and characters found within. The author, a notable church leader, seeks to provide insights that are both educational and edifying, reflecting his belief in the enduring authority of biblical scripture. At the start of this volume, the introduction presents the context of the Book of Exodus, discussing the transition from personal stories of the patriarchs to the national narrative of Israel. The preface establishes the significance of Exodus, emphasizing its impact on the Hebrew nation and the underlying spiritual lessons that extend beyond its historical events. The opening sections highlight the oppression of the Israelites in Egypt and introduces Moses, whose birth occurs amid a climate of fear and tyranny. Chadwick elaborates on Moses&#39; early life, the influence of his parents, his upbringing in Pharaoh&#39;s household, and the formative choices that shape his identity and destiny, setting the stage for the significant events that will follow in the narrative</p> 
             </li>
             <li className="block p-3 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                 <div className="flex justify-between">
-                    <Link href='/library/chadwick/#scientific' className="text-blue-500">scientific
-                        <span className="text-black ml-2 dark:text-white">in the book A Brief Commentary on the Apocalypse by Sylvester Bliss</span>
+                    <Link   href='/library/chadwick/#scientific'
+                            onClick={() => {Cookies.set('2', 'G. A. Chadwick - The Book of Exodus')
+                                            setTimeout(() => {location.reload()}, 500)}} 
+                            className="text-blue-500">scientific
+                        <span className="text-black ml-2 dark:text-white">in the book The Book of Exodus by G. A. Chadwick</span>
                     </Link>
                     <button onClick={() => setExpanded1(curr => !curr)}
                             className="">
@@ -110,7 +123,10 @@ Nor does anything tend to deepen such perilous estrangement, more than the very 
             </li>
             <li className="block p-3 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                 <div className="flex justify-between">
-                    <Link href='/library/john/#conjunction' className="text-blue-500">conjunction
+                    <Link   href='/library/john/#conjunction'
+                            onClick={() => {Cookies.set('3', 'The Epistles - St. John')
+                                setTimeout(() => {location.reload()}, 500)}}  
+                            className="text-blue-500">conjunction
                         <span className="text-black ml-2 dark:text-white">in the book The Epistles by St. John</span>
                     </Link>
                     <button onClick={() => setExpanded2(curr => !curr)}
@@ -126,7 +142,7 @@ Nor does anything tend to deepen such perilous estrangement, more than the very 
             </li>            
             </ul>
         </div> }
-        </div> 
+        </div>   
         </div>
         
         );

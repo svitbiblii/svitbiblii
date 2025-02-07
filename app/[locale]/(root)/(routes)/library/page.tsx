@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import BooksList from "@/components/books-list";
 import { BOOKS_DATA } from "@/books-data";
 
-const CatalogPage = () => {
+const LibraryPage = () => {
     const t = useTranslations("Library");
 
     return (
@@ -42,6 +42,6 @@ const CatalogPage = () => {
         </div>
     );
 }
-export default CatalogPage;
+export default LibraryPage;
 
   

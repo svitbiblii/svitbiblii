@@ -146,9 +146,9 @@ export interface IBooks {
     },
     {
         "id": "16",
-        "author": "СTest",
-        "title": "Teststst",
-        "anotation": "ghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",
+        "author": "Charles Gifter",
+        "title": "Basic English",
+        "anotation": "The Bible In Basic English was printed in 1965 by Cambridge Press in England.",
         "genre": "biblical",
         "type": "audio",
         "link": "" 

@@ -42,14 +42,6 @@ export const Search = ({ inputValue, setInputValue}: Props) => {
                     </svg>
                 </button>
             </div>
-
-            {/* <div className="flex justify-center space-x-4 mb-6">
-                <button className="text-xs px-4 py-2 bg-blue-500 rounded-md text-white hover:bg-blue-600">{t('category')}</button>
-                <button className="text-xs px-4 py-2 bg-gray-200 rounded-md text-gray-700 hover:bg-gray-300">{t('audio')}</button>
-                <button className="text-xs px-4 py-2 bg-gray-200 rounded-md text-gray-700 hover:bg-gray-300">{t('video')}</button>
-                <button className="text-xs px-4 py-2 bg-gray-200 rounded-md text-gray-700 hover:bg-gray-300">{t('science')}</button>
-            </div> */}
-
         </div>
     )
 }
