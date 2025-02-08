@@ -151,8 +151,8 @@ const Homepage = () => {
               <button
                 key={index}
                 onClick={() => setSelectedTab(index)}
-                className={`text-xs px-4 py-2 rounded-md ${
-                  selectedTab === index ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                className={`text-xs px-4 py-2 rounded-md hover:bg-blue-200 dark:hover:bg-blue-200 ${
+                  selectedTab === index ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-200 text-gray-700 hover:bg-blue-200'
                 } `}
               >
               {tab.title}
@@ -170,8 +170,6 @@ const Homepage = () => {
             </div>
           ))}
         </div>
-
-        {/* <CreateRoute/> */}
       </div>
     );
   }
