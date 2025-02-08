@@ -21,8 +21,8 @@
     },
     "CreateRouteComponent": {
       "title": "Let's create a route to explore the topic together.",
-      "content": "To join us, please register using the link below:",
-      "register": "Register"
+      "content": "To try it, please follow the link below:",
+      "register": "Library"
     },
     "Library": {
       "title": "Library",
