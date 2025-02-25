@@ -1,9 +1,11 @@
 // pages/single-page.tsx
+
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 const AboutUsPage = () => {
     const t = useTranslations("AboutUs")
+
     return (
         <div className="relative h-full w-full overflow-hidden px-4">
             <h1>{t('title')}</h1>

@@ -1,13 +1,16 @@
 "use client"
 
 import { useTranslations } from "next-intl";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import { Link } from "@/i18n/routing";
 import { useState, useCallback, useEffect} from "react";
 import { Search } from "@/components/search";
 import { CreateRoute } from "@/components/create-route";
 import { BOOKS_DATA } from "@/books-data";
 import Image from "next/image";
+import History from "@/components/history";
+import { ChevronFirst, ChevronLast } from "lucide-react";
+import { About } from "@/components/about";
 
 const Homepage = () => {
   const t = useTranslations("Homepage");
@@ -16,6 +19,24 @@ const Homepage = () => {
   const [initialList] = useState(BOOKS_DATA);
   const [filteredList, setFilteredList] = useState(BOOKS_DATA);
   const [selectedTab, setSelectedTab] = useState(0);
+  const [expanded, setExpanded] = useState(true);
+  const [storedBook, setStoredBook] = useState<string[]>([])
+  const [newId, setNewId] = useState('')
+
+    if (newId) {
+      const findBookById = storedBook.find(item => item === newId)  
+  
+      if (findBookById === undefined) {
+          localStorage.setItem('bookname', JSON.stringify([...storedBook, newId]))
+        } 
+    }
+  
+    useEffect(() => {
+      const savedBooks = localStorage.getItem('bookname')
+      if (savedBooks) {
+        setStoredBook(JSON.parse(savedBooks))
+      }
+    }, [])
 
   // Search Handler
   const searchHandler = useCallback(() => {
@@ -55,12 +76,14 @@ const Homepage = () => {
           ):
         ( filteredList?.map((book) =>   
             <Link key={book.id} href={book.link} 
-                  onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
-                                  setTimeout(() => {location.reload()}, 500)}}
+                  // onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
+                  //                 // setTimeout(() => {location.reload()}, 500)
+                  //               }}
+                  onClick={() => {setNewId(`${book.id}`)}}
                   className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center hover:bg-blue-200">
                       <Image
-                        className="mr-30 fit-picture block"
+                        className="mr-30 fit-picture block hover:bg-blue-200"
                         src={book.icon}
                         width={20}
                         height={20}
@@ -84,8 +107,9 @@ const Homepage = () => {
       ):
     ( fData.filter((book) => book.type === 'audio').map((book) =>   
       <Link key={book.id} href={book.link} 
-            onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
-                    setTimeout(() => {location.reload()}, 500)}}
+            // onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
+            //         setTimeout(() => {location.reload()}, 500)}}
+            onClick={() => {setNewId(`${book.id}`)}}
             className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
       <div className="flex justify-between items-center">
         <Image
@@ -113,8 +137,9 @@ const Homepage = () => {
           ):
         ( fData.filter((book) => book.type === 'video').map((book) =>   
           <Link key={book.id} href={book.link} 
-                onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
-                        setTimeout(() => {location.reload()}, 500)}}
+                // onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
+                //         setTimeout(() => {location.reload()}, 500)}}
+                onClick={() => {setNewId(`${book.id}`)}}
                 className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
           <div className="flex justify-between items-center">
             <Image
@@ -142,8 +167,9 @@ const Homepage = () => {
           ):
         ( fData.filter((book) => book.type === 'text').map((book) =>   
           <Link key={book.id} href={book.link} 
-                onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
-                        setTimeout(() => {location.reload()}, 500)}}
+                // onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
+                //         setTimeout(() => {location.reload()}, 500)}}
+                onClick={() => {setNewId(`${book.id}`)}}
                 className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
           <div className="flex justify-between items-center">
             <Image
@@ -163,7 +189,26 @@ const Homepage = () => {
   ];
 
   return (
-      <div className="relative h-full w-full overflow-hidden px-4 min-h-screen">
+    <div className="h-min-full flex">
+    <div className="flex">
+        <div className="relative">
+            <button onClick={() => setExpanded(curr => !curr)}
+                    className={`absolute top-4 z-20 hover:bg-blue-200 ${expanded ? "left-56 dark:bg-secondary dark:hover:bg-blue-200" : "left-4 dark:bg-background dark:hover:bg-blue-200"} hidden md:block p-1.5 rounded-lg dark:color-white`}>
+                {expanded ? <ChevronFirst /> : <ChevronLast/>}
+            </button>
+        </div>
+        <div
+            className={`hidden  h-screen w-72 min-w-72 overflow-y-auto bg-white dark:bg-secondary shadow-lg                    ${
+                expanded ? "md:block" : "initial"
+            }`}>
+            <div>
+                <About/>
+                <History />
+            </div>
+        </div>
+    </div>
+
+    <div className="relative h-full w-full overflow-hidden px-4 min-h-screen">
         <Search inputValue={inputValue} setInputValue={setInputValue}/>
 
             <div className="flex justify-center space-x-4 mb-6">
@@ -191,6 +236,7 @@ const Homepage = () => {
           ))}
         </div>
       </div>
+</div>
     );
   }
   

@@ -1,9 +1,34 @@
 "use client";
 
+import History from "@/components/history";
+import { ChevronFirst, ChevronLast } from "lucide-react";
+import { About } from "@/components/about";
+import { useState } from "react";
+
 export default function JohnPage() {
+    const [expanded, setExpanded] = useState(true);
+
     return (
-        <div
-        className=" p-10  py-8 px-4  w-full mx-auto min-h-screen">
+        <div className="h-min-full flex">
+                    <div className="flex">
+                        <div className="relative">
+                            <button onClick={() => setExpanded(curr => !curr)}
+                                    className={`absolute top-4 z-20 hover:bg-blue-200 ${expanded ? "left-56 dark:bg-secondary dark:hover:bg-blue-200" : "left-4 dark:bg-background dark:hover:bg-blue-200"} hidden md:block p-1.5 rounded-lg dark:color-white`}>
+                                {expanded ? <ChevronFirst /> : <ChevronLast/>}
+                            </button>
+                        </div>
+                        <div
+                            className={`hidden  h-screen w-72 min-w-72 overflow-y-auto bg-white dark:bg-secondary shadow-lg                    ${
+                                expanded ? "md:block" : "initial"
+                            }`}>
+                            <div>
+                                <About/>
+                                <History />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className=" p-10  py-8 px-4  w-full mx-auto min-h-screen">
         <h2>The Epistles by St. John</h2>
             <p>
             Many books of the Old Testament begin with the <span id="conjunction" className="text-red-500">conjunction</span> And. This fact, it has been often pointed out, is a silent indication of truth, that each author was not recording certain isolated incidents, but parts of one great drama, events which joined hands with the past and future, looking before and after.
@@ -41,6 +66,7 @@ Here, then, a question of great moment is suggested. Beyond the fact that Abraha
 
 Now, it is to St. Paul that we turn for light upon the connection between the Old Testament and the New. He made known His ways unto Moses, His characteristic and habitual ways. And it is on this account that whatsoever things were written aforetime are true admonition for us also, being not violent interruptions but impressive revelations of the steady silent methods of the judgment and the grace of God.</p>          
         </div>
+                </div>
         );
         }
 
