@@ -27,12 +27,12 @@ const Homepage = () => {
       const findBookById = storedBook.find(item => item === newId)  
   
       if (findBookById === undefined) {
-          localStorage.setItem('bookname', JSON.stringify([...storedBook, newId]))
+        sessionStorage.setItem('bookname', JSON.stringify([...storedBook, newId]))
         } 
     }
   
     useEffect(() => {
-      const savedBooks = localStorage.getItem('bookname')
+      const savedBooks = sessionStorage.getItem('bookname')
       if (savedBooks) {
         setStoredBook(JSON.parse(savedBooks))
       }

@@ -9,7 +9,7 @@ function History(){
     const [historyBook, setHistoryBook] = useState<string[]>([])
 
     useEffect(() => {
-      const savedBooks = localStorage.getItem('bookname')
+      const savedBooks = sessionStorage.getItem('bookname')
 
       if (savedBooks) {
         setHistoryBook(JSON.parse(savedBooks))
