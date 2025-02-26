@@ -148,9 +148,9 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import { useState} from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp, CircleX } from "lucide-react";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import History from "@/components/history";
 import { ChevronFirst, ChevronLast } from "lucide-react";
 import { About } from "@/components/about";
@@ -161,6 +161,23 @@ export default function SylvesterBlissPage() {
     const [expanded2, setExpanded2] = useState(false);
     const [expanded3, setExpanded3] = useState(false);
     const [expanded, setExpanded] = useState(true);
+    const [storedBook, setStoredBook] = useState<string[]>([])
+    const [newId, setNewId] = useState('')
+    
+      if (newId) {
+        const findBookById = storedBook.find(item => item === newId)  
+    
+        if (findBookById === undefined) {
+            localStorage.setItem('bookname', JSON.stringify([...storedBook, newId]))
+          } 
+      }
+    
+      useEffect(() => {
+        const savedBooks = localStorage.getItem('bookname')
+        if (savedBooks) {
+          setStoredBook(JSON.parse(savedBooks))
+        }
+      }, [])
 
     const togglePage = () => {
         setShowPage(!showPage)
@@ -190,7 +207,7 @@ export default function SylvesterBlissPage() {
 <div className={`min-h-screen  ${showPage ? "flex" : "block"} `}>
         
         <div className={`py-4 px-4 h-screen  ${showPage ? "w-1/2 overflow-y-scroll" : "w-full"} `}>
-        {/* {!showPage&&<BackButton/>} */}
+        
         <h2>A Brief Commentary on the Apocalypse Sylvester Bliss</h2>
 
         <p>The 
@@ -248,8 +265,9 @@ Nor does anything tend to deepen such perilous estrangement, more than the very 
             <li className="block p-3 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                 <div className="flex justify-between">
                     <Link   href='/library/chadwick/#imperfectly'  
-                            onClick={() => {Cookies.set('2', 'G. A. Chadwick - The Book of Exodus')
-                                            setTimeout(() => {location.reload()}, 500)}}
+                            // onClick={() => {Cookies.set('2', 'G. A. Chadwick - The Book of Exodus')
+                            //                 setTimeout(() => {location.reload()}, 500)}}
+                            onClick={() => {setNewId('2')}}
                             className="text-blue-500">imperfectly
                         <span className="text-black ml-2 dark:text-white">in the book The Book of Exodus by G. A. Chadwick</span>
                     </Link>
@@ -268,8 +286,9 @@ Nor does anything tend to deepen such perilous estrangement, more than the very 
             <li className="block p-3 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                 <div className="flex justify-between">
                     <Link   href='/library/chadwick/#scientific'
-                            onClick={() => {Cookies.set('2', 'G. A. Chadwick - The Book of Exodus')
-                                            setTimeout(() => {location.reload()}, 500)}} 
+                            // onClick={() => {Cookies.set('2', 'G. A. Chadwick - The Book of Exodus')
+                            //                 setTimeout(() => {location.reload()}, 500)}} 
+                            onClick={() => {setNewId('2')}}
                             className="text-blue-500">scientific
                         <span className="text-black ml-2 dark:text-white">in the book The Book of Exodus by G. A. Chadwick</span>
                     </Link>
@@ -288,8 +307,9 @@ Nor does anything tend to deepen such perilous estrangement, more than the very 
             <li className="block p-3 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                 <div className="flex justify-between">
                     <Link   href='/library/john/#conjunction'
-                            onClick={() => {Cookies.set('3', 'The Epistles - St. John')
-                                setTimeout(() => {location.reload()}, 500)}}  
+                            // onClick={() => {Cookies.set('3', 'The Epistles - St. John')
+                            //     setTimeout(() => {location.reload()}, 500)}}  
+                            onClick={() => {setNewId('2')}}
                             className="text-blue-500">conjunction
                         <span className="text-black ml-2 dark:text-white">in the book The Epistles by St. John</span>
                     </Link>
@@ -308,9 +328,6 @@ Nor does anything tend to deepen such perilous estrangement, more than the very 
         </div> }
         </div>   
         </div>
-
     </div>
-       
-        
         );
         }

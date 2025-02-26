@@ -11,13 +11,8 @@ export default function ChadwickPage() {
     const [showPage, setShowPage] = useState(false);
     const [expanded, setExpanded] = useState(true);
     const [expanded1, setExpanded1] = useState(false);
-
-    const togglePage = () => {
-        setShowPage(!showPage)
-    };
-
-      const [storedBook, setStoredBook] = useState<string[]>([])
-      const [newId, setNewId] = useState('')
+    const [storedBook, setStoredBook] = useState<string[]>([])
+    const [newId, setNewId] = useState('')
     
       if (newId) {
         const findBookById = storedBook.find(item => item === newId)  
@@ -33,6 +28,10 @@ export default function ChadwickPage() {
           setStoredBook(JSON.parse(savedBooks))
         }
       }, [])
+
+      const togglePage = () => {
+        setShowPage(!showPage)
+    };  
 
     return (
         <div className="h-min-full flex">
@@ -174,11 +173,6 @@ Moreover, He treats us as the men of other ages. Instead of dealing with Moses u
         </div> 
         </div>
     </div>
-
-
-
-
-        
         );
         }
 
