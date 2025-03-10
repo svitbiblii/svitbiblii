@@ -11,6 +11,7 @@ import Image from "next/image";
 import History from "@/components/history";
 import { ChevronFirst, ChevronLast } from "lucide-react";
 import { About } from "@/components/about";
+import { Sidebar } from "@/components/sidebar";
 
 const Homepage = () => {
   const t = useTranslations("Homepage");
@@ -189,54 +190,112 @@ const Homepage = () => {
   ];
 
   return (
-    <div className="h-min-full flex">
-    <div className="flex">
-        <div className="relative">
-            <button onClick={() => setExpanded(curr => !curr)}
-                    className={`absolute top-4 z-20 hover:bg-blue-200 ${expanded ? "left-56 dark:bg-secondary dark:hover:bg-blue-200" : "left-4 dark:bg-background dark:hover:bg-blue-200"} hidden md:block p-1.5 rounded-lg dark:color-white`}>
-                {expanded ? <ChevronFirst /> : <ChevronLast/>}
-            </button>
-        </div>
-        <div
-            className={`hidden  h-screen w-72 min-w-72 overflow-y-auto bg-white dark:bg-secondary shadow-lg                    ${
-                expanded ? "md:block" : "initial"
-            }`}>
-            <div>
-                <About/>
-                <History />
+//     <div className="h-min-full flex">
+//     <div className="flex">
+//         <div className="relative">
+//             <button onClick={() => setExpanded(curr => !curr)}
+//                     className={`absolute top-4 z-20 hover:bg-blue-200 ${expanded ? "left-56 dark:bg-secondary dark:hover:bg-blue-200" : "left-4 dark:bg-background dark:hover:bg-blue-200"} hidden md:block p-1.5 rounded-lg dark:color-white`}>
+//                 {expanded ? <ChevronFirst /> : <ChevronLast/>}
+//             </button>
+//         </div>
+//         <div
+//             className={`hidden  h-screen w-72 min-w-72 overflow-y-auto bg-white dark:bg-secondary shadow-lg                    ${
+//                 expanded ? "md:block" : "initial"
+//             }`}>
+//             <div>
+//                 <About/>
+//                 <History />
+//             </div>
+//         </div>
+//     </div>
+
+//     <div className="relative h-full w-full overflow-hidden px-4 min-h-screen">
+//         <Search inputValue={inputValue} setInputValue={setInputValue}/>
+
+//             <div className="flex justify-center space-x-4 mb-6">
+//             {tabs.map((tab, index) => (
+//               <button
+//                 key={index}
+//                 onClick={() => setSelectedTab(index)}
+//                 className={`text-xs px-4 py-2 rounded-md hover:bg-blue-200 dark:hover:bg-blue-200 ${
+//                   selectedTab === index ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-200 text-gray-700 hover:bg-blue-200'
+//                 } `}
+//               >
+//               {tab.title}
+//               </button>
+//             ))}
+//             </div>
+
+//         <div className='bg-white p-2 rounded-xl dark:text-white dark:bg-background focus:outline-none'>
+//           {tabs.map((tab, index) => (
+//             <div
+//               key={index}
+//               className={`${selectedTab === index ? '' : 'hidden'}`}
+//             >
+//               {tab.content}
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+// </div>
+
+
+
+
+
+<div className="flex">
+
+<div className="relative">
+                <button onClick={() => setExpanded(curr => !curr)}
+                        className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
+                    {expanded ? <ChevronFirst/> : <ChevronLast/>}
+                </button>
             </div>
-        </div>
+
+            <div
+                className={`hidden  h-screen w-72 min-w-72 overflow-y-auto bg-white dark:bg-secondary pb-12 shadow-lg                    ${
+                    expanded ? "md:block" : "initial"
+                }`}>
+                    <div>
+                        <About/>
+                        <History />
+
+                    </div>
+            </div> 
+
+
+<div className="relative h-full w-full overflow-hidden px-4 min-h-screen">
+<Search inputValue={inputValue} setInputValue={setInputValue}/>
+
+    <div className="flex justify-center space-x-4 mb-6">
+    {tabs.map((tab, index) => (
+      <button
+        key={index}
+        onClick={() => setSelectedTab(index)}
+        className={`text-xs px-4 py-2 rounded-md ${
+          selectedTab === index ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+        } `}
+      >
+      {tab.title}
+      </button>
+    ))}
     </div>
 
-    <div className="relative h-full w-full overflow-hidden px-4 min-h-screen">
-        <Search inputValue={inputValue} setInputValue={setInputValue}/>
-
-            <div className="flex justify-center space-x-4 mb-6">
-            {tabs.map((tab, index) => (
-              <button
-                key={index}
-                onClick={() => setSelectedTab(index)}
-                className={`text-xs px-4 py-2 rounded-md hover:bg-blue-200 dark:hover:bg-blue-200 ${
-                  selectedTab === index ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-200 text-gray-700 hover:bg-blue-200'
-                } `}
-              >
-              {tab.title}
-              </button>
-            ))}
-            </div>
-
-        <div className='bg-white p-2 rounded-xl dark:text-white dark:bg-background focus:outline-none'>
-          {tabs.map((tab, index) => (
-            <div
-              key={index}
-              className={`${selectedTab === index ? '' : 'hidden'}`}
-            >
-              {tab.content}
-            </div>
-          ))}
-        </div>
-      </div>
+<div className='bg-white p-2 rounded-xl dark:text-white dark:bg-background focus:outline-none'>
+  {tabs.map((tab, index) => (
+    <div
+      key={index}
+      className={`${selectedTab === index ? '' : 'hidden'}`}
+    >
+      {tab.content}
+    </div>
+  ))}
 </div>
+
+</div>
+</div>
+
+
     );
   }
   

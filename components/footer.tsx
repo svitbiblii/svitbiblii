@@ -7,7 +7,7 @@ export const Footer = () => {
     const t = useTranslations("Footer");
 
     return (
-        <div className="flex flex-wrap justify-around p-6 text-center mt-20 mb-10">
+        <div className="flex flex-wrap justify-around p-6 text-center mt-5 mb-10">
             <a href="mailto:mediaglagol@gmail.com"
                className="flex items-center space-x-2 hover:text-blue-500 transition">
                 <Mail className='w-5 h-5'/>

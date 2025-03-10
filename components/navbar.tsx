@@ -13,7 +13,7 @@ export const Navbar = () => {
 
     return (
         <div
-            className="fixed w-full z-50 flex justify-between items-center py-2 px-4 h-16 border-b border-primary/10 bg-secondary">
+            className="w-full z-50 flex justify-between items-center py-2 px-4 h-16 border-b border-primary/10 bg-secondary">
             <div className="flex items-center">
                 <MobileSidebar/>
                 <Link href="/">
@@ -26,11 +26,11 @@ export const Navbar = () => {
                 </Link>
             </div>
             <div className={cn('flex items-center gap-x-3')}>
-                <Link   href="/library" 
+                {/* <Link   href="/library" 
                         className="flex items-center hover:no-underline transition h-9 rounded-md px-3 bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 text-white border-0">
                     {t('library')}
                     <Sparkles className="h-4 w-4 fill-white text-white ml-2"/>
-                </Link>
+                </Link> */}
 
                 <LangSwitcher/>
                 <ModeToggle/>

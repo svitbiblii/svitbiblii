@@ -176,26 +176,3 @@ Moreover, He treats us as the men of other ages. Instead of dealing with Moses u
         );
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     
