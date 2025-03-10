@@ -11,7 +11,6 @@ import Image from "next/image";
 import History from "@/components/history";
 import { ChevronFirst, ChevronLast } from "lucide-react";
 import { About } from "@/components/about";
-import { Sidebar } from "@/components/sidebar";
 
 const Homepage = () => {
   const t = useTranslations("Homepage");

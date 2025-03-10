@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 import { Navbar } from "@/components/navbar";
-import { About } from "@/components/about";
-import { Sidebar } from "@/components/sidebar";
-import { Footer } from "@/components/footer";import { ChevronFirst, ChevronLast } from "lucide-react";
+import { Footer } from "@/components/footer";
 import { useRef } from "react";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 
@@ -14,7 +12,6 @@ const HomeLayout = ({
 }: {
 children: React.ReactNode;
 }) => {
-const [expanded, setExpanded] = useState(true);
 const scrollContainerRef = useRef<HTMLDivElement>(null);
 
 return (
