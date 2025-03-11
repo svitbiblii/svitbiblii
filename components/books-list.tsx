@@ -57,7 +57,7 @@ const BooksList = ({ books }: { books: IBooks[] }) => {
                       key={id}
                       onClick={() => setSelectedCategory(id)}
                       className={`mb-2 mr-4 px-4 py-2 ${
-                          selectedCategory === id ? " bg-blue-500 text-white" : "bg-gray-200"
+                          selectedCategory === id ? " bg-blue-500 text-white" : "bg-gray-200 dark:text-black"
                       }`}
                   >
                       {name}
