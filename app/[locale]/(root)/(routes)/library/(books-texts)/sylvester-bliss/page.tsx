@@ -60,7 +60,7 @@ export default function SylvesterBlissPage() {
         
         <div className={`relative h-full w-full px-4 pt-2  ${showPage ? "sm:flex sm:h-screen block" : "block"} `}>
       
-               <div className={`  ${showPage ? "px-2 sm:w-1/2 sm:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
+               <div className={`  ${showPage ? "px-3 mb-3 md:mb-0 md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
 
          <h2 className="pt-0">A Brief Commentary on the Apocalypse Sylvester Bliss</h2>
 
@@ -109,7 +109,7 @@ Nor does anything tend to deepen such perilous estrangement, more than the very 
         </div>
 
             {showPage && 
-        <div className={`${showPage ? "px-2 sm:pt-0  pt-3 sm:w-1/2 sm:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
+        <div className={`${showPage ? "px-3 md:pt-0  pt-3 md:w-1/2 sm:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
             <button className="float-right text-gray-700 hover:text-blue-400 transition-colors duration-200" 
                 onClick={() => {setShowPage(false)}}>
                 <CircleX/>
