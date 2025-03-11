@@ -68,5 +68,15 @@
       "email":"Email us: mediaglagol@gmail.com",
       "facebook": "Follow us on Facebook",
       "telegram": "Subscribe to our Telegram channel"
+    },
+    "CategoryComponent": {
+      "all":"All",
+      "bibl": "Bible",
+      "cloud": "Cloud of biblical tradition",
+      "bibl_studies":"Biblical Studies",
+      "patrist":"Patristics",
+      "phy_hist":"Philosophy and History",
+      "diction":"Dictionaries and Encyclopedias",
+      "theology":"Theology"
     }
   }

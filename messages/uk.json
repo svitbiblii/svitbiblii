@@ -68,5 +68,15 @@
       "email":"Пишіть нам: mediaglagol@gmail.com",
       "facebook": "Стежте за нами у Facebook",
       "telegram": "Підписуйтесь на наш Telegram-канал"
+    },
+    "CategoryComponent": {
+        "all":"Всі",
+        "bibl": "Біблія",
+        "cloud": "Хмара біблійного передання",
+        "bibl_studies":"Біблеїстика",
+        "patrist":"Патристика",
+        "phy_hist":"Філософія і Історія",
+        "diction":"Словники та Енциклопедії",
+        "theology":"Богослов'я"
     }
 }

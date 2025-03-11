@@ -51,13 +51,13 @@ const BooksList = ({ books }: { books: IBooks[] }) => {
 
       <div className="p-6">
           {/* Buttons for selecting a category */}
-          <div className="flex flex-wrap  mb-6">
-              {CATEGORIES.map(({id, name}) => (
+          <div className="flex flex-wrap mb-6">
+              {CATEGORIES().map(({id, name}) => (
                   <button
                       key={id}
                       onClick={() => setSelectedCategory(id)}
                       className={`mb-2 mr-4 px-4 py-2 ${
-                          selectedCategory === id ? " bg-blue-500 text-white" : "bg-gray-200 dark:text-black"
+                          selectedCategory === id ? "bg-blue-500 text-white" : "bg-gray-200 dark:text-black"
                       }`}
                   >
                       {name}
