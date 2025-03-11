@@ -80,7 +80,7 @@ const LibraryPage = () => {
                         </div>
                     </div>
 
-                    <div className="max-w-3xl mx-auto min-h-screen">
+                    <div className="relative h-full w-full overflow-hidden px-4 min-h-screen">
                         <h2>{t('title')}</h2>
                         <BooksList books={BOOKS_DATA}/>
                     </div>
