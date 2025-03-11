@@ -60,7 +60,7 @@ export default function SylvesterBlissPage() {
         
         <div className={`relative h-full w-full px-4 pt-2  ${showPage ? "sm:flex sm:h-screen block" : "block"} `}>
       
-               <div className={`  ${showPage ? "px-2 sm:w-1/2 sm:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
+               <div className={`  ${showPage ? "px-3 mb-3 md:mb-0 md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
 
          <h2 className="pt-0">A Brief Commentary on the Apocalypse Sylvester Bliss</h2>
 
@@ -109,14 +109,14 @@ Nor does anything tend to deepen such perilous estrangement, more than the very 
         </div>
 
             {showPage && 
-        <div className={`${showPage ? "px-2 sm:pt-0  pt-3 sm:w-1/2 sm:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
+        <div className={`${showPage ? "px-3 md:pt-0  pt-3 md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
             <button className="float-right text-gray-700 hover:text-blue-400 transition-colors duration-200" 
                 onClick={() => {setShowPage(false)}}>
                 <CircleX/>
             </button>
-            <ul className="lg:pb-48 pl-0 pt-10 w-full ">
-            <li className="block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                <div className="flex justify-between">
+            <ul className="pl-0 pt-10 w-full ">
+            <li className="mb-3 block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                <div className="flex justify-between items-start">
                     <Link   href='/library/chadwick/#imperfectly'  
                             // onClick={() => {Cookies.set('2', 'G. A. Chadwick - The Book of Exodus')
                             //                 setTimeout(() => {location.reload()}, 500)}}
@@ -134,8 +134,8 @@ Nor does anything tend to deepen such perilous estrangement, more than the very 
                     <p className={`text-gray-700 mt-5 ${expanded1 ? "" : "hidden"}`}>
                         The Expositor&apos;s Bible: The Book of Exodus by G. A. Chadwick is a theological work written in the late 19th century. This text is an exposition on the Book of Exodus from the Old Testament, aiming to explore its spiritual significance and connection to Christianity, presenting an interpretation of the events and characters found within. The author, a notable church leader, seeks to provide insights that are both educational and edifying, reflecting his belief in the enduring authority of biblical scripture. At the start of this volume, the introduction presents the context of the Book of Exodus, discussing the transition from personal stories of the patriarchs to the national narrative of Israel. The preface establishes the significance of Exodus, emphasizing its impact on the Hebrew nation and the underlying spiritual lessons that extend beyond its historical events. The opening sections highlight the oppression of the Israelites in Egypt and introduces Moses, whose birth occurs amid a climate of fear and tyranny. Chadwick elaborates on Moses&#39; early life, the influence of his parents, his upbringing in Pharaoh&#39;s household, and the formative choices that shape his identity and destiny, setting the stage for the significant events that will follow in the narrative</p> 
             </li>
-            <li className="block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                <div className="flex justify-between">
+            <li className="mb-3 block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                <div className="flex justify-between items-start">
                     <Link   href='/library/chadwick/#scientific'
                             // onClick={() => {Cookies.set('2', 'G. A. Chadwick - The Book of Exodus')
                             //                 setTimeout(() => {location.reload()}, 500)}} 
@@ -154,7 +154,7 @@ Nor does anything tend to deepen such perilous estrangement, more than the very 
                 
             </li>
             <li className="block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                <div className="flex justify-between">
+                <div className="flex justify-between items-start">
                     <Link   href='/library/john/#conjunction'
                             // onClick={() => {Cookies.set('3', 'The Epistles - St. John')
                             //     setTimeout(() => {location.reload()}, 500)}} 

@@ -34,32 +34,36 @@ export default function ChadwickPage() {
     };  
 
     return (
-        <div className="h-min-full flex">
         <div className="flex">
-            <div className="relative">
-                <button onClick={() => setExpanded(curr => !curr)}
-                        className={`absolute top-4 z-20 hover:bg-blue-200 ${expanded ? "left-56 dark:bg-secondary dark:hover:bg-blue-200" : "left-4 dark:bg-background dark:hover:bg-blue-200"} hidden md:block p-1.5 rounded-lg dark:color-white`}>
-                    {expanded ? <ChevronFirst /> : <ChevronLast/>}
-                </button>
-            </div>
-            <div
-                className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary shadow-lg ${
-                    expanded ? "md:block" : "initial"
-                }`}>
-                <div>
-                    <About/>
-                    <History />
-                </div>
-            </div>
-        </div>
 
-        <div className={`min-h-screen ${showPage ? "flex" : "block"} `}>
-                    <div className={`py-4 px-4 overflow-y-auto  ${showPage ? "w-1/2" : "w-full"} `}>
-        <h2>The Book of Exodus by G. A. Chadwick</h2>
-            <p>
-            Much is now denied or doubted, within the Church itself, concerning the Book of Exodus, which was formerly accepted with confidence by all Christians.
+        <div className="relative">
+                        <button onClick={() => setExpanded(curr => !curr)}
+                                className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
+                            {expanded ? <ChevronFirst/> : <ChevronLast/>}
+                        </button>
+                    </div>
+        
+                    <div
+                        className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary pb-12 shadow-lg ${
+                            expanded ? "md:block" : "initial"
+                        }`}>
+                            <div>
+                                <About/>
+                                <History />
+        
+                            </div>
+                    </div> 
+        
+        
+        <div className={`relative h-full w-full px-4 pt-2  ${showPage ? "sm:flex sm:h-screen block" : "block"} `}>
+      
+               <div className={`  ${showPage ? "px-3 mb-3 md:mb-0 border-2 border-blue-200 rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
 
-But one thing can neither be doubted nor denied. Jesus Christ did certainly treat this
+         <h2 className="pt-0">The Book of Exodus by G. A. Chadwick</h2>
+
+        <p>Much is now denied or doubted, within the Church itself, concerning the Book of Exodus, which was formerly accepted with confidence by all Christians.
+
+But <button className="px-2 font-medium" onClick={togglePage}>one thing</button>  can neither be doubted nor denied. Jesus Christ did certainly treat this
 book, taking it as He found it, as possessed of spiritual authority, a sacred scripture. He taught His disciples to regard it thus, and they did so.
 
 Therefore, however widely His followers may differ about its date and origin, they must admit the right of a Christian teacher to treat this book, taking it as he finds it, as a sacred scripture and invested with spiritual authority. It is the legitimate subject of exposition in the Church.
@@ -74,11 +78,8 @@ No task is more difficult than to exhibit the Old Testament in the light of the 
 
 If such an attempt does, in any degree, prove successful and bear fruit, this fact will be of the nature of a <span id="scientific" className="text-green-500">scientific</span> demonstration.
 
-If this ancient Book of Exodus yields <button className="px-2 font-medium" onClick={togglePage}>solid results</button> to a sober devotional exposition in the nineteenth Christian century, if it is not an idle fancy that its teaching harmonises with the principles and theology of the New Testament, and even demands the New Testament as the true commentary upon the Old, what follows? How comes it that the oak is potentially in the acorn, and the living creature in the egg? No germ is a manufactured article: it is a part of the system of the universe.
-            </p> 
-
-            <p>
-            Many books of the Old Testament begin with the conjunction And. This fact, it has been often pointed out, is a silent indication of truth, that each author was not recording certain isolated incidents, but parts of one great drama, events which joined hands with the past and future, looking before and after.
+If this ancient Book of Exodus yields <button className="px-2 font-medium" onClick={togglePage}>solid results</button> to a sober devotional exposition in the nineteenth Christian century, if it is not an idle fancy that its teaching harmonises with the principles and theology of the New Testament, and even demands the New Testament as the true commentary upon the Old, what follows? How comes it that the oak is potentially in the acorn, and the living creature in the egg? No germ is a manufactured article: it is a part of the system of the universe.</p>
+<p> Many books of the Old Testament begin with the conjunction And. This fact, it has been often pointed out, is a silent indication of truth, that each author was not recording certain isolated incidents, but parts of one great drama, events which joined hands with the past and future, looking before and after.
 
 Thus the Book of the Kings took up the tale from Samuel, Samuel from Judges, and Judges from Joshua, and all carried the sacred movement forward towards a goal as yet unreached. Indeed, it was impossible, remembering the first promise that the seed of the woman should bruise the head of the serpent, and the later assurance that in the seed of Abraham should be the universal blessing, for a faithful Jew to forget that all the history of his race was the evolution of some grand hope, a pilgrimage towards some goal unseen. Bearing in mind that there is now revealed to us a world-wide tendency toward the supreme consummation, the bringing all things under the headship of Christ, it is not to be denied that this hope of the[2] ancient Jew is given to all mankind. Each new stage in universal history may be said to open with this same conjunction. It links the history of England with that of Julius Cæsar and of the Red Indian; nor is the chain composed of accidents: it is forged by the hand of the God of providence. Thus, in the conjunction which binds these Old Testament narratives together, is found the germ of that instinctive and elevating phrase, the Philosophy of History. But there is nowhere in Scripture the notion which too often degrades and stiffens that Philosophy—the notion that history is urged forward by blind forces, amid which the individual man is too puny to assert himself. Without a Moses the Exodus is inconceivable, and God always achieves His purpose through the providential man.
 
@@ -131,48 +132,47 @@ As the history of Israel opens before us, a third principle claims attention—o
 
 “They are not to be heard,” says the Seventh Article rightly, “which feign that the old fathers did look only for transitory promises.” But certainly they also would be unworthy of a hearing who would feign that the early Scriptures do not give a vast, a preponderating weight, to the concerns of our life on earth. Only very slowly, and as the result of long training, does the future begin to reveal its supremacy over the present. It would startle many a devout reader out of his propriety to discover the small proportion of Old Testament scriptures in which eternity and its prospects are discussed, to reckon the passages, habitually applied to spiritual thraldom and emancipation, which were spoken at first of earthly tyranny and earthly deliverance,[12] and to observe, even in the pious aspirations of the Psalms, how much of the gratitude and joy of the righteous comes from the sense that he is made wiser than the ancient, and need not fear though a host rose up against him, and can break a bow of steel, and has a table prepared for him, and an overflowing cup. Especially is this true of the historical books. God is here seen ruling states, judging in the earth, remembering Israel in bondage, and setting him free, providing supernatural food and water, guiding him by the fiery cloud. There is not a word about regeneration, conversion, hell, or heaven. And yet there is a profound sense of God. He is real, active, the most potent factor in the daily lives of men. Now, this may teach us a lesson, highly important to us all, and especially to those who must teach others. The difference between spirituality and secularity is not the difference between the future life and the present, but between a life that is aware of God and a godless one. Perhaps, when we find our gospel a matter of indifference and weariness to men who are absorbed in the bitter monotonous and dreary struggle for existence, we ourselves are most to blame. Perhaps, if Moses had approached the Hebrew drudges as we approach men equally weary and oppressed, they would not have bowed their heads and worshipped. And perhaps we should have better success, if we took care to speak of God in this world, making life a noble struggle, charging with new significance the dull and seemingly degraded lot of all who remember Him, such a God as Jesus revealed when He cleansed the leper, and gave sight to the blind, using one and the same word for the “healing” of diseases and the “saving” of souls, and connecting faith equally with both. Exodus will have little to teach us, unless[13] we believe in that God who knoweth that we have need of food and clothing. And the higher spiritual truths which it expresses will only be found there in dubious and questionable allegory, unless we firmly grasp the great truth, that God is not the Saviour of souls, or of bodies, but of living men in their entirety, and treats their higher and lower wants upon much the same principle, because He is the same God, dealing with the same men, through both.
 
-Moreover, He treats us as the men of other ages. Instead of dealing with Moses upon exceptional and strange lines, He made known His ways unto Moses, His characteristic and habitual ways. And it is on this account that whatsoever things were written aforetime are true admonition for us also, being not violent interruptions but impressive revelations of the steady silent methods of the judgment and the grace of God.</p>          
+Moreover, He treats us as the men of other ages. Instead of dealing with Moses upon exceptional and strange lines, He made known His ways unto Moses, His characteristic and habitual ways. And it is on this account that whatsoever things were written aforetime are true admonition for us also, being not violent interruptions but impressive revelations of the steady silent methods of the judgment and the grace of God.</p>
+                
         </div>
 
-        <div className={`py-8 px-4   ${showPage ? "w-1/2" : "w-full"} `}>
             {showPage && 
-        <div>
+        <div className={`${showPage ? "px-3 md:pt-0 pt-3 border-2 border-blue-200 rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
             <button className="float-right text-gray-700 hover:text-blue-400 transition-colors duration-200" 
                 onClick={() => {setShowPage(false)}}>
                 <CircleX/>
             </button>
-            <ul className=" py-8 px-4 lg:pb-48 w-full overflow-y-auto">
-            <li className="block p-3 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                <div className="flex justify-between">
-                    <Link   
-                            // onClick={() => {Cookies.set('3', 'The Epistles - St. John')}}
+            <ul className="pl-0 pt-10 w-full ">
+            <li className="mb-3 block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                <div className="flex justify-between items-start">
+                    <Link   href='/library/john/#conjunction'  
+                            // onClick={() => {Cookies.set('2', 'G. A. Chadwick - The Book of Exodus')
+                            //                 setTimeout(() => {location.reload()}, 500)}}
                             onClick={() => {setNewId('3')}}
-                            href='/library/john/#conjunction' 
-                            className="text-red-500">conjunction
+                            className="text-blue-500">conjunction
                         <span className="text-black ml-2 dark:text-white">in the book The Epistles by St. John</span>
                     </Link>
+
                     <button onClick={() => setExpanded1(curr => !curr)}
                             className="">
                         {expanded1 ? <ChevronUp/> : <ChevronDown/>}
                     </button>
                 </div>
-               
-                    <p className={`hidden  text-gray-700 mt-5 ${
-                        expanded1 ? "md:block" : "initial"
-                    }`}>
-                        The Epistles of St. John by William Alexander is a theological exposition written in the late 19th century. This work is part of a series that aims to provide in-depth commentary and analysis of Biblical texts, specifically focusing on the epistles attributed to St. John. It explores the historical context, theological significance, and practical implications of these letters, which are crucial for understanding early Christian doctrine and ethics. The opening of the text presents a preface by the author, explaining his long-standing engagement with the Epistles of St. John. He outlines his approach, which combines historical background with exegetical analysis, framing the epistles within the broader context of St. John&#39;s life and the challenges faced by the early Church in Asia Minor, particularly Ephesus. The author prepares the reader for a detailed examination of the epistles, highlighting the importance of understanding the unique spiritual and theological insights that St. John offers, especially against the backdrop of contemporary heresies such as Gnosticism. The opening sets the stage for a scholarly yet accessible exploration intended for both serious theological study and general readers interested in the New Testament.</p>
-                
+
+                    <p className={`text-gray-700 mt-5 ${expanded1 ? "" : "hidden"}`}>
+                    The Epistles of St. John by William Alexander is a theological exposition written in the late 19th century. This work is part of a series that aims to provide in-depth commentary and analysis of Biblical texts, specifically focusing on the epistles attributed to St. John. It explores the historical context, theological significance, and practical implications of these letters, which are crucial for understanding early Christian doctrine and ethics. The opening of the text presents a preface by the author, explaining his long-standing engagement with the Epistles of St. John. He outlines his approach, which combines historical background with exegetical analysis, framing the epistles within the broader context of St. John&#39;s life and the challenges faced by the early Church in Asia Minor, particularly Ephesus. The author prepares the reader for a detailed examination of the epistles, highlighting the importance of understanding the unique spiritual and theological insights that St. John offers, especially against the backdrop of contemporary heresies such as Gnosticism. The opening sets the stage for a scholarly yet accessible exploration intended for both serious theological study and general readers interested in the New Testament.</p> 
             </li>
-            <li className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+  
+            <li className="mb-3 block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                 <Link href='/library/john/#together' className="mr-2 text-green-500">together</Link></li>
-            <li className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+            <li className="block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                 <Link href='/library/john/#solemnly' className="mr-2 text-blue-500">solemnly</Link></li>
             
             </ul>
         </div> }
-        </div> 
+        
         </div>
-    </div>
+        </div>  
         );
         }
 
