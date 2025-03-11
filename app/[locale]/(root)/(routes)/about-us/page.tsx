@@ -22,7 +22,7 @@ const AboutUsPage = () => {
                 </button>
             </div>
             <div
-                className={`hidden  h-screen w-72 min-w-72 overflow-y-auto bg-white dark:bg-secondary shadow-lg                    ${
+                className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary shadow-lg ${
                     expanded ? "md:block" : "initial"
                 }`}>
                 <div>
