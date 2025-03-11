@@ -140,7 +140,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ headings, headings2 = [], onTo
     ];
 
     return (
-        <div className="bg-secondary shadow-lg px-6 pt-1 pb-8">
+        <div className="bg-secondary px-6 pt-1 pb-8">
             <div className="flex border-b border-gray-200">
                 {tabs.map((tab) => (
                     <button

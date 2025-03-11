@@ -47,7 +47,7 @@ export default function SylvesterBlissPage() {
                     </div>
         
                     <div
-                        className={`hidden  h-screen w-72 min-w-72 overflow-y-auto bg-white dark:bg-secondary pb-12 shadow-lg                    ${
+                        className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary pb-12 shadow-lg ${
                             expanded ? "md:block" : "initial"
                         }`}>
                             <div>

@@ -26,7 +26,7 @@ if(historyBook) {
 }
 
     return (
-        <div className="bg-secondary shadow-lg px-6 pt-1 pb-8">
+        <div className="bg-secondary px-6 pt-1 pb-8">
             <p className="py-2 text-center font-medium border-b-2 border-blue-500 text-blue-500">Навігатор</p>
             {copy.length > 0 ? copy.reverse().map(item => 
                 <ul key={item?.id} className="space-y-2 list-none pl-0">

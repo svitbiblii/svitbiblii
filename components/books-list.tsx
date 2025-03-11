@@ -51,13 +51,13 @@ const BooksList = ({ books }: { books: IBooks[] }) => {
 
       <div className="p-6">
           {/* Buttons for selecting a category */}
-          <div className="flex space-x-4 mb-6">
+          <div className="flex flex-wrap  mb-6">
               {CATEGORIES.map(({id, name}) => (
                   <button
                       key={id}
                       onClick={() => setSelectedCategory(id)}
-                      className={`px-4 py-2 ${
-                          selectedCategory === id ? "bg-blue-500 text-white" : "bg-gray-200"
+                      className={`mb-2 mr-4 px-4 py-2 ${
+                          selectedCategory === id ? " bg-blue-500 text-white" : "bg-gray-200"
                       }`}
                   >
                       {name}
@@ -66,13 +66,13 @@ const BooksList = ({ books }: { books: IBooks[] }) => {
           </div>
 
           {/* List of books */}
-          <ul>
+          <ul className="pl-0">
               {filteredBooks.map((book) => (
                   <li className="list-none mb-2" key={book.id}>
                       <Link
                           href={book.link}
                           onClick={() => setNewId(book.id)}
-                          className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200"
+                          className="block p-2 pl-0 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200"
                       >
                           <p className="mr-10 italic">{book.author}</p>
                           <p className="mr-10 font-bold">{book.title}</p>
