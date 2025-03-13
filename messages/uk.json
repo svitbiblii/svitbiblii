@@ -79,5 +79,8 @@
         "phy_hist":"Філософія і Історія",
         "diction":"Словники та Енциклопедії",
         "theology":"Богослов'я"
+    },
+    "BibleUaPage": {
+        "interpretation":"Тлумачення"
     }
 }

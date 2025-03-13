@@ -46,13 +46,13 @@ export interface IBooks {
     },
     {
         "id": "4",
-        "author": "Walter F. Adeney",
-        "title": "Ezra, Nehemiah, and Esther",
-        "anotation": "The Expositor's Bible: Ezra, Nehemiah, and Esther by Walter F. Adeney is a theological commentary written in the late 19th century. The work provides an in-depth analysis of the biblical books of Ezra and Nehemiah, exploring their historical context, themes, and significance in Jewish religious life. This volume is likely of interest to those looking to deepen their understanding of the post-exilic period in Israel’s history and how these events shape Jewish identity and faith. The opening of the text begins with an introduction that emphasizes the authenticity and reliability of the historical records in Ezra and Nehemiah. Adeney discusses the unique writing style that distinguishes the narrative from other literature, noting how the first-person accounts contribute to its credibility. He sets the stage for the reader, explaining the importance of Ezra and Nehemiah's roles—Ezra as a scribe dedicated to the Law and Nehemiah as a political leader responsible for rebuilding the walls of Jerusalem. This groundwork establishes a promising exploration of how these figures emerged as focal points in the religious revival of the Jewish people following their Babylonian exile.",
-        "genre": "biblical",
+        "author": "І. Огієнко",
+        "title": "Український переклад Біблії (УПБ)",
+        "anotation": "Переклад Біблії Івана Огієнка — це найбільш поширений і вживаний переклад Біблії українською мовою.",
+        "genre": "bibliya",
         "type": "text",
-        "kategory": "patrist",
-        "link": "/library/bible",
+        "kategory": "bibl",
+        "link": "/library/bible/bible-ua",
         "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrykvYAhtth_OBMIlHB7ukNw_eOSZFMTplckvrzs_yHgEoqrMYawOJx70&s"
     },
     {

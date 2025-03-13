@@ -3,9 +3,9 @@
  import { Link } from "@/i18n/routing";
  import { useState, useEffect } from "react";
  import { ChevronDown, ChevronUp, CircleX } from "lucide-react";
- import History from "@/components/history";
  import { ChevronFirst, ChevronLast } from "lucide-react";
  import { About } from "@/components/about";
+ import History from "@/components/history";
  
  export default function ChadwickPage() {
      const [showPage, setShowPage] = useState(false);
@@ -48,13 +48,12 @@
                          }`}>
                              <div>
                                  <About/>
-                                 <History />
-         
+                                 <History />    
                              </div>
                      </div> 
          
          
-         <div className={`relative h-full w-full px-4 pt-2  ${showPage ? "sm:flex sm:h-screen block" : "block"} `}>
+         <div className={`relative h-full w-full px-4 pt-2  ${showPage ? "md:flex md:h-screen block" : "block"} `}>
        
                 <div className={`  ${showPage ? "px-3 mb-3 md:mb-0 border-2 border-blue-200 rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
  
