@@ -57,13 +57,13 @@ export interface IBooks {
     },
     {
         "id": "5",
-        "author": "Henry Burton ",
-        "title": "The Gospel of St Luke",
-        "anotation": "Expositor's Bible: The Gospel of St Luke by Henry Burton is a theological commentary written in the late 19th century. This work delves into the Gospel of St. Luke, analyzing its themes, structure, and the life of its author, St. Luke, who is presented as a Gentile physician intimately connected with the early Christian community. The text aims to explore the nuances of Luke's message and his unique portrayal of Jesus, emphasizing themes of compassion, humanity, and divine purpose. The opening of the text sets the stage for a deep exploration of the Gospel according to St. Luke, establishing the uniqueness of Luke's narrative style in contrast to the other Gospel writers. It reflects on the significance of the four Gospels as complementary accounts that collectively reveal the life and mission of Christ. Furthermore, the introduction discusses St. Luke’s background, indicating that his Gentile perspective shapes his storytelling, focusing on inclusivity and the universal message of salvation. The text opens with a metaphor of light, illustrating how each Gospel provides a different viewpoint on the same divine truth, thus highlighting the interwoven nature of the narrative in the New Testament.",
-        "genre": "biblical",
+        "author": "Michael Paul Johnson with volunteers",
+        "title": "World English Bible (WEB)",
+        "anotation": "The World English Bible (WEB) is an English translation of the Bible freely shared online. The translation work began in 1994 and was deemed complete in 2020. Created by Michael Paul Johnson with help from volunteers,[1][6] the WEB is an updated revision of the American Standard Version from 1901.",
+        "genre": "bibliya",
         "type": "text",
-        "kategory": "phy_hist",
-        "link": "",
+        "kategory": "bibl",
+        "link": "/library/bible/bible-en",
         "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrykvYAhtth_OBMIlHB7ukNw_eOSZFMTplckvrzs_yHgEoqrMYawOJx70&s"
     },
     {
