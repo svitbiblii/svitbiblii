@@ -32,7 +32,8 @@ const BibleEnPage = () => {
 
                         <div className={`relative ${showPage ? "mb-3 md:mb-0 md:w-1/2 h-40vh md:h-screen overflow-y-scroll" : "w-full"}`}>
                             <h2>World English Bible (WEB) by Michael Paul Johnson with volunteers</h2>
-                            <h3>Genesis</h3>
+                            <h3 className="text-2xl">Genesis</h3>
+                            <h3>Chapter 1</h3>
                             <p>1. In the beginning God(After &#34;God&#34;, the Hebrew has the two letters &#34;Aleph Tav&#34; (the first and last letters of the Hebrew alphabet) as a grammatical marker.) created the heavens and the earth.</p>
                             <p>2. Now the earth was formless and empty. Darkness was on the surface of the deep. God&#34;s Spirit was hovering over the surface of the waters.</p>
                             <p>3. God said, &#34;Let there be light&#34;, and there was light.</p>
@@ -79,6 +80,7 @@ const BibleEnPage = () => {
                                 <CircleX/>
                             </button>
                             <h2>Genesis: God&#39;s Ancient People - by Alun Owen</h2>
+                            <h3>Chapter 1</h3>
                             <p>1.  &#34;The sky and the earth&#34; means everything. God made the sky and the earth out of nothing. Before he did that, only God existed.
                                      &#34;To create&#34; means to make something that is completely new. This chapter uses the word &#34;create&#34; in only 3 verses. In verse 1, God created the sky and the earth. In verse 21, he created the first animals. In verse 27, he created people.
                             </p>
