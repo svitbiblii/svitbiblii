@@ -75,7 +75,10 @@ const LibraryPage = () => {
                     }`}>
                     <div>
                         <About/>
-                        <History />
+                        <div className="bg-secondary px-6 pt-1 pb-8">
+                            <p className="py-2 text-center font-medium border-b-2 border-blue-500 text-blue-500">Навігатор</p>
+                            <History />
+                        </div>
                     </div>
                 </div>
             </div>

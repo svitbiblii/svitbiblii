@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Link } from "@/i18n/routing";
 import { About } from "@/components/about";
 import History from "@/components/history";
 import { ChevronFirst, ChevronLast, CircleX } from "lucide-react";
@@ -8,6 +9,7 @@ import { ChevronFirst, ChevronLast, CircleX } from "lucide-react";
 const BibleEnPage = () => {
     const [expanded, setExpanded] = useState(true);
     const [showPage, setShowPage] = useState(true);
+    const [showContent, setShowContent] = useState(false);
 
     return (
         <div className="flex">
@@ -22,10 +24,39 @@ const BibleEnPage = () => {
                          className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary pb-12 shadow-lg ${
                              expanded ? "md:block" : "initial"
                          }`}>
-                             <div>
-                                 <About/>
-                                 <History />  
-                             </div>
+               <div>
+               <About/>
+                                 
+                                 <div className="bg-secondary px-6 pt-1 pb-8">
+                                     <div className="py-2 flex justify-between font-medium">
+                                         <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
+                                             onClick={() => {setShowContent(false)}}>
+                                                 Navigator
+                                         </button>
+                                         <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
+                                             onClick={() => {setShowContent(true)}}>
+                                                 Contents
+                                         </button>
+                                     </div>
+             
+                                 {showContent ? 
+                                 <ul className="list-none bg-secondary pl-0">
+                                     <li>
+                                         <Link href='/library/bible/bible-ua/#section1' 
+                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                                             Chapter 1
+                                         </Link>
+                                     </li>
+                                     <li>
+                                         <Link href='/library/bible/bible-ua/#section2' 
+                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                                                 Chapter 2
+                                         </Link>
+                                     </li>  
+                                 </ul> :
+                                 <History />}    
+                             </div>   
+                </div>
                      </div>
 
                      <div className="relative md:flex h-full w-full px-4 pt-2">
@@ -33,6 +64,7 @@ const BibleEnPage = () => {
                         <div className={`relative ${showPage ? "mb-3 md:mb-0 md:w-1/2 h-40vh md:h-screen overflow-y-scroll" : "w-full"}`}>
                             <h2>World English Bible (WEB) by Michael Paul Johnson with volunteers</h2>
                             <h3 className="text-2xl">Genesis</h3>
+                            <section id="section1">
                             <h3>Chapter 1</h3>
                             <p>1. In the beginning God(After &#34;God&#34;, the Hebrew has the two letters &#34;Aleph Tav&#34; (the first and last letters of the Hebrew alphabet) as a grammatical marker.) created the heavens and the earth.</p>
                             <p>2. Now the earth was formless and empty. Darkness was on the surface of the deep. God&#34;s Spirit was hovering over the surface of the waters.</p>
@@ -65,6 +97,15 @@ const BibleEnPage = () => {
                             <p>29. God said, &#34;Behold, I have given you every herb yielding seed, which is on the surface of all the earth, and every tree, which bears fruit yielding seed. It will be your food.</p>
                             <p>30. To every animal of the earth, and to every bird of the sky, and to everything that creeps on the earth, in which there is life, I have given every green herb for food&#34;; and it was so.</p>
                             <p>31. God saw everything that he had made, and, behold, it was very good. There was evening and there was morning, a sixth day.</p>
+                            </section>
+
+                            <section id="section2">
+                            <h3>Chapter 2</h3>
+                            <p>1. In the beginning God(After &#34;God&#34;, the Hebrew has the two letters &#34;Aleph Tav&#34; (the first and last letters of the Hebrew alphabet) as a grammatical marker.) created the heavens and the earth.</p>
+                            <p>2. Now the earth was formless and empty. Darkness was on the surface of the deep. God&#34;s Spirit was hovering over the surface of the waters.</p>
+                            <p>3. God said, &#34;Let there be light&#34;, and there was light.</p>
+                            </section>
+
 
                             {!showPage &&
                             <button className="fixed top-3/4 md:top-32 right-5 md:right-10 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300"

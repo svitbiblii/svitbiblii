@@ -3,6 +3,7 @@
     "library": "Library"
   },
     "Homepage": {
+      "navigator": "Navigator",
       "result": "No result found for this query",      
       "category": "All",
       "audio": "Audio",
@@ -42,6 +43,7 @@
     },
     "AboutUs": {
       "title": "«World of the Bible» - «Світ Біблії»",
+      "navigator": "Navigator",
       "subtitle1": "Who are we?",
       "par11": "The «The World of the Bible» project is implemented by the Mediaglagol Charitable Foundation",
       "par12": "a non-profit organization that has existed since 2014 and successfully supports Christian educational activities on a volunteer basis.",
@@ -63,7 +65,11 @@
     },
     "HowItWorks": {
       "title": "How it works",
+      "navigator": "Navigator",
       "content":"There should be a How It Works page that explains how to use the site. In my opinion, it would be great to add slides that show what the user can do on the site. These slides need to be drawn specifically for this project. Perhaps some kind of video instruction would be appropriate."
+    },
+    "HistoryComponent": {
+      "history": "There will be a history of transitions"
     },
     "Footer": {
       "email":"Email us: mediaglagol@gmail.com",

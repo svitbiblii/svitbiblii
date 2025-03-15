@@ -7,7 +7,7 @@ import { About } from "@/components/about";
 import { useState } from "react";
 
 const HowItWorksPage = () => {
-    const t = useTranslations("HowItWorks")
+    const t = useTranslations("HowItWorks");
 
     const [expanded, setExpanded] = useState(true);
 
@@ -24,10 +24,13 @@ const HowItWorksPage = () => {
                 className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary shadow-lg ${
                     expanded ? "md:block" : "initial"
                 }`}>
-                <div>
-                    <About/>
-                    <History />
-                </div>
+        <div>
+            <About/>
+            <div className="bg-secondary px-6 pt-1 pb-8">
+              <p className="py-2 text-center font-medium border-b-2 border-blue-500 text-blue-500">{t('navigator')}</p>
+              <History />
+            </div>
+        </div>
             </div>
         </div>
 
