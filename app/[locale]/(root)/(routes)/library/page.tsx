@@ -61,7 +61,7 @@ const LibraryPage = () => {
     const [expanded, setExpanded] = useState(true);
 
     return (
-        <div className="h-min-full flex">
+        <div className="h-min-full flex mt-16">
             <div className="flex">
                 <div className="relative">
                     <button onClick={() => setExpanded(curr => !curr)}

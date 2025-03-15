@@ -10,6 +10,7 @@ import { About } from "@/components/about";
 
 export default function SylvesterBlissPage() {
     const [showPage, setShowPage] = useState(false);
+    const [showContent, setShowContent] = useState(false);
     const [expanded1, setExpanded1] = useState(false);
     const [expanded2, setExpanded2] = useState(false);
     const [expanded3, setExpanded3] = useState(false);
@@ -37,7 +38,7 @@ export default function SylvesterBlissPage() {
     };
 
     return (
-        <div className="flex">
+        <div className="flex mt-16">
 
         <div className="relative">
                         <button onClick={() => setExpanded(curr => !curr)}
@@ -51,8 +52,37 @@ export default function SylvesterBlissPage() {
                             expanded ? "md:block" : "initial"
                         }`}>
                             <div>
-                                <About/>
-                                <History />
+                            <About/>
+                                 
+                                 <div className="bg-secondary px-6 pt-1 pb-8">
+                                     <div className="py-2 flex justify-between font-medium">
+                                         <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
+                                             onClick={() => {setShowContent(false)}}>
+                                                 Navigator
+                                         </button>
+                                         <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
+                                             onClick={() => {setShowContent(true)}}>
+                                                 Contents
+                                         </button>
+                                     </div>
+             
+                                 {showContent ? 
+                                 <ul className="list-none bg-secondary pl-0">
+                                     <li>
+                                         <Link href='/library/sylvester-bliss/#section1' 
+                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                                             Chapter 1
+                                         </Link>
+                                     </li>
+                                     <li>
+                                         <Link href='/library/sylvester-bliss/#section2' 
+                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                                                 Chapter 2
+                                         </Link>
+                                     </li>  
+                                 </ul> :
+                                 <History />}    
+                             </div>   
         
                             </div>
                     </div> 
@@ -64,7 +94,7 @@ export default function SylvesterBlissPage() {
 
          <h2 className="pt-0">A Brief Commentary on the Apocalypse Sylvester Bliss</h2>
 
-        <p>The 
+        <p id="section1">The 
         <button className="px-2 font-medium"
             onClick={togglePage}>
             Apocalypse
@@ -78,7 +108,7 @@ The Expositions of Mr. Lord have thrown much light on the nature and laws of sym
 The Bible is its own interpreter; and when practicable, scripture should be explained by scripture. The meaning imputed to any passage must never contradict, but must harmonize with that of parallel texts. In illustrating the several references in the Apocalypse to the same events and epochs, a repetition of scripture is somewhat unavoidable.
 
 These pages have resulted from notes prepared in a familiar course of Bible-class instruction, where the study of brevity was necessary. Without designing to speak dogmatically, the didactic was found the more direct and simple mode of expression. In presenting this exposition, merely as the opinion of the writer, it is with the hope that it will give, in a small compass, a common-sense view of the intricacies of this book, and be acceptable to those interested in the study of prophecy</p>
-<p>At the beginning of the history of Israel we find a prosperous race. It was indeed their growing importance, and chiefly their vast numerical increase, which excited the jealousy of their rulers, at the very time when a change of dynasty removed the sense of obligation. It is a sound lesson in political as well as personal godliness that prosperity itself is dangerous, and needs special protection from on high.
+<p id="section2">At the beginning of the history of Israel we find a prosperous race. It was indeed their growing importance, and chiefly their vast numerical increase, which excited the jealousy of their rulers, at the very time when a change of dynasty removed the sense of obligation. It is a sound lesson in political as well as personal godliness that prosperity itself is dangerous, and needs special protection from on high.
 
 Is it merely by chance again that we find in this first of histories examples of the folly of relying upon political connections? As the chief butler remembered not Joseph, nor did he succeed in escaping from prison by securing influence at court, so is the influence of[14] Joseph himself now become vain, although he was the father of Pharaoh and lord of all his house. His romantic history, his fidelity in temptation, and the services by which he had at once cemented the royal power and saved the people, could not keep his memory alive. The hollow wraith of dying fame died wholly. There arose a new king over Egypt who knew not Joseph.
 

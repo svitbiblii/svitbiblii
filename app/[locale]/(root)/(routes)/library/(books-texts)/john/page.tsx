@@ -1,5 +1,6 @@
 "use client";
 
+import { Link } from "@/i18n/routing";
 import History from "@/components/history";
 import { ChevronFirst, ChevronLast } from "lucide-react";
 import { About } from "@/components/about";
@@ -7,9 +8,10 @@ import { useState } from "react";
 
 export default function JohnPage() {
     const [expanded, setExpanded] = useState(true);
+    const [showContent, setShowContent] = useState(false);
 
     return (
-        <div className="h-min-full flex">
+        <div className="h-min-full flex mt-16">
                     <div className="flex">
                         <div className="relative">
                             <button onClick={() => setExpanded(curr => !curr)}
@@ -22,14 +24,38 @@ export default function JohnPage() {
                                 expanded ? "md:block" : "initial"
                             }`}>
                             <div>
-                                <About/>
-                                <History />
+                            <About/>
+                                 
+                                 <div className="bg-secondary px-6 pt-1 pb-8">
+                                     <div className="py-2 flex justify-between font-medium">
+                                         <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
+                                             onClick={() => {setShowContent(false)}}>
+                                                 Navigator
+                                         </button>
+                                         <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
+                                             onClick={() => {setShowContent(true)}}>
+                                                 Contents
+                                         </button>
+                                     </div>
+             
+                                 {showContent ? 
+                                 <ul className="list-none bg-secondary pl-0">
+                                     <li>
+                                         <Link href='/library/john/#section1' 
+                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                                             Chapter 1
+                                         </Link>
+                                     </li> 
+                                 </ul> :
+                                 <History />}    
+                             </div>   
                             </div>
                         </div>
                     </div>
 
                     <div className=" p-10  py-8 px-4  w-full mx-auto min-h-screen">
         <h2>The Epistles by St. John</h2>
+            <section id="section1">
             <p>
             Many books of the Old Testament begin with the <span id="conjunction" className="text-red-500">conjunction</span> And. This fact, it has been often pointed out, is a silent indication of truth, that each author was not recording certain isolated incidents, but parts of one great drama, events which joined hands with the past and future, looking before and after.
 
@@ -64,7 +90,8 @@ When Jacob in Peniel wrestles with God and prevails, he wins for himself a new n
 
 Here, then, a question of great moment is suggested. Beyond the fact that Abraham was the father of the Jewish race, can we discover any closer connection between the lives of the patriarchs and the history of Israel? Is there a truly spiritual coherence between them, or merely a genealogical sequence? For if the Bible can make good its claim to be vitalised throughout by the eternal Spirit of God, and leading forward steadily to His final revelation in Christ, then its parts will be symmetrical, proportionate and well designed.[8] If it be a universal book, there must be a better reason for the space devoted to preliminary and half secular stories, which is a greater bulk than the whole of the New Testament, than that these histories chance to belong to the nation whence Christ came. If no such reason can be found, the failure may not perhaps outweigh the great evidences of the faith, but it will score for something on the side of infidelity. But if upon examination it becomes plain that all has its part in one great movement, and that none can be omitted without marring the design, and if moreover this design has become visible only since the fulness of the time is come, the discovery will go far to establish the claim of Scripture to reveal throughout a purpose truly divine, dealing with man for ages, and consummated in the gift of Christ.
 
-Now, it is to St. Paul that we turn for light upon the connection between the Old Testament and the New. He made known His ways unto Moses, His characteristic and habitual ways. And it is on this account that whatsoever things were written aforetime are true admonition for us also, being not violent interruptions but impressive revelations of the steady silent methods of the judgment and the grace of God.</p>          
+Now, it is to St. Paul that we turn for light upon the connection between the Old Testament and the New. He made known His ways unto Moses, His characteristic and habitual ways. And it is on this account that whatsoever things were written aforetime are true admonition for us also, being not violent interruptions but impressive revelations of the steady silent methods of the judgment and the grace of God.</p>  
+            </section>
         </div>
                 </div>
         );

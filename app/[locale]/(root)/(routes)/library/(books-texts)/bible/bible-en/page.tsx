@@ -12,7 +12,7 @@ const BibleEnPage = () => {
     const [showContent, setShowContent] = useState(false);
 
     return (
-        <div className="flex">
+        <div className="flex mt-16">
                          <div className="relative">
                          <button onClick={() => setExpanded(curr => !curr)}
                                  className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
@@ -42,13 +42,13 @@ const BibleEnPage = () => {
                                  {showContent ? 
                                  <ul className="list-none bg-secondary pl-0">
                                      <li>
-                                         <Link href='/library/bible/bible-ua/#section1' 
+                                         <Link href='/library/bible/bible-en/#section1' 
                                              className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                                              Chapter 1
                                          </Link>
                                      </li>
                                      <li>
-                                         <Link href='/library/bible/bible-ua/#section2' 
+                                         <Link href='/library/bible/bible-en/#section2' 
                                              className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                                                  Chapter 2
                                          </Link>

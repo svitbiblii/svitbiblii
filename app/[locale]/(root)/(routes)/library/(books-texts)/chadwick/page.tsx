@@ -9,6 +9,7 @@
  
  export default function ChadwickPage() {
      const [showPage, setShowPage] = useState(false);
+     const [showContent, setShowContent] = useState(false);
      const [expanded, setExpanded] = useState(true);
      const [expanded1, setExpanded1] = useState(false);
      const [storedBook, setStoredBook] = useState<string[]>([])
@@ -34,7 +35,7 @@
      };  
  
      return (
-        <div className="flex">
+        <div className="flex mt-16">
              <div className="relative">
                          <button onClick={() => setExpanded(curr => !curr)}
                                  className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
@@ -47,9 +48,38 @@
                              expanded ? "md:block" : "initial"
                          }`}>
                              <div>
-                                 <About/>
-                                 <History />    
-                             </div>
+                             <About/>
+                                 
+                                 <div className="bg-secondary px-6 pt-1 pb-8">
+                                     <div className="py-2 flex justify-between font-medium">
+                                         <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
+                                             onClick={() => {setShowContent(false)}}>
+                                                 Navigator
+                                         </button>
+                                         <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
+                                             onClick={() => {setShowContent(true)}}>
+                                                 Contents
+                                         </button>
+                                     </div>
+             
+                                 {showContent ? 
+                                 <ul className="list-none bg-secondary pl-0">
+                                     <li>
+                                         <Link href='/library/chadwick/#section1' 
+                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                                             Chapter 1
+                                         </Link>
+                                     </li>
+                                     <li>
+                                         <Link href='/library/chadwick/#section2' 
+                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                                                 Chapter 2
+                                         </Link>
+                                     </li>  
+                                 </ul> :
+                                 <History />}    
+                                 </div>
+                             </div>   
                      </div> 
          
          
@@ -59,7 +89,7 @@
  
           <h2 className="pt-0">The Book of Exodus by G. A. Chadwick</h2>
  
-         <p>Much is now denied or doubted, within the Church itself, concerning the Book of Exodus, which was formerly accepted with confidence by all Christians.
+         <p id="section1">Much is now denied or doubted, within the Church itself, concerning the Book of Exodus, which was formerly accepted with confidence by all Christians.
  
  But <button className="px-2 font-medium" onClick={togglePage}>one thing</button>  can neither be doubted nor denied. Jesus Christ did certainly treat this
  book, taking it as He found it, as possessed of spiritual authority, a sacred scripture. He taught His disciples to regard it thus, and they did so.
@@ -76,7 +106,7 @@
  
  If such an attempt does, in any degree, prove successful and bear fruit, this fact will be of the nature of a <span id="scientific" className="text-green-500">scientific</span> demonstration.
  If this ancient Book of Exodus yields <button className="px-2 font-medium" onClick={togglePage}>solid results</button> to a sober devotional exposition in the nineteenth Christian century, if it is not an idle fancy that its teaching harmonises with the principles and theology of the New Testament, and even demands the New Testament as the true commentary upon the Old, what follows? How comes it that the oak is potentially in the acorn, and the living creature in the egg? No germ is a manufactured article: it is a part of the system of the universe.</p>
- <p> Many books of the Old Testament begin with the conjunction And. This fact, it has been often pointed out, is a silent indication of truth, that each author was not recording certain isolated incidents, but parts of one great drama, events which joined hands with the past and future, looking before and after.
+ <p id="section2"> Many books of the Old Testament begin with the conjunction And. This fact, it has been often pointed out, is a silent indication of truth, that each author was not recording certain isolated incidents, but parts of one great drama, events which joined hands with the past and future, looking before and after.
  
  Thus the Book of the Kings took up the tale from Samuel, Samuel from Judges, and Judges from Joshua, and all carried the sacred movement forward towards a goal as yet unreached. Indeed, it was impossible, remembering the first promise that the seed of the woman should bruise the head of the serpent, and the later assurance that in the seed of Abraham should be the universal blessing, for a faithful Jew to forget that all the history of his race was the evolution of some grand hope, a pilgrimage towards some goal unseen. Bearing in mind that there is now revealed to us a world-wide tendency toward the supreme consummation, the bringing all things under the headship of Christ, it is not to be denied that this hope of the[2] ancient Jew is given to all mankind. Each new stage in universal history may be said to open with this same conjunction. It links the history of England with that of Julius Cæsar and of the Red Indian; nor is the chain composed of accidents: it is forged by the hand of the God of providence. Thus, in the conjunction which binds these Old Testament narratives together, is found the germ of that instinctive and elevating phrase, the Philosophy of History. But there is nowhere in Scripture the notion which too often degrades and stiffens that Philosophy—the notion that history is urged forward by blind forces, amid which the individual man is too puny to assert himself. Without a Moses the Exodus is inconceivable, and God always achieves His purpose through the providential man.
  The Books of the Pentateuch are held together in a yet stronger unity than the rest, being sections of one and the same narrative, and having been accredited with a common authorship from the earliest mention of them. Accordingly, the Book of Exodus not only begins with this conjunction (which assumes the previous narrative), but also rehearses the descent into Egypt. “And these are the names of the sons of Israel which came into Egypt,”—names blotted with many a crime, rarely suggesting any lovable or great association, yet the names of men with a marvellous heritage, as being “the sons of Israel,” the Prince who prevailed with God. Moreover they are consecrated: their father’s dying words had conveyed to every one of them some expectation, some mysterious import which the future should disclose. In the issue would be revealed the awful influence of the past upon[3] the future, of the fathers upon the children even beyond the third and fourth generation—an influence which is nearer to destiny, in its stern, subtle and far-reaching strength, than any other recognised by religion. Destiny, however, it is not, or how should the name of Dan have faded out from the final list of “every tribe of the children of Israel” in the Apocalypse (Rev. vii. 5–8), where Manasseh is reckoned separately from Joseph to complete the twelve?
