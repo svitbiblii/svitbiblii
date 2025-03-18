@@ -12,6 +12,7 @@
      const [showContent, setShowContent] = useState(false);
      const [expanded, setExpanded] = useState(true);
      const [expanded1, setExpanded1] = useState(false);
+     const [expanded2, setExpanded2] = useState(false);
      const [storedBook, setStoredBook] = useState<string[]>([])
      const [newId, setNewId] = useState('')
  
@@ -170,8 +171,6 @@
              <li className="mb-3 block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                  <div className="flex justify-between items-start">
                      <Link   href='/library/john/#conjunction'  
-                             // onClick={() => {Cookies.set('2', 'G. A. Chadwick - The Book of Exodus')
-                             //                 setTimeout(() => {location.reload()}, 500)}}
                              onClick={() => {setNewId('3')}}
                              className="text-blue-500">conjunction
                          <span className="text-black ml-2 dark:text-white">in the book The Epistles by St. John</span>
@@ -184,6 +183,23 @@
                  </div>
                  <p className={`text-gray-700 mt-5 ${expanded1 ? "" : "hidden"}`}>
                      The Epistles of St. John by William Alexander is a theological exposition written in the late 19th century. This work is part of a series that aims to provide in-depth commentary and analysis of Biblical texts, specifically focusing on the epistles attributed to St. John. It explores the historical context, theological significance, and practical implications of these letters, which are crucial for understanding early Christian doctrine and ethics. The opening of the text presents a preface by the author, explaining his long-standing engagement with the Epistles of St. John. He outlines his approach, which combines historical background with exegetical analysis, framing the epistles within the broader context of St. John&#39;s life and the challenges faced by the early Church in Asia Minor, particularly Ephesus. The author prepares the reader for a detailed examination of the epistles, highlighting the importance of understanding the unique spiritual and theological insights that St. John offers, especially against the backdrop of contemporary heresies such as Gnosticism. The opening sets the stage for a scholarly yet accessible exploration intended for both serious theological study and general readers interested in the New Testament.</p> 
+             </li>
+
+             <li className="mb-3 block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                 <div className="flex justify-between items-start">
+                     <Link   href='/library/bible/bible-en/#beginning'  
+                             onClick={() => {setNewId('5')}}
+                             className="text-blue-500">beginning
+                         <span className="text-black ml-2 dark:text-white">in the book World English Bible by Michael Paul Johnson with volunteers</span>
+                     </Link>
+ 
+                     <button onClick={() => setExpanded2(curr => !curr)}
+                             className="">
+                         {expanded2 ? <ChevronUp/> : <ChevronDown/>}
+                     </button>
+                 </div>
+                 <p className={`text-gray-700 mt-5 ${expanded2 ? "" : "hidden"}`}>
+                 The World English Bible (WEB) is an English translation of the Bible freely shared online. The translation work began in 1994 and was deemed complete in 2020. Created by Michael Paul Johnson with help from volunteers,[1][6] the WEB is an updated revision of the American Standard Version from 1901.</p> 
              </li>
 
              <li className="mb-3 block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">

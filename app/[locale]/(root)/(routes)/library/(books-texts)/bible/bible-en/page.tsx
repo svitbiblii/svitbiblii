@@ -66,7 +66,7 @@ const BibleEnPage = () => {
                             <h3 className="text-2xl">Genesis</h3>
                             <section id="section1">
                             <h3>Chapter 1</h3>
-                            <p>1. In the beginning God(After &#34;God&#34;, the Hebrew has the two letters &#34;Aleph Tav&#34; (the first and last letters of the Hebrew alphabet) as a grammatical marker.) created the heavens and the earth.</p>
+                            <p>1. In the <span id="beginning" className="text-blue-300">beginning</span> God(After &#34;God&#34;, the Hebrew has the two letters &#34;Aleph Tav&#34; (the first and last letters of the Hebrew alphabet) as a grammatical marker.) created the heavens and the earth.</p>
                             <p>2. Now the earth was formless and empty. Darkness was on the surface of the deep. God&#34;s Spirit was hovering over the surface of the waters.</p>
                             <p>3. God said, &#34;Let there be light&#34;, and there was light.</p>
                             <p>4. God saw the light, and saw that it was good. God divided the light from the darkness.</p>
