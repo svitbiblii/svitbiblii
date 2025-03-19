@@ -6,6 +6,7 @@ import { Link } from "@/i18n/routing";
 import { useState, useEffect } from 'react'
 import { usePathname } from "@/i18n/routing";
 
+
 function History(){
     const t = useTranslations("HistoryComponent");
 
