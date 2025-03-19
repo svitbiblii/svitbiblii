@@ -36,7 +36,7 @@
      };  
  
      return (
-        <div className="flex mt-16">
+        <div className="flex">
              <div className="relative">
                          <button onClick={() => setExpanded(curr => !curr)}
                                  className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>

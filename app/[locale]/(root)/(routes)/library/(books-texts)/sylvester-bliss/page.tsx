@@ -38,7 +38,7 @@ export default function SylvesterBlissPage() {
     };
 
     return (
-        <div className="flex mt-16">
+        <div className="flex">
 
         <div className="relative">
                         <button onClick={() => setExpanded(curr => !curr)}
