@@ -6,7 +6,6 @@ import { Link } from "@/i18n/routing";
 import { useState, useEffect } from 'react'
 import { usePathname } from "@/i18n/routing";
 
-
 function History(){
     const t = useTranslations("HistoryComponent");
 
@@ -18,9 +17,9 @@ function History(){
     useEffect(() => {
       const savedBooks = sessionStorage.getItem('bookname')
 
-        if (savedBooks) {
-            setHistoryBook(JSON.parse(savedBooks))
-        }
+      if (savedBooks) {
+        setHistoryBook(JSON.parse(savedBooks))
+      }
     }, [])
 
 const copy = [];
