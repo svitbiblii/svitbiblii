@@ -39,11 +39,12 @@ if(historyBook) {
             <ul key={item?.id} className="space-y-2 list-none pl-0">
                 <li>
                     <Link   href={item.link} 
-                            className={`block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200 ${
+                            className={`block py-1 px-3 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200 ${
                                 isActive(item.link) ? 'text-blue-500' : ''
                             }`}
                             >
-                        <p>{item?.author} - {item?.title}</p>
+                                <p className="italic">{item?.author}</p>
+                                <p className="font-bold">- {item?.title}</p>
                     </Link>
                 </li>
             </ul>
