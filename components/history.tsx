@@ -33,11 +33,10 @@ if(historyBook) {
 }
 
     return (
-<div>
+<ul>
 
 {copy.length > 0 ? copy.reverse().map((item) => 
-            <ul key={item?.id} className="space-y-2 list-none pl-0">
-                <li>
+                <li key={item?.id} className="space-y-2 list-none pl-0">
                     <Link   href={item.link} 
                             className={`block py-1 px-3 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200 ${
                                 isActive(item.link) ? 'text-blue-500' : ''
@@ -47,12 +46,11 @@ if(historyBook) {
                                 <p className="font-bold">- {item?.title}</p>
                     </Link>
                 </li>
-            </ul>
-        ) : 
+        ) :
         <div>
 <p className="space-y-2 p-2 text-gray-600 dark:text-white">{t('history')}</p>
     </div> }
-</div>
+</ul>
     );
 }
 
