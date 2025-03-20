@@ -19,7 +19,7 @@ return (
 
         <Navbar />
 
-                <div ref={scrollContainerRef} className="h-screen w-full overflow-y-auto shadow-lg">
+                <div ref={scrollContainerRef} className="h-screen w-full overflow-y-auto shadow-lg mt-[75px]">
                     <main>
                         {children}
                         <Footer/>
