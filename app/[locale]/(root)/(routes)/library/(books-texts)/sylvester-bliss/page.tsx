@@ -38,7 +38,7 @@ export default function SylvesterBlissPage() {
     };
 
     return (
-        <div className="flex">
+        <div className="h-min-full flex mt-16">
 
         <div className="relative">
                         <button onClick={() => setExpanded(curr => !curr)}
@@ -108,7 +108,7 @@ The Expositions of Mr. Lord have thrown much light on the nature and laws of sym
 The Bible is its own interpreter; and when practicable, scripture should be explained by scripture. The meaning imputed to any passage must never contradict, but must harmonize with that of parallel texts. In illustrating the several references in the Apocalypse to the same events and epochs, a repetition of scripture is somewhat unavoidable.
 
 These pages have resulted from notes prepared in a familiar course of Bible-class instruction, where the study of brevity was necessary. Without designing to speak dogmatically, the didactic was found the more direct and simple mode of expression. In presenting this exposition, merely as the opinion of the writer, it is with the hope that it will give, in a small compass, a common-sense view of the intricacies of this book, and be acceptable to those interested in the study of prophecy</p>
-<p id="section2">At the beginning of the history of Israel we find a prosperous race. It was indeed their growing importance, and chiefly their vast numerical increase, which excited the jealousy of their rulers, at the very time when a change of dynasty removed the sense of obligation. It is a sound lesson in political as well as personal godliness that prosperity itself is dangerous, and needs special protection from on high.
+<p id="section2">
 
 Is it merely by chance again that we find in this first of histories examples of the folly of relying upon political connections? As the chief butler remembered not Joseph, nor did he succeed in escaping from prison by securing influence at court, so is the influence of[14] Joseph himself now become vain, although he was the father of Pharaoh and lord of all his house. His romantic history, his fidelity in temptation, and the services by which he had at once cemented the royal power and saved the people, could not keep his memory alive. The hollow wraith of dying fame died wholly. There arose a new king over Egypt who knew not Joseph.
 

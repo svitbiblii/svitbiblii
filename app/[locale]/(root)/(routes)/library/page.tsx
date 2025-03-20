@@ -14,7 +14,7 @@ const LibraryPage = () => {
     const [expanded, setExpanded] = useState(true);
 
     return (
-        <div className="flex">
+        <div className="h-min-full flex mt-16">
             <div className="flex">
                 <div className="relative">
                     <button onClick={() => setExpanded(curr => !curr)}
@@ -26,7 +26,7 @@ const LibraryPage = () => {
                     className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary shadow-lg ${
                         expanded ? "md:block" : "initial"
                     }`}>
-                    <div>
+                    <div className="">
                         <About/>
                         <div className="bg-secondary px-6 pt-1 pb-8">
                             <p className="py-2 text-center font-medium border-b-2 border-blue-500 text-blue-500">Навігатор</p>

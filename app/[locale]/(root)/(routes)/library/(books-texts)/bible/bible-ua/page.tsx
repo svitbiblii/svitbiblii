@@ -12,7 +12,7 @@ const BibleUaPage = () => {
     const [showContent, setShowContent] = useState(false);
 
     return (
-        <div className="flex">
+        <div className="h-min-full flex mt-16">
             <div className="relative">
                 <button onClick={() => setExpanded(curr => !curr)}
                     className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
@@ -98,18 +98,23 @@ const BibleUaPage = () => {
                                 <p>31. І побачив Бог усе, що вчинив. І ото, вельми добре воно! І був вечір, і був ранок, день шостий.</p>
                             </section>
 
-                            <section id="section2">
+                            <section id="section2" className="">
                                 <h3>Глава 2</h3>
                                 <p>1. І були скінчені небо й земля, і все воїнство їхнє.</p>
-                                <p>2. І скінчив Бог дня сьомого працю Свою, яку Він чинив. І Він відпочив у дні сьомім від усієї праці Своєї, яку був чинив.</p>
-                                <p>3. І поблагословив Бог день сьомий, і його освятив, бо в нім відпочив Він від усієї праці Своєї, яку, чинячи, Бог був створив</p>
+                                <p>2. І скінчив Бог дня сьомого працю Свою, яку Він чинив. І Він відпочив у дні сьомім
+                                    від усієї праці Своєї, яку був чинив.</p>
+                                <p>3. І поблагословив Бог день сьомий, і його освятив, бо в нім відпочив Він від усієї
+                                    праці Своєї, яку, чинячи, Бог був створив</p>
                             </section>
 
                             {!showPage &&
-                            <button className="fixed top-3/4 md:top-32 right-5 md:right-10 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300"
-                                    onClick={() => {setShowPage(true)}}>
-                                Тлумачення
-                            </button>}
+                                <button
+                                    className="fixed top-3/4 md:top-32 right-5 md:right-10 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300"
+                                    onClick={() => {
+                                        setShowPage(true)
+                                    }}>
+                                    Тлумачення
+                                </button>}
                         </div>
 
                          {showPage &&
