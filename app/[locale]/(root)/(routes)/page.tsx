@@ -6,7 +6,7 @@ import { Link } from "@/i18n/routing";
 import { useState, useCallback, useEffect} from "react";
 import { Search } from "@/components/search";
 import { CreateRoute } from "@/components/create-route";
-import { BOOKS_DATA } from "@/books-data";
+import { BOOKS_DATA } from "@/books-data_for-del";
 import Image from "next/image";
 import History from "@/components/history";
 import { ChevronFirst, ChevronLast } from "lucide-react";

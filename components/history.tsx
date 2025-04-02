@@ -1,7 +1,7 @@
 "use client"
 
 import { useTranslations } from "next-intl";
-import { BOOKS_DATA } from "@/books-data";
+import { BOOKS_DATA } from "@/books-data_for-del";
 import { Link } from "@/i18n/routing";
 import { useState, useEffect } from 'react'
 import { usePathname } from "@/i18n/routing";
