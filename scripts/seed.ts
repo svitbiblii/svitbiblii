@@ -8,57 +8,58 @@ type BookSeed = {
     link: string;
     name?: string;
     content?: string;
+    category?: string;
 };
 
 const books: BookSeed[] = [
     {
-        name: "Bibl",
-        content: "some content",
-        title: "Bibl1",
+        title: "Bibl",
         author: "Author A",
-        link: "/"
+        link: "/",
+        content: "some content",
+        category: "Bibl",
     },
     {
-        name: "Cloud of biblical tradition",
-        content: "something about cloud",
         title: "Cloud of biblical tradition",
         author: "Author B",
-        link: "/"
+        link: "/",
+        content: "something about cloud",
+        category: "Cloud of biblical tradition"
     },
     {
-        name: "Biblical Studies",
-        content: "academic view",
         title: "Biblical Studies",
         author: "Author C",
-        link: "/"
+        link: "/",
+        content: "academic view",
+        category: "Biblical Studies"
     },
     {
-        name: "Patristics",
-        content: "church fathers stuff",
         title: "Patristics",
         author: "Author D",
-        link: "/"
+        link: "/",
+        content: "church fathers stuff",
+        category: "Patristics"
     },
     {
-        name: "Philosophy and History",
-        content: "deep thoughts",
         title: "Philosophy and History",
         author: "Author E",
-        link: "/"
+        link: "/",
+        content: "deep thoughts",
+        category: "Philosophy and History"
     },
     {
-        name: "Dictionaries and Encyclopedias",
-        content: "reference materials",
         title: "Dictionaries and Encyclopedias",
         author: "Author F",
-        link: "/"
+        link: "/",
+        content: "reference materials",
+        category: "Dictionaries and Encyclopedias",
     },
     {
-        name: "Theology",
-        content: "about God",
         title: "Theology",
         author: "Author G",
-        link: "/"
+        link: "/",
+        content: "about God",
+        category: "Theology"
     }
 ];
 

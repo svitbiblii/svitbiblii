@@ -7,7 +7,7 @@ type BookWithLink = PrismaBook & { link: string };
 
 interface BooksProps {
     data: BookWithLink[];
-};
+}
 
 export const Books = ({
   data

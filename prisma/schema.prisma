@@ -10,11 +10,12 @@ datasource db {
 
 model books {
   id      Int     @id @default(autoincrement())
-  name    String?
-  content String?
   title   String? @unique
   author  String?
   link    String?
+  content String?
+  category String?
+  
 }
 
 

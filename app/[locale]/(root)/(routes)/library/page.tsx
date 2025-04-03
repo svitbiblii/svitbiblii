@@ -9,11 +9,14 @@ interface LibraryClientProps {
     books: BookWithLink[];
 }*/
 
+import { books as BookType } from "@prisma/client";
+
 const LibraryPage = async () => {
-    const books = await prismadb.books.findMany();
+    const books: BookType[] = await prismadb.books.findMany();
 
     const safeBooks = books.map((book) => ({
         ...book,
+        link: book.link ?? "/",
         createdAt: book.createdAt?.toISOString?.() ?? null,
         updatedAt: book.updatedAt?.toISOString?.() ?? null,
     }));
