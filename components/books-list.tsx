@@ -23,7 +23,7 @@ const BooksList = ({ books }: { books: (Library & { link: string })[] }) => {
             sessionStorage.setItem("bookname", JSON.stringify(updatedBooks));
             setStoredBook(updatedBooks);
         }
-    }, [newId]);
+    }, [newId, storedBook]);
 
     const filteredBooks = selectedCategory === "all"
         ? books
