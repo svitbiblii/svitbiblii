@@ -3,11 +3,9 @@
 import { Link } from "@/i18n/routing";
 import { useState, useEffect } from "react";
 import { CATEGORIES } from "@/components/categories";
-import { books } from "@prisma/client";
+import { Library } from "@prisma/client";
 
-type BookWithLink = books & { link: string };
-
-const BooksList = ({ books }: { books: BookWithLink[] }) => {
+const BooksList = ({ books }: { books: (Library & { link: string })[] }) => {
     const [storedBook, setStoredBook] = useState<string[]>([]);
     const [newId, setNewId] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("all");
@@ -27,12 +25,12 @@ const BooksList = ({ books }: { books: BookWithLink[] }) => {
         }
     }, [newId]);
 
-    // 🔥 Если в базе пока нет поля `kategory`, можно отключить фильтрацию:
-    const filteredBooks = books; // потом добавим фильтр по категории
+    const filteredBooks = selectedCategory === "all"
+        ? books
+        : books.filter(book => book.category === selectedCategory);
 
     return (
         <div className="p-6">
-            {/* Кнопки категорий */}
             <div className="flex flex-wrap mb-6">
                 {CATEGORIES().map(({ id, name }) => (
                     <button
@@ -49,17 +47,16 @@ const BooksList = ({ books }: { books: BookWithLink[] }) => {
                 ))}
             </div>
 
-            {/* 📚 Список книг */}
             <ul className="pl-0">
                 {filteredBooks.map((book) => (
                     <li className="list-none mb-2" key={book.id}>
                         <Link
-                            href={book.link || "#"} // ссылка на книгу (если есть)
-                            onClick={() => setNewId(book.id.toString())} // добавляем в сохранённые
+                            href={book.link}
+                            onClick={() => setNewId(book.id.toString())}
                             className="block p-2 pl-0 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200"
                         >
-                            <p className="mr-10 italic">{book.author}</p>   {/* 🔹 Автор из базы */}
-                            <p className="mr-10 font-bold">{book.title}</p> {/* 🔸 Заголовок из базы */}
+                            <p className="mr-10 italic">{book.author}</p>
+                            <p className="mr-10 font-bold">{book.title}</p>
                         </Link>
                     </li>
                 ))}

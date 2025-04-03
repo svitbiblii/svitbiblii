@@ -6,13 +6,10 @@ import { ChevronFirst, ChevronLast } from "lucide-react";
 import { About } from "@/components/about";
 import { useState } from "react";
 import BooksList from "@/components/books-list";
-import { books as PrismaBook } from "@prisma/client";
-
-// Тип, где мы гарантируем наличие `link`
-type BookWithLink = PrismaBook & { link: string };
+import { Library } from "@prisma/client";
 
 interface LibraryClientProps {
-    books: BookWithLink[];
+    books: (Library & { link: string })[];
 }
 
 const LibraryClient = ({ books }: LibraryClientProps) => {
@@ -20,7 +17,7 @@ const LibraryClient = ({ books }: LibraryClientProps) => {
     const [expanded, setExpanded] = useState(true);
 
     return (
-        <div className="h-min-full flex mt-16 ww">
+        <div className="h-min-full flex mt-16">
             <div className="flex">
                 <div className="relative">
                     <button

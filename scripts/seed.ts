@@ -2,16 +2,15 @@ import { PrismaClient } from "@prisma/client";
 
 const db = new PrismaClient();
 
-type BookSeed = {
+type LibrarySeed = {
     title: string;
-    author: string;
-    link: string;
-    name?: string;
+    author?: string;
+    link?: string;
     content?: string;
     category?: string;
 };
 
-const books: BookSeed[] = [
+const libraries: LibrarySeed[] = [
     {
         title: "Bibl",
         author: "Author A",
@@ -65,14 +64,14 @@ const books: BookSeed[] = [
 
 async function main() {
     try {
-        await db.books.deleteMany(); // 🧹 Очистка таблицы перед вставкой
-        await db.books.createMany({
-            data: books,
+        await db.library.deleteMany(); // Очистка таблицы перед вставкой
+        await db.library.createMany({
+            data: libraries,
             skipDuplicates: true
         });
-        console.log("✅ Books seeded successfully.");
+        console.log("✅ Libraries seeded successfully.");
     } catch (error) {
-        console.error("❌ Error seeding books:", error);
+        console.error("❌ Error seeding Libraries:", error);
     } finally {
         await db.$disconnect();
     }

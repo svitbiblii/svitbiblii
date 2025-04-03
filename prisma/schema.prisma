@@ -8,14 +8,13 @@ datasource db {
   relationMode = "prisma"
 }
 
-model books {
+model Library {
   id      Int     @id @default(autoincrement())
-  title   String? @unique
+  title   String @unique
   author  String?
   link    String?
   content String?
   category String?
-  
 }
 
 

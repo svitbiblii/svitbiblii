@@ -1,9 +1,9 @@
 "use client"
 
-import { books as PrismaBook } from "@prisma/client";
+import { Library } from "@prisma/client";
 import {cn} from "@/lib/utils";
 
-type BookWithLink = PrismaBook & { link: string };
+type BookWithLink = Library & { link: string };
 
 interface BooksProps {
     data: BookWithLink[];
@@ -19,7 +19,7 @@ export const Books = ({
                         key={item.id}
                         className={cn('flex')}
                     >
-                        {item.name}
+                        {item.title}
                     </button>
                 ))
             }
