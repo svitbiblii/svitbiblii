@@ -1,10 +1,12 @@
 "use client"
 
-import { Books } from "@prisma/client"
+import { books as PrismaBook } from "@prisma/client";
 import {cn} from "@/lib/utils";
 
+type BookWithLink = PrismaBook & { link: string };
+
 interface BooksProps {
-    data: Books[];
+    data: BookWithLink[];
 };
 
 export const Books = ({

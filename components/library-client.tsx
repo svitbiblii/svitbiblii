@@ -6,23 +6,13 @@ import { ChevronFirst, ChevronLast } from "lucide-react";
 import { About } from "@/components/about";
 import { useState } from "react";
 import BooksList from "@/components/books-list";
+import { books as PrismaBook } from "@prisma/client";
 
-interface Book {
-    id: number;
-    title: string;
-    author: string;
-    name?: string;
-    content?: string;
-    createdAt?: string;
-    updatedAt?: string;
-    icon?: string;
-    anotation?: string;
-    type?: string;
-    link?: string;
-}
+// Тип, где мы гарантируем наличие `link`
+type BookWithLink = PrismaBook & { link: string };
 
 interface LibraryClientProps {
-    books: Book[];
+    books: BookWithLink[];
 }
 
 const LibraryClient = ({ books }: LibraryClientProps) => {
@@ -49,14 +39,12 @@ const LibraryClient = ({ books }: LibraryClientProps) => {
                         expanded ? "md:block" : "initial"
                     }`}
                 >
-                    <div>
-                        <About />
-                        <div className="bg-secondary px-6 pt-1 pb-8">
-                            <p className="py-2 text-center font-medium border-b-2 border-blue-500 text-blue-500">
-                                Навігатор
-                            </p>
-                            <History />
-                        </div>
+                    <About />
+                    <div className="bg-secondary px-6 pt-1 pb-8">
+                        <p className="py-2 text-center font-medium border-b-2 border-blue-500 text-blue-500">
+                            Навігатор
+                        </p>
+                        <History />
                     </div>
                 </div>
             </div>

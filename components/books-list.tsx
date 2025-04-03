@@ -3,10 +3,11 @@
 import { Link } from "@/i18n/routing";
 import { useState, useEffect } from "react";
 import { CATEGORIES } from "@/components/categories";
+import { books } from "@prisma/client";
 
-import { books as BookType } from "@prisma/client";
+type BookWithLink = books & { link: string };
 
-const BooksList = ({ books }: { books: BookType[] }) => {
+const BooksList = ({ books }: { books: BookWithLink[] }) => {
     const [storedBook, setStoredBook] = useState<string[]>([]);
     const [newId, setNewId] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("all");
