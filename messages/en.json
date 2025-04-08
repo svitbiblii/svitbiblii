@@ -71,6 +71,10 @@
     "HistoryComponent": {
       "history": "There will be a history of transitions"
     },
+    "BookContents": {
+      "navigator": "Navigator",
+      "content": "Contents"
+  },
     "Footer": {
       "email":"Email us: mediaglagol@gmail.com",
       "facebook": "Follow us on Facebook",

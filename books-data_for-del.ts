@@ -35,8 +35,8 @@ export interface IBooks {
     },
     {
         "id": "3",
-        "author": "The Epistles",
-        "title": "St. John",
+        "author": "St. John",
+        "title": "The Epistles",
         "anotation": "The Expositor's Bible: The Epistles of St. John by William Alexander is a theological exposition written in the late 19th century. This work is part of a series that aims to provide in-depth commentary and analysis of Biblical texts, specifically focusing on the epistles attributed to St. John. It explores the historical context, theological significance, and practical implications of these letters, which are crucial for understanding early Christian doctrine and ethics. The opening of the text presents a preface by the author, explaining his long-standing engagement with the Epistles of St. John. He outlines his approach, which combines historical background with exegetical analysis, framing the epistles within the broader context of St. John's life and the challenges faced by the early Church in Asia Minor, particularly Ephesus. The author prepares the reader for a detailed examination of the epistles, highlighting the importance of understanding the unique spiritual and theological insights that St. John offers, especially against the backdrop of contemporary heresies such as Gnosticism. The opening sets the stage for a scholarly yet accessible exploration intended for both serious theological study and general readers interested in the New Testament.",
         "genre": "biblical",
         "type": "text",
@@ -57,6 +57,28 @@ export interface IBooks {
     },
     {
         "id": "5",
+        "author": "Елеонор Портер",
+        "title": "Поліанна",
+        "anotation": "Це захоплива розповідь про 12ти річну чарівну дівчинку, з появою якої змінилося життя в спокійному провінційному містечку. Це маленьке дівчисько завдяки своїй доброті, безпосередності, життєрадісності та енергійності зуміла розтопити черстві серця людей, приречених на сіре та безпросвітне існування.",
+        "genre": "philosophy-and-history",
+        "type": "text",
+        "kategory": "theology",
+        "link": "/library/porter",
+        "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrykvYAhtth_OBMIlHB7ukNw_eOSZFMTplckvrzs_yHgEoqrMYawOJx70&s"
+    },
+    {
+        "id": "6",
+        "author": "К.С. Люїc",
+        "title": "Листи крутеня",
+        "anotation": "Часом ми не віримо, що зло й справді існує у світі. Натомість воно настільки витончене, то деколи його просто не помічаємо. Спокуси й пастки нечистого чекають нас будь-де. І не зауважуємо, як в них потрапляємо. Відомий в усьому світі християнський письменник Клайв Стейтиз Люїс, автор Хронік Нарнії, прагне показати механізм дії зла у світі. Форма, яку обрав автор — листи-повчання старого, досвідченого диявола (Крутеня) до молодого бісика про те, як спокушати людей.",
+        "genre": "philosophy-and-history",
+        "type": "text",
+        "kategory": "diction",
+        "link": "/library/lewis",
+        "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrykvYAhtth_OBMIlHB7ukNw_eOSZFMTplckvrzs_yHgEoqrMYawOJx70&s"
+    },
+    {
+        "id": "7",
         "author": "Michael Paul Johnson with volunteers",
         "title": "World English Bible (WEB)",
         "anotation": "The World English Bible (WEB) is an English translation of the Bible freely shared online. The translation work began in 1994 and was deemed complete in 2020. Created by Michael Paul Johnson with help from volunteers,[1][6] the WEB is an updated revision of the American Standard Version from 1901.",
@@ -64,28 +86,6 @@ export interface IBooks {
         "type": "text",
         "kategory": "bibl",
         "link": "/library/bible/bible-en",
-        "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrykvYAhtth_OBMIlHB7ukNw_eOSZFMTplckvrzs_yHgEoqrMYawOJx70&s"
-    },
-    {
-        "id": "6",
-        "author": "G. K. Chesterton",
-        "title": "Heretics",
-        "anotation": "Heretics by G. K. Chesterton is a critical examination and philosophical treatise written in the early 20th century. The book addresses the moral and intellectual confusion of modern society, particularly the shifting definitions and attitudes toward orthodoxy and heresy. Chesterton critiques prominent figures of his time, such as Rudyard Kipling and H.G. Wells, as he explores the erosion of philosophical thought and the significance of fundamental beliefs in literature and politics. At the start of Heretics, Chesterton lays the groundwork for his arguments by contrasting the ancient notions of heresy and orthodoxy with contemporary perspectives. He observes that what was once considered honorable—standing firm in one's beliefs against the crowd—has become inverted; now, the term heretic is often worn as a badge of pride by those who release themselves from conventional truths. Chesterton discusses the dangers of abandoning overarching ideals, claiming that society is losing sight of the broader questions of existence, morality, and philosophy in favor of ephemeral details. The opening portions introduce his intention to confront various notable thinkers, positioning them as representatives of flawed philosophies that neglect the essential truths of human experience.",
-        "genre": "philosophy-and-history",
-        "type": "text",
-        "kategory": "diction",
-        "link": "",
-        "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrykvYAhtth_OBMIlHB7ukNw_eOSZFMTplckvrzs_yHgEoqrMYawOJx70&s"
-    },
-    {
-        "id": "7",
-        "author": "G. K. Chesterton",
-        "title": "Orthodoxy",
-        "anotation": "Orthodoxy by G. K. Chesterton is a philosophical exploration written in the late 19th century. In this work, Chesterton responds to critiques of his earlier writings, particularly Heretics, by presenting his own affirmative philosophy centered on Christian orthodoxy. The text navigates through personal and intellectual reflections to illustrate how he arrived at his beliefs, engaging with themes of tradition, imagination, and the need for a balance between the familiar and the foreign. The beginning of Orthodoxy sets the stage for Chesterton's journey of self-discovery as he contemplates his philosophical position. He recounts the influence of prior critics and emphasizes the importance of providing an explanation for his faith. He uses a vivid metaphor of a man discovering England, implying that his philosophical journey mirrors a realization of pre-existing truths. Chesterton argues against the modern tendency to deny fundamental human experiences, such as the existence of sin, while asserting the need for a romantic view of the world that combines wonder with a sense of belonging. This opening section establishes a personal narrative intertwined with broader philosophical discussions, ultimately serving as an invitation to readers to reflect on their beliefs.",
-        "genre": "philosophy-and-history",
-        "type": "text",
-        "kategory": "theology",
-        "link": "",
         "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrykvYAhtth_OBMIlHB7ukNw_eOSZFMTplckvrzs_yHgEoqrMYawOJx70&s"
     },
     {

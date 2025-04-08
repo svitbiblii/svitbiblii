@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import { About } from "@/components/about";
 import History from "@/components/history";
 import { ChevronFirst, ChevronLast, CircleX } from "lucide-react";
 
 const BibleUaPage = () => {
+    const t = useTranslations("BookContents");
+
     const [expanded, setExpanded] = useState(true);
     const [showPage, setShowPage] = useState(true);
     const [showContent, setShowContent] = useState(false);
@@ -29,11 +32,11 @@ const BibleUaPage = () => {
                         <div className="py-2 flex justify-between font-medium">
                             <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
                                 onClick={() => {setShowContent(false)}}>
-                                    Навігатор
+                                    {t('navigator')}
                             </button>
                             <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
                                 onClick={() => {setShowContent(true)}}>
-                                    Зміст
+                                    {t('content')}
                             </button>
                         </div>
 

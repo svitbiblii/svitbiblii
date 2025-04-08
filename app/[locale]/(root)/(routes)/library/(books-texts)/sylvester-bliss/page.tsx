@@ -3,12 +3,14 @@
 import { Link } from "@/i18n/routing";
 import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp, CircleX } from "lucide-react";
-// import Cookies from "js-cookie";
+import { useTranslations } from "next-intl";
 import History from "@/components/history";
 import { ChevronFirst, ChevronLast } from "lucide-react";
 import { About } from "@/components/about";
 
 export default function SylvesterBlissPage() {
+    const t = useTranslations("BookContents");
+
     const [showPage, setShowPage] = useState(false);
     const [showContent, setShowContent] = useState(false);
     const [expanded1, setExpanded1] = useState(false);
@@ -58,11 +60,11 @@ export default function SylvesterBlissPage() {
                                      <div className="py-2 flex justify-between font-medium">
                                          <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
                                              onClick={() => {setShowContent(false)}}>
-                                                 Navigator
+                                                 {t('navigator')}
                                          </button>
                                          <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
                                              onClick={() => {setShowContent(true)}}>
-                                                 Contents
+                                                 {t('content')}
                                          </button>
                                      </div>
              

@@ -1,12 +1,15 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import History from "@/components/history";
 import { ChevronFirst, ChevronLast } from "lucide-react";
 import { About } from "@/components/about";
 import { useState } from "react";
 
 export default function JohnPage() {
+    const t = useTranslations("BookContents");
+
     const [expanded, setExpanded] = useState(true);
     const [showContent, setShowContent] = useState(false);
 
@@ -30,11 +33,11 @@ export default function JohnPage() {
                                      <div className="py-2 flex justify-between font-medium">
                                          <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
                                              onClick={() => {setShowContent(false)}}>
-                                                 Navigator
+                                                 {t('navigator')}
                                          </button>
                                          <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
                                              onClick={() => {setShowContent(true)}}>
-                                                 Contents
+                                                 {t('content')}
                                          </button>
                                      </div>
              

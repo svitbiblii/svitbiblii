@@ -71,6 +71,10 @@
     "HistoryComponent": {
         "history": "Тут буде історія переходів"
     },
+    "BookContents": {
+        "navigator": "Навігатор",
+        "content": "Зміст"
+    },
     "Footer": {
       "email":"Пишіть нам: mediaglagol@gmail.com",
       "facebook": "Стежте за нами у Facebook",
