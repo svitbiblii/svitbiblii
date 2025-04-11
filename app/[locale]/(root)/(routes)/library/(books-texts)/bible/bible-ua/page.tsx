@@ -27,7 +27,7 @@ const BibleUaPage = () => {
                              expanded ? "md:block" : "initial"}`}>
                 <div>
                     <About/>
-                                 
+     
                     <div className="bg-secondary px-6 pt-1 pb-8">
                         <div className="py-2 flex justify-between font-medium">
                             <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  

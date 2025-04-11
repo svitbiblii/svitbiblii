@@ -90,13 +90,13 @@ export interface IBooks {
     },
     {
         "id": "8",
-        "author": "Charles Dickens",
-        "title": "A Christmas Carol",
+        "author": "",
+        "title": "Новий Завіт",
         "anotation": "A Christmas Carol by Charles Dickens is a novella written in the early 19th century. This classic work follows the transformation of Ebenezer Scrooge, a miserly old man, who is visited by the ghost of his former business partner, Jacob Marley, and three spirits representing Christmases Past, Present, and Yet to Come. The novella explores themes of compassion, redemption, and the true meaning of Christmas, inviting readers to reflect on the importance of kindness and generosity. The opening of the story establishes Ebenezer Scrooge as a cold-hearted and greedy miser who dismisses Christmas as humbug. The narrative begins with the assertion of Marley's death, emphasizing the starkness of Scrooge’s character and his isolation. Scrooge's interactions with his cheerful nephew Fred, who invites him to celebrate Christmas, reveal Scrooge's disdain for the holiday spirit. As Scrooge encounters two gentlemen collecting for the poor, he harshly rejects their appeal for charitable donations. The chapter builds a bleak picture of Scrooge's life until the haunting of Marley's ghost serves as the pivotal turning point, setting the stage for the transformative journey that will follow.",
         "genre": "fiction",
         "type": "text",
         "kategory": "bibl",
-        "link": "",
+        "link": "/library/bible/new-testament",
         "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrykvYAhtth_OBMIlHB7ukNw_eOSZFMTplckvrzs_yHgEoqrMYawOJx70&s"
     },
     {
