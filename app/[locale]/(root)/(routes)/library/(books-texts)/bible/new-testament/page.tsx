@@ -7,11 +7,12 @@ import { About } from "@/components/about";
 import History from "@/components/history";
 import { ChevronFirst, ChevronLast} from "lucide-react";
 import {Library } from '@prisma/client';
-import { FC } from 'react';
+// import { FC } from 'react';
 
-interface BookPageProps {book: Library | null;} // Видаляємо bookId з пропсів, якщо він не передається ззовні
+// interface BookPageProps {book: Library | null}
+// const NewTestamentPage: FC<BookPageProps> = ()
 
-const NewTestamentPage: FC<BookPageProps> = () => {
+const NewTestamentPage = () => {
   const t = useTranslations("BookContents");
   const [expanded, setExpanded] = useState(true);
   const [showContent, setShowContent] = useState(false);
