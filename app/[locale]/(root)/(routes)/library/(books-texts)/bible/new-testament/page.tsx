@@ -21,7 +21,8 @@ const NewTestamentPage = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`/api/books/8`); // Явно вказуємо ID 8
+        // const response = await fetch(`/api/books/8`); // Явно вказуємо ID 8
+        const response = await fetch('/api/get-book/8');
         if (!response.ok) {
           const errorData = await response.json();
           setError(errorData.error || "Сталася помилка при обробці запиту.");

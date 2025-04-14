@@ -15,4 +15,6 @@ model Library {
   link     String?
   content  String?
   category String?
+  format   String?
+  filePath String?
 }

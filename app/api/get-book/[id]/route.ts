@@ -1,3 +1,4 @@
+// app/api/get-book/[id]/route.ts (Server Route)  повертає дані з бази даних, включаючи шлях до файлу
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
 
@@ -8,9 +9,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
 
   try {
     const book = await prisma.library.findUnique({
-      where: {
-        id: parseInt(id, 10), // Використовуємо десяткову систему числення
-      },
+      where: { id: parseInt(id, 10) },
     });
 
     if (!book) {
@@ -19,7 +18,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
 
     return NextResponse.json(book);
   } catch (error) {
-    console.error('Помилка отримання книги:', error);
+    console.error('Помилка отримання даних про книгу:', error);
     return NextResponse.json({ error: 'Помилка сервера' }, { status: 500 });
   } finally {
     await prisma.$disconnect();
