@@ -67,8 +67,8 @@ const EpubReader = () => {
             const bookInstance = Epub(bookData.filePath); // epub.js тепер завантажує файл з public
             setBook(bookInstance); // Зберігаємо об'єкт книги в стані
             const rendition = bookInstance.renderTo(viewerRef.current, {
-                width: '100%',
-                height: '600px', // Налаштуйте висоту за потребою
+                width: '70vw',
+                height: '70vh', // Налаштуйте висоту за потребою
                 flow: 'paginated', // Або 'scrolled'
             });
             rendition.display();
@@ -151,13 +151,13 @@ const EpubReader = () => {
                         {showContent ?
                             <ul className="list-none bg-secondary pl-0">
                                 <li>
-                                    <Link href='/library/bible/bible-ua/#section1'
+                                    <Link href=''
                                           className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                                         Глава 1
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href='/library/bible/bible-ua/#section2'
+                                    <Link href=''
                                           className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                                         Глава 2
                                     </Link>
