@@ -7,14 +7,11 @@
  import { About } from "@/components/about";
  import History from "@/components/history";
  
- export default function ChadwickPage() {
+ export default function DankovaPage() {
     const t = useTranslations("BookContents");
 
-    //  const [showPage, setShowPage] = useState(false);
      const [showContent, setShowContent] = useState(false);
      const [expanded, setExpanded] = useState(true);
-    //  const [expanded1, setExpanded1] = useState(false);
-    //  const [expanded2, setExpanded2] = useState(false);
      const [storedBook, setStoredBook] = useState<string[]>([])
      const [newId, setNewId] = useState('')
  
@@ -103,9 +100,9 @@
         приймаємо добре, чи ж злого не приймемо?</span>
       — щораз повторював
       батько.
-      <div className="absolute bottom-full left-2 bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
-       <p className="underline">Біблія, книга Йова розділ 2, вірш 10</p>
-      </div>
+      <span className="absolute bottom-full left-2 bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
+       <span className="underline">Біблія, книга Йова розділ 2, вірш 10</span>
+      </span>
     </p>
   </blockquote>
     <p className="group relative inline-block">
@@ -114,10 +111,10 @@
         щодня ходити до моря
         вудити <span className="italic text-blue-500 hover:text-blue-700">дивну
         рибу, що повертає зір. Якщо вмитися тією рибою, то полуда впаде з очей і невидющий бачитиме, як і перше.</span>
-        <div className="absolute bottom-full left-1/2 -translate-x-1/2 bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
-        <p className="underline">Риба-зебра, що повертає зір.</p>
-        <p className="underline">Біблія, книга Товіта розділ 6, вірші 6-9.</p>
-      </div>
+        <span className="absolute bottom-full left-1/2 -translate-x-1/2 bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
+        <span className="underline">Риба-зебра, що повертає зір.</span>
+        <span className="underline">Біблія, книга Товіта розділ 6, вірші 6-9.</span>
+      </span>
     </p>
 
     <p>
@@ -142,9 +139,9 @@
             мов бідою. Що
             з
             тебе буде, сину?
-            <div className="absolute bottom-full right-2 bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
+            <span className="absolute bottom-full right-2 bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
             <Link href='/library/avgustine' onClick={() => {setNewId('25')}} className="underline">Блаженний Августин «Сповідь»</Link>
-      </div>
+      </span>
         </p>
     </blockquote>
     <p>
