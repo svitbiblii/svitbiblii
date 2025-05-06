@@ -169,7 +169,6 @@ const EpubReader = () => {
             </div>
 
             <div >
-                <div>
                     <h1>{bookData.title || "Untitled book"}</h1>
                     <div ref={viewerRef} className="viewer" />
                     <div className="navigation-controls mt-4 flex justify-between">
@@ -180,7 +179,6 @@ const EpubReader = () => {
                             наступна
                         </button>
                     </div>
-                </div>
             </div>
         </div>
     );

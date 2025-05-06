@@ -9,12 +9,23 @@ datasource db {
 }
 
 model Library {
-  id       Int     @id @default(autoincrement())
-  title    String  @unique
+  id       Int    @id @default(autoincrement())
+  title    String @unique
   author   String?
   link     String?
   content  String?
   category String?
   format   String?
   filePath String?
+  slug     String @unique @default("")
+}
+
+model Route {
+  id          Int     @id @default(autoincrement())
+  name        String
+  startPoint  String
+  endPoint    String
+  distance    Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
