@@ -3,6 +3,7 @@
  import { Link } from "@/i18n/routing";
  import { useTranslations } from "next-intl";
  import { useState, useEffect } from "react";
+ import { ChevronDown, ChevronUp, CircleX } from "lucide-react";
  import { ChevronFirst, ChevronLast } from "lucide-react";
  import { About } from "@/components/about";
  import History from "@/components/history";
@@ -10,8 +11,11 @@
  export default function DankovaPage() {
     const t = useTranslations("BookContents");
 
+     const [showPage, setShowPage] = useState(false);
      const [showContent, setShowContent] = useState(false);
      const [expanded, setExpanded] = useState(true);
+     const [expanded1, setExpanded1] = useState(false);
+    //  const [expanded2, setExpanded2] = useState(false);
      const [storedBook, setStoredBook] = useState<string[]>([])
      const [newId, setNewId] = useState('')
  
@@ -28,8 +32,13 @@
          if (savedBooks) {
            setStoredBook(JSON.parse(savedBooks))
          }
-       }, []) 
+       }, [])
  
+       const togglePage = () => {
+         setShowPage(!showPage)
+     }; 
+     
+  
      return (
         <div className="h-min-full flex mt-16">
              <div className="relative">
@@ -59,35 +68,36 @@
                                      </div>
              
                                  {showContent ? 
-                                 <ul className="list-none bg-secondary pl-0">
-                                     <li>
-                                         <Link href='/library/chadwick/#section1' 
-                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                                             Частина 1
-                                         </Link>
-                                     </li>
-                                     <li>
-                                         <Link href='/library/chadwick/#section2' 
-                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                                                 Частина 2
-                                         </Link>
-                                     </li>  
-                                 </ul> :
+
+<ul className="list-none bg-secondary pl-0">
+<li>
+    <Link href='/library/chadwick/#section1' 
+        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+        Частина 1
+    </Link>
+</li>
+<li>
+    <Link href='/library/chadwick/#section2' 
+        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+            Частина 2
+    </Link>
+</li>  
+</ul>  :
                                  <History />}    
                                  </div>
                              </div>   
                      </div> 
          
          
-         <div className="relative h-full w-full px-4 pt-2 block">
+                     <div className={`relative h-full w-full px-4 pt-2  ${showPage ? "md:flex md:h-screen block" : "block"} `}>
        
-                <div className="w-full">
- 
-                <h2 className="pt-0">«Сім днів перед Різдвом» Н.Данькова</h2>
+       <div className={`  ${showPage ? "px-3 mb-3 md:mb-0 border-2 border-blue-200 rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
 
-          <section id="section1">
-            <h3>Частина 1 (ст.18)</h3>
-            <p>
+ <h2 className="pt-0">«Сім днів перед Різдвом» Н.Данькова</h2>
+ 
+ <section id="section1">
+             <h3>Частина 1 (ст.18)</h3>
+             <p>
     Ян же був затятий, він ніяк не хтів миритись
     із батьковою недугою. Очі
     йому
@@ -128,19 +138,19 @@
     </p>
     <blockquote>
         <p className="group relative inline-block">
-            — Непримиренний
+            — Непримиренний 
             мій Яне, ти ж рибу як слід не вмієш вудити,
             а що
             за
             дивину собі вигадав. Хоч ти не любиш
             моря, і зовні спокійний — ніхто
-            й не розбере твоєї думки, але <span className="italic text-blue-500 hover:text-blue-700">зсередини
-            ти збурений</span>,
+            й не розбере твоєї думки, але <button onClick={togglePage} className="italic px-2 font-medium underline text-blue-500 hover:text-blue-700">зсередини
+            ти збурений</button>,
             мов бідою. Що
             з
             тебе буде, сину?
             <span className="absolute bottom-full right-2 bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
-            <Link href='/library/avgustine' onClick={() => {setNewId('25')}} className="underline">Блаженний Августин «Сповідь»</Link>
+            <Link href='/library/avgustine' onClick={() => {setNewId('25')}}  className="underline">Блаженний Августин «Сповідь»</Link>
       </span>
         </p>
     </blockquote>
@@ -207,9 +217,40 @@
         рук.
     </p>
 </section>
+        
+</div>
 
-         </div>
-         </div>
+{showPage && 
+<div className={`${showPage ? "px-3 md:pt-0 pt-3 border-2 border-blue-200 rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
+<button className="float-right text-gray-700 hover:text-blue-400 transition-colors duration-200" 
+    onClick={() => {setShowPage(false)}}>
+    <CircleX/>
+</button>
+<ul className="pl-0 pt-10 w-full ">
+    <li className="mb-3 block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+        <div className="flex justify-between items-start">
+            <Link   href='/library/avgustine/#imp'  
+                    onClick={() => {setNewId('25')}}
+                    >
+                 <span className="text-blue-500 underline">Одначе як я волатиму до Бога мого, Бога й Господа мого?</span>   
+                <span className="text-black ml-2 dark:text-white">в книзі Сповідь блаженного Августина</span>
+            </Link>
+
+            <button onClick={() => setExpanded1(curr => !curr)}
+                    className="">
+                {expanded1 ? <ChevronUp/> : <ChevronDown/>}
+            </button>
+        </div>
+        <p className={`text-gray-700 mt-5 ${expanded1 ? "" : "hidden"}`}>
+        «Святий Авґустин (354—430) — християнський теолог, вчитель Церкви, філософ, ритор, єпископ. За його власними свідченнями, ним було створено 232 книги; збереглися також 224 листи і понад 500 текстів проповідей. Спосіб викладу матеріалу в цих працях відповідає бурхливому, неспокійному характеру автора. Про нього говорили, що ні в кого з великих мислителів не було таких перепадів між найвищим і найнижчим, що серед церковних святих він був найменш святим і найбільше людиною.
+        «Сповідь» — автобіографічний твір, у якому Авґустин у формі молитви розповідає про своє життя, що відрізнялося занепокоєнням, постійним пошуком і багатьма помилками, про свій досвід грішника, котрий відкрив шлях до Бога, саме у Ньому віднайшов усе, чого шукав. Він вважав, що нема святих без минулого, нема грішників без майбутнього. У молодому віці Авґустин втратив віру в Бога, переживав духовну еволюцію і лише згодом повернувся до Церкви і був визнаний взірцем християнського способу життя і служіння».</p> 
+    </li>
+
+    
+
+    </ul>
+</div> }
+</div>
          </div>  
          );
          }
