@@ -21,7 +21,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "svitbbiblii",
+  title: "svitbiblii",
   description: "About Svit Biblii",
 };
                                   

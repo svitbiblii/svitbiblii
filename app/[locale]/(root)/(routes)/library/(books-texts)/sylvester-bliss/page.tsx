@@ -40,7 +40,7 @@ export default function SylvesterBlissPage() {
     };
 
     return (
-        <div className="h-min-full flex mt-16">
+        <div className="h-min-full flex">
 
         <div className="relative">
                         <button onClick={() => setExpanded(curr => !curr)}
