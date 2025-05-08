@@ -70,17 +70,77 @@
 
 <ul className="list-none bg-secondary pl-0">
 <li>
-    <Link href='#section2' 
+    <Link href='/library/dankova/#section1' 
         className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
         Частина 1
     </Link>
 </li>
 <li>
-    <Link href='' 
+    <Link href='/library/dankova/#section2' 
         className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
             Частина 2
     </Link>
 </li>  
+<li>
+    <Link href='/library/dankova/#section3' 
+        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+        Частина 3
+    </Link>
+</li>
+<li>
+    <Link href='/library/dankova/#section4' 
+        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+            Частина 4
+    </Link>
+</li>
+<li>
+    <Link href='/library/dankova/#section5' 
+        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+        Частина 5
+    </Link>
+</li>
+<li>
+    <Link href='/library/dankova/#section6' 
+        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+            Частина 6
+    </Link>
+</li>  
+<li>
+    <Link href='/library/dankova/#section7' 
+        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+        Частина 7
+    </Link>
+</li>
+<li>
+    <Link href='/library/dankova/#section8' 
+        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+            Частина 8
+    </Link>
+</li>
+<li>
+    <Link href='/library/dankova/#section9' 
+        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+        Частина 9
+    </Link>
+</li>
+<li>
+    <Link href='/library/dankova/#section10' 
+        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+            Частина 10
+    </Link>
+</li>  
+<li>
+    <Link href='/library/dankova/#section11' 
+        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+        Частина 11
+    </Link>
+</li>
+<li>
+    <Link href='/library/dankova/#section12' 
+        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+            Частина 12
+    </Link>
+</li>
 </ul>  :
                                  <History />}    
                                  </div>
