@@ -79,6 +79,12 @@ const config: Config = {
 		inset: {
 			'40vh': '40vh', // add custom top
 		},
+		indent: {
+			sm: '1.2em',
+			md: '1.5em',
+			lg: '2em',
+			xl: '2.5em',
+		},
   	}
   },
   /*plugins: [require("tailwindcss-animate")],*/
