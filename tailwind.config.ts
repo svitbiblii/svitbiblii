@@ -21,6 +21,12 @@ const config: Config = {
 			'2xl': '1536px' // => @media (min-width: 1536px) { ... }
 
 		},
+		indent: {
+			sm: '1.2em',
+			md: '1.5em',
+			lg: '2em',
+			xl: '2.5em',
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
