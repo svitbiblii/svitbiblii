@@ -33,7 +33,7 @@ export default function FontSizeControls({ targetId }: FontSizeControlsProps) {
     };
 
     return (
-        <div className="font-controls mb-4">
+        <div className="font-controls mb-4 flex justify-end">
             <button
                 onClick={() => changeFontSize(1)}
                 className="px-2 py-1 border mr-2 rounded"
