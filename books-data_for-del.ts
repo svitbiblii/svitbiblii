@@ -107,7 +107,7 @@ export interface IBooks {
         "genre": "fiction",
         "type": "text",
         "kategory": "fiction",
-        "link": "/library/dankova",
+        "link": "/library/dankova/#section1&scroll=true",
         "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrykvYAhtth_OBMIlHB7ukNw_eOSZFMTplckvrzs_yHgEoqrMYawOJx70&s"
     },
     {
@@ -155,7 +155,7 @@ export interface IBooks {
         "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrykvYAhtth_OBMIlHB7ukNw_eOSZFMTplckvrzs_yHgEoqrMYawOJx70&s"
     },
     {
-        "id": "15",
+        "id": "29",
         "author": "Марія",
         "title": "Про",
         "anotation": " який би дозволив Богу відкритися людині.",
@@ -166,7 +166,7 @@ export interface IBooks {
         "icon": "data:image/png;base64,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" 
     },
     {
-        "id": "16",
+        "id": "30",
         "author": "Charles Gifter",
         "title": "Basic English",
         "anotation": "The Bible In Basic English was printed in 1965 by Cambridge Press in England.",
@@ -177,7 +177,7 @@ export interface IBooks {
         "icon": "data:image/png;base64,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"
     },
     {
-        "id": "17",
+        "id": "31",
         "author": "Антоній",
         "title": "Молитва",
         "anotation": "Молитва і життя",
@@ -188,7 +188,7 @@ export interface IBooks {
         "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe4nueQ6D63-wU4B7VYcpBrsgp04dozzIPqI_97a7dJrU21oUrblNt8x0&s"
     },
     {
-        "id": "18",
+        "id": "32",
         "author": "Henry Hooke",
         "title": "Bible English",
         "anotation": "The Bible In Basic English was printed in 1965 by Cambridge Press in England. Published without any copyright notice and distributed in America, this work fell immediately and irretrievably into the Public Domain in the United States according to the UCC convention of that time.",

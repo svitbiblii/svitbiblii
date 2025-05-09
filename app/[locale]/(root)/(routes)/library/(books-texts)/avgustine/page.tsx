@@ -87,7 +87,7 @@
          
          <div className="relative h-full w-full px-4 pt-2 block">
        
-                <div className="w-full">
+                <div  className="w-full">
  
                 <h2 className="pt-0">«Сповідь» Блаженний Августин </h2>
 

@@ -66,8 +66,7 @@ import { LangSwitcher } from "@/components/lang-switcher";
 import { MobileSidebar } from "@/components/mobile-sidebar";
 import { useTranslations } from "next-intl";
 import { forwardRef } from "react";
-
-// interface NavbarProps {}
+import FontSizeControls from "./FontSizeControls";
 
 export const Navbar = forwardRef<HTMLDivElement>((props, ref) => {
     const t = useTranslations("Navbar");
@@ -95,6 +94,8 @@ export const Navbar = forwardRef<HTMLDivElement>((props, ref) => {
                     {t('library')}
                     <Sparkles className="h-4 w-4 fill-white text-white ml-2"/>
                 </Link>
+
+                <FontSizeControls targetId="book-content"/>
 
                 <LangSwitcher/>
                 <ModeToggle/>

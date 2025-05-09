@@ -70,6 +70,7 @@
          
          
                      <div className="relative h-full w-full px-4 pt-2 block">
+                    
        
        <div className="w-full">
 

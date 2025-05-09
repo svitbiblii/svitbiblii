@@ -65,6 +65,7 @@
          
          
                      <div className="relative h-full w-full px-4 pt-2 block">
+              
   <div className="w-full">
     <h2 className="pt-0">Послання до Римлян (Переклад І. Огієнка)</h2>
     <section id="section1" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 mb-2 px-2 border border-gray-300 rounded-md">

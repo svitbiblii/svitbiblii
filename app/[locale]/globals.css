@@ -7,6 +7,7 @@ body,
 :root {
   height: 100%;
   scroll-padding-top: 64px;
+  scroll-behavior: smooth;
 }
 
 body {

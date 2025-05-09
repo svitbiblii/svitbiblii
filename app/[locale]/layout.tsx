@@ -42,7 +42,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   return (
     <html lang={locale} suppressHydrationWarning className="scroll-smooth overflow-hidden">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body id="book-content" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}

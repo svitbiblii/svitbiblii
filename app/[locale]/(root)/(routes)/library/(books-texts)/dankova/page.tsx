@@ -2,15 +2,16 @@
  
  import { Link } from "@/i18n/routing";
  import { useTranslations } from "next-intl";
- import { useState, useEffect } from "react";
+ import { useState, useEffect, useRef } from "react";
  import { ChevronDown, ChevronUp, CircleX } from "lucide-react";
  import { ChevronFirst, ChevronLast } from "lucide-react";
  import { About } from "@/components/about";
  import History from "@/components/history";
- import FontSizeControls from "@/components/FontSizeControls";
  
  export default function DankovaPage() {
     const t = useTranslations("BookContents");
+    const section1Ref = useRef<HTMLDivElement>(null);
+  const bookContentRef = useRef<HTMLDivElement>(null);
 
      const [showPage, setShowPage] = useState(false);
      const [showContent, setShowContent] = useState(false);
@@ -28,16 +29,58 @@
        }
  
        useEffect(() => {
-         const savedBooks = sessionStorage.getItem('bookname')
-         if (savedBooks) {
-           setStoredBook(JSON.parse(savedBooks))
-         }
-       }, [])
- 
-       const togglePage = () => {
-         setShowPage(!showPage)
-     }; 
-     
+        const savedBooks = sessionStorage.getItem('bookname');
+        if (savedBooks) {
+          setStoredBook(JSON.parse(savedBooks));
+        }
+    
+        const url = new URL(window.location.href);
+        const hash = url.hash;
+        const scrollToSection = hash.includes('#section1') && hash.includes('scroll=true');
+    
+        if (scrollToSection && section1Ref.current) {
+          section1Ref.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    
+        // Відновлення позиції прокрутки внутрішнього div
+        if (showPage && bookContentRef.current) {
+          const savedMainScrollPosition = sessionStorage.getItem('mainScrollPosition_dankova');
+          if (savedMainScrollPosition) {
+            bookContentRef.current.scrollTop = parseInt(savedMainScrollPosition, 10);
+            sessionStorage.removeItem('mainScrollPosition_dankova');
+          }
+        }
+    
+        const mainElement = document.querySelector('main'); // Отримуємо елемент main за селектором
+    
+        const handleBeforeUnload = () => {
+          if (mainElement) { // Використовуємо безпосередньо mainElement
+            sessionStorage.setItem('mainScrollPosition_dankova', String(mainElement.scrollTop));
+          }
+        };
+    
+        window.addEventListener('beforeunload', handleBeforeUnload);
+    
+        return () => {
+          window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+      }, [showPage]);
+    
+      const togglePage = () => {
+        const mainElement = document.querySelector('main'); // Отримуємо елемент main при кожному кліку
+        if (mainElement && !showPage) {
+          sessionStorage.setItem('mainScrollPosition_dankova', String(mainElement.scrollTop));
+        }
+        setShowPage(!showPage);
+      };
+    
+    //   const handleLinkClick = (href: string) => {
+    //     const mainElement = document.querySelector('main');
+    //     if (mainElement) {
+    //       sessionStorage.setItem('mainScrollPosition_dankova', String(mainElement.scrollTop));
+    //     }
+    //     window.open(href, '_blank', 'width=800,height=600');
+    //   };
   
      return (
         <div className="h-min-full flex">
@@ -148,24 +191,24 @@
                              </div>   
                      </div> 
          
-         
-                     <div className={`relative h-full w-full px-4 pt-2  ${showPage ? "md:flex md:h-screen block" : "block"} `}>
+                     
+                     <div className={`relative h-full w-full px-4 pt-2 flexscroll ${showPage ? "md:flex md:h-screen block" : "block"} `}
+                     ref={bookContentRef} style={{ overflowY: 'auto' }}>
        
        <div className={`  ${showPage ? "px-3 mb-3 md:mb-0 border-2 border-blue-200 rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
-<FontSizeControls targetId="book-content" />
  <h2 className="pt-0">«Сім ночей перед Різдвом» Н.Данькова</h2>
  <h3>Видавництво &rdquo;Книги ХХІ&rdquo;/&rdquo;Чорні вівці&rdquo; (З дозволу директора Василя Дроняка)</h3>
  
  <section id="section3">
   <p>
     <span className="page-number text-gray-500 text-sm italic mr-2">Ст 66-68</span>
-<p>
+  </p>
+  <p>
 Сірий будинок, вузенький на три вікна, непримітно никнув за рогом людної вулиці. Перше Ян проходив повз нього
     тисячі разів і жодного разу не зважив на те, що ці ковані двері відчиняються в повечірній час для тих, хто
     має жовтий конверт із коштовною печаткою. Вони розійшлись і перед ним, повільно й зі скрипом. Він ступив у
     тісний коридор, а далі — у розлогу галерею.
 </p>
-  </p>
   <p>
     Це важко пояснити, але із середини дім був велетенський, Ян ніяк не міг утямити, як ці зали, арки, сади,
     переходи, східці та сотні кімнат уміщаються в будинку на три вікна. Тисячоокий сірий дім. У галереї двоє
@@ -576,7 +619,7 @@
   крига. Риби вистрибували з річки, а він топився в ній.</p>
 </section>
 
- <section id="section1">
+ <section id="section1" ref={section1Ref}>
              <p>
     Ян же був затятий, він ніяк не хтів миритись
     із батьковою недугою. Очі
