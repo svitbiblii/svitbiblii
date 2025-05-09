@@ -89,8 +89,8 @@ export default function SylvesterBlissPage() {
 
 
             <div className={`relative h-full w-full px-4 pt-2  ${showPage ? "sm:flex sm:h-screen block" : "block"} `}>
-                <FontSizeControls targetId="book-content" />
-                <div id="book-content"
+                <FontSizeControls targetId="book-content-syl" />
+                <div id="book-content-syl"
                     className={`  ${showPage ? "px-2 md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
                     <h2 className="pt-0">A Brief Commentary on the Apocalypse Sylvester Bliss</h2>
                     <p id="section1">The
