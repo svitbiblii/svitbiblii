@@ -212,9 +212,9 @@
  <h3>Видавництво &rdquo;Книги ХХІ&rdquo;/&rdquo;Чорні вівці&rdquo; (З дозволу директора Василя Дроняка)</h3>
  
  <section id="section3">
-  <p>
+  {/* <p>
     <span className="page-number text-gray-500 text-sm italic mr-2">Ст 66-68</span>
-  </p>
+  </p> */}
   <p>
 Сірий будинок, вузенький на три вікна, непримітно никнув за рогом людної вулиці. Перше Ян проходив повз нього
     тисячі разів і жодного разу не зважив на те, що ці ковані двері відчиняються в повечірній час для тих, хто
@@ -749,9 +749,9 @@
 </section>
 
 <section id="section2">
-  <p>
+  {/* <p>
   <span className="page-number text-gray-500 text-sm italic mr-2">Ст 33-34</span>
-  </p>
+  </p> */}
   <p>
     Мерхле світло в кірсі Святого Петра нагадувало пріле скло, бо в очах тьмарилось і ноги чомусь боліли. У заповненій ущент
     залі слухали орган.
@@ -799,7 +799,7 @@
 <ul className="pl-0 pt-10 w-full ">
     <li className="mb-3 block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
         <div className="flex justify-between items-start">
-            <Link   href='/library/avgustine/#imp'  
+            <Link   href='/library/avgustine/#imp&scroll=true'  
                     onClick={() => {setNewId('25')}}
                     >
                  <span className="text-blue-500 underline">Одначе як я волатиму до Бога мого, Бога й Господа мого?</span>

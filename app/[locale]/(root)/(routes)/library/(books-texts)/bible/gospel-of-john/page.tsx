@@ -2,7 +2,7 @@
  
  import { Link } from "@/i18n/routing";
  import { useTranslations } from "next-intl";
- import { useState } from "react";
+ import { useState, useEffect  } from "react";
  import { ChevronFirst, ChevronLast } from "lucide-react";
  import { About } from "@/components/about";
  import History from "@/components/history";
@@ -12,6 +12,15 @@
 
      const [showContent, setShowContent] = useState(false);
      const [expanded, setExpanded] = useState(true);
+     const [isHighlighted, setIsHighlighted] = useState(false);
+
+     useEffect(() => {
+        setIsHighlighted(true); // Вмикаємо підсвічування
+
+           setTimeout(() => {
+     setIsHighlighted(false); // Вимикаємо підсвічування через 3 секунди (можете налаштувати)
+   }, 4000);
+     })
 
      return (
         <div className="h-min-full flex">
@@ -64,11 +73,11 @@
   <h2 className="pt-0">Євангеліє від Івана (переклад І. Огієнка)</h2>
     <section id="section2" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 px-2 border border-gray-300 rounded-md">
       <h2>Розділ 1</h2>
-      <p>1. Споконвіку було Слово, а Слово в Бога було, і Бог було Слово.</p>
-      <p>2. Воно в Бога було споконвіку.</p>
-      <p>3. Усе через Нього повстало, і ніщо, що повстало, не повстало без Нього.</p>
-      <p>4. У Ньому було життя, а життя було Світлом людей.</p>
-      <p>5. А Світло у темряві світить, і темрява Його не обійняла.</p>
+      <p className={isHighlighted ? 'bg-blue-200 ': ''}>1. Споконвіку було Слово, а Слово в Бога було, і Бог було Слово.</p>
+      <p className={isHighlighted ? 'bg-blue-200 ': ''}>2. Воно в Бога було споконвіку.</p>
+      <p className={isHighlighted ? 'bg-blue-200 ': ''}>3. Усе через Нього повстало, і ніщо, що повстало, не повстало без Нього.</p>
+      <p className={isHighlighted ? 'bg-blue-200 ': ''}>4. У Ньому було життя, а життя було Світлом людей.</p>
+      <p className={isHighlighted ? 'bg-blue-200 ': ''}>5. А Світло у темряві світить, і темрява Його не обійняла.</p>
       <p>6. Був чоловік, від Бога посланий, йому ймення Іван.</p>
       <p>7. Він прийшов на свідоцтво, щоб засвідчити про Світло, щоб усі вірили через нього.</p>
       <p>8. Він тим Світлом не був, але свідчити мав про Світло.</p>

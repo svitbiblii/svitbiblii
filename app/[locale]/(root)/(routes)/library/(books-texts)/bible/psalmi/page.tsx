@@ -2,7 +2,7 @@
  
  import { Link } from "@/i18n/routing";
  import { useTranslations } from "next-intl";
- import { useState } from "react";
+ import { useState, useEffect } from "react";
  import { ChevronFirst, ChevronLast } from "lucide-react";
  import { About } from "@/components/about";
  import History from "@/components/history";
@@ -12,6 +12,15 @@
 
      const [showContent, setShowContent] = useState(false);
      const [expanded, setExpanded] = useState(true);
+     const [isHighlighted, setIsHighlighted] = useState(false);
+
+     useEffect(() => {
+        setIsHighlighted(true); // Вмикаємо підсвічування
+
+           setTimeout(() => {
+     setIsHighlighted(false); // Вимикаємо підсвічування через 3 секунди (можете налаштувати)
+   }, 5000);
+     })
 
      return (
         <div className="h-min-full flex">
@@ -89,7 +98,7 @@
     </section>
  
  <section id="section2" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 mb-2 px-2 border border-gray-300 rounded-md">
-  <h2>Псалом 138</h2>
+  <h2 className={isHighlighted ? 'bg-blue-200 ': ''}>Псалом 138</h2>
   <p>1. Господи, випробував Ти мене та й пізнав,</p>
   <p>2. Ти знаєш сидіння моє та вставання моє, думку мою розумієш здалека.</p>
   <p>3. Дорогу мою та лежання моє виміряєш, і Ти всі путі мої знаєш,</p>
