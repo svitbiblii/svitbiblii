@@ -27,7 +27,6 @@
              sessionStorage.setItem('bookname', JSON.stringify([...storedBook, newId]))
            } 
        }
- 
        useEffect(() => {
         const savedBooks = sessionStorage.getItem('bookname');
         if (savedBooks) {
@@ -36,10 +35,23 @@
     
         const url = new URL(window.location.href);
         const hash = url.hash;
-        const scrollToSection = hash.includes('#section1') && hash.includes('scroll=true');
+        const shouldScrollToSection = hash.includes('#section1') && hash.includes('scroll=true');
     
-        if (scrollToSection && section1Ref.current) {
-          section1Ref.current.scrollIntoView({ behavior: 'smooth' });
+        if (shouldScrollToSection && section1Ref.current) {
+          const mainElement = document.querySelector('main');
+    
+          // Спочатку переходимо на початок книги (прокручуємо main до верху)
+          if (mainElement) {
+            mainElement.scrollTop = 0;
+          }
+    
+          // Затримка перед початком плавної прокрутки до section1
+          setTimeout(() => {
+            section1Ref.current?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start', // Щоб верх секції був на початку видимої області
+            });
+          }, 1500);
         }
     
         // Відновлення позиції прокрутки внутрішнього div
@@ -54,7 +66,7 @@
         const mainElement = document.querySelector('main'); // Отримуємо елемент main за селектором
     
         const handleBeforeUnload = () => {
-          if (mainElement) { // Використовуємо безпосередньо mainElement
+          if (mainElement) {
             sessionStorage.setItem('mainScrollPosition_dankova', String(mainElement.scrollTop));
           }
         };
@@ -62,7 +74,7 @@
         window.addEventListener('beforeunload', handleBeforeUnload);
     
         return () => {
-          window.removeEventListener('beforeunload', handleBeforeUnload);
+          window.removeEventListener('beforeUnload', handleBeforeUnload);
         };
       }, [showPage]);
     
