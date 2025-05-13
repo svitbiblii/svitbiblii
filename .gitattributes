@@ -6,4 +6,4 @@
 *.xml -diff -merge
 *.xml linguist-generated=true
 
-search/index.json linguist-generated=true
+search/index.json linguist-generated=truegit status
