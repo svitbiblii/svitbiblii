@@ -1,9 +1,9 @@
-*.html linguist-generated=true 
-*.xml linguist-generated=true 
+*.html linguist-generated=true
+*.xml linguist-generated=true
 
-*.html -diff -merge 
-*.html linguist-generated=true 
-*.xml -diff -merge 
+*.html -diff -merge
+*.html linguist-generated=true
+*.xml -diff -merge
 *.xml linguist-generated=true
 
 search/index.json linguist-generated=true
