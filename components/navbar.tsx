@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Sparkles, Mic, MicOff } from "lucide-react";
+import { Sparkles, Mic, MicOff, Volume2, VolumeOff } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/mode-toggle";
@@ -13,42 +13,66 @@ import FontSizeControls from "./FontSizeControls";
 export const Navbar = forwardRef<HTMLDivElement>((props, ref) => {
     const t = useTranslations("Navbar");
     const [isVoiceControlActive, setIsVoiceControlActive] = useState(false);
-    const [isInitialAttention, setIsInitialAttention] = useState(true);
-    const [showTooltip, setShowTooltip] = useState(false);
+    const [isSpeechSynthesisActive, setIsSpeechSynthesisActive] = useState(false);
+    const [showVoiceControlTooltip, setShowVoiceControlTooltip] = useState(false);
+    const [showSpeechSynthesisTooltip, setShowSpeechSynthesisTooltip] = useState(false);
+    const hasVisited = typeof window !== 'undefined' ? sessionStorage.getItem('hasVisited') : null;
+    const [hasVoiceControlInitialRun, setHasVoiceControlInitialRun] = useState(false);
+    const [hasSpeechSynthesisInitialRun, setHasSpeechSynthesisInitialRun] = useState(false);
 
     const toggleVoiceControl = () => {
         const newState = !isVoiceControlActive;
         setIsVoiceControlActive(newState);
-        setIsInitialAttention(false);
-        setShowTooltip(newState); // Показуємо надпис при активації/деактивації
+        setShowVoiceControlTooltip(true);
+        setTimeout(() => setShowVoiceControlTooltip(false), 1500);
+    };
 
-        // Приховуємо надпис через деякий час
-        const timer = setTimeout(() => {
-            setShowTooltip(false);
-        }, 1500);
-
-        return () => clearTimeout(timer);
+    const toggleSpeechSynthesis = () => {
+        const newState = !isSpeechSynthesisActive;
+        setIsSpeechSynthesisActive(newState);
+        setShowSpeechSynthesisTooltip(true);
+        setTimeout(() => setShowSpeechSynthesisTooltip(false), 1500);
     };
 
     useEffect(() => {
-        if (isInitialAttention) {
-            setShowTooltip(true); // Показуємо надпис під час початкової уваги
-            const timer = setTimeout(() => {
-                setIsInitialAttention(false);
-                setShowTooltip(false);
-            }, 2000);
-            return () => clearTimeout(timer);
+        if (!hasVoiceControlInitialRun) {
+            setIsVoiceControlActive(true); // Вмикаємо голосове керування при першому завантаженні
+            setShowVoiceControlTooltip(true);
+            setHasVoiceControlInitialRun(true);
+            setTimeout(() => setShowVoiceControlTooltip(false), 2000);
         }
-    }, [isInitialAttention]);
+    }, [hasVoiceControlInitialRun]);
 
-    const buttonClassName = cn(
+    useEffect(() => {
+        if (!hasSpeechSynthesisInitialRun) {
+            setIsSpeechSynthesisActive(true); // Вмикаємо озвучування при першому завантаженні
+            setShowSpeechSynthesisTooltip(true);
+            setHasSpeechSynthesisInitialRun(true);
+            if (typeof window !== 'undefined' && !sessionStorage.getItem('hasVisited')) {
+                sessionStorage.setItem('hasVisited', 'true');
+            }
+            setTimeout(() => setShowSpeechSynthesisTooltip(false), 2000);
+        }
+    }, [hasSpeechSynthesisInitialRun]);
+
+    const voiceControlButtonClassName = cn(
         "relative rounded-md p-2 transition-colors",
-        isVoiceControlActive || isInitialAttention ? "bg-red-500 text-white hover:bg-red-600" : "bg-blue-500 text-white hover:bg-blue-600"
+        isVoiceControlActive ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-red-500 text-white hover:bg-red-600"
     );
 
-    const tooltipClassName = cn(
-        "absolute top-full left-1/2 -translate-x-1/2 mt-1 px-2 py-1 text-xs font-semibold rounded-md bg-gray-800 text-white transition-opacity duration-200",
-        showTooltip ? "opacity-100" : "opacity-0"
+    const speechSynthesisButtonClassName = cn(
+        "relative rounded-md p-2 transition-colors",
+        isSpeechSynthesisActive ? "bg-green-400 text-white hover:bg-green-500" : "bg-yellow-400 text-white hover:bg-yellow-500"
+    );
+
+    const voiceControlTooltipClassName = cn(
+        "absolute top-full left-[50%] -translate-x-[75%] mt-1 px-2 py-1 text-xs font-semibold rounded-md bg-gray-800 text-white transition-opacity duration-200",
+        showVoiceControlTooltip ? "opacity-100" : "opacity-0"
+    );
+
+    const speechSynthesisTooltipClassName = cn(
+        "absolute top-full left-[60%] -translate-x-[25%] mt-1 px-2 py-1 text-xs font-semibold rounded-md bg-gray-800 text-white transition-opacity duration-200",
+        showSpeechSynthesisTooltip ? "opacity-100" : "opacity-0"
     );
 
     return (
@@ -80,15 +104,25 @@ export const Navbar = forwardRef<HTMLDivElement>((props, ref) => {
                 <div className="relative">
                     <button
                         onClick={toggleVoiceControl}
-                        className={buttonClassName}
+                        className={voiceControlButtonClassName}
                     >
-                        {isVoiceControlActive || isInitialAttention ? <MicOff className="h-5 w-5"/> : <Mic className="h-5 w-5"/>}
-                    </button>
-                    {showTooltip && (
-                        <div className={tooltipClassName}>
-                            Голосове керування увімкнено
+                        <div className={voiceControlTooltipClassName}>
+                            Голос {isVoiceControlActive ? 'увімкнено' : 'вимкнено'}
                         </div>
-                    )}
+                        {isVoiceControlActive ? <Mic className="h-5 w-5"/> : <MicOff className="h-5 w-5"/>}
+                    </button>
+                </div>
+
+                <div className="relative">
+                    <button
+                        onClick={toggleSpeechSynthesis}
+                        className={speechSynthesisButtonClassName}
+                    >
+                        <div className={speechSynthesisTooltipClassName}>
+                            Озвучування {isSpeechSynthesisActive ? 'увімкнено' : 'вимкнено'}
+                        </div>
+                        {isSpeechSynthesisActive ? <Volume2 className="h-5 w-5"/> : <VolumeOff className="h-5 w-5"/>}
+                    </button>
                 </div>
 
                 <LangSwitcher/>
