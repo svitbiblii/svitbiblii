@@ -50,6 +50,7 @@ export const Navbar = forwardRef<HTMLDivElement>((props, ref) => {
             setHasSpeechSynthesisInitialRun(true);
             if (typeof window !== 'undefined' && !sessionStorage.getItem('hasVisited')) {
                 sessionStorage.setItem('hasVisited', 'true');
+                console.log(hasVisited)
             }
             setTimeout(() => setShowSpeechSynthesisTooltip(false), 2000);
         }
