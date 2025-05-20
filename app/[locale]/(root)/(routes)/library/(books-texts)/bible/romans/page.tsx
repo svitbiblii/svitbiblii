@@ -20,7 +20,7 @@
            setTimeout(() => {
      setIsHighlighted(false); // Вимикаємо підсвічування через 3 секунди (можете налаштувати)
    }, 4000);
-     })
+     }, [])
 
      return (
         <div className="h-min-full flex">
