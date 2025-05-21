@@ -232,7 +232,7 @@
           <section id="section2">
             <h3>Частина ІІ</h3>
           <h3>Бог є в людині – людина в Бозі</h3>
-          <p>
+          <p className="group relative">
           <span id="imp" ref={impRef} className={isHighlighted ? 'text-blue-400 ': ''}>
             Одначе як я волатиму до Бога мого, Бога й Господа 
             мого?</span> Бо ж, волаючи до Нього, я мов би прохатиму, щоб Він увійшов у мене. 
@@ -243,17 +243,27 @@
            Чи, може, з того, що існує, виходить, що все суще охоплює Тебе? 
            Та якщо і я існую, то чому ж благаю Тебе, щоб Ти вступив в мене, у мене, що не існував би, 
            коли б Тебе не було в мені? Бо нема мене ще в підземеллі, а Ти й там є, 
-           бо <Link href="/library/bible/psalmi/#psalom138&scroll=true" onClick={() => {setNewId('26')}} className="italic underline text-blue-500 hover:text-blue-700">
-           «хоча б я зійшов і до Пекла, той там би знайшов Тебе».</Link>
+           бо <span className="relative italic text-blue-500 hover:text-blue-700">
+           «хоча б я зійшов і до Пекла, той там би знайшов Тебе».
+                         <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
+       <Link href="/library/bible/psalmi/#psalom138&scroll=true" 
+        onClick={() => {setNewId('26')}} 
+        className="underline">Книга Псалмів, псалом 138</Link>
+      </div>
+           </span>
           </p>
-          <p>«Отже, я не існував би, Боже мій, не існував би взагалі, 
+          <p className="group relative">«Отже, я не існував би, Боже мій, не існував би взагалі, 
             якщо б Тебе не було б в мені. 
             Або, скоріше, я б не існував, коли б не був у 
-            Тобі, <Link href="/library/bible/romans#romans-11-32&scroll=true" 
-            onClick={() => {setNewId('27')}} 
-            className="italic underline text-blue-500 hover:text-blue-700">
+            Тобі, <br/> <span
+            className="relative italic text-blue-500 hover:text-blue-700">
                 «з  Якого, через Якого і  в  Якому – усе»?
-            </Link>
+                                         <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
+       <Link href="/library/bible/romans#romans-11-32&scroll=true" 
+        onClick={() => {setNewId('27')}} 
+        className="underline">Послання апостола Павла до римлян, розділ 11, вірші 32-36</Link>
+      </div>
+            </span>
             </p>
             <p>«Так, так, Господи, так воно є. 
                 Куди ж волаю до Тебе, коли я сам у Тобі? 
