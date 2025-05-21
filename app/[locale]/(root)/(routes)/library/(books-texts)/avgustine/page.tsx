@@ -44,9 +44,9 @@
 
     setIsHighlighted(true); 
 
-    // setTimeout(() => {
-    //   setIsHighlighted(false); 
-    // }, 4000);
+    setTimeout(() => {
+      setIsHighlighted(false); 
+    }, 4000);
 
     setTimeout(() => {
       impRef.current?.scrollIntoView({

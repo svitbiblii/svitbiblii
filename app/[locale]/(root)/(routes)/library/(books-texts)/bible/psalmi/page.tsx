@@ -22,9 +22,9 @@
 
     if (shouldScrollAndHighlight) {
       setIsHighlighted(true);
-      setTimeout(() => {
-        setIsHighlighted(false); 
-      }, 4000);
+    //   setTimeout(() => {
+    //     setIsHighlighted(false); 
+    //   }, 4000);
 
       if (psalom138Ref.current) {
         psalom138Ref.current.scrollIntoView({
