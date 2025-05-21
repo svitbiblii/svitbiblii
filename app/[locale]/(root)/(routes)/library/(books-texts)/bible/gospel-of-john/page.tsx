@@ -2,25 +2,40 @@
  
  import { Link } from "@/i18n/routing";
  import { useTranslations } from "next-intl";
- import { useState, useEffect  } from "react";
+ import { useState, useEffect, useRef } from "react";
  import { ChevronFirst, ChevronLast } from "lucide-react";
  import { About } from "@/components/about";
  import History from "@/components/history";
  
- export default function RomansPage() {
+ export default function GospelOfJohnPage() {
     const t = useTranslations("BookContents");
 
+    const gospelOfJohn1Ref = useRef<HTMLElement>(null);
      const [showContent, setShowContent] = useState(false);
      const [expanded, setExpanded] = useState(true);
      const [isHighlighted, setIsHighlighted] = useState(false);
 
-     useEffect(() => {
-        setIsHighlighted(true); // Вмикаємо підсвічування
+useEffect(() => {
+  const url = new URL(window.location.href);
+  const hash = url.hash;
+  const shouldScrollToSection = hash.includes('#gospel-of-john-1-1') && hash.includes('scroll=true');
 
-           setTimeout(() => {
-     setIsHighlighted(false); // Вимикаємо підсвічування через 3 секунди (можете налаштувати)
-   }, 4000);
-     }, [])
+  if (shouldScrollToSection) {
+    setIsHighlighted(true); 
+    // setTimeout(() => {
+    //   setIsHighlighted(false);
+    // }, 4000);
+
+          if (gospelOfJohn1Ref.current) {
+        gospelOfJohn1Ref.current.scrollIntoView({
+          behavior: 'smooth', 
+          block: 'start',   
+        });
+      }
+  } else {
+    setIsHighlighted(false);
+  }
+}, []); 
 
      return (
         <div className="h-min-full flex">
@@ -71,13 +86,14 @@
                         
   <div className="w-full">
   <h2 className="pt-0">Євангеліє від Івана (переклад І. Огієнка)</h2>
-    <section id="section2" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 px-2 border border-gray-300 rounded-md">
+    <section id="gospel-of-john-1-1" ref={gospelOfJohn1Ref}
+    className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 px-2 border border-gray-300 rounded-md">
       <h2>Розділ 1</h2>
-      <p className={isHighlighted ? 'bg-blue-200 ': ''}>1. Споконвіку було Слово, а Слово в Бога було, і Бог було Слово.</p>
-      <p className={isHighlighted ? 'bg-blue-200 ': ''}>2. Воно в Бога було споконвіку.</p>
-      <p className={isHighlighted ? 'bg-blue-200 ': ''}>3. Усе через Нього повстало, і ніщо, що повстало, не повстало без Нього.</p>
-      <p className={isHighlighted ? 'bg-blue-200 ': ''}>4. У Ньому було життя, а життя було Світлом людей.</p>
-      <p className={isHighlighted ? 'bg-blue-200 ': ''}>5. А Світло у темряві світить, і темрява Його не обійняла.</p>
+      <p className={isHighlighted ? 'text-blue-400 ': ''}>1. Споконвіку було Слово, а Слово в Бога було, і Бог було Слово.</p>
+      <p className={isHighlighted ? 'text-blue-400 ': ''}>2. Воно в Бога було споконвіку.</p>
+      <p className={isHighlighted ? 'text-blue-400 ': ''}>3. Усе через Нього повстало, і ніщо, що повстало, не повстало без Нього.</p>
+      <p className={isHighlighted ? 'text-blue-400 ': ''}>4. У Ньому було життя, а життя було Світлом людей.</p>
+      <p className={isHighlighted ? 'text-blue-400 ': ''}>5. А Світло у темряві світить, і темрява Його не обійняла.</p>
       <p>6. Був чоловік, від Бога посланий, йому ймення Іван.</p>
       <p>7. Він прийшов на свідоцтво, щоб засвідчити про Світло, щоб усі вірили через нього.</p>
       <p>8. Він тим Світлом не був, але свідчити мав про Світло.</p>

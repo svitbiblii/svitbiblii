@@ -2,7 +2,7 @@
  
  import { Link } from "@/i18n/routing";
  import { useTranslations } from "next-intl";
- import { useState, useEffect } from "react";
+ import { useState, useEffect, useRef } from "react";
  import { ChevronFirst, ChevronLast } from "lucide-react";
  import { About } from "@/components/about";
  import History from "@/components/history";
@@ -10,17 +10,32 @@
  export default function RomansPage() {
     const t = useTranslations("BookContents");
 
+     const romans1132Ref = useRef<HTMLParagraphElement>(null);
      const [showContent, setShowContent] = useState(false);
      const [expanded, setExpanded] = useState(true);
      const [isHighlighted, setIsHighlighted] = useState(false);
 
-     useEffect(() => {
-        setIsHighlighted(true); // Вмикаємо підсвічування
+useEffect(() => {
+  const url = new URL(window.location.href);
+  const hash = url.hash;
+  const shouldScrollToSection = hash.includes('#romans-11-32') && hash.includes('scroll=true');
 
-           setTimeout(() => {
-     setIsHighlighted(false); // Вимикаємо підсвічування через 3 секунди (можете налаштувати)
-   }, 4000);
-     }, [])
+  if (shouldScrollToSection) {
+    setIsHighlighted(true); 
+    // setTimeout(() => {
+    //   setIsHighlighted(false);
+    // }, 4000);
+
+          if (romans1132Ref.current) {
+        romans1132Ref.current.scrollIntoView({
+          behavior: 'smooth', 
+          block: 'start',   
+        });
+      }
+  } else {
+    setIsHighlighted(false);
+  }
+}, []); 
 
      return (
         <div className="h-min-full flex">
@@ -110,12 +125,12 @@
       <p>29. Бо дари й покликання Божі невідмінні.</p>
       <p>30. Бо як і ви були колись неслухняні Богові, а тепер помилувані через їхній непослух,</p>
       <p>31. так і вони тепер спротивились для помилування вас, щоб і самі були помилувані.</p>
-      <p id="romans-11-32" className={isHighlighted ? 'bg-blue-200 ': ''}>
+      <p id="romans-11-32" ref={romans1132Ref} className={isHighlighted ? 'text-blue-400 ': ''}>
         32. Бо замкнув Бог усіх у непослух, щоб помилувати всіх.</p>
-      <p className={isHighlighted ? 'bg-blue-200 ': ''}>33. О глибино багатства, і премудрости, і знання Божого! Які недовідомі присуди Його, і недосліджені дороги Його!</p>
-      <p className={isHighlighted ? 'bg-blue-200 ': ''}>34. Бо хто розум Господній пізнав? Або хто був дорадник Йому?</p>
-      <p className={isHighlighted ? 'bg-blue-200 ': ''}>35. Або хто давніш Йому дав, і йому буде віддано?</p>
-      <p className={isHighlighted ? 'bg-blue-200 ': ''}>36. Бо все з Нього, через Нього і для Нього! Йому слава навіки. Амінь.</p>
+      <p className={isHighlighted ? 'text-blue-400 ': ''}>33. О глибино багатства, і премудрости, і знання Божого! Які недовідомі присуди Його, і недосліджені дороги Його!</p>
+      <p className={isHighlighted ? 'text-blue-400 ': ''}>34. Бо хто розум Господній пізнав? Або хто був дорадник Йому?</p>
+      <p className={isHighlighted ? 'text-blue-400 ': ''}>35. Або хто давніш Йому дав, і йому буде віддано?</p>
+      <p className={isHighlighted ? 'text-blue-400 ': ''}>36. Бо все з Нього, через Нього і для Нього! Йому слава навіки. Амінь.</p>
     </section>
 
     <section id="section2" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 px-2 border border-gray-300 rounded-md">

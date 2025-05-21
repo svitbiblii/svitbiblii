@@ -9,8 +9,8 @@
  
  export default function AvgustinePage() {
     const t = useTranslations("BookContents");
-    const impRef = useRef<HTMLSpanElement>(null)
 
+    const impRef = useRef<HTMLSpanElement>(null);
      const [showContent, setShowContent] = useState(false);
      const [expanded, setExpanded] = useState(true);
      const [storedBook, setStoredBook] = useState<string[]>([])
@@ -38,22 +38,20 @@
   if (shouldScrollToSection && impRef.current) {
     const mainElement = document.querySelector('main');
 
-    // Спочатку переходимо на початок книги (прокручуємо main до верху)
     if (mainElement) {
       mainElement.scrollTop = 0;
     }
 
-    setIsHighlighted(true); // Вмикаємо підсвічування
+    setIsHighlighted(true); 
 
-    setTimeout(() => {
-      setIsHighlighted(false); // Вимикаємо підсвічування через 3 секунди (можете налаштувати)
-    }, 3000);
+    // setTimeout(() => {
+    //   setIsHighlighted(false); 
+    // }, 4000);
 
-    // Затримка перед початком плавної прокрутки до imp
     setTimeout(() => {
       impRef.current?.scrollIntoView({
         behavior: 'smooth',
-        block: 'start', // Щоб верх секції був на початку видимої області
+        block: 'start',
       });
     }, 1500);
   }
@@ -235,7 +233,7 @@
             <h3>Частина ІІ</h3>
           <h3>Бог є в людині – людина в Бозі</h3>
           <p>
-          <span id="imp" ref={impRef} className={isHighlighted ? 'bg-blue-200 ': ''}>
+          <span id="imp" ref={impRef} className={isHighlighted ? 'text-blue-400 ': ''}>
             Одначе як я волатиму до Бога мого, Бога й Господа 
             мого?</span> Бо ж, волаючи до Нього, я мов би прохатиму, щоб Він увійшов у мене. 
           І яке ж місце є в мені, в яке міг би увійти в мене Бог мій? Куди ж міг би увійти Бог у мене, 
@@ -245,13 +243,13 @@
            Чи, може, з того, що існує, виходить, що все суще охоплює Тебе? 
            Та якщо і я існую, то чому ж благаю Тебе, щоб Ти вступив в мене, у мене, що не існував би, 
            коли б Тебе не було в мені? Бо нема мене ще в підземеллі, а Ти й там є, 
-           бо <Link href="/library/bible/psalmi/#section2" onClick={() => {setNewId('26')}} className="italic underline text-blue-500 hover:text-blue-700">
+           бо <Link href="/library/bible/psalmi/#psalom138&scroll=true" onClick={() => {setNewId('26')}} className="italic underline text-blue-500 hover:text-blue-700">
            «хоча б я зійшов і до Пекла, той там би знайшов Тебе».</Link>
           </p>
           <p>«Отже, я не існував би, Боже мій, не існував би взагалі, 
             якщо б Тебе не було б в мені. 
             Або, скоріше, я б не існував, коли б не був у 
-            Тобі, <Link href="/library/bible/romans/#romans-11-32" 
+            Тобі, <Link href="/library/bible/romans#romans-11-32&scroll=true" 
             onClick={() => {setNewId('27')}} 
             className="italic underline text-blue-500 hover:text-blue-700">
                 «з  Якого, через Якого і  в  Якому – усе»?

@@ -732,7 +732,7 @@
         він
         якось вернеться із цілющою
         рибою і
-        Йован знову побачить цей, <Link href="/library/bible/gospel-of-john/#section1" 
+        Йован знову побачить цей, <Link href="/library/bible/gospel-of-john/#gospel-of-john-1-1&scroll=true" 
         onClick={() => {setNewId('28')}} 
         className="italic underline text-blue-500 hover:text-blue-700">
         витятий
