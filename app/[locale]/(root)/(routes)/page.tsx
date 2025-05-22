@@ -76,9 +76,6 @@ const Homepage = () => {
           ):
         ( filteredList?.map((book) =>   
             <Link key={book.id} href={book.link} 
-                  // onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
-                  //                 // setTimeout(() => {location.reload()}, 500)
-                  //               }}
                   onClick={() => {setNewId(`${book.id}`)}}
                   className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
                     <div className="flex justify-between items-center hover:bg-blue-200">
@@ -88,7 +85,14 @@ const Homepage = () => {
                         width={20}
                         height={20}
                         alt=""/>
-                      <h3 className="mt-0 mb-2 text-lg font-medium">{book.author} {book.title}</h3>
+                      <h3 className="mt-0 mb-2 text-2xl font-medium">{book.author} &rdquo;{book.title}&rdquo; <br/>
+                   {book.id === "24" && (
+          <span className="text-xl text-gray-500 text-sm ml-2"> 
+            Видавництво &rdquo;Книги ХХІ&rdquo;/&rdquo;Чорні вівці&rdquo; (З дозволу директора Василя Дроняка)
+          </span>
+        )}
+        
+                      </h3>
                       <p></p>
                     </div>
                     <p className="mb-0 text-gray-600 dark:text-white">{book.anotation}</p>

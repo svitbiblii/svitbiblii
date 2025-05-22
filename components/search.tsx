@@ -13,7 +13,7 @@ export const Search = ({ inputValue, setInputValue}: Props) => {
 
     return (
         <div className="w-full pr-6 pl-6 pt-6">
-            <h2 className="text-2xl font-semibold mb-4">{t('search')}</h2>
+            <h2 className="text-3xl font-semibold mb-4">{t('search')}</h2>
 
             <div className="flex items-center w-full mx-auto dark:border dark:border-white shadow-md rounded-full p-2">
                 <input
