@@ -640,14 +640,15 @@
     палицею.
   </p>
   <blockquote>
-      <p className="group relative inline-block">
-      — <span className="italic text-blue-500 hover:text-blue-700">Коли
-        приймаємо добре, чи ж злого не приймемо?</span>
-      — щораз повторював
-      батько.
-      <div className="absolute bottom-full left-2 bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
+      <p className="group relative">
+      — <span className="relative italic text-blue-500 hover:text-blue-700">Коли
+        приймаємо добре, чи ж злого не приймемо?
+        <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
        <p className="underline">Біблія, книга Йова розділ 2, вірш 10</p>
       </div>
+        </span>
+      — щораз повторював
+      батько.
     </p>
 
     {/* <p>
@@ -657,16 +658,18 @@
       батько.
     </p> */}
   </blockquote>
-    <p className="group relative inline-block">
+    <p className="group relative">
         «Ні!»
         — кричало все Янове нутро. І він надумав
         щодня ходити до моря
-        вудити <span className="italic text-blue-500 hover:text-blue-700">дивну
-        рибу, що повертає зір. Якщо вмитися тією рибою, то полуда впаде з очей і невидющий бачитиме, як і перше.</span>
-        <div className="absolute bottom-full left-[60%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
+        вудити <span className="relative italic text-blue-500 hover:text-blue-700">дивну
+        рибу, що повертає зір. Якщо вмитися тією рибою, то полуда впаде з очей і невидющий бачитиме, як і перше.
+                <div className="absolute bottom-full left-[10%] -translate-x-[10%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
         <p className="underline">Риба-зебра, що повертає зір.</p>
         <p className="underline">Біблія, книга Товіта розділ 6, вірші 6-9.</p>
       </div>
+        </span>
+
     </p>
     <p>
         Йован
@@ -724,14 +727,13 @@
         примружити, бо той ніби зумисно ставав
         проти сонця.
     </p>
-    <p className="group relative inline-block">
-        <span className="italic text-blue-500 hover:text-blue-700">
+    <p className="group relative">
+        <span className="relative italic text-blue-500 hover:text-blue-700">
         — Рибу, 
-        </span>  ти ж прийшов по неї.
-
-      <div className="absolute bottom-full left-2 bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
+      <div className="absolute bottom-full left-[60%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
        <p className="underline">Стаття «Іхтіс (риба)», Вікіпедія</p>
       </div>
+        </span>  ти ж прийшов по неї.
     </p>
     <p>
         — Мені
@@ -755,26 +757,26 @@
         він
         якось вернеться із цілющою
         рибою і
-        Йован знову побачить цей, <br/><span 
+        Йован знову побачить цей, <span 
         className="relative italic text-blue-500 hover:text-blue-700">
         витятий
         із голосу та слова, світ.
               <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
        <Link href="/library/bible/gospel-of-john/#gospel-of-john-1-1&scroll=true" 
         onClick={() => {setNewId('28')}} 
-        className="underline">Євангеліє від Івана, розділ 1, вірші 1-5</Link>
+        className="underline">Євангеліє від Івана, <br/> розділ 1, вірші 1-5</Link>
       </div>
         </span>
     </p>
-    <p className="group relative inline-block">
+    <p className="group relative">
         Так
-        ходив Ян вудити щоранку багато днів, а <span className="italic text-blue-500 hover:text-blue-700">
+        ходив Ян вудити щоранку багато днів, а <span className="relative italic text-blue-500 hover:text-blue-700">
         дивна риба все тікала з його
         рук.
-        </span>
-      <div className="absolute bottom-full left-[70%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
+        <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
        <p className="underline">Стаття «Іхтіс (риба)», Вікіпедія</p>
       </div>
+        </span>
     </p>
 </section>
 
