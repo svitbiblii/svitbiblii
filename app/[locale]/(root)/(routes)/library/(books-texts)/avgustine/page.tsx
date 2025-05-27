@@ -10,7 +10,7 @@
  export default function AvgustinePage() {
     const t = useTranslations("BookContents");
 
-    const impRef = useRef<HTMLSpanElement>(null);
+    const impRef = useRef<HTMLHeadingElement>(null);
      const [showContent, setShowContent] = useState(false);
      const [expanded, setExpanded] = useState(true);
      const [storedBook, setStoredBook] = useState<string[]>([])
@@ -231,9 +231,9 @@
 
           <section id="section2">
             <h3>Частина ІІ</h3>
-          <h3>Бог є в людині – людина в Бозі</h3>
+          <h3 id="imp" ref={impRef} className={isHighlighted ? 'text-blue-400 ': ''}>Бог є в людині – людина в Бозі</h3>
           <p className="group relative">
-          <span id="imp" ref={impRef} className={isHighlighted ? 'text-blue-400 ': ''}>
+          <span>
             Одначе як я волатиму до Бога мого, Бога й Господа 
             мого?</span> Бо ж, волаючи до Нього, я мов би прохатиму, щоб Він увійшов у мене. 
           І яке ж місце є в мені, в яке міг би увійти в мене Бог мій? Куди ж міг би увійти Бог у мене, 
