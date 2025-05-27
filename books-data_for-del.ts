@@ -145,13 +145,13 @@ export interface IBooks {
     },
     {
         "id": "28",
-        "author": "пер. І. Огієнко",
-        "title": "Євангеліє від Івана",
-        "anotation": "Переклад Послання до Римлян українською мовою, зробленний Іваном Огієнко.",
-        "genre": "bibliya",
+        "author": "Natalka Dankova",
+        "title": "Seven Nights Before Christmas",
+        "anotation": "To Jan, the twin brother of her missing husband, Zlata vowed to come each year for seven years, on the night before Christmas. She pledged to remain with him until morning in his mountain castle. Jan is a brilliant organist, but his music is evil. When he plays, rocks fall from church towers, walls split, and lightning strikes the spires. An exile from Paradise — Adam shouts through the music. The events unfold in an imaginary time, culturally reminiscent of the first half of the twentieth century. The story is allegorical, woven from fabulous, biblical, and mythological imagery and motifs.",
+        "genre": "fiction",
         "type": "text",
-        "kategory": "bibl",
-        "link": "/library/bible/gospel-of-john",
+        "kategory": "fiction",
+        "link": "/library/dankova-en/#section1&scroll=true",
         "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrykvYAhtth_OBMIlHB7ukNw_eOSZFMTplckvrzs_yHgEoqrMYawOJx70&s"
     },
     {

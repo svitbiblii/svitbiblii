@@ -91,6 +91,11 @@ const Homepage = () => {
             Видавництво &rdquo;Книги ХХІ&rdquo;/&rdquo;Чорні вівці&rdquo; (З дозволу директора Василя Дроняка)
           </span>
         )}
+                           {book.id === "28" && (
+          <span className="text-xl text-gray-500 text-sm ml-2"> 
+            Publishing House &rdquo;Books XXI&rdquo;/&rdquo;Black Sheep Publishing House&rdquo; (With the permission of Vasyl Droniak, director of the publishing house)
+          </span>
+        )}
         
                       </h3>
                       <p></p>
