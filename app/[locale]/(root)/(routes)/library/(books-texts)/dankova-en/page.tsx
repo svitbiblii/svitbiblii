@@ -622,45 +622,40 @@
 
  <section id="section1" ref={section1EnRef}>
   <p>
-    Jan was ardent; he could not bear his father&#39;s affliction. His eyes burned when he saw Jovan leaning on a cypress stick. [cite: 10]
+    Jan was ardent; he could not bear his father&#39;s affliction. His eyes burned when he saw Jovan leaning on a cypress stick.
   </p>
   <blockquote>
     <p className="group relative">
-      — <span className="relative italic text-blue-500 hover:text-blue-700">Shall we accept good, and not accept adversity? [cite: 10]
+      — <span className="relative italic text-blue-500 hover:text-blue-700">Shall we accept good, and not accept adversity?
         <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
           <p className="underline">Bible, book of Job, chapter 2, verse 10</p>
         </div>
       </span>
-      — the father repeated each time. [cite: 11]
+      — the father repeated each time.
     </p>
 
-    {/* <p>
-      — <span className="italic underline text-blue-500 hover:text-blue-700">Коли
-        приймаємо добре, чи ж злого не приймемо?</span>
-      — щораз повторював
-      батько.
-    </p> */}
   </blockquote>
   <p className="group relative">
-    «No!» [cite: 12]
-    — Everything inside Jan screamed. He resolved to go to the sea every day, to catch a <span className="relative italic text-blue-500 hover:text-blue-700">strange fish. If one washes with that fish, the scales fall from one’s eyes, and the blind see as they once did.... [cite: 12]
+    «No!»
+    — Everything inside Jan screamed. He resolved to go to the sea every day, <span className="relative italic text-blue-500 hover:text-blue-700">to catch a strange fish. If one washes with that fish, the scales fall from one’s eyes, and the blind see as they once did....
       <div className="absolute bottom-full left-[10%] -translate-x-[10%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
-        <p className="underline">Zebrafish that restores vision. [cite: 12]</p>
-        <p className="underline">Bible, book of Tobit, chapter 6, verses 6-9. [cite: 13]</p>
+        <p className="underline">Zebrafish that restores vision.</p>
+        <p className="underline">Bible, book of Tobit, chapter 6, verses 6-9.</p>
       </div>
     </span>
   </p>
   <p>
-    Jovan moved his son&#39;s short-cropped hair with sorrow. He remembered how dark it was, streaked with white, just like Ivo’s. Aurelia had always said that someone radiant had touched her sons. [cite: 14]
+    Jovan moved his son&#39;s short-cropped hair with sorrow. He remembered how dark it was, streaked with white, just like Ivo’s. Aurelia had always said that someone radiant had touched her sons.
   </p>
   <blockquote>
     <p className="group relative">
-      — My rebellious Jan, you don’t even know how to fish properly—what a strange thing you’ve taken upon yourself. You never loved the sea, and on the outside, you’re so calm that no one can guess what stirs within you. But <span className="relative italic text-blue-500 hover:text-blue-700">inside, you’re restless, as if marked by sorrow. [cite: 14]
+      — My rebellious Jan, you don’t even know how to fish properly—what a strange thing you’ve taken upon yourself. You never loved the sea, and on the outside, you’re so calm that no one can guess what stirs within 
+      you. But <span className="relative italic text-blue-500 hover:text-blue-700">inside, you’re restless, 
         <div className="absolute bottom-full left-[21%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
-          <button onClick={togglePage} className="underline">Blessed Augustine «Confession» [cite: 15]</button>
+          <button onClick={togglePage} className="underline">Blessed Augustine «Confession»</button>
         </div>
-      </span>
-      What is there in store for you, son? [cite: 14]
+      </span> as if marked by sorrow.
+      What is there in store for you, son?
     </p>
   </blockquote>
   <p>
@@ -757,11 +752,11 @@
 <ul className="pl-0 pt-10 w-full ">
     <li className="mb-3 block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
         <div className="flex justify-between items-start">
-            <Link   href='/library/avgustine/#imp&scroll=true'  
-                    onClick={() => {setNewId('25')}}
+            <Link   href='/library/avgustine-en/#confes-part1-ch2&scroll=true'
+                    onClick={() => {setNewId('29')}}
                     >
-                 <span className="text-blue-500 underline">Одначе як я волатиму до Бога мого, Бога й Господа мого?</span>
-                <span className="text-black ml-2 dark:text-white">в книзі &rdquo;Сповідь&rdquo; блаженного Августина</span>
+                 <span className="text-blue-500 underline">And how shall I call upon my God — my God and my Lord?</span>
+                <span className="text-black ml-2 dark:text-white">in the book &rdquo;Confession&rdquo; Blessed Augustine</span>
             </Link>
 
             <button onClick={() => setExpanded1(curr => !curr)}
@@ -770,12 +765,10 @@
             </button>
         </div>
         <p className={`text-gray-700 mt-5 ${expanded1 ? "" : "hidden"}`}>
-        «Святий Авґустин (354—430) — християнський теолог, вчитель Церкви, філософ, ритор, єпископ. За його власними свідченнями, ним було створено 232 книги; збереглися також 224 листи і понад 500 текстів проповідей. Спосіб викладу матеріалу в цих працях відповідає бурхливому, неспокійному характеру автора. Про нього говорили, що ні в кого з великих мислителів не було таких перепадів між найвищим і найнижчим, що серед церковних святих він був найменш святим і найбільше людиною. <br />
-        «Сповідь» — автобіографічний твір, у якому Авґустин у формі молитви розповідає про своє життя, що відрізнялося занепокоєнням, постійним пошуком і багатьма помилками, про свій досвід грішника, котрий відкрив шлях до Бога, саме у Ньому віднайшов усе, чого шукав. Він вважав, що нема святих без минулого, нема грішників без майбутнього. У молодому віці Авґустин втратив віру в Бога, переживав духовну еволюцію і лише згодом повернувся до Церкви і був визнаний взірцем християнського способу життя і служіння».</p> 
+        «St. Augustine (354–430) was a Christian theologian, Doctor of the Church, philosopher, rhetorician, and bishop. According to his own testimony, he wrote 232 books; in addition, 224 letters and more than 500 sermon texts have survived. The structure and style of these works reflect the restless nature of their author. It has been said of him that no great thinker embodied such extremes—that among the saints of the Church, he was the least holy and the most human. <br />
+        «Confessions» is an autobiographical work in which Augustine, in the form of a prayer, recounts his life, marked by anxiety, a constant search for truth, and many errors, as the journey of a sinner who ultimately found the path to God. In Him, Augustine discovered everything he had long sought. He believed that &rdquo;
+there are no saints without a past, no sinners without a future.&rdquo; In his youth, Augustine lost his faith in God, underwent a profound spiritual transformation, and only later returned to the Church, where he was ultimately recognized as a model of Christian life and ministry.»</p> 
     </li>
-
-    
-
     </ul>
 </div> }
 </div>
