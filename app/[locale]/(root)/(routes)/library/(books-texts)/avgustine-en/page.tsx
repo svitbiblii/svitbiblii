@@ -140,8 +140,8 @@
           <section id="section2">
             <h3>Chapter ІІ</h3>
           <h3 id="confes-part1-ch2" ref={confesPart1Ch2Ref}>That the God Whom We Invoke is in Us, and We in Him.</h3>
-          <p className="group relative">
-          <span className={isHighlighted ? 'text-blue-400 ': ''}>
+          <div className="group relative">
+          <span className={isHighlighted ? 'bg-blue-300 ': ''}>
            And how shall I call upon my God — my God and my 
            Lord?</span> For when I call on Him I ask Him to come into me. 
            And what place is there in me into which my God can come — into which God can come, 
@@ -149,7 +149,7 @@
            Do indeed the very heaven and the earth, which You have made, and in which You have made me, contain You? 
            Or, as nothing could exist without You, does whatever exists contain You? Why, then, do I ask You to come 
            into me, since I indeed exist, and could not exist if You were not in me? Because I am not yet in hell, 
-           though You are even there; <span className="relative italic text-blue-500 hover:text-blue-700">
+           though You are even there; <span className="relative inline-block italic text-blue-500 hover:text-blue-700">
            «for if I go down into hell You are there».
                          <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
        <Link href="/library/bible/psalms-en/#psalomEn138&scroll=true" 
@@ -157,12 +157,12 @@
         className="underline">The Book of Psalms, Psalm 138</Link>
       </div>
            </span>
-          </p>
-          <p className="group relative">«I could not therefore exist, 
+          </div>
+          <div className="group relative">«I could not therefore exist, 
             could not exist at all, O my God, unless You were in me. 
             Or should I not rather say, that I could not exist unless I were in 
             You <span
-            className="relative italic text-blue-500 hover:text-blue-700">
+            className="relative inline-block italic text-blue-500 hover:text-blue-700">
                 «from whom are all things, 
             by whom are all things, in whom are all things»?
                                          <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
@@ -171,7 +171,7 @@
         className="underline">Epistle of Paul to the Romans, Ch. 11:32–36</Link>
       </div>
             </span>
-            </p>
+            </div>
             <p>«Even so, Lord; even so. Where do I call You to, since You are in me, or whence can 
                 You come into me? For where outside heaven and earth can I go that from thence my God 
                 may come into me who has said, I fill heaven and earth?». </p>

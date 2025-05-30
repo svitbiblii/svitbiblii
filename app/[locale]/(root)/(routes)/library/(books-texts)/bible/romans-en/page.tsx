@@ -125,16 +125,17 @@ useEffect(() => {
 <p>29. For the gifts and the calling of God are irrevocable.</p>
 <p>30. For as you were once disobedient to God, yet now have obtained mercy through their disobedience,</p>
 <p>31. even so these also have now been disobedient, that through the mercy shown you they also may obtain mercy.</p>
-<p id="romansEn-11-32" ref={romansEn1132Ref} className={isHighlighted ? 'text-blue-400 ': ''}>
-  32. For God has committed them all to disobedience, that He might have mercy on all.</p>
-<p className={isHighlighted ? 'text-blue-400 ': ''}>
-    33. Oh, the depth of the riches both of the wisdom and knowledge of God! How unsearchable are His judgments and His ways past finding out!</p>
-<p className={isHighlighted ? 'text-blue-400 ': ''}>
-    34. For who has known the mind of the Lord? Or who has become His counselor?</p>
-<p className={isHighlighted ? 'text-blue-400 ': ''}>
-    35. Or who has first given to Him, and it shall be repaid to him?</p>
-<p className={isHighlighted ? 'text-blue-400 ': ''}>
-    36. For of Him and through Him and to Him are all things, to whom be glory forever. Amen.</p>
+<p id="romansEn-11-32" ref={romansEn1132Ref}>
+  32. <span className={isHighlighted ? 'bg-blue-300': ''}>
+    For God has committed them all to disobedience, that He might have mercy on all.</span></p>
+<p>
+    33. <span className={isHighlighted ? 'bg-blue-300' : ''}>Oh, the depth of the riches both of the wisdom and knowledge  of God! How unsearchable are His judgments and His ways past finding out!</span></p>
+<p>
+    34. <span className={isHighlighted ? 'bg-blue-300' : ''}>For who has known the mind of the Lord? Or who has become His  counselor?</span></p>
+<p>
+    35. <span className={isHighlighted ? 'bg-blue-300' : ''}>Or who has first given to Him, and it shall be repaid to him?</span></p>
+<p>
+    36. <span className={isHighlighted ? 'bg-blue-300' : ''}>For of Him and through Him and to Him are all things, to whom  be glory forever. Amen.</span></p>
     </section>
 
     <section id="section2" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 px-2 border border-gray-300 rounded-md">

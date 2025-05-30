@@ -625,80 +625,79 @@
     Jan was ardent; he could not bear his father&#39;s affliction. His eyes burned when he saw Jovan leaning on a cypress stick.
   </p>
   <blockquote>
-    <p className="group relative">
-      — <span className="relative italic text-blue-500 hover:text-blue-700">Shall we accept good, and not accept adversity?
+    <div className="group relative">
+      — <span className="relative inline-block italic text-blue-500 hover:text-blue-700">Shall we accept good, and not accept adversity?
         <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
           <p className="underline">Bible, book of Job, chapter 2, verse 10</p>
         </div>
       </span>
       — the father repeated each time.
-    </p>
+    </div>
 
   </blockquote>
-  <p className="group relative">
+  <div className="group relative">
     «No!»
-    — Everything inside Jan screamed. He resolved to go to the sea every day, <span className="relative italic text-blue-500 hover:text-blue-700">to catch a strange fish. If one washes with that fish, the scales fall from one’s eyes, and the blind see as they once did....
+    — Everything inside Jan screamed. He resolved to go to the sea every day, <span className="relative inline-block italic text-blue-500 hover:text-blue-700">to catch a strange fish. If one washes with that fish, the scales fall from one’s eyes, and the blind see as they once did....
       <div className="absolute bottom-full left-[10%] -translate-x-[10%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
         <p className="underline">Zebrafish that restores vision.</p>
         <p className="underline">Bible, book of Tobit, chapter 6, verses 6-9.</p>
       </div>
     </span>
-  </p>
+  </div>
   <p>
     Jovan moved his son&#39;s short-cropped hair with sorrow. He remembered how dark it was, streaked with white, just like Ivo’s. Aurelia had always said that someone radiant had touched her sons.
   </p>
   <blockquote>
-    <p className="group relative">
+    <div className="group relative">
       — My rebellious Jan, you don’t even know how to fish properly—what a strange thing you’ve taken upon yourself. You never loved the sea, and on the outside, you’re so calm that no one can guess what stirs within 
-      you. But <span className="relative italic text-blue-500 hover:text-blue-700">inside, you’re restless, 
+      you. But <span className="relative inline-block italic text-blue-500 hover:text-blue-700">inside, you’re restless, 
         <div className="absolute bottom-full left-[21%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
           <button onClick={togglePage} className="underline">Blessed Augustine «Confession»</button>
         </div>
       </span> as if marked by sorrow.
       What is there in store for you, son?
-    </p>
+    </div>
   </blockquote>
   <p>
-    Jan listened to no one. At dawn, as frost still clung to the ground, he took his father’s fishing rod, the dragnet, and set off for the sea. But on the way, right at the shoreline, he once again encountered the strange wanderer, the one who, years ago, had taught him to hear the song of all living things. The man was something of an eccentric. He wore a chiton, with a blue himation draped over one shoulder. Slung at his side was a bag like a traveler’s, [cite: 37]
-    and he carried a sharp staff, like a spear, in his hand. Once again, he was drawing in the sand with it. [cite: 38]
+    Jan listened to no one. At dawn, as frost still clung to the ground, he took his father’s fishing rod, the dragnet, and set off for the sea. But on the way, right at the shoreline, he once again encountered the strange wanderer, the one who, years ago, had taught him to hear the song of all living things. The man was something of an eccentric. He wore a chiton, with a blue himation draped over one shoulder. Slung at his side was a bag like a traveler’s,
+    and he carried a sharp staff, like a spear, in his hand. Once again, he was drawing in the sand with it.
   </p>
   <p>
-    — I can&#39;t tell what you&#39;re drawing, — Jan said, pausing near him. The sun was in his eyes; the man always seemed to stand deliberately against the light. [cite: 38]
+    — I can&#39;t tell what you&#39;re drawing, — Jan said, pausing near him. The sun was in his eyes; the man always seemed to stand deliberately against the light.
   </p>
-  <p className="group relative">
-    <span className="relative italic text-blue-500 hover:text-blue-700">
-      — Fish, [cite: 38]
+  <div className="group relative">
+    <span className="relative inline-block italic text-blue-500 hover:text-blue-700">
+      — Fish, 
       <div className="absolute bottom-full left-[60%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
-        <p className="underline">Article «Ichthys (fish)», Wikipedia [cite: 39]</p>
+        <p className="underline">Article «Ichthys (fish)», Wikipedia</p>
       </div>
-    </span>
-    since that’s what you’ve come for. [cite: 38]
+    </span> since that’s what you’ve come for.
+  </div>
+  <p>
+    — I need a real one, and this one is merely drawn in the sand. — Then go and catch it.
   </p>
   <p>
-    — I need a real one, and this one is merely drawn in the sand. — Then go and catch it. [cite: 39]
+    — Be sure — I will catch it, and my father will see again!
   </p>
-  <p>
-    — Be sure — I will catch it, and my father will see again! [cite: 40]
-  </p>
-  <p className="group relative">
-    The man pulled out a fishing rod and a dragnet, but he didn’t know how to handle them properly, so he grabbed the fish with his bare hands. He tried to hold on to it, struggling amid the waves. He knew his mother wasn’t sleeping that morning; she was waiting for him near the cypresses. She waited with hope that he would somehow return with the healing fish—and that Jovan would once again see this, <span
-      className="relative italic text-blue-500 hover:text-blue-700">
-      world carved from voice and word. [cite: 41]
+  <div className="group relative">
+    The man pulled out a fishing rod and a dragnet, but he didn’t know how to handle them properly, so he grabbed the fish with his bare hands. He tried to hold on to it, struggling amid the waves. He knew his mother wasn’t sleeping that morning; she was waiting for him near the cypresses. She waited with hope that he would somehow return with the healing fish—and that Jovan would once again see this, 
+    world <span className="relative inline-block italic text-blue-500 hover:text-blue-700">
+       carved from voice and word.
       <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
-        <Link href="/library/bible/gospel-of-john/#gospel-of-john-1-1&scroll=true"
-          onClick={() => { setNewId('28') }}
-          className="underline">Gospel of John, <br /> chapter 1, verses 1-5 [cite: 42]</Link>
+        <Link href="/library/bible/gospel-of-johnEn/#gospel-of-johnEn-1-1&scroll=true"
+          onClick={() => { setNewId('32') }}
+          className="underline">Gospel of John, Ch.1:1-5</Link>
       </div>
     </span>
-  </p>
-  <p className="group relative">
-    So Jan went there every morning for many days, and the <span className="relative italic text-blue-500 hover:text-blue-700">
-      strange fish kept running away from his hands. [cite: 47]
+  </div>
+  <div className="group relative">
+    So Jan went there every morning for many days, and the <span className="relative inline-block italic text-blue-500 hover:text-blue-700">
+      strange fish kept running away from his hands.
       <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
-        <p className="underline">Article «Ichthys (fish)», Wikipedia [cite: 48]</p>
+        <p className="underline">Article «Ichthys (fish)», Wikipedia</p>
       </div>
     </span>
-  </p>
+  </div>
 </section>
 
 <section id="section2">
