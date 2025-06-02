@@ -69,6 +69,12 @@ const config: Config = {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
+		fontFamily: {
+        // Стандартний шрифт для рядового тексту та кнопок (Montserrat)
+        sans: ['var(--font-montserrat)', 'sans-serif'],
+        // Шрифт для заголовків (Playfair Display)
+        heading: ['var(--font-playfair-display)', 'serif'],
+      },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

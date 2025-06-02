@@ -224,7 +224,7 @@ const Homepage = () => {
             key={index}
             onClick={() => setSelectedTab(index)}
             className={`text-xs px-4 py-2 rounded-md ${
-              selectedTab === index ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              selectedTab === index ? 'bg-primary text-white hover:bg-blue-600' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             } `}
             >
             {tab.title}

@@ -7,6 +7,21 @@ import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
+import { Playfair_Display, Montserrat } from 'next/font/google';
+
+// Конфігурація Playfair Display для заголовків
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin', 'cyrillic'],
+  display: 'swap',
+  variable: '--font-playfair-display',
+});
+
+// Конфігурація Montserrat для рядового тексту та кнопок
+const montserrat = Montserrat({
+  subsets: ['latin', 'cyrillic'],
+  display: 'swap',
+  variable: '--font-montserrat',
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,7 +57,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   return (
     <html lang={locale} suppressHydrationWarning className="scroll-smooth overflow-hidden">
-      <body id="book-content" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body id="book-content" className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${montserrat.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
