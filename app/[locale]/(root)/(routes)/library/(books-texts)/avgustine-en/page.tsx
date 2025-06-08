@@ -1,37 +1,33 @@
 "use client";
  
- import { Link } from "@/i18n/routing";
- import { useTranslations } from "next-intl";
- import { useState, useEffect, useRef } from "react";
- import { ChevronFirst, ChevronLast } from "lucide-react";
- import { About } from "@/components/about";
- import History from "@/components/history";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
+import { useState, useEffect, useRef } from "react";
+import { useNavigation } from "@/lib/navigation-context";
+import { BOOKS_DATA } from "@/books-data_for-del";
  
  export default function AvgustineEnPage() {
     const t = useTranslations("BookContents");
 
+    const { addBookToHistory } = useNavigation();
     const confesPart1Ch2Ref = useRef<HTMLHeadingElement>(null);
-     const [showContent, setShowContent] = useState(false);
-     const [expanded, setExpanded] = useState(true);
-     const [storedBook, setStoredBook] = useState<string[]>([])
-     const [newId, setNewId] = useState('');
+    const currentBookLink = "/library/avgustine-en";
+
      const [isHighlighted, setIsHighlighted] = useState(false);
- 
-       if (newId) {
-         const findBookById = storedBook.find(item => item === newId)  
- 
-         if (findBookById === undefined) {
-             sessionStorage.setItem('bookname', JSON.stringify([...storedBook, newId]))
-           } 
-       }
+     const [bookContent, setBookContent] = useState<any>(null);
  
        useEffect(() => {
-         const savedBooks = sessionStorage.getItem('bookname')
-         if (savedBooks) {
-           setStoredBook(JSON.parse(savedBooks))
-         }
+            if (!bookContent) { 
+      const foundBook = BOOKS_DATA.find(item => item.link === currentBookLink);
 
-         const url = new URL(window.location.href);
+      if (foundBook) {
+        setBookContent(foundBook);
+        addBookToHistory(foundBook.id);
+      } else {
+        setBookContent(null);
+      }
+    }
+        const url = new URL(window.location.href);
         const hash = url.hash;
         const shouldScrollToSection = hash.includes('#confes-part1-ch2') && hash.includes('scroll=true');
 
@@ -55,69 +51,16 @@
       });
     }, 1500);
   }
-       }, [])
+       }, [bookContent, addBookToHistory, currentBookLink])
+
+             if (!bookContent) {
+        return <div>{t("loading")}</div>; }
  
      return (
-        <div className="h-min-full flex">
-             <div className="relative">
-                         <button onClick={() => setExpanded(curr => !curr)}
-                                 className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
-                             {expanded ? <ChevronFirst/> : <ChevronLast/>}
-                         </button>
-                     </div>
-         
-                     <div
-                         className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary pb-12 shadow-lg ${
-                             expanded ? "md:block" : "initial"
-                         }`}>
-                             <div>
-                             <About/>
-                                 
-                                 <div className="bg-secondary px-6 pt-1 pb-8">
-                                     <div className="py-2 flex justify-between font-medium">
-                                         <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
-                                             onClick={() => {setShowContent(false)}}>
-                                                 {t('navigator')}
-                                         </button>
-                                         <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
-                                             onClick={() => {setShowContent(true)}}>
-                                                 {t('content')}
-                                         </button>
-                                     </div>
-             
-                                 {showContent ? 
-                                 <ul className="list-none bg-secondary pl-0">
-                                     <li>
-                                         <Link href='/library/avgustine-en/#section1' 
-                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                                             Chapter І
-                                         </Link>
-                                     </li>
-                                     <li>
-                                         <Link href='/library/avgustine-en/#section2' 
-                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                                             Chapter ІІ
-                                         </Link>
-                                     </li> 
-                                     <li>
-                                         <Link href='/library/avgustine-en/#section3' 
-                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                                             Chapter ІІІ
-                                         </Link>
-                                     </li>
-                                 </ul> :
-                                 <History />}    
-                                 </div>
-                             </div>   
-                     </div> 
-         
-         
+        <div className="h-min-full flex">      
          <div className="relative h-full w-full px-4 pt-2 block">
-       
                 <div  className="w-full">
- 
                 <h2 className="pt-0">«Confession» Blessed Augustine </h2>
-
                 <section id="section1">
 <h3>Chapter I</h3>
 <h3>He proclaims the greatness of God, whom he desires to seek and invoke, being awakened by him.</h3>
@@ -141,7 +84,7 @@
             <h3>Chapter ІІ</h3>
           <h3 id="confes-part1-ch2" ref={confesPart1Ch2Ref}>That the God Whom We Invoke is in Us, and We in Him.</h3>
           <div className="group relative">
-          <span className={isHighlighted ? 'bg-blue-300 ': ''}>
+          <span className={isHighlighted ? 'text-primary': ''}>
            And how shall I call upon my God — my God and my 
            Lord?</span> For when I call on Him I ask Him to come into me. 
            And what place is there in me into which my God can come — into which God can come, 
@@ -149,11 +92,10 @@
            Do indeed the very heaven and the earth, which You have made, and in which You have made me, contain You? 
            Or, as nothing could exist without You, does whatever exists contain You? Why, then, do I ask You to come 
            into me, since I indeed exist, and could not exist if You were not in me? Because I am not yet in hell, 
-           though You are even there; <span className="relative inline-block italic text-blue-500 hover:text-blue-700">
+           though You are even there; <span className="relative inline-block italic text-primary hover:text-primary-dark">
            «for if I go down into hell You are there».
                          <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
        <Link href="/library/bible/psalms-en/#psalomEn138&scroll=true" 
-        onClick={() => {setNewId('30')}} 
         className="underline">The Book of Psalms, Psalm 138</Link>
       </div>
            </span>
@@ -162,12 +104,11 @@
             could not exist at all, O my God, unless You were in me. 
             Or should I not rather say, that I could not exist unless I were in 
             You <span
-            className="relative inline-block italic text-blue-500 hover:text-blue-700">
+            className="relative inline-block italic text-primary hover:text-primary-dark">
                 «from whom are all things, 
             by whom are all things, in whom are all things»?
                                          <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
        <Link href="/library/bible/romans-en#romansEn-11-32&scroll=true"
-        onClick={() => {setNewId('31')}} 
         className="underline">Epistle of Paul to the Romans, Ch. 11:32–36</Link>
       </div>
             </span>
@@ -191,9 +132,7 @@ part of Thee? and all at once the same part? or each its own part, the greater m
 of Thee greater, another less? or, art Thou wholly every where, while nothing contains Thee wholly?
   </p>
 </section>
-
-         </div>
-
+        </div>
         </div>
          </div>  
          );

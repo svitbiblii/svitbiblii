@@ -28,13 +28,13 @@ const SideMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     };
 
     const voiceControlButtonClassName = cn(
-        "relative rounded-md p-2 transition-colors",
-        isVoiceControlActive ? "text-primary" : "text-icon"
+        "relative rounded-md p-2 transition-colors hover:text-primary-dark",
+        isVoiceControlActive ? "text-primary" : "text-muted-foreground"
     );
 
     const speechSynthesisButtonClassName = cn(
-        "relative rounded-md p-2 transition-colors",
-        isSpeechSynthesisActive ? "text-primary" : "text-icon"
+        "relative rounded-md p-2 transition-colors hover:text-primary-dark",
+        isSpeechSynthesisActive ? "text-primary" : "text-muted-foreground"
     );
 
   return (
@@ -68,7 +68,7 @@ const SideMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             <button onClick={onClose} className="focus:outline-none">
               {/* Іконка закриття (X) */}
               <svg
-                className="w-6 h-6"
+                className="w-6 h-6 hover:text-primary-dark"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -107,7 +107,7 @@ const SideMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                 <Link href="/onboarding">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
+                        className="h-6 w-6 hover:text-primary-dark"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -120,30 +120,6 @@ const SideMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                         />
                     </svg>
                 </Link>
-            
-
-
-
-
-
-
-            {/* Елементи меню залишаються такими ж */}
-            {/* <button className="w-full text-left px-3 py-2 border rounded-md">A+</button>
-            <button className="w-full text-left px-3 py-2 border rounded-md">A-</button>
-            <button className="w-full text-left p-2 rounded-full bg-blue-500 text-white flex items-center">
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m7 0V5a2 2 0 00-2-2v0a2 2 0 00-2 2v6m0 0H5"></path></svg>
-              <span>Голосовий пошук</span>
-            </button>
-            <button className="w-full text-left p-2 rounded-full bg-green-500 text-white flex items-center">
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464l-4.072 4.072M15.536 8.464L19.071 12m-3.535-3.536l-4.072-4.072M15.536 8.464L12 4.929"></path></svg>
-              <span>Прослухати</span>
-            </button>
-            <button className="w-full text-left p-2 rounded-full flex items-center">
-              ☀️ <span>Світла тема</span>
-            </button>
-            <button className="w-full text-left p-2 rounded-full flex items-center">
-              ⚫ <span>Темна тема</span>
-            </button> */}
           </nav>
         </div>
       </Transition>

@@ -1,6 +1,10 @@
 {
   "Navbar": {
-    "library": "Library"
+    "aboutus": "ABOUT US",
+    "howitworks": "HOW IT WORKS",
+    "blog": "BLOG",
+    "forum": "FORUM",
+    "support": "SUPPORT"
   },
     "Homepage": {
       "navigator": "Navigator",
@@ -69,11 +73,27 @@
       "content":"There should be a How It Works page that explains how to use the site. In my opinion, it would be great to add slides that show what the user can do on the site. These slides need to be drawn specifically for this project. Perhaps some kind of video instruction would be appropriate."
     },
     "HistoryComponent": {
-      "history": "There will be a history of transitions"
+      "history": "There will be a history of transitions",
+      "navigator": "Navigator",
+      "content": "Contents",
+      "content-text": "Here is the table of contents",
+      "collapseSidebar": "Collapse",
+      "expandSidebar": "Expand",
+      "noHistory": "History will be displayed here",
+      "clearHistory": "Clear History",
+      "bookmarksTitle": "My Bookmarks",
+      "noBookmarks": "Your bookmarks will be here.",
+      "favoritesTitle": "Favorite Books",
+      "noFavorites": "Your favorite books will be here.",
+      "routesTitle": "My Routes",
+      "noRoutes": "Your routes will be here.",
+      "searchTitle": "Search Panel",
+      "searchPlaceholder": "Search filters can be here.",
+      "defaultSidebarTitle": "Additional Content",
+      "defaultSidebarContent": "Select a section to display content."
     },
     "BookContents": {
-      "navigator": "Navigator",
-      "content": "Contents"
+      "loading": "Loading..."
   },
     "Footer": {
       "email":"Email us: mediaglagol@gmail.com",

@@ -4,210 +4,98 @@
  import { useTranslations } from "next-intl";
  import { useState, useEffect, useRef } from "react";
  import { ChevronDown, ChevronUp, CircleX } from "lucide-react";
- import { ChevronFirst, ChevronLast } from "lucide-react";
- import { About } from "@/components/about";
- import History from "@/components/history";
+ import { useNavigation } from "@/lib/navigation-context";
+ import { BOOKS_DATA } from "@/books-data_for-del";
  
  export default function DankovaPage() {
     const t = useTranslations("BookContents");
-    const section1Ref = useRef<HTMLDivElement>(null);
-  const bookContentRef = useRef<HTMLDivElement>(null);
 
-     const [showPage, setShowPage] = useState(false);
-     const [showContent, setShowContent] = useState(false);
-     const [expanded, setExpanded] = useState(true);
-     const [expanded1, setExpanded1] = useState(true);
-     const [storedBook, setStoredBook] = useState<string[]>([])
-     const [newId, setNewId] = useState('')
+    const { addBookToHistory } = useNavigation();
+    const currentBookLink = "/library/dankova";
+    const section1Ref = useRef<HTMLDivElement>(null);
+    const bookContentRef = useRef<HTMLDivElement>(null);
+
+    const [bookContent, setBookContent] = useState<any>(null);
+    const [showPage, setShowPage] = useState(false);
+    const [expanded1, setExpanded1] = useState(true);
+      
+  useEffect(() => {
+        if (!bookContent) {
+        const foundBook = BOOKS_DATA.find(item => {
+        const normalizedItemLinkFromData = item.link.split('#')[0].split('?')[0];
+        const normalizedCurrentBookLink = currentBookLink.endsWith('/') ? currentBookLink.slice(0, -1) : currentBookLink;
+        const normalizedFoundItemLink = normalizedItemLinkFromData.endsWith('/') ? normalizedItemLinkFromData.slice(0, -1) : normalizedItemLinkFromData;
+
+        return normalizedFoundItemLink === normalizedCurrentBookLink;
+      });
+
+      if (foundBook) {
+        setBookContent(foundBook);
+        addBookToHistory(foundBook.id);
+      } else {
+        setBookContent(null);
+      }
+    }
  
-       if (newId) {
-         const findBookById = storedBook.find(item => item === newId)  
- 
-         if (findBookById === undefined) {
-             sessionStorage.setItem('bookname', JSON.stringify([...storedBook, newId]))
-           } 
-       }
-       useEffect(() => {
-        const savedBooks = sessionStorage.getItem('bookname');
-        if (savedBooks) {
-          setStoredBook(JSON.parse(savedBooks));
-        }
-    
-        const url = new URL(window.location.href);
-        const hash = url.hash;
-        const shouldScrollToSection = hash.includes('#section1') && hash.includes('scroll=true');
-    
-        if (shouldScrollToSection && section1Ref.current) {
-          const mainElement = document.querySelector('main');
-    
-          // Спочатку переходимо на початок книги (прокручуємо main до верху)
-          if (mainElement) {
-            mainElement.scrollTop = 0;
-          }
-    
-          // Затримка перед початком плавної прокрутки до section1
-          setTimeout(() => {
-            section1Ref.current?.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start', // Щоб верх секції був на початку видимої області
-            });
-          }, 1500);
-        }
-    
-        // Відновлення позиції прокрутки внутрішнього div
-        if (showPage && bookContentRef.current) {
-          const savedMainScrollPosition = sessionStorage.getItem('mainScrollPosition_dankova');
-          if (savedMainScrollPosition) {
-            bookContentRef.current.scrollTop = parseInt(savedMainScrollPosition, 10);
-            sessionStorage.removeItem('mainScrollPosition_dankova');
-          }
-        }
-    
-        const mainElement = document.querySelector('main'); // Отримуємо елемент main за селектором
-    
-        const handleBeforeUnload = () => {
-          if (mainElement) {
-            sessionStorage.setItem('mainScrollPosition_dankova', String(mainElement.scrollTop));
-          }
-        };
-    
-        window.addEventListener('beforeunload', handleBeforeUnload);
-    
-        return () => {
-          window.removeEventListener('beforeUnload', handleBeforeUnload);
-        };
-      }, [showPage]);
-    
-      const togglePage = () => {
-        const mainElement = document.querySelector('main'); // Отримуємо елемент main при кожному кліку
-        if (mainElement && !showPage) {
-          sessionStorage.setItem('mainScrollPosition_dankova', String(mainElement.scrollTop));
-        }
-        setShowPage(!showPage);
-      };
-    
-    //   const handleLinkClick = (href: string) => {
-    //     const mainElement = document.querySelector('main');
-    //     if (mainElement) {
-    //       sessionStorage.setItem('mainScrollPosition_dankova', String(mainElement.scrollTop));
-    //     }
-    //     window.open(href, '_blank', 'width=800,height=600');
-    //   };
+    const url = new URL(window.location.href);
+    const hash = url.hash;
+    const shouldScrollToSection = hash.includes('#section1') && hash.includes('scroll=true');
+
+    if (shouldScrollToSection && section1Ref.current) {
+      const mainElement = document.querySelector('main');
+      if (mainElement) {
+        mainElement.scrollTop = 0;
+      }
+      setTimeout(() => {
+        section1Ref.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 1500);
+    }
+
+    //  Логіка для відновлення/збереження позиції прокрутки
+    // Відновлення позиції прокрутки внутрішнього div
+    if (showPage && bookContentRef.current) {
+      const savedMainScrollPosition = sessionStorage.getItem('mainScrollPosition_dankova');
+      if (savedMainScrollPosition) {
+        bookContentRef.current.scrollTop = parseInt(savedMainScrollPosition, 10);
+        sessionStorage.removeItem('mainScrollPosition_dankova');
+      }
+    }
+
+    const mainElement = document.querySelector('main');
+    const handleBeforeUnload = () => {
+      if (mainElement) {
+        sessionStorage.setItem('mainScrollPosition_dankova', String(mainElement.scrollTop));
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => { // Функція очищення useEffect
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [bookContent, addBookToHistory, currentBookLink, showPage]);
+
+  if (!bookContent) {
+    return <div>{t("loading")}</div>;
+  }
+
+  const togglePage = () => {
+    const mainElement = document.querySelector('main');
+    if (mainElement && !showPage) {
+      sessionStorage.setItem('mainScrollPosition_dankova', String(mainElement.scrollTop));
+    }
+    setShowPage(!showPage);
+  };
   
      return (
         <div className="h-min-full flex">
-             <div className="relative">
-                         <button onClick={() => setExpanded(curr => !curr)}
-                                 className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
-                             {expanded ? <ChevronFirst/> : <ChevronLast/>}
-                         </button>
-                     </div>
-         
-                     <div
-                         className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary pb-12 shadow-lg ${
-                             expanded ? "md:block" : "initial"
-                         }`}>
-                             <div>
-                             <About/>
-                                 
-                                 <div className="bg-secondary px-6 pt-1 pb-8">
-                                     <div className="py-2 flex justify-between font-medium">
-                                         <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
-                                             onClick={() => {setShowContent(false)}}>
-                                                 {t('navigator')}
-                                         </button>
-                                         <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
-                                             onClick={() => {setShowContent(true)}}>
-                                                 {t('content')}
-                                         </button>
-                                     </div>
-             
-                                 {showContent ? 
-
-<ul className="list-none bg-secondary pl-0">
-<li>
-    <Link href='/library/dankova/#section1' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Частина 1
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova/#section2' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-            Частина 2
-    </Link>
-</li>  
-<li>
-    <Link href='/library/dankova/#section3' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Частина 3
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova/#section4' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-            Частина 4
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova/#section5' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Частина 5
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova/#section6' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-            Частина 6
-    </Link>
-</li>  
-<li>
-    <Link href='/library/dankova/#section7' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Частина 7
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova/#section8' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-            Частина 8
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova/#section9' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Частина 9
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova/#section10' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-            Частина 10
-    </Link>
-</li>  
-<li>
-    <Link href='/library/dankova/#section11' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Частина 11
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova/#section12' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-            Частина 12
-    </Link>
-</li>
-</ul>  :
-                                 <History />}    
-                                 </div>
-                             </div>   
-                     </div> 
-         
-                     
-                     <div className={`relative h-full w-full px-4 pt-2 flexscroll ${showPage ? "md:flex md:h-screen block" : "block"} `}
+            <div className={`relative h-full w-full px-4 pt-2 flexscroll ${showPage ? "md:flex md:h-screen block" : "block"} `}
                      ref={bookContentRef} style={{ overflowY: 'auto' }}>
        
-       <div className={`  ${showPage ? "px-3 mb-3 md:mb-0 border-2 border-blue-200 rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
+       <div className={`  ${showPage ? "px-3 mb-3 md:mb-0 border-2 border-border-primary-lite rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
  <h2 className="pt-0">«Сім ночей перед Різдвом» Н.Данькова</h2>
  <h3>Видавництво &rdquo;Книги ХХІ&rdquo;/&rdquo;Чорні вівці&rdquo; (З дозволу директора Василя Дроняка)</h3>
  
@@ -640,8 +528,8 @@
     палицею.
   </p>
   <blockquote>
-      <p className="group relative">
-      — <span className="relative italic text-blue-500 hover:text-blue-700">Коли
+      <div className="group relative">
+      — <span className="relative italic text-primary hover:text-primary-dark">Коли
         приймаємо добре, чи ж злого не приймемо?
         <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
        <p className="underline">Біблія, книга Йова розділ 2, вірш 10</p>
@@ -649,20 +537,20 @@
         </span>
       — щораз повторював
       батько.
-    </p>
+    </div>
 
     {/* <p>
-      — <span className="italic underline text-blue-500 hover:text-blue-700">Коли
+      — <span className="italic underline text-primary hover:text-primary-dark">Коли
         приймаємо добре, чи ж злого не приймемо?</span>
       — щораз повторював
       батько.
     </p> */}
   </blockquote>
-    <p className="group relative">
+    <div className="group relative">
         «Ні!»
         — кричало все Янове нутро. І він надумав
         щодня ходити до моря
-        вудити <span className="relative italic text-blue-500 hover:text-blue-700">дивну
+        вудити <span className="relative italic text-primary hover:text-primary-dark">дивну
         рибу, що повертає зір. Якщо вмитися тією рибою, то полуда впаде з очей і невидющий бачитиме, як і перше.
                 <div className="absolute bottom-full left-[10%] -translate-x-[10%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
         <p className="underline">Риба-зебра, що повертає зір.</p>
@@ -670,7 +558,7 @@
       </div>
         </span>
 
-    </p>
+    </div>
     <p>
         Йован
         із сумом ворушив коротко стрижене синове
@@ -681,14 +569,14 @@
         хтось дуже світлий торкнувся її синів.
     </p>
     <blockquote>
-        <p className="group relative">
+        <div className="group relative">
             — Непримиренний 
             мій Яне, ти ж рибу як слід не вмієш вудити,
             а що
             за
             дивину собі вигадав. Хоч ти не любиш
             моря, і зовні спокійний — ніхто
-            й не розбере твоєї думки, але <span className="relative italic text-blue-500 hover:text-blue-700">зсередини
+            й не розбере твоєї думки, але <span className="relative italic text-primary hover:text-primary-dark">зсередини
             ти збурений
               <div className="absolute bottom-full left-[21%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
                 <button onClick={togglePage} className="underline">Блаженний Августин «Сповідь»</button>
@@ -698,7 +586,7 @@
             з
             тебе буде, сину?
  
-        </p>
+        </div>
     </blockquote>
     <p>
         Ян
@@ -727,14 +615,14 @@
         примружити, бо той ніби зумисно ставав
         проти сонця.
     </p>
-    <p className="group relative">
-        <span className="relative italic text-blue-500 hover:text-blue-700">
+    <div className="group relative">
+        <span className="relative italic text-primary hover:text-primary-dark">
         — Рибу, 
       <div className="absolute bottom-full left-[60%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
        <p className="underline">Стаття «Іхтіс (риба)», Вікіпедія</p>
       </div>
         </span>  ти ж прийшов по неї.
-    </p>
+    </div>
     <p>
         — Мені
         треба справжньої, а ця лише креслена на
@@ -744,7 +632,7 @@
         — Будь
         певен — зловлю, і мій батько бачитиме!
     </p>
-    <p className="group relative">
+    <div className="group relative">
         Хлопець
         витяг вудку й волок, але дати раду з тим
         він як слід не вмів, тому
@@ -758,26 +646,25 @@
         якось вернеться із цілющою
         рибою і
         Йован знову побачить цей, <span 
-        className="relative italic text-blue-500 hover:text-blue-700">
+        className="relative italic text-primary hover:text-primary-dark">
         витятий
         із голосу та слова, світ.
               <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
-       <Link href="/library/bible/gospel-of-john/#gospel-of-john-1-1&scroll=true" 
-        onClick={() => {setNewId('28')}} 
+       <Link href="/library/bible/gospel-of-john/#gospel-of-john-1-1&scroll=true"  
         className="underline">Євангеліє від Івана, <br/> розділ 1, вірші 1-5</Link>
       </div>
         </span>
-    </p>
-    <p className="group relative">
+    </div>
+    <div className="group relative">
         Так
-        ходив Ян вудити щоранку багато днів, а <span className="relative italic text-blue-500 hover:text-blue-700">
+        ходив Ян вудити щоранку багато днів, а <span className="relative italic text-primary hover:text-primary-dark">
         дивна риба все тікала з його
         рук.
         <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
        <p className="underline">Стаття «Іхтіс (риба)», Вікіпедія</p>
       </div>
         </span>
-    </p>
+    </div>
 </section>
 
 <section id="section2">
@@ -823,18 +710,18 @@
 </div>
 
 {showPage && 
-<div className={`${showPage ? "px-3 md:pt-0 pt-3 border-2 border-blue-200 rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
-<button className="float-right text-gray-700 hover:text-blue-400 transition-colors duration-200" 
+<div className={`${showPage ? "px-3 md:pt-0 pt-3 border-2 border-border-primary-lite rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full" : "w-full"} `}>
+<button className="float-right text-gray-700 hover:text-primary-dark transition-colors duration-200" 
     onClick={() => {setShowPage(false)}}>
     <CircleX/>
 </button>
 <ul className="pl-0 pt-10 w-full ">
-    <li className="mb-3 block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+    <li className="mb-3 block rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200">
         <div className="flex justify-between items-start">
             <Link   href='/library/avgustine/#imp&scroll=true'  
-                    onClick={() => {setNewId('25')}}
+                    onClick={() => {}}
                     >
-                 <span className="text-blue-500 underline">Одначе як я волатиму до Бога мого, Бога й Господа мого?</span>
+                 <span className="text-primary underline">Одначе як я волатиму до Бога мого, Бога й Господа мого?</span>
                 <span className="text-black ml-2 dark:text-white">в книзі &rdquo;Сповідь&rdquo; блаженного Августина</span>
             </Link>
 

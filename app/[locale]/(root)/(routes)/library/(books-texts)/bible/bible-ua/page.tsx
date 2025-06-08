@@ -1,68 +1,38 @@
 "use client";
 
-import { useState } from "react";
-import { Link } from "@/i18n/routing";
+import { useState, useEffect } from "react";
+import {CircleX } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { About } from "@/components/about";
-import History from "@/components/history";
-import { ChevronFirst, ChevronLast, CircleX } from "lucide-react";
+import { useNavigation } from "@/lib/navigation-context";
+import { BOOKS_DATA } from "@/books-data_for-del";
 
 const BibleUaPage = () => {
     const t = useTranslations("BookContents");
 
-    const [expanded, setExpanded] = useState(true);
+    const { addBookToHistory } = useNavigation();
+    const currentBookLink = "/library/bible/bible-ua";
     const [showPage, setShowPage] = useState(true);
-    const [showContent, setShowContent] = useState(false);
+    const [bookContent, setBookContent] = useState<any>(null);
+
+    useEffect(() => {
+    if (!bookContent) { 
+      const foundBook = BOOKS_DATA.find(item => item.link === currentBookLink);
+
+      if (foundBook) {
+        setBookContent(foundBook);
+        addBookToHistory(foundBook.id);
+      } else {
+        setBookContent(null);
+      }
+    }
+       }, [bookContent, addBookToHistory, currentBookLink])
+
+      if (!bookContent) {
+        return <div>{t("loading")}</div>; }
 
     return (
         <div className="h-min-full flex">
-            <div className="relative">
-                <button onClick={() => setExpanded(curr => !curr)}
-                    className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
-                        {expanded ? <ChevronFirst/> : <ChevronLast/>}
-                </button>
-            </div>
-         
-            <div className={`hidden h-screen w-72 min-w-72 overflow-y-scroll bg-secondary pb-12 shadow-lg ${
-                             expanded ? "md:block" : "initial"}`}>
-                <div>
-                    <About/>
-     
-                    <div className="bg-secondary px-6 pt-1 pb-8">
-                        <div className="py-2 flex justify-between font-medium">
-                            <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
-                                onClick={() => {setShowContent(false)}}>
-                                    {t('navigator')}
-                            </button>
-                            <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
-                                onClick={() => {setShowContent(true)}}>
-                                    {t('content')}
-                            </button>
-                        </div>
-
-                    {showContent ? 
-                    <ul className="list-none bg-secondary pl-0">
-                        <li>
-                            <Link href='/library/bible/bible-ua/#section1' 
-                                className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                                Глава 1
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href='/library/bible/bible-ua/#section2' 
-                                className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                                    Глава 2
-                            </Link>
-                        </li>  
-                    </ul> :
-                    <History />}    
-                </div>
-                                  
-            </div>
-            </div>
-
                      <div className="relative md:flex h-full w-full px-4 pt-2">
-
                         <div className={`relative ${showPage ? "mb-3 md:mb-0 md:w-1/2 h-40vh md:h-screen overflow-y-scroll" : "w-full"}`}>
                             <h2>Український переклад Біблії І. Огієнка</h2>
                             <h3 className="text-2xl">Книга Буття</h3>
@@ -112,7 +82,7 @@ const BibleUaPage = () => {
 
                             {!showPage &&
                                 <button
-                                    className="fixed top-3/4 md:top-32 right-5 md:right-10 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300"
+                                    className="fixed top-3/4 md:top-32 right-5 md:right-10 bg-primary text-primary-foreground px-6 py-2 rounded-full hover:bg-primary-dark transition duration-300"
                                     onClick={() => {
                                         setShowPage(true)
                                     }}>
@@ -122,7 +92,7 @@ const BibleUaPage = () => {
 
                          {showPage &&
                         <div className="md:w-1/2 h-40vh md:h-screen px-4 overflow-y-scroll">
-                            <button className="fixed right-5 md:right-16 text-gray-700 hover:text-blue-400 transition-colors duration-200" 
+                            <button className="fixed right-5 md:right-16 text-gray-700 hover:text-primary-dark transition-colors duration-200" 
                                 onClick={() => {setShowPage(false)}}>
                                 <CircleX/>
                             </button>

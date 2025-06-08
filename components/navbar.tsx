@@ -6,8 +6,10 @@ import { LangSwitcher } from "@/components/lang-switcher";
 import { MobileSidebar } from "@/components/mobile-sidebar";
 import { forwardRef, useState } from "react";
 import SideMenu from "./side-menu";
+import { useTranslations } from "next-intl";
 
 export const Navbar = forwardRef<HTMLDivElement>((props, ref) => {
+    const t = useTranslations("Navbar")
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -31,6 +33,25 @@ export const Navbar = forwardRef<HTMLDivElement>((props, ref) => {
                 </Link>
             </div>
 
+                <ul className="list-none  flex text-muted-foreground text-base">
+                    <li className="mr-4 mb-0 hover:text-primary-dark">
+                        <Link href="/about-us">{t('aboutus')}</Link>
+                    </li>
+                    <li className="mr-4 mb-0 hover:text-primary-dark">
+                        <Link href="/how-it-works">{t('howitworks')}</Link>
+                    </li>
+                    <li className="mr-4 mb-0 hover:text-primary-dark">
+                        <Link href="">{t('blog')}</Link>
+                    </li>
+                    <li className="mr-4 mb-0 hover:text-primary-dark">
+                        <Link href="">{t('forum')}</Link>
+                    </li>
+                    <li className="mb-0 hover:text-primary-dark">
+                        <Link href="">{t('support')}</Link>
+                    </li>
+                </ul>
+            
+
        <div className="flex items-center space-x-4">
         <LangSwitcher/> 
 
@@ -39,7 +60,7 @@ export const Navbar = forwardRef<HTMLDivElement>((props, ref) => {
           onClick={toggleMenu}
           aria-label="Toggle menu">
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 hover:text-primary-dark"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

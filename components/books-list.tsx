@@ -38,7 +38,7 @@ const BooksList = ({ books }: { books: (Library & { link: string })[] }) => {
                         onClick={() => setSelectedCategory(id)}
                         className={`mb-2 mr-4 px-4 py-2 ${
                             selectedCategory === id
-                                ? "bg-blue-500 text-white"
+                                ? "bg-primary text-primary-foreground"
                                 : "bg-gray-200 dark:text-black"
                         }`}
                     >
@@ -53,7 +53,7 @@ const BooksList = ({ books }: { books: (Library & { link: string })[] }) => {
                         <Link
                             href={book.link}
                             onClick={() => setNewId(book.id.toString())}
-                            className="block p-2 pl-0 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200"
+                            className="block p-2 pl-0 rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200"
                         >
                             <p className="mr-10 italic">{book.author}</p>
                             <p className="mr-10 font-bold">{book.title}</p>

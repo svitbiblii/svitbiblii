@@ -17,10 +17,10 @@ export const LangSwitcher = () => {
     }
 
     return (
-        <label className="border-2 rounded">
+        <label className="rounded">
             <p className="sr-only">change language</p>
             <select defaultValue={localActive}  
-                    className="bg-transparent py-2"
+                    className="bg-transparent text-muted-foreground text-base py-2"
                      onChange={onSelectChange}
                      disabled={isPending}>
                 <option value="uk">UK</option>

@@ -4,6 +4,9 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { useRef, useEffect, useState } from "react";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import { NavigationProvider } from "@/lib/navigation-context";
+import Sidebar from "@/components/sidebar";
+import NavigationSidebar from "@/components/navigation-sidebar";
 
 const HomeLayout = ({
     children
@@ -33,20 +36,26 @@ const HomeLayout = ({
     }, []);
 
     return (
-        <div className="h-min-full">
-            <Navbar ref={navbarRef} />
-            <div
-                ref={scrollContainerRef}
-                className="w-full overflow-y-auto shadow-lg"
-                style={{ height: `calc(100vh - ${navbarHeight}px)` }}
-            >
-                <main>
-                    {children}
-                    <Footer/>
-                </main>
-                <ScrollToTopButton scrollContainerRef={scrollContainerRef} />
-            </div>
+        <NavigationProvider> {/* Обгортаємо весь вміст провайдером */}
+      <div className="h-min-full flex flex-col">
+        <Navbar ref={navbarRef} />
+        <div
+          ref={scrollContainerRef}
+          className="flex-grow w-full shadow-lg"
+          style={{ height: `calc(100vh - ${navbarHeight}px)` }}
+        >
+          <div className="flex h-full">
+           <Sidebar />
+           <NavigationSidebar />
+            <main className="flex-1 overflow-y-auto">
+              {children}
+              <Footer/>
+            </main>
+          </div>
+          <ScrollToTopButton scrollContainerRef={scrollContainerRef} />
         </div>
+      </div>
+    </NavigationProvider>
     );
 };
 

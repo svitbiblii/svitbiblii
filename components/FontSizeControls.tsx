@@ -33,7 +33,7 @@ export default function FontSizeControls({ targetId }: FontSizeControlsProps) {
     };
 
     return (
-        <div className="font-controls flex justify-end">
+        <div className="font-controls flex justify-end hover:text-primary-dark">
             <button
                 onClick={() => changeFontSize(1)}
                 className="px-2 py-1 border mr-2 rounded"

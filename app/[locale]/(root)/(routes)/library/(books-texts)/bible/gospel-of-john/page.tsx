@@ -1,21 +1,31 @@
 "use client";
  
- import { Link } from "@/i18n/routing";
  import { useTranslations } from "next-intl";
  import { useState, useEffect, useRef } from "react";
- import { ChevronFirst, ChevronLast } from "lucide-react";
- import { About } from "@/components/about";
- import History from "@/components/history";
+ import { useNavigation } from "@/lib/navigation-context";
+ import { BOOKS_DATA } from "@/books-data_for-del";
  
  export default function GospelOfJohnPage() {
     const t = useTranslations("BookContents");
 
+    const { addBookToHistory } = useNavigation();
+    const currentBookLink = "/library/bible/gospel-of-john"; 
     const gospelOfJohn1Ref = useRef<HTMLElement>(null);
-     const [showContent, setShowContent] = useState(false);
-     const [expanded, setExpanded] = useState(true);
-     const [isHighlighted, setIsHighlighted] = useState(false);
+
+    const [isHighlighted, setIsHighlighted] = useState(false);
+    const [bookContent, setBookContent] = useState<any>(null);
 
 useEffect(() => {
+  if (!bookContent) { 
+        const foundBook = BOOKS_DATA.find(item => item.link === currentBookLink);
+  
+        if (foundBook) {
+          setBookContent(foundBook);
+          addBookToHistory(foundBook.id);
+        } else {
+          setBookContent(null);
+        }
+      }
   const url = new URL(window.location.href);
   const hash = url.hash;
   const shouldScrollToSection = hash.includes('#gospel-of-john-1-1') && hash.includes('scroll=true');
@@ -35,65 +45,25 @@ useEffect(() => {
   } else {
     setIsHighlighted(false);
   }
-}, []); 
+}, [bookContent, addBookToHistory, currentBookLink]); 
+
+      if (!bookContent) {
+        return <div>{t("loading")}</div>; }
 
      return (
         <div className="h-min-full flex">
-             <div className="relative">
-                         <button onClick={() => setExpanded(curr => !curr)}
-                                 className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
-                             {expanded ? <ChevronFirst/> : <ChevronLast/>}
-                         </button>
-                     </div>
-         
-                     <div
-                         className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary pb-12 shadow-lg ${
-                             expanded ? "md:block" : "initial"
-                         }`}>
-                             <div>
-                             <About/>
-                                 
-                                 <div className="bg-secondary px-6 pt-1 pb-8">
-                                     <div className="py-2 flex justify-between font-medium">
-                                         <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
-                                             onClick={() => {setShowContent(false)}}>
-                                                 {t('navigator')}
-                                         </button>
-                                         <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
-                                             onClick={() => {setShowContent(true)}}>
-                                                 {t('content')}
-                                         </button>
-                                     </div>
-             
-                                 {showContent ? 
-
-<ul className="list-none bg-secondary pl-0">
-<li>
-    <Link href='/library/bible/gospel-of-john/#section1' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Розділ 1
-    </Link>
-</li>
-
-</ul>  :
-                                 <History />}    
-                                 </div>
-                             </div>   
-                     </div> 
-         
-         
-                     <div className="relative h-full w-full px-4 pt-2 block">
+          <div className="relative h-full w-full px-4 pt-2 block">
                         
   <div className="w-full">
   <h2 className="pt-0">Євангеліє від Івана (переклад І. Огієнка)</h2>
     <section id="gospel-of-john-1-1" ref={gospelOfJohn1Ref}
     className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 px-2 border border-gray-300 rounded-md">
       <h2>Розділ 1</h2>
-      <p className={isHighlighted ? 'text-blue-400 ': ''}>1. Споконвіку було Слово, а Слово в Бога було, і Бог було Слово.</p>
-      <p className={isHighlighted ? 'text-blue-400 ': ''}>2. Воно в Бога було споконвіку.</p>
-      <p className={isHighlighted ? 'text-blue-400 ': ''}>3. Усе через Нього повстало, і ніщо, що повстало, не повстало без Нього.</p>
-      <p className={isHighlighted ? 'text-blue-400 ': ''}>4. У Ньому було життя, а життя було Світлом людей.</p>
-      <p className={isHighlighted ? 'text-blue-400 ': ''}>5. А Світло у темряві світить, і темрява Його не обійняла.</p>
+      <p className={isHighlighted ? 'text-primary ': ''}>1. Споконвіку було Слово, а Слово в Бога було, і Бог було Слово.</p>
+      <p className={isHighlighted ? 'text-primary ': ''}>2. Воно в Бога було споконвіку.</p>
+      <p className={isHighlighted ? 'text-primary ': ''}>3. Усе через Нього повстало, і ніщо, що повстало, не повстало без Нього.</p>
+      <p className={isHighlighted ? 'text-primary ': ''}>4. У Ньому було життя, а життя було Світлом людей.</p>
+      <p className={isHighlighted ? 'text-primary ': ''}>5. А Світло у темряві світить, і темрява Його не обійняла.</p>
       <p>6. Був чоловік, від Бога посланий, йому ймення Іван.</p>
       <p>7. Він прийшов на свідоцтво, щоб засвідчити про Світло, щоб усі вірили через нього.</p>
       <p>8. Він тим Світлом не був, але свідчити мав про Світло.</p>

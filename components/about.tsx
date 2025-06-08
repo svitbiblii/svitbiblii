@@ -31,14 +31,6 @@ export const About = () => {
                         {t('howitworks')}
                     </Link>
                 </li>
-
-                {/* <li className="flex items-center">
-                    <Link  href="/text"
-                       className="flex items-center block pr-2 pt-2 pb-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                        <Pickaxe className="pr-2"/>
-                        Text
-                    </Link>
-                </li> */}
             </ul>
         </nav>
     )

@@ -1,67 +1,38 @@
 "use client";
 
-import { useState } from "react";
-import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { About } from "@/components/about";
-import History from "@/components/history";
-import { ChevronFirst, ChevronLast, CircleX } from "lucide-react";
+import { useState, useEffect, } from "react";
+import { useNavigation } from "@/lib/navigation-context";
+import { BOOKS_DATA } from "@/books-data_for-del";
+import { CircleX } from "lucide-react";
 
 const BibleEnPage = () => {
     const t = useTranslations("BookContents");
 
-    const [expanded, setExpanded] = useState(true);
     const [showPage, setShowPage] = useState(true);
-    const [showContent, setShowContent] = useState(false);
+    const { addBookToHistory } = useNavigation();
+        const currentBookLink = "/library/porter"; 
+        const [bookContent, setBookContent] = useState<any>(null);
+
+    useEffect(() => {
+        if (!bookContent) { 
+          const foundBook = BOOKS_DATA.find(item => item.link === currentBookLink);
+    
+          if (foundBook) {
+            setBookContent(foundBook);
+            addBookToHistory(foundBook.id);
+          } else {
+            setBookContent(null);
+          }
+        }
+           }, [bookContent, addBookToHistory, currentBookLink])
+    
+          if (!bookContent) {
+            return <div>{t("loading")}</div>; }
+
 
     return (
         <div className="h-min-full flex">
-                         <div className="relative">
-                         <button onClick={() => setExpanded(curr => !curr)}
-                                 className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
-                             {expanded ? <ChevronFirst/> : <ChevronLast/>}
-                         </button>
-                     </div>
-         
-                     <div
-                         className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary pb-12 shadow-lg ${
-                             expanded ? "md:block" : "initial"
-                         }`}>
-               <div>
-               <About/>
-                                 
-                                 <div className="bg-secondary px-6 pt-1 pb-8">
-                                     <div className="py-2 flex justify-between font-medium">
-                                         <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
-                                             onClick={() => {setShowContent(false)}}>
-                                                 {t('navigator')}
-                                         </button>
-                                         <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
-                                             onClick={() => {setShowContent(true)}}>
-                                                 {t('content')}
-                                         </button>
-                                     </div>
-             
-                                 {showContent ? 
-                                 <ul className="list-none bg-secondary pl-0">
-                                     <li>
-                                         <Link href='/library/bible/bible-en/#section1' 
-                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                                             Chapter 1
-                                         </Link>
-                                     </li>
-                                     <li>
-                                         <Link href='/library/bible/bible-en/#section2' 
-                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                                                 Chapter 2
-                                         </Link>
-                                     </li>  
-                                 </ul> :
-                                 <History />}    
-                             </div>   
-                </div>
-                     </div>
-
                      <div className="relative md:flex h-full w-full px-4 pt-2">
 
                         <div className={`relative ${showPage ? "mb-3 md:mb-0 md:w-1/2 h-40vh md:h-screen overflow-y-scroll" : "w-full"}`}>
@@ -69,7 +40,7 @@ const BibleEnPage = () => {
                             <h3 className="text-2xl">Genesis</h3>
                             <section id="section1">
                             <h3>Chapter 1</h3>
-                            <p>1. In the <span id="beginning" className="text-blue-300 scroll-mt-16">beginning</span> God(After &#34;God&#34;, the Hebrew has the two letters &#34;Aleph Tav&#34; (the first and last letters of the Hebrew alphabet) as a grammatical marker.) created the heavens and the earth.</p>
+                            <p>1. In the <span id="beginning" className="text-primary scroll-mt-16">beginning</span> God(After &#34;God&#34;, the Hebrew has the two letters &#34;Aleph Tav&#34; (the first and last letters of the Hebrew alphabet) as a grammatical marker.) created the heavens and the earth.</p>
                             <p>2. Now the earth was formless and empty. Darkness was on the surface of the deep. God&#34;s Spirit was hovering over the surface of the waters.</p>
                             <p>3. God said, &#34;Let there be light&#34;, and there was light.</p>
                             <p>4. God saw the light, and saw that it was good. God divided the light from the darkness.</p>
@@ -111,7 +82,7 @@ const BibleEnPage = () => {
 
 
                             {!showPage &&
-                            <button className="fixed top-3/4 md:top-32 right-5 md:right-10 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300"
+                            <button className="fixed top-3/4 md:top-32 right-5 md:right-10 bg-primary text-primary-foreground px-6 py-2 rounded-full hover:bg-primary-dark transition duration-300"
                                     onClick={() => {setShowPage(true)}}>
                                 Interpretation
                             </button>}
@@ -119,7 +90,7 @@ const BibleEnPage = () => {
 
                          {showPage &&
                         <div className="md:w-1/2 h-40vh md:h-screen px-4 overflow-y-scroll">
-                            <button className="fixed right-5 md:right-16 text-gray-700 hover:text-blue-400 transition-colors duration-200" 
+                            <button className="fixed right-5 md:right-16 text-gray-700 hover:text-primary-dark transition-colors duration-200" 
                                 onClick={() => {setShowPage(false)}}>
                                 <CircleX/>
                             </button>

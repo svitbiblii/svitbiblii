@@ -1,67 +1,35 @@
 "use client";
 
-import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import History from "@/components/history";
-import { ChevronFirst, ChevronLast } from "lucide-react";
-import { About } from "@/components/about";
-import { useState } from "react";
+import { useState, useEffect, } from "react";
+ import { useNavigation } from "@/lib/navigation-context";
+ import { BOOKS_DATA } from "@/books-data_for-del";
 
 export default function LewisPage() {
+    
     const t = useTranslations("BookContents");
+        const { addBookToHistory } = useNavigation();
+        const currentBookLink = "/library/porter"; 
+        const [bookContent, setBookContent] = useState<any>(null);
 
-    const [expanded, setExpanded] = useState(true);
-    const [showContent, setShowContent] = useState(false);
+    useEffect(() => {
+        if (!bookContent) { 
+          const foundBook = BOOKS_DATA.find(item => item.link === currentBookLink);
+    
+          if (foundBook) {
+            setBookContent(foundBook);
+            addBookToHistory(foundBook.id);
+          } else {
+            setBookContent(null);
+          }
+        }
+           }, [bookContent, addBookToHistory, currentBookLink])
+    
+          if (!bookContent) {
+            return <div>{t("loading")}</div>; }
     
     return (
         <div className="h-min-full flex">
-                                <div className="flex">
-                        <div className="relative">
-                            <button onClick={() => setExpanded(curr => !curr)}
-                                    className={`absolute top-4 z-20 hover:bg-blue-200 ${expanded ? "left-56 dark:bg-secondary dark:hover:bg-blue-200" : "left-4 dark:bg-background dark:hover:bg-blue-200"} hidden md:block p-1.5 rounded-lg dark:color-white`}>
-                                {expanded ? <ChevronFirst /> : <ChevronLast/>}
-                            </button>
-                        </div>
-                        <div
-                            className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary shadow-lg ${
-                                expanded ? "md:block" : "initial"
-                            }`}>
-                            <div>
-                            <About/>
-                                 
-                                 <div className="bg-secondary px-6 pt-1 pb-8">
-                                     <div className="py-2 flex justify-between font-medium">
-                                         <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
-                                             onClick={() => {setShowContent(false)}}>
-                                                 {t('navigator')}
-                                         </button>
-                                         <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
-                                             onClick={() => {setShowContent(true)}}>
-                                                 {t('content')}
-                                         </button>
-                                     </div>
-             
-                                 {showContent ? 
-                                 <ul className="list-none bg-secondary pl-0">
-                                     <li>
-                                         <Link href='/library/lewis/#section1' 
-                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                                             Лист I
-                                         </Link>
-                                         <li>
-                                         <Link href='/library/lewis/#section2' 
-                                             className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                                             Лист II
-                                         </Link>
-                                     </li>
-                                     </li> 
-                                 </ul> :
-                                 <History />}    
-                             </div>   
-                            </div>
-                        </div>
-                    </div>
-
                     <div className=" p-10  py-8 px-4  w-full mx-auto min-h-screen">
                         <h2>Листи крутеня К.С. Люїc</h2>
                         <section id="section1">

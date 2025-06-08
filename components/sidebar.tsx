@@ -1,164 +1,167 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import {LibraryBig, BookOpenText} from "lucide-react";
+import React from 'react';
+import { usePathname } from 'next/navigation';
 import { Link } from "@/i18n/routing";
+import HomeIcon from './icons/homeIcon';
+import BooksIcon from './icons/booksIcon';  
+import BookmarkIcon from './icons/bookmarkIcon';
+import RouteIcon from './icons/routeIcon';
+import FavoriteIcon from './icons/favoriteIcon';
+import SearchIcon from './icons/searchIcon';
 
-interface SidebarProps {
-    headings?: { id: string; title: string }[];
-    headings2?: { id: string; title: string }[];
-    onToggleComponent?: (id: string) => void;
+function Sidebar() {
+  const pathname = usePathname();
+
+  const isActive = (basePath: string) => {
+    // Спочатку нормалізуємо `pathname`, видаляючи локаль та потенційні кінцеві слеші
+    let currentPathCleaned = pathname.replace(/^\/(uk|en)/, '');
+
+    // Якщо поточний шлях - корінь ('/') і він не закінчується на '/', додамо '/'
+    // Це для випадку, коли pathname може бути просто '' після видалення локалі,
+    // і ми хочемо, щоб він відповідав '/'
+    if (currentPathCleaned === '') {
+        currentPathCleaned = '/';
+    } else {
+        // Видаляємо кінцевий слеш, якщо він є (для консистентності)
+        currentPathCleaned = currentPathCleaned.endsWith('/') && currentPathCleaned !== '/'
+            ? currentPathCleaned.slice(0, -1)
+            : currentPathCleaned;
+    }
+
+
+    // Для кореневого шляху (/)
+    if (basePath === '/') {
+      // Корінь активний, якщо поточний шлях /uk або /en (без додаткових сегментів)
+      // Або якщо currentPathCleaned сам по собі є '/'
+      return pathname === '/uk' || pathname === '/en' || currentPathCleaned === '/';
+    }
+
+    // Для інших шляхів, перевіряємо, чи поточний шлях ПОЧИНАЄТЬСЯ з basePath
+    // Перед порівнянням, нормалізуємо basePath так само: видаляємо кінцевий слеш
+    const normalizedBasePath = basePath.endsWith('/') && basePath !== '/'
+        ? basePath.slice(0, -1)
+        : basePath;
+
+    // Перевіряємо, чи поточний шлях починається з базового шляху
+    // І також перевіряємо, чи після basePath йде '/' або це повний збіг
+    // Це потрібно, щоб '/library' не співпадало з '/library-v2'
+    return currentPathCleaned.startsWith(normalizedBasePath) &&
+           (currentPathCleaned.length === normalizedBasePath.length || // Точний збіг
+            currentPathCleaned[normalizedBasePath.length] === '/');    // Або далі йде слеш
+  };
+
+  return (
+    <aside className="w-24 bg-card text-card-foreground p-4 shadow-lg min-h-screen">
+      <nav>
+        <ul className="space-y-4 list-none p-0 m-0">
+          {/* Link для Головної сторінки */}
+          <li>
+            <Link
+              href="/home"
+              className={`flex flex-col justify-center items-center gap-1 p-2 rounded-md transition-colors
+                ${isActive('/home') ? ' text-primary' : 'text-muted-foreground hover:bg-primary-lite'}
+              `}
+            >
+              <HomeIcon
+                className={`w-6 h-6
+                  ${isActive('/home') ? 'text-primary' : 'text-muted-foreground'}
+                `}
+                title="Головна сторінка"
+              />
+              <span className="text-base font-sans">Головна</span>
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/" 
+              className={`flex flex-col justify-center items-center gap-1 p-2 rounded-md transition-colors
+                ${isActive('/') ? 'text-primary' : 'text-muted-foreground hover:bg-primary-lite'}
+              `}
+            >
+              <SearchIcon
+                className={`w-6 h-6
+                  ${isActive('/') ? 'text-primary' : 'text-muted-foreground'}
+                `}
+                title="Пошук"
+              />
+              <span className="text-base font-sans">Пошук</span>
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/library"
+              className={`flex flex-col justify-center items-center gap-1 p-2 rounded-md transition-colors
+                ${isActive('/library') ? 'text-primary' : 'text-muted-foreground hover:bg-primary-lite'}
+              `}
+            >
+              <BooksIcon
+                className={`w-6 h-6
+                  ${isActive('/library') ? 'text-primary' : 'text-muted-foreground'}
+                `}
+                title="Бібліотека книг"
+              />
+              <span className="text-base font-sans">Бібліотека</span>
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/bookmark"
+              className={`flex flex-col justify-center items-center gap-1 p-2 rounded-md transition-colors
+                ${isActive('/bookmark') ? 'text-primary' : 'text-muted-foreground hover:bg-primary-lite'}
+              `}
+            >
+              <BookmarkIcon
+                className={`w-6 h-6
+                  ${isActive('/bookmark') ? 'text-primary' : 'text-muted-foreground'}
+                `}
+                title="Мої закладки"
+              />
+              <span className="text-base font-sans">Закладки</span>
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/route"
+              className={`flex flex-col justify-center items-center gap-1 p-2 rounded-md transition-colors
+                ${isActive('/route') ? 'text-primary' : 'text-muted-foreground hover:bg-primary-lite'}
+              `}
+            >
+              <RouteIcon
+                className={`w-6 h-6
+                  ${isActive('/route') ? 'text-primary' : 'text-muted-foreground'}
+                `}
+                title="Маршрути"
+              />
+              <span className="text-base font-sans">Маршрути</span>
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/favorites"
+              className={`flex flex-col justify-center items-center gap-1 p-2 rounded-md transition-colors
+                ${isActive('/favorites') ? 'text-primary' : 'text-muted-foreground hover:bg-primary-lite'}
+              `}
+            >
+              <FavoriteIcon
+                className={`w-6 h-6
+                  ${isActive('/favorites') ? 'text-primary' : 'text-muted-foreground'}
+                `}
+                title="Обрані"
+              />
+              <span className="text-base font-sans">Обрані</span>
+            </Link>
+          </li>
+
+        </ul>
+      </nav>
+    </aside>
+  );
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ headings, headings2 = [], onToggleComponent }: SidebarProps) => {
-    const [activeTab, setActiveTab] = useState(1);
-    const [activeInterpretations, setActiveInterpretations] = useState<string | null>(null);
-
-    const handleToggleInterpretation = (id: string) => {
-        setActiveInterpretations((prev) => (prev === id ? null : id));
-        onToggleComponent?.(id);
-    };
-
-    const tabs = [
-        {
-            id: 1,
-            label: "Навігатор",
-            content: (
-                <div className="navigator">
-                    <div className="mb-8 relative">
-                        <h3 className="text-sm font-semibold mb-2 sticky bg-secondary py-2 top-0 z-20 text-left">Вчора</h3>
-                        <ul className="space-y-2 list-none pl-0">
-                            <li>
-                                <Link href="/single-page"
-                                      className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Старий
-                                    Заповіт - Буття - Глава 1</Link>
-                            </li>
-                            <li>
-                                <a href="#"
-                                   className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Новий
-                                    Заповіт - Послання св.Апостола Павла до ефесян - Глава 10</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="mb-8">
-                        <h3 className="text-sm font-semibold mb-2 sticky bg-secondary py-2 top-0 text-left">Місяць
-                            тому</h3>
-                        <ul className="space-y-2 list-none  pl-0">
-                            <li>
-                                <Link href="#"
-                                      className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Шлях
-                                    до порятунку</Link>
-                            </li>
-                            <li>
-                                <a href="#"
-                                   className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Просто
-                                    християнство</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 className="text-sm font-semibold mb-2 sticky bg-secondary py-2 top-0 text-left">Рік
-                            тому</h3>
-                        <ul className="space-y-2 list-none  pl-0">
-                            <li>
-                                <Link href="#"
-                                      className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Предмет
-                                    знання</Link>
-                            </li>
-                            <li>
-                                <Link href="#"
-                                      className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Старозавітний
-                                    канон у новозавітних письменників</Link>
-                            </li>
-                            <li>
-                                <Link href="#"
-                                      className="block p-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">Вступ
-                                    до Старого Завіту</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            ),
-        },
-
-        ...(headings && headings.length > 0
-            ? [
-                {
-                    id: 2,
-                    label: "Зміст",
-                    content: (
-                        <div>
-                            <section>
-                                <ul>
-                                    {headings.map((heading) => (
-                                        <li className="list-none" key={heading.id}>
-                                            <Link href={`#${heading.id}`}>{heading.title}</Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </section>
-                        </div>
-                    ),
-
-                },
-            ]
-            : []),
-        ...(headings2 && headings2.length > 0
-            ? [
-                {
-                    id: 3,
-                    label: "Тлумачення",
-                    content: (
-                        <div>
-                            <section>
-                                <ul>
-                                    {headings2.map((heading2) => (
-                                        <li className="list-none border-b-2 py-2" key={heading2.id}>
-                                            <button
-                                                className="text-left"
-                                                onClick={() => handleToggleInterpretation(heading2.id)}
-                                            >
-                                                <div className={'flex items-center justify-between'}>
-                                                    {heading2.title}{" "}
-                                                    <span className={'w-6'}>{activeInterpretations === heading2.id ? (
-                                                        <BookOpenText/>
-                                                    ) : (
-                                                        <LibraryBig/>
-                                                    )}</span>
-                                                </div>
-                                            </button>
-
-                                        </li>
-                                    ))}
-                                </ul>
-                            </section>
-                        </div>
-                    ),
-                },
-            ]
-            : []),
-    ];
-
-    return (
-        <div className="bg-secondary px-6 pt-1 pb-8">
-            <div className="flex border-b border-gray-200">
-                {tabs.map((tab) => (
-                    <button
-                        key={tab.id}
-                        className={`flex-1 py-2 text-center text-sm font-medium transition-all duration-200 ${
-                            activeTab === tab.id
-                                ? "border-b-2 border-blue-500 text-blue-500"
-                                : "text-gray-500 hover:text-blue-500"
-                        }`}
-                        onClick={() => setActiveTab(tab.id)}
-                    >
-                        {tab.label}
-                    </button>
-                ))}
-            </div>
-            <div className="mt-4">
-                {tabs.find((tab) => tab.id === activeTab)?.content}
-            </div>
-        </div>
-    );
-}
+export default Sidebar;

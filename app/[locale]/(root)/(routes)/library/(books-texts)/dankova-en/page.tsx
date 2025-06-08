@@ -4,35 +4,37 @@
  import { useTranslations } from "next-intl";
  import { useState, useEffect, useRef } from "react";
  import { ChevronDown, ChevronUp, CircleX } from "lucide-react";
- import { ChevronFirst, ChevronLast } from "lucide-react";
- import { About } from "@/components/about";
- import History from "@/components/history";
+ import { useNavigation } from "@/lib/navigation-context";
+ import { BOOKS_DATA } from "@/books-data_for-del";
  
  export default function DankovaEnPage() {
     const t = useTranslations("BookContents");
     const section1EnRef = useRef<HTMLDivElement>(null);
-  const bookContentEnRef = useRef<HTMLDivElement>(null);
+    const bookContentEnRef = useRef<HTMLDivElement>(null);
+    const { addBookToHistory } = useNavigation();
+    const currentBookLink = "/library/dankova-en";
 
-     const [showPage, setShowPage] = useState(false);
-     const [showContent, setShowContent] = useState(false);
-     const [expanded, setExpanded] = useState(true);
-     const [expanded1, setExpanded1] = useState(true);
-     const [storedBook, setStoredBook] = useState<string[]>([])
-     const [newId, setNewId] = useState('')
+    const [bookContent, setBookContent] = useState<any>(null);
+    const [showPage, setShowPage] = useState(false);
+    const [expanded1, setExpanded1] = useState(true);
  
-       if (newId) {
-         const findBookById = storedBook.find(item => item === newId)  
- 
-         if (findBookById === undefined) {
-             sessionStorage.setItem('bookname', JSON.stringify([...storedBook, newId]))
-           } 
-       }
        useEffect(() => {
-        const savedBooks = sessionStorage.getItem('bookname');
-        if (savedBooks) {
-          setStoredBook(JSON.parse(savedBooks));
-        }
-    
+        if (!bookContent) {
+        const foundBook = BOOKS_DATA.find(item => {
+        const normalizedItemLinkFromData = item.link.split('#')[0].split('?')[0];
+        const normalizedCurrentBookLink = currentBookLink.endsWith('/') ? currentBookLink.slice(0, -1) : currentBookLink;
+        const normalizedFoundItemLink = normalizedItemLinkFromData.endsWith('/') ? normalizedItemLinkFromData.slice(0, -1) : normalizedItemLinkFromData;
+
+        return normalizedFoundItemLink === normalizedCurrentBookLink;
+      });
+
+      if (foundBook) {
+        setBookContent(foundBook);
+        addBookToHistory(foundBook.id);
+      } else {
+        setBookContent(null);
+      }
+    }
         const url = new URL(window.location.href);
         const hash = url.hash;
         const shouldScrollToSection = hash.includes('#section1') && hash.includes('scroll=true');
@@ -76,7 +78,11 @@
         return () => {
           window.removeEventListener('beforeUnload', handleBeforeUnload);
         };
-      }, [showPage]);
+      }, [bookContent, addBookToHistory, currentBookLink, showPage]);
+
+        if (!bookContent) {
+    return <div>{t("loading")}</div>;
+  }
     
       const togglePage = () => {
         const mainElement = document.querySelector('main'); // Отримуємо елемент main при кожному кліку
@@ -87,119 +93,11 @@
       };
   
      return (
-        <div className="h-min-full flex">
-             <div className="relative">
-                         <button onClick={() => setExpanded(curr => !curr)}
-                                 className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
-                             {expanded ? <ChevronFirst/> : <ChevronLast/>}
-                         </button>
-                     </div>
-         
-                     <div
-                         className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary pb-12 shadow-lg ${
-                             expanded ? "md:block" : "initial"
-                         }`}>
-                             <div>
-                             <About/>
-                                 
-                                 <div className="bg-secondary px-6 pt-1 pb-8">
-                                     <div className="py-2 flex justify-between font-medium">
-                                         <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
-                                             onClick={() => {setShowContent(false)}}>
-                                                 {t('navigator')}
-                                         </button>
-                                         <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
-                                             onClick={() => {setShowContent(true)}}>
-                                                 {t('content')}
-                                         </button>
-                                     </div>
-             
-                                 {showContent ? 
-
-<ul className="list-none bg-secondary pl-0">
-<li>
-    <Link href='/library/dankova-en/#section1' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Chapter 1
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova-en/#section2' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-            Chapter 2
-    </Link>
-</li>  
-<li>
-    <Link href='/library/dankova-en/#section3' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Chapter 3
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova-en/#section4' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-            Chapter 4
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova-en/#section5' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Chapter 5
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova-en/#section6' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-            Chapter 6
-    </Link>
-</li>  
-<li>
-    <Link href='/library/dankova-en/#section7' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Chapter 7
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova-en/#section8' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-            Chapter 8
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova-en/#section9' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Chapter 9
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova-en/#section10' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-            Chapter 10
-    </Link>
-</li>  
-<li>
-    <Link href='/library/dankova-en/#section11' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Chapter 11
-    </Link>
-</li>
-<li>
-    <Link href='/library/dankova-en/#section12' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-            Chapter 12
-    </Link>
-</li>
-</ul>  :
-                                 <History />}    
-                                 </div>
-                             </div>   
-                     </div> 
-         
-                     
+        <div className="h-min-full flex">       
                      <div className={`relative h-full w-full px-4 pt-2 flexscroll ${showPage ? "md:flex md:h-screen block" : "block"} `}
                      ref={bookContentEnRef} style={{ overflowY: 'auto' }}>
        
-       <div className={`  ${showPage ? "px-3 mb-3 md:mb-0 border-2 border-blue-200 rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
+       <div className={`  ${showPage ? "px-3 mb-3 md:mb-0 border-2 border-primary-lite rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
  <h2 className="pt-0">&rdquo;Seven Nights Before Christmas&rdquo; by N. Dankova</h2>
 <h3>Publisher &rdquo;Books XXI&rdquo;/&rdquo;Black Sheep Publishing House&rdquo; (With the permission of Vasyl Droniak, director of the publishing house)</h3>
 
@@ -626,7 +524,7 @@
   </p>
   <blockquote>
     <div className="group relative">
-      — <span className="relative inline-block italic text-blue-500 hover:text-blue-700">Shall we accept good, and not accept adversity?
+      — <span className="relative inline-block italic text-primary hover:text-primary-dark">Shall we accept good, and not accept adversity?
         <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
           <p className="underline">Bible, book of Job, chapter 2, verse 10</p>
         </div>
@@ -637,7 +535,7 @@
   </blockquote>
   <div className="group relative">
     «No!»
-    — Everything inside Jan screamed. He resolved to go to the sea every day, <span className="relative inline-block italic text-blue-500 hover:text-blue-700">to catch a strange fish. If one washes with that fish, the scales fall from one’s eyes, and the blind see as they once did....
+    — Everything inside Jan screamed. He resolved to go to the sea every day, <span className="relative inline-block italic text-primary hover:text-primary-dark">to catch a strange fish. If one washes with that fish, the scales fall from one’s eyes, and the blind see as they once did....
       <div className="absolute bottom-full left-[10%] -translate-x-[10%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
         <p className="underline">Zebrafish that restores vision.</p>
         <p className="underline">Bible, book of Tobit, chapter 6, verses 6-9.</p>
@@ -650,7 +548,7 @@
   <blockquote>
     <div className="group relative">
       — My rebellious Jan, you don’t even know how to fish properly—what a strange thing you’ve taken upon yourself. You never loved the sea, and on the outside, you’re so calm that no one can guess what stirs within 
-      you. But <span className="relative inline-block italic text-blue-500 hover:text-blue-700">inside, you’re restless, 
+      you. But <span className="relative inline-block italic text-primary hover:text-primary-dark">inside, you’re restless, 
         <div className="absolute bottom-full left-[21%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
           <button onClick={togglePage} className="underline">Blessed Augustine «Confession»</button>
         </div>
@@ -666,7 +564,7 @@
     — I can&#39;t tell what you&#39;re drawing, — Jan said, pausing near him. The sun was in his eyes; the man always seemed to stand deliberately against the light.
   </p>
   <div className="group relative">
-    <span className="relative inline-block italic text-blue-500 hover:text-blue-700">
+    <span className="relative inline-block italic text-primary hover:text-primary-dark">
       — Fish, 
       <div className="absolute bottom-full left-[60%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
         <p className="underline">Article «Ichthys (fish)», Wikipedia</p>
@@ -681,17 +579,16 @@
   </p>
   <div className="group relative">
     The man pulled out a fishing rod and a dragnet, but he didn’t know how to handle them properly, so he grabbed the fish with his bare hands. He tried to hold on to it, struggling amid the waves. He knew his mother wasn’t sleeping that morning; she was waiting for him near the cypresses. She waited with hope that he would somehow return with the healing fish—and that Jovan would once again see this, 
-    world <span className="relative inline-block italic text-blue-500 hover:text-blue-700">
+    world <span className="relative inline-block italic text-primary hover:text-primary-dark">
        carved from voice and word.
       <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
         <Link href="/library/bible/gospel-of-johnEn/#gospel-of-johnEn-1-1&scroll=true"
-          onClick={() => { setNewId('32') }}
           className="underline">Gospel of John, Ch.1:1-5</Link>
       </div>
     </span>
   </div>
   <div className="group relative">
-    So Jan went there every morning for many days, and the <span className="relative inline-block italic text-blue-500 hover:text-blue-700">
+    So Jan went there every morning for many days, and the <span className="relative inline-block italic text-primary hover:text-primary-dark">
       strange fish kept running away from his hands.
       <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
         <p className="underline">Article «Ichthys (fish)», Wikipedia</p>
@@ -743,18 +640,17 @@
 </div>
 
 {showPage && 
-<div className={`${showPage ? "px-3 md:pt-0 pt-3 border-2 border-blue-200 rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
-<button className="float-right text-gray-700 hover:text-blue-400 transition-colors duration-200" 
+<div className={`${showPage ? "px-3 md:pt-0 pt-3 border-2 border-primary-lite rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
+<button className="float-right text-gray-700 hover:text-primarydark transition-colors duration-200" 
     onClick={() => {setShowPage(false)}}>
     <CircleX/>
 </button>
 <ul className="pl-0 pt-10 w-full ">
-    <li className="mb-3 block rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+    <li className="mb-3 block rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200">
         <div className="flex justify-between items-start">
             <Link   href='/library/avgustine-en/#confes-part1-ch2&scroll=true'
-                    onClick={() => {setNewId('29')}}
                     >
-                 <span className="text-blue-500 underline">And how shall I call upon my God — my God and my Lord?</span>
+                 <span className="text-primary underline">And how shall I call upon my God — my God and my Lord?</span>
                 <span className="text-black ml-2 dark:text-white">in the book &rdquo;Confession&rdquo; Blessed Augustine</span>
             </Link>
 

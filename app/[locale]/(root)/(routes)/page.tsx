@@ -1,16 +1,12 @@
 "use client"
 
 import { useTranslations } from "next-intl";
-// import Cookies from "js-cookie";
 import { Link } from "@/i18n/routing";
 import { useState, useCallback, useEffect} from "react";
 import { Search } from "@/components/search";
 import { CreateRoute } from "@/components/create-route";
 import { BOOKS_DATA } from "@/books-data_for-del";
 import Image from "next/image";
-import History from "@/components/history";
-import { ChevronFirst, ChevronLast } from "lucide-react";
-import { About } from "@/components/about";
 
 const Homepage = () => {
   const t = useTranslations("Homepage");
@@ -19,7 +15,6 @@ const Homepage = () => {
   const [initialList] = useState(BOOKS_DATA);
   const [filteredList, setFilteredList] = useState(BOOKS_DATA);
   const [selectedTab, setSelectedTab] = useState(0);
-  const [expanded, setExpanded] = useState(true);
   const [storedBook, setStoredBook] = useState<string[]>([])
   const [newId, setNewId] = useState('')
 
@@ -77,10 +72,10 @@ const Homepage = () => {
         ( filteredList?.map((book) =>   
             <Link key={book.id} href={book.link} 
                   onClick={() => {setNewId(`${book.id}`)}}
-                  className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                    <div className="flex justify-between items-center hover:bg-blue-200">
+                  className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200">
+                    <div className="flex justify-between items-center hover:bg-primary-lite">
                       <Image
-                        className="mr-30 fit-picture block hover:bg-blue-200"
+                        className="mr-30 fit-picture block hover:bg-primary-lite"
                         src={book.icon}
                         width={20}
                         height={20}
@@ -119,7 +114,7 @@ const Homepage = () => {
             // onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
             //         setTimeout(() => {location.reload()}, 500)}}
             onClick={() => {setNewId(`${book.id}`)}}
-            className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+            className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200">
       <div className="flex justify-between items-center">
         <Image
           className="mr-30 fit-picture block"
@@ -149,7 +144,7 @@ const Homepage = () => {
                 // onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
                 //         setTimeout(() => {location.reload()}, 500)}}
                 onClick={() => {setNewId(`${book.id}`)}}
-                className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200">
           <div className="flex justify-between items-center">
             <Image
               className="mr-30 fit-picture block"
@@ -179,7 +174,7 @@ const Homepage = () => {
                 // onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
                 //         setTimeout(() => {location.reload()}, 500)}}
                 onClick={() => {setNewId(`${book.id}`)}}
-                className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
+                className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200">
           <div className="flex justify-between items-center">
             <Image
               className="mr-30 fit-picture block"
@@ -199,23 +194,6 @@ const Homepage = () => {
 
   return (
 <div className="h-min-full flex">
-    <div className="relative">
-        <button onClick={() => setExpanded(curr => !curr)}
-                        className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
-                    {expanded ? <ChevronFirst/> : <ChevronLast/>}
-        </button>
-    </div>
-    <div className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary pb-12 shadow-lg ${
-            expanded ? "md:block" : "initial"
-        }`}>
-        <div>
-            <About/>
-            <div className="bg-secondary px-6 pt-1 pb-8">
-              <p className="py-2 text-center font-medium border-b-2 border-blue-500 text-blue-500">{t('navigator')}</p>
-              <History />
-            </div>
-        </div>
-    </div>
     <div className="relative h-full w-full overflow-hidden px-4 min-h-screen">
         <Search inputValue={inputValue} setInputValue={setInputValue}/>
         <div className="flex justify-center space-x-4 mb-6">
@@ -224,7 +202,7 @@ const Homepage = () => {
             key={index}
             onClick={() => setSelectedTab(index)}
             className={`text-xs px-4 py-2 rounded-md ${
-              selectedTab === index ? 'bg-primary text-white hover:bg-blue-600' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              selectedTab === index ? 'bg-primary text-primary-foreground hover:bg-primary-dark' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             } `}
             >
             {tab.title}

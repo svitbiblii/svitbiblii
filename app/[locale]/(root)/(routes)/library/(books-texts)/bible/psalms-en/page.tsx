@@ -1,21 +1,30 @@
 "use client";
 
-import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useState, useEffect, useRef } from "react";
-import { ChevronFirst, ChevronLast } from "lucide-react";
-import { About } from "@/components/about";
-import History from "@/components/history";
+import { useNavigation } from "@/lib/navigation-context";
+import { BOOKS_DATA } from "@/books-data_for-del";
 
 export default function PsalmsENPage() {
   const t = useTranslations("BookContents");
 
+  const { addBookToHistory } = useNavigation();
+  const currentBookLink = "/library/bible/psalms-en";
   const psalomEn138Ref = useRef<HTMLHeadingElement>(null);
-  const [showContent, setShowContent] = useState(false);
-  const [expanded, setExpanded] = useState(true);
   const [isHighlighted, setIsHighlighted] = useState(false);
+   const [bookContent, setBookContent] = useState<any>(null);
 
   useEffect(() => {
+    if (!bookContent) { 
+      const foundBook = BOOKS_DATA.find(item => item.link === currentBookLink);
+
+      if (foundBook) {
+        setBookContent(foundBook);
+        addBookToHistory(foundBook.id);
+      } else {
+        setBookContent(null);
+      }
+    }
     const url = new URL(window.location.href);
     const hash = url.hash;
     const shouldScrollAndHighlight = hash.includes('#psalomEn138') && hash.includes('scroll=true');
@@ -35,68 +44,16 @@ export default function PsalmsENPage() {
     } else {
       setIsHighlighted(false);
     }
-  }, []);
+  }, [bookContent, addBookToHistory, currentBookLink]);
+
+      if (!bookContent) {
+        return <div>{t("loading")}</div>; }
 
   return (
     <div className="h-min-full flex">
-      <div className="relative">
-        <button onClick={() => setExpanded(curr => !curr)}
-          className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
-          {expanded ? <ChevronFirst /> : <ChevronLast />}
-        </button>
-      </div>
-
-      <div
-        className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary pb-12 shadow-lg ${
-          expanded ? "md:block" : "initial"
-        }`}>
-        <div>
-          <About />
-
-          <div className="bg-secondary px-6 pt-1 pb-8">
-            <div className="py-2 flex justify-between font-medium">
-              <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}
-                onClick={() => { setShowContent(false) }}>
-                {t('navigator')}
-              </button>
-              <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`}
-                onClick={() => { setShowContent(true) }}>
-                {t('content')}
-              </button>
-            </div>
-
-            {showContent ?
-              <ul className="list-none bg-secondary pl-0">
-                <li>
-                  <Link href='/library/bible/psalms-en/#section1'
-                    className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                    Psalm 137
-                  </Link>
-                </li>
-                <li>
-                  <Link href='/library/bible/psalms-en/#section2'
-                    className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                    Psalm 138
-                  </Link>
-                </li>
-                <li>
-                  <Link href='/library/bible/psalms-en/#section3'
-                    className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-                    Psalm 139
-                  </Link>
-                </li>
-              </ul> :
-              <History />}
-          </div>
-        </div>
-      </div>
-
       <div className="relative h-full w-full px-4 pt-2 block">
-
         <div className="w-full">
-
           <h2 className="pt-0">The Book of Psalms (trans. New King James Version)</h2>
-
           <section id="section1" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 mb-2 px-2 border border-gray-300 rounded-md">
             <h2>Psalm  137</h2>
 <p>1 I will praise You with my whole heart; before the gods I will sing praises to You.</p>
@@ -111,16 +68,16 @@ export default function PsalmsENPage() {
 
           <section id="section2" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 mb-2 px-2 border border-gray-300 rounded-md">
             <h2 id="psalomEn138" ref={psalomEn138Ref}>Psalm 138</h2>
-<p>1 <span className={isHighlighted ? 'bg-blue-300 ': ''}>O Lord, You have searched me and known me.</span></p>
-<p>2 <span className={isHighlighted ? 'bg-blue-300 ': ''}>You know my sitting down and my rising up You understand my thou;ght afar off.</span></p>
-<p>3 <span className={isHighlighted ? 'bg-blue-300 ': ''}>You comprehend my path and my lying down,and are acquainted with  all my ways.</span></p>
-<p>4 <span className={isHighlighted ? 'bg-blue-300 ': ''}>For there is not a word on my tongue, butbehold, O Lord, You kno w it altogether.</span></p>
-<p>5 <span className={isHighlighted ? 'bg-blue-300 ': ''}>You have hedged me behind and before, andlaid Your hand upon me. </span></p>
-<p>6 <span className={isHighlighted ? 'bg-blue-300 ': ''}>Such knowledge is too wonderful for me; i is high, I cannot attatin it.</span></p>
-<p>7 <span className={isHighlighted ? 'bg-blue-300 ': ''}>Where can I go from Your Spirit? Or wherecan I flee from Your pr esence?</span></p>
-<p>8 <span className={isHighlighted ? 'bg-blue-300 ': ''}>If I ascend into heaven, You are there; i I make my bed in hell,f behold, You are there.</span></p>
-<p>9 <span className={isHighlighted ? 'bg-blue-300 ': ''}>If I take the wings of the morning, and dell in the uttermost pawrts of the sea,</span></p>
-<p>10<span className={isHighlighted ? 'bg-blue-300 ': ''}> even there Your hand shall lead me, and our right hand shall hoYld me.</span></p>
+<p>1 <span className={isHighlighted ? 'text-primary ': ''}>O Lord, You have searched me and known me.</span></p>
+<p>2 <span className={isHighlighted ? 'text-primary ': ''}>You know my sitting down and my rising up You understand my thou;ght afar off.</span></p>
+<p>3 <span className={isHighlighted ? 'text-primary ': ''}>You comprehend my path and my lying down,and are acquainted with  all my ways.</span></p>
+<p>4 <span className={isHighlighted ? 'text-primary ': ''}>For there is not a word on my tongue, butbehold, O Lord, You kno w it altogether.</span></p>
+<p>5 <span className={isHighlighted ? 'text-primary ': ''}>You have hedged me behind and before, andlaid Your hand upon me. </span></p>
+<p>6 <span className={isHighlighted ? 'text-primary ': ''}>Such knowledge is too wonderful for me; i is high, I cannot attatin it.</span></p>
+<p>7 <span className={isHighlighted ? 'text-primary ': ''}>Where can I go from Your Spirit? Or wherecan I flee from Your pr esence?</span></p>
+<p>8 <span className={isHighlighted ? 'text-primary ': ''}>If I ascend into heaven, You are there; i I make my bed in hell,f behold, You are there.</span></p>
+<p>9 <span className={isHighlighted ? 'text-primary ': ''}>If I take the wings of the morning, and dell in the uttermost pawrts of the sea,</span></p>
+<p>10<span className={isHighlighted ? 'text-primary ': ''}> even there Your hand shall lead me, and our right hand shall hoYld me.</span></p>
 <p>11 If I say, “Surely the darkness shall fall on me,” even the night shall be light about me;</p>
 <p>12 indeed, the darkness shall not hide from You, but the night shines as the day; the darkness and the light are both alike to You.</p>
 <p>13 For You formed my inward parts; You covered me in my mother’s womb.</p>

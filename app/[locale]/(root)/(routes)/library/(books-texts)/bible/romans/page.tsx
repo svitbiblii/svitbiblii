@@ -1,21 +1,31 @@
 "use client";
  
- import { Link } from "@/i18n/routing";
  import { useTranslations } from "next-intl";
  import { useState, useEffect, useRef } from "react";
- import { ChevronFirst, ChevronLast } from "lucide-react";
- import { About } from "@/components/about";
- import History from "@/components/history";
+ import { useNavigation } from "@/lib/navigation-context";
+ import { BOOKS_DATA } from "@/books-data_for-del";
  
  export default function RomansPage() {
     const t = useTranslations("BookContents");
 
-     const romans1132Ref = useRef<HTMLParagraphElement>(null);
-     const [showContent, setShowContent] = useState(false);
-     const [expanded, setExpanded] = useState(true);
-     const [isHighlighted, setIsHighlighted] = useState(false);
+    const { addBookToHistory } = useNavigation();
+    const currentBookLink = "/library/bible/romans";
+    const romans1132Ref = useRef<HTMLParagraphElement>(null);
+    const [isHighlighted, setIsHighlighted] = useState(false);
+    const [bookContent, setBookContent] = useState<any>(null);
 
-useEffect(() => {
+    useEffect(() => {
+          if (!bookContent) { 
+      const foundBook = BOOKS_DATA.find(item => item.link === currentBookLink);
+
+      if (foundBook) {
+        setBookContent(foundBook);
+        addBookToHistory(foundBook.id);
+      } else {
+        setBookContent(null);
+      }
+    }
+
   const url = new URL(window.location.href);
   const hash = url.hash;
   const shouldScrollToSection = hash.includes('#romans-11-32') && hash.includes('scroll=true');
@@ -35,58 +45,14 @@ useEffect(() => {
   } else {
     setIsHighlighted(false);
   }
-}, []); 
+}, [bookContent, addBookToHistory, currentBookLink]); 
+
+        if (!bookContent) {
+    return <div>{t("loading")}</div>;
+  }
 
      return (
-        <div className="h-min-full flex">
-             <div className="relative">
-                         <button onClick={() => setExpanded(curr => !curr)}
-                                 className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
-                             {expanded ? <ChevronFirst/> : <ChevronLast/>}
-                         </button>
-                     </div>
-         
-                     <div
-                         className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary pb-12 shadow-lg ${
-                             expanded ? "md:block" : "initial"
-                         }`}>
-                             <div>
-                             <About/>
-                                 
-                                 <div className="bg-secondary px-6 pt-1 pb-8">
-                                     <div className="py-2 flex justify-between font-medium">
-                                         <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
-                                             onClick={() => {setShowContent(false)}}>
-                                                 {t('navigator')}
-                                         </button>
-                                         <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
-                                             onClick={() => {setShowContent(true)}}>
-                                                 {t('content')}
-                                         </button>
-                                     </div>
-             
-                                 {showContent ? 
-
-<ul className="list-none bg-secondary pl-0">
-<li>
-    <Link href='/library/bible/romans/#section1' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Розділ 11
-    </Link>
-</li>
-<li>
-    <Link href='/library/bible/romans/#section2' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Розділ 12
-    </Link>
-</li>
-
-</ul>  :
-                                 <History />}    
-                                 </div>
-                             </div>   
-                     </div> 
-         
+        <div className="h-min-full flex">       
          
                      <div className="relative h-full w-full px-4 pt-2 block">
               
@@ -125,12 +91,12 @@ useEffect(() => {
       <p>29. Бо дари й покликання Божі невідмінні.</p>
       <p>30. Бо як і ви були колись неслухняні Богові, а тепер помилувані через їхній непослух,</p>
       <p>31. так і вони тепер спротивились для помилування вас, щоб і самі були помилувані.</p>
-      <p id="romans-11-32" ref={romans1132Ref} className={isHighlighted ? 'text-blue-400 ': ''}>
+      <p id="romans-11-32" ref={romans1132Ref} className={isHighlighted ? 'text-primary ': ''}>
         32. Бо замкнув Бог усіх у непослух, щоб помилувати всіх.</p>
-      <p className={isHighlighted ? 'text-blue-400 ': ''}>33. О глибино багатства, і премудрости, і знання Божого! Які недовідомі присуди Його, і недосліджені дороги Його!</p>
-      <p className={isHighlighted ? 'text-blue-400 ': ''}>34. Бо хто розум Господній пізнав? Або хто був дорадник Йому?</p>
-      <p className={isHighlighted ? 'text-blue-400 ': ''}>35. Або хто давніш Йому дав, і йому буде віддано?</p>
-      <p className={isHighlighted ? 'text-blue-400 ': ''}>36. Бо все з Нього, через Нього і для Нього! Йому слава навіки. Амінь.</p>
+      <p className={isHighlighted ? 'text-primary ': ''}>33. О глибино багатства, і премудрости, і знання Божого! Які недовідомі присуди Його, і недосліджені дороги Його!</p>
+      <p className={isHighlighted ? 'text-primary ': ''}>34. Бо хто розум Господній пізнав? Або хто був дорадник Йому?</p>
+      <p className={isHighlighted ? 'text-primary ': ''}>35. Або хто давніш Йому дав, і йому буде віддано?</p>
+      <p className={isHighlighted ? 'text-primary ': ''}>36. Бо все з Нього, через Нього і для Нього! Йому слава навіки. Амінь.</p>
     </section>
 
     <section id="section2" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 px-2 border border-gray-300 rounded-md">

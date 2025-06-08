@@ -1,21 +1,30 @@
 "use client";
  
- import { Link } from "@/i18n/routing";
  import { useTranslations } from "next-intl";
  import { useState, useEffect, useRef } from "react";
- import { ChevronFirst, ChevronLast } from "lucide-react";
- import { About } from "@/components/about";
- import History from "@/components/history";
+ import { useNavigation } from "@/lib/navigation-context";
+ import { BOOKS_DATA } from "@/books-data_for-del";
  
  export default function RomansEnPage() {
     const t = useTranslations("BookContents");
 
-     const romansEn1132Ref = useRef<HTMLParagraphElement>(null);
-     const [showContent, setShowContent] = useState(false);
-     const [expanded, setExpanded] = useState(true);
-     const [isHighlighted, setIsHighlighted] = useState(false);
+    const { addBookToHistory } = useNavigation();
+    const currentBookLink = "/library/bible/romans-en";
+    const romansEn1132Ref = useRef<HTMLParagraphElement>(null);
+    const [isHighlighted, setIsHighlighted] = useState(false);
+    const [bookContent, setBookContent] = useState<any>(null);
 
 useEffect(() => {
+          if (!bookContent) { 
+      const foundBook = BOOKS_DATA.find(item => item.link === currentBookLink);
+
+      if (foundBook) {
+        setBookContent(foundBook);
+        addBookToHistory(foundBook.id);
+      } else {
+        setBookContent(null);
+      }
+    }
   const url = new URL(window.location.href);
   const hash = url.hash;
   const shouldScrollToSection = hash.includes('#romansEn-11-32') && hash.includes('scroll=true');
@@ -35,61 +44,15 @@ useEffect(() => {
   } else {
     setIsHighlighted(false);
   }
-}, []); 
+},  [bookContent, addBookToHistory, currentBookLink]); 
+
+        if (!bookContent) {
+    return <div>{t("loading")}</div>;
+  }
 
      return (
         <div className="h-min-full flex">
-             <div className="relative">
-                         <button onClick={() => setExpanded(curr => !curr)}
-                                 className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
-                             {expanded ? <ChevronFirst/> : <ChevronLast/>}
-                         </button>
-                     </div>
-         
-                     <div
-                         className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary pb-12 shadow-lg ${
-                             expanded ? "md:block" : "initial"
-                         }`}>
-                             <div>
-                             <About/>
-                                 
-                                 <div className="bg-secondary px-6 pt-1 pb-8">
-                                     <div className="py-2 flex justify-between font-medium">
-                                         <button className={`w-1/2 ${showContent ? "" : "border-b-2 border-blue-500 text-blue-500"}`}  
-                                             onClick={() => {setShowContent(false)}}>
-                                                 {t('navigator')}
-                                         </button>
-                                         <button className={`w-1/2 ${showContent ? "border-b-2 border-blue-500 text-blue-500" : ""}`} 
-                                             onClick={() => {setShowContent(true)}}>
-                                                 {t('content')}
-                                         </button>
-                                     </div>
-             
-                                 {showContent ? 
-
-<ul className="list-none bg-secondary pl-0">
-<li>
-    <Link href='/library/bible/romans-en/#section1' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Chapter 11
-    </Link>
-</li>
-<li>
-    <Link href='/library/bible/romans-en/#section2' 
-        className="block py-2 rounded-lg hover:bg-blue-200 dark:hover:text-stone-800 transition-colors duration-200">
-        Chapter 12
-    </Link>
-</li>
-
-</ul>  :
-                                 <History />}    
-                                 </div>
-                             </div>   
-                     </div> 
-         
-         
-                     <div className="relative h-full w-full px-4 pt-2 block">
-              
+                     <div className="relative h-full w-full px-4 pt-2 block">        
   <div className="w-full">
     <h2 className="pt-0">Epistle of Paul to the Romans (trans. New King James Version)</h2>
     <section id="section1" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 mb-2 px-2 border border-gray-300 rounded-md">
@@ -126,16 +89,16 @@ useEffect(() => {
 <p>30. For as you were once disobedient to God, yet now have obtained mercy through their disobedience,</p>
 <p>31. even so these also have now been disobedient, that through the mercy shown you they also may obtain mercy.</p>
 <p id="romansEn-11-32" ref={romansEn1132Ref}>
-  32. <span className={isHighlighted ? 'bg-blue-300': ''}>
+  32. <span className={isHighlighted ? 'text-primary': ''}>
     For God has committed them all to disobedience, that He might have mercy on all.</span></p>
 <p>
-    33. <span className={isHighlighted ? 'bg-blue-300' : ''}>Oh, the depth of the riches both of the wisdom and knowledge  of God! How unsearchable are His judgments and His ways past finding out!</span></p>
+    33. <span className={isHighlighted ? 'text-primary' : ''}>Oh, the depth of the riches both of the wisdom and knowledge  of God! How unsearchable are His judgments and His ways past finding out!</span></p>
 <p>
-    34. <span className={isHighlighted ? 'bg-blue-300' : ''}>For who has known the mind of the Lord? Or who has become His  counselor?</span></p>
+    34. <span className={isHighlighted ? 'text-primary' : ''}>For who has known the mind of the Lord? Or who has become His  counselor?</span></p>
 <p>
-    35. <span className={isHighlighted ? 'bg-blue-300' : ''}>Or who has first given to Him, and it shall be repaid to him?</span></p>
+    35. <span className={isHighlighted ? 'text-primary' : ''}>Or who has first given to Him, and it shall be repaid to him?</span></p>
 <p>
-    36. <span className={isHighlighted ? 'bg-blue-300' : ''}>For of Him and through Him and to Him are all things, to whom  be glory forever. Amen.</span></p>
+    36. <span className={isHighlighted ? 'text-primary' : ''}>For of Him and through Him and to Him are all things, to whom  be glory forever. Amen.</span></p>
     </section>
 
     <section id="section2" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 px-2 border border-gray-300 rounded-md">

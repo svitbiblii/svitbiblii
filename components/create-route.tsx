@@ -12,7 +12,7 @@ export const CreateRoute = () => {
             <p className="text-gray-500 dark:text-white mb-4 text-center">{t('content')}</p>
             <div className="flex justify-center">
                 <Link href="/library"
-                   className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300">{t('register')}
+                   className="bg-primary text-primary-foreground px-6 py-2 rounded-full hover:bg-primary-dark transition duration-300">{t('register')}
                 </Link>
             </div>
         </div>
