@@ -27,7 +27,7 @@ export function ExpandableText({ text, initialLineClamp = 3 }: ExpandableTextPro
     <div className="relative">
       <p
         ref={textRef}
-        className={`text-gray-700 dark:text-gray-300 text-sm mb-2 ${
+        className={`text-gray-700 dark:text-gray-300 mb-2 ${
           !isExpanded ? `line-clamp-${initialLineClamp}` : ''
         }`}
       >
@@ -37,7 +37,7 @@ export function ExpandableText({ text, initialLineClamp = 3 }: ExpandableTextPro
       {showButton && (
         <button
           onClick={toggleExpand}
-          className="flex items-center text-primary hover:text-primary-dark text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-light transition-colors mt-2"
+          className="flex items-center text-primary hover:text-primary-dark  font-medium focus:outline-none  focus:ring-primary-light transition-colors mt-2"
         >
           {isExpanded ? (
             <>
