@@ -1,17 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
-import { About } from "@/components/about";
-import History from "@/components/history";
-import { ChevronFirst, ChevronLast} from "lucide-react";
+// import { useTranslations } from "next-intl";
 import {Library } from '@prisma/client';
 
 const NewTestamentPage = () => {
-  const t = useTranslations("BookContents");
-  const [expanded, setExpanded] = useState(true);
-  const [showContent, setShowContent] = useState(false);
+  // const t = useTranslations("BookContents");
+
   const [book, setBook] = useState<Library | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -55,7 +50,7 @@ const NewTestamentPage = () => {
 
   return (
     <div className="h-min-full flex">
-      <div className="relative">
+      {/* <div className="relative">
         <button onClick={() => setExpanded(curr => !curr)}
                 className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
           {expanded ? <ChevronFirst/> : <ChevronLast/>}
@@ -97,7 +92,7 @@ const NewTestamentPage = () => {
               <History />}
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="relative md:flex h-full w-full px-4 pt-2">
           <div>
