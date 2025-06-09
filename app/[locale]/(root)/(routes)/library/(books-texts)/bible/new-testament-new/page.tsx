@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from "@/i18n/routing";
 import { useTranslations } from 'next-intl';
 import { About } from "@/components/about";
-import History from "@/components/history";
+// import History from "@/components/history";
 import { ChevronFirst, ChevronLast} from "lucide-react";
 import Epub from 'epubjs';
 
@@ -163,7 +163,7 @@ const EpubReader = () => {
                                     </Link>
                                 </li>
                             </ul> :
-                            <History />}
+                            <p></p>}
                     </div>
                 </div>
             </div>

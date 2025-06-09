@@ -2,14 +2,13 @@ import { Link } from "@/i18n/routing";
 import { ExpandableText } from "./expandable-text";
 
 interface BookCardProps {
-  id: string;
   title: string;
   author?: string | null;
   link: string;
   anotation?: string | null; // Залишаємо тільки надані поля
 }
 
-export function BookCard({ id, title, author, link, anotation }: BookCardProps) {
+export function BookCard({ title, author, link, anotation }: BookCardProps) {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-card-soft overflow-hidden flex h-auto">
 
