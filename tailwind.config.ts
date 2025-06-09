@@ -82,6 +82,13 @@ const config: Config = {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
+		boxShadow: {
+        'card-soft': `0px 0px 20px hsl(var(--shadow-color) / var(--shadow-opacity))`,
+        // Або, якщо ви хочете два шари тіні, як у багатьох сучасних дизайнах
+        'card-elevated': `0 4px 6px -1px hsl(var(--shadow-color) / calc(var(--shadow-opacity) * 0.1)),
+                          0 2px 4px -2px hsl(var(--shadow-color) / calc(var(--shadow-opacity) * 0.06))`
+        // Ви можете експериментувати з цими значеннями
+      },
 		height: {
 			'screen-90': '90%',
 			'h-122': '26rem',

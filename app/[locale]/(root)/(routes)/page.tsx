@@ -7,6 +7,7 @@ import { Search } from "@/components/search";
 import { CreateRoute } from "@/components/create-route";
 import { BOOKS_DATA } from "@/books-data_for-del";
 import Image from "next/image";
+import { BookCard } from "@/components/book-card";
 
 const Homepage = () => {
   const t = useTranslations("Homepage");
@@ -15,23 +16,23 @@ const Homepage = () => {
   const [initialList] = useState(BOOKS_DATA);
   const [filteredList, setFilteredList] = useState(BOOKS_DATA);
   const [selectedTab, setSelectedTab] = useState(0);
-  const [storedBook, setStoredBook] = useState<string[]>([])
-  const [newId, setNewId] = useState('')
+  // const [storedBook, setStoredBook] = useState<string[]>([])
+  // const [newId, setNewId] = useState('')
 
-    if (newId) {
-      const findBookById = storedBook.find(item => item === newId)  
+    // if (newId) {
+    //   const findBookById = storedBook.find(item => item === newId)  
   
-      if (findBookById === undefined) {
-        sessionStorage.setItem('bookname', JSON.stringify([...storedBook, newId]))
-        } 
-    }
+    //   if (findBookById === undefined) {
+    //     sessionStorage.setItem('bookname', JSON.stringify([...storedBook, newId]))
+    //     } 
+    // }
   
-    useEffect(() => {
-      const savedBooks = sessionStorage.getItem('bookname')
-      if (savedBooks) {
-        setStoredBook(JSON.parse(savedBooks))
-      }
-    }, [])
+    // useEffect(() => {
+    //   const savedBooks = sessionStorage.getItem('bookname')
+    //   if (savedBooks) {
+    //     setStoredBook(JSON.parse(savedBooks))
+    //   }
+    // }, [])
 
   // Search Handler
   const searchHandler = useCallback(() => {
@@ -69,35 +70,51 @@ const Homepage = () => {
                   <p className="text-gray-600 dark:text-white">{t('result')}</p>
                 </div>
           ):
-        ( filteredList?.map((book) =>   
-            <Link key={book.id} href={book.link} 
-                  onClick={() => {setNewId(`${book.id}`)}}
-                  className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200">
-                    <div className="flex justify-between items-center hover:bg-primary-lite">
-                      <Image
-                        className="mr-30 fit-picture block hover:bg-primary-lite"
-                        src={book.icon}
-                        width={20}
-                        height={20}
-                        alt=""/>
-                      <h3 className="mt-0 mb-2 text-2xl font-medium">{book.author} &rdquo;{book.title}&rdquo; <br/>
-                   {book.id === "24" && (
-          <span className="text-xl text-gray-500 text-sm ml-2"> 
-            Видавництво &rdquo;Книги ХХІ&rdquo;/&rdquo;Чорні вівці&rdquo; (З дозволу директора Василя Дроняка)
-          </span>
-        )}
-                           {book.id === "28" && (
-          <span className="text-xl text-gray-500 text-sm ml-2"> 
-            Publishing House &rdquo;Books XXI&rdquo;/&rdquo;Black Sheep Publishing House&rdquo; (With the permission of Vasyl Droniak, director of the publishing house)
-          </span>
-        )}
+        ( 
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {filteredList.map((book) => (
+            <BookCard
+              key={book.id}
+              id={book.id}
+              title={book.title}
+              author={book.author}
+              link={book.link}
+              anotation={book.anotation}
+              // type={book.type}
+              // filePath={book.filePath} // Передаємо filePath для обкладинки
+            />
+          ))}
+        </div>
+      //     filteredList?.map((book) =>   
+      //   //     <Link key={book.id} href={book.link} 
+      //   //           onClick={() => {setNewId(`${book.id}`)}}
+      //   //           className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200">
+      //   //             <div className="flex justify-between items-center hover:bg-primary-lite">
+      //   //               <Image
+      //   //                 className="mr-30 fit-picture block hover:bg-primary-lite"
+      //   //                 src={book.icon}
+      //   //                 width={20}
+      //   //                 height={20}
+      //   //                 alt=""/>
+      //   //               <h3 className="mt-0 mb-2 text-2xl font-medium">{book.author} &rdquo;{book.title}&rdquo; <br/>
+      //   //            {/* {book.id === "24" && (
+      //   //   <span className="text-xl text-gray-500 text-sm ml-2"> 
+      //   //     Видавництво &rdquo;Книги ХХІ&rdquo;/&rdquo;Чорні вівці&rdquo; (З дозволу директора Василя Дроняка)
+      //   //   </span>
+      //   // )}
+      //   //                    {book.id === "28" && (
+      //   //   <span className="text-xl text-gray-500 text-sm ml-2"> 
+      //   //     Publishing House &rdquo;Books XXI&rdquo;/&rdquo;Black Sheep Publishing House&rdquo; (With the permission of Vasyl Droniak, director of the publishing house)
+      //   //   </span>
+      //   // )} */}
         
-                      </h3>
-                      <p></p>
-                    </div>
-                    <p className="mb-0 text-gray-600 dark:text-white">{book.anotation}</p>
-            </Link>
-      ))) : <CreateRoute />
+      //   //               </h3>
+      //   //               <p></p>
+      //   //             </div>
+      //   //             <p className="mb-0 text-gray-600 dark:text-white">{book.anotation}</p>
+      //   //     </Link>
+      // )
+    )) : <CreateRoute />
       ),
     },
     {
@@ -113,7 +130,7 @@ const Homepage = () => {
       <Link key={book.id} href={book.link} 
             // onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
             //         setTimeout(() => {location.reload()}, 500)}}
-            onClick={() => {setNewId(`${book.id}`)}}
+            // onClick={() => {setNewId(`${book.id}`)}}
             className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200">
       <div className="flex justify-between items-center">
         <Image
@@ -143,7 +160,7 @@ const Homepage = () => {
           <Link key={book.id} href={book.link} 
                 // onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
                 //         setTimeout(() => {location.reload()}, 500)}}
-                onClick={() => {setNewId(`${book.id}`)}}
+                // onClick={() => {setNewId(`${book.id}`)}}
                 className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200">
           <div className="flex justify-between items-center">
             <Image
@@ -173,7 +190,7 @@ const Homepage = () => {
           <Link key={book.id} href={book.link} 
                 // onClick={() => {Cookies.set(`${book.id}`, `${book.author}-${book.title}`)
                 //         setTimeout(() => {location.reload()}, 500)}}
-                onClick={() => {setNewId(`${book.id}`)}}
+                // onClick={() => {setNewId(`${book.id}`)}}
                 className="block p-2 mb-6 border border-gray-200 shadow-sm rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200">
           <div className="flex justify-between items-center">
             <Image

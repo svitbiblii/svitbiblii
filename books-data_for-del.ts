@@ -141,7 +141,7 @@ export interface IBooks {
         "type": "text",
         "kategory": "patristl",
         "link": "/library/avgustine-en",
-        "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrykvYAhtth_OBMIlHB7ukNw_eOSZFMTplckvrzs_yHgEoqrMYawOJx70&s"
+        "icon": "/images/confess-thumb.jpg"
     },
     {
         "id": "31",
