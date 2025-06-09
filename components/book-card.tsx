@@ -26,17 +26,13 @@ export function BookCard({ title, author, link, anotation }: BookCardProps) {
           )}
         </div>
 
-        {/* Анотація як основний текст перед кнопками */}
         {anotation && (
-            // <p className="text-gray-700 dark:text-gray-300 text-sm mb-4 line-clamp-3">
-            //     {anotation}
-            // </p>
             <ExpandableText text={anotation} initialLineClamp={3} />
         )}
 
         {/* Кнопки "Читати" / "Слухати" */}
         <div className="mt-4">
-            <Link href={link} className="inline-flex items-center px-4 py-2 border-2 border-primary text-sm font-medium text-primary rounded-full shadow-sm hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+            <Link href={link} className="inline-flex items-center px-4 py-2 border-2 border-primary text-sm font-medium text-primary rounded-full shadow-sm hover:bg-primary-dark hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
               Читати
             </Link>
         </div>
