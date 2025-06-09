@@ -6,9 +6,6 @@ import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { Search } from "@/components/search";
 import { CreateRoute } from "@/components/create-route";
-import History from "@/components/history";
-import { ChevronFirst, ChevronLast } from "lucide-react";
-import { About } from "@/components/about";
 
 interface Book {
     id: number;
@@ -33,7 +30,6 @@ const HomepageClient = ({ books }: HomepageClientProps) => {
     const [initialList] = useState<Book[]>(books);
     const [filteredList, setFilteredList] = useState<Book[]>(books);
     const [selectedTab, setSelectedTab] = useState(0);
-    const [expanded, setExpanded] = useState(true);
     const [storedBook, setStoredBook] = useState<string[]>([]);
     const [newId, setNewId] = useState("");
 
@@ -242,32 +238,6 @@ const HomepageClient = ({ books }: HomepageClientProps) => {
 
     return (
         <div className="h-min-full flex mt-16">
-            <div className="relative">
-                <button
-                    onClick={() => setExpanded((curr) => !curr)}
-                    className={`absolute top-4 z-20 ${
-                        expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"
-                    } hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}
-                >
-                    {expanded ? <ChevronFirst /> : <ChevronLast />}
-                </button>
-            </div>
-
-            <div
-                className={`hidden h-screen w-72 min-w-72 overflow-y-auto bg-secondary pb-12 shadow-lg ${
-                    expanded ? "md:block" : "initial"
-                }`}
-            >
-                <div>
-                    <About />
-                    <div className="bg-secondary px-6 pt-1 pb-8">
-                        <p className="py-2 text-center font-medium border-b-2 border-blue-500 text-blue-500">
-                            {t("navigator")}
-                        </p>
-                        <History />
-                    </div>
-                </div>
-            </div>
 
             <div className="relative h-full w-full overflow-hidden px-4 min-h-screen">
                 <Search inputValue={inputValue} setInputValue={setInputValue} />
