@@ -79,8 +79,7 @@ const Homepage = () => {
               author={book.author}
               link={book.link}
               anotation={book.anotation}
-              // type={book.type}
-              // filePath={book.filePath} // Передаємо filePath для обкладинки
+              isHighlightingMode={true}
             />
           ))}
         </div>

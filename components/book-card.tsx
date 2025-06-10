@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "@/i18n/routing";
 import { ExpandableText } from "./expandable-text";
 
@@ -5,14 +6,14 @@ interface BookCardProps {
   title: string;
   author?: string | null;
   link: string;
-  anotation?: string | null; // Залишаємо тільки надані поля
+  anotation?: string | null; 
 }
 
-export function BookCard({ title, author, link, anotation }: BookCardProps) {
+export function BookCard({ title, author, link, anotation}: BookCardProps) {
+
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-card-soft overflow-hidden flex h-auto">
 
-      {/* Основний вміст картки - ліва частина */}
       <div className="p-4 flex flex-col justify-between flex-grow w-2/3">
         {/* Верхній блок з назвою та автором */}
         <div className="mb-4">
@@ -41,16 +42,16 @@ export function BookCard({ title, author, link, anotation }: BookCardProps) {
         </div>
       </div>
 
-            <div className="relative w-1/4 flex-shrink-0 flex items-center justify-center p-2">
-        <div className="absolute inset-y-4 right-4 w-[calc(100%-1rem)] h-[calc(100%-2rem)] bg-primary rounded-lg shadow-lg flex flex-col items-center justify-center text-primary-foreground p-2 text-center">
-          <p className="text-base font-bold leading-tight mb-10 line-clamp-3">
-            {author}
-          </p>
-          <p className="text-base font-bold leading-tight line-clamp-3">
-            {title}
-          </p>
-        </div>
+ <div className="relative w-1/3 flex-shrink-0 flex items-center justify-center p-2 h-64"> 
+      <div className="absolute inset-y-4 right-4 w-[calc(100%-1rem)] h-[calc(100%-2rem)] bg-primary rounded-lg shadow-lg flex flex-col items-center justify-center text-primary-foreground p-2 text-center">
+        <p className="text-base font-bold leading-tight mb-10 line-clamp-3">
+          {author}
+        </p>
+        <p className="text-base font-bold leading-tight line-clamp-3">
+          {title}
+        </p>
       </div>
+    </div>
     </div>
   );
 }

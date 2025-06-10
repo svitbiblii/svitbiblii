@@ -84,13 +84,18 @@ const SideMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             </button>
           </div>
           <nav className="flex flex-col items-start space-y-4">
-            <FontSizeControls targetId="book-content"/>
+            <div className='hover:text-primary-dark'>
+<FontSizeControls targetId="book-content"/>
+<span>Шрифт</span>
+            </div>
+            
 
             <div className="relative">
                     <button
                         onClick={toggleVoiceControl}
                         className={voiceControlButtonClassName}>
                         {isVoiceControlActive ? <Mic className="h-5 w-5"/> : <MicOff className="h-5 w-5"/>}
+                        <span>Звук</span>
                     </button>
             </div>
 
@@ -99,12 +104,17 @@ const SideMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                         onClick={toggleSpeechSynthesis}
                         className={speechSynthesisButtonClassName}>
                         {isSpeechSynthesisActive ? <Volume2 className="h-5 w-5"/> : <VolumeOff className="h-5 w-5"/>}
+                                        <span>Голос</span>
                     </button>
+
                 </div>
 
-                <ModeToggle/>
+                <div className='flex flex-col hover:text-primary-dark'>
+                   <ModeToggle/>
+                   <span>Тема</span>
+                </div>
 
-                <Link href="/onboarding">
+                {/* <Link href="/onboarding">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6 hover:text-primary-dark"
@@ -119,7 +129,7 @@ const SideMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                             d="M11 5a7 7 0 100 14 7 7 0 000-14zm0 0l6 6"
                         />
                     </svg>
-                </Link>
+                </Link> */}
           </nav>
         </div>
       </Transition>
