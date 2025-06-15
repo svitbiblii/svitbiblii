@@ -4,6 +4,7 @@
  import { useState, useEffect, useRef } from "react";
  import { useNavigation } from "@/lib/navigation-context";
  import { BOOKS_DATA } from "@/books-data_for-del";
+ import FontSizeControls from "@/components/FontSizeControls";
  
  export default function GospelOfJohnPage() {
     const t = useTranslations("BookContents");
@@ -12,7 +13,7 @@
     const currentBookLink = "/library/bible/gospel-of-john"; 
     const gospelOfJohn1Ref = useRef<HTMLElement>(null);
 
-    const [isHighlighted, setIsHighlighted] = useState(false);
+    // const [isHighlighted, setIsHighlighted] = useState(false);
     const [bookContent, setBookContent] = useState<any>(null);
 
 useEffect(() => {
@@ -31,7 +32,7 @@ useEffect(() => {
   const shouldScrollToSection = hash.includes('#gospel-of-john-1-1') && hash.includes('scroll=true');
 
   if (shouldScrollToSection) {
-    setIsHighlighted(true); 
+    // setIsHighlighted(true); 
     // setTimeout(() => {
     //   setIsHighlighted(false);
     // }, 4000);
@@ -42,9 +43,10 @@ useEffect(() => {
           block: 'start',   
         });
       }
-  } else {
-    setIsHighlighted(false);
-  }
+  } 
+  // else {
+  //   setIsHighlighted(false);
+  // }
 }, [bookContent, addBookToHistory, currentBookLink]); 
 
       if (!bookContent) {
@@ -53,17 +55,24 @@ useEffect(() => {
      return (
         <div className="h-min-full flex">
           <div className="relative h-full w-full px-4 pt-2 block">
-                        
-  <div className="w-full">
+                                     <div className="absolute opacity-0">
+                                      <FontSizeControls targetId='book-gospel-of-john-font'/>
+                                     </div>    
+  <div id="book-gospel-of-john-font" className="w-full">
   <h2 className="pt-0">Євангеліє від Івана (переклад І. Огієнка)</h2>
     <section id="gospel-of-john-1-1" ref={gospelOfJohn1Ref}
     className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 px-2 border border-gray-300 rounded-md">
       <h2>Розділ 1</h2>
-      <p className={isHighlighted ? 'text-primary ': ''}>1. Споконвіку було Слово, а Слово в Бога було, і Бог було Слово.</p>
+      {/* <p className={isHighlighted ? 'text-primary ': ''}>1. Споконвіку було Слово, а Слово в Бога було, і Бог було Слово.</p>
       <p className={isHighlighted ? 'text-primary ': ''}>2. Воно в Бога було споконвіку.</p>
       <p className={isHighlighted ? 'text-primary ': ''}>3. Усе через Нього повстало, і ніщо, що повстало, не повстало без Нього.</p>
       <p className={isHighlighted ? 'text-primary ': ''}>4. У Ньому було життя, а життя було Світлом людей.</p>
-      <p className={isHighlighted ? 'text-primary ': ''}>5. А Світло у темряві світить, і темрява Його не обійняла.</p>
+      <p className={isHighlighted ? 'text-primary ': ''}>5. А Світло у темряві світить, і темрява Його не обійняла.</p> */}
+            <p>1. Споконвіку було Слово, а Слово в Бога було, і Бог було Слово.</p>
+      <p>2. Воно в Бога було споконвіку.</p>
+      <p>3. Усе через Нього повстало, і ніщо, що повстало, не повстало без Нього.</p>
+      <p>4. У Ньому було життя, а життя було Світлом людей.</p>
+      <p>5. А Світло у темряві світить, і темрява Його не обійняла.</p>
       <p>6. Був чоловік, від Бога посланий, йому ймення Іван.</p>
       <p>7. Він прийшов на свідоцтво, щоб засвідчити про Світло, щоб усі вірили через нього.</p>
       <p>8. Він тим Світлом не був, але свідчити мав про Світло.</p>

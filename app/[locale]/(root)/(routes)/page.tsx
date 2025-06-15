@@ -79,6 +79,7 @@ const Homepage = () => {
               author={book.author}
               link={book.link}
               anotation={book.anotation}
+              isHighlightingModeAvailable={true}
             />
           ))}
         </div>

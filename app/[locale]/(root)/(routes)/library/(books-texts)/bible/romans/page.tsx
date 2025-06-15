@@ -4,6 +4,7 @@
  import { useState, useEffect, useRef } from "react";
  import { useNavigation } from "@/lib/navigation-context";
  import { BOOKS_DATA } from "@/books-data_for-del";
+ import FontSizeControls from "@/components/FontSizeControls";
  
  export default function RomansPage() {
     const t = useTranslations("BookContents");
@@ -11,7 +12,7 @@
     const { addBookToHistory } = useNavigation();
     const currentBookLink = "/library/bible/romans";
     const romans1132Ref = useRef<HTMLParagraphElement>(null);
-    const [isHighlighted, setIsHighlighted] = useState(false);
+    // const [isHighlighted, setIsHighlighted] = useState(false);
     const [bookContent, setBookContent] = useState<any>(null);
 
     useEffect(() => {
@@ -31,7 +32,7 @@
   const shouldScrollToSection = hash.includes('#romans-11-32') && hash.includes('scroll=true');
 
   if (shouldScrollToSection) {
-    setIsHighlighted(true); 
+    // setIsHighlighted(true); 
     // setTimeout(() => {
     //   setIsHighlighted(false);
     // }, 4000);
@@ -42,9 +43,10 @@
           block: 'start',   
         });
       }
-  } else {
-    setIsHighlighted(false);
-  }
+  } 
+  // else {
+  //   setIsHighlighted(false);
+  // }
 }, [bookContent, addBookToHistory, currentBookLink]); 
 
         if (!bookContent) {
@@ -55,8 +57,11 @@
         <div className="h-min-full flex">       
          
                      <div className="relative h-full w-full px-4 pt-2 block">
+                                       <div className="absolute opacity-0">
+                                        <FontSizeControls targetId='book-romans-font'/>
+                                       </div>
               
-  <div className="w-full">
+  <div id="book-romans-font" className="w-full">
     <h2 className="pt-0">Послання до Римлян (Переклад І. Огієнка)</h2>
     <section id="section1" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 mb-2 px-2 border border-gray-300 rounded-md">
       <h2>Розділ 11</h2>
@@ -91,12 +96,18 @@
       <p>29. Бо дари й покликання Божі невідмінні.</p>
       <p>30. Бо як і ви були колись неслухняні Богові, а тепер помилувані через їхній непослух,</p>
       <p>31. так і вони тепер спротивились для помилування вас, щоб і самі були помилувані.</p>
-      <p id="romans-11-32" ref={romans1132Ref} className={isHighlighted ? 'text-primary ': ''}>
+      {/* <p id="romans-11-32" ref={romans1132Ref} className={isHighlighted ? 'text-primary ': ''}>
         32. Бо замкнув Бог усіх у непослух, щоб помилувати всіх.</p>
       <p className={isHighlighted ? 'text-primary ': ''}>33. О глибино багатства, і премудрости, і знання Божого! Які недовідомі присуди Його, і недосліджені дороги Його!</p>
       <p className={isHighlighted ? 'text-primary ': ''}>34. Бо хто розум Господній пізнав? Або хто був дорадник Йому?</p>
       <p className={isHighlighted ? 'text-primary ': ''}>35. Або хто давніш Йому дав, і йому буде віддано?</p>
-      <p className={isHighlighted ? 'text-primary ': ''}>36. Бо все з Нього, через Нього і для Нього! Йому слава навіки. Амінь.</p>
+      <p className={isHighlighted ? 'text-primary ': ''}>36. Бо все з Нього, через Нього і для Нього! Йому слава навіки. Амінь.</p> */}
+            <p id="romans-11-32" ref={romans1132Ref}>
+        32. Бо замкнув Бог усіх у непослух, щоб помилувати всіх.</p>
+      <p>33. О глибино багатства, і премудрости, і знання Божого! Які недовідомі присуди Його, і недосліджені дороги Його!</p>
+      <p>34. Бо хто розум Господній пізнав? Або хто був дорадник Йому?</p>
+      <p>35. Або хто давніш Йому дав, і йому буде віддано?</p>
+      <p>36. Бо все з Нього, через Нього і для Нього! Йому слава навіки. Амінь.</p>
     </section>
 
     <section id="section2" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 px-2 border border-gray-300 rounded-md">

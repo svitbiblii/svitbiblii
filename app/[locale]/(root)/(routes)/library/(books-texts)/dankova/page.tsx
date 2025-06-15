@@ -6,6 +6,8 @@
  import { ChevronDown, ChevronUp, CircleX } from "lucide-react";
  import { useNavigation } from "@/lib/navigation-context";
  import { BOOKS_DATA } from "@/books-data_for-del";
+ import FontSizeControls from "@/components/FontSizeControls";
+ import Image from 'next/image';
  
  export default function DankovaPage() {
     const t = useTranslations("BookContents");
@@ -92,9 +94,12 @@
   
      return (
         <div className="h-min-full flex">
-            <div className={`relative h-full w-full px-4 pt-2 flexscroll ${showPage ? "md:flex md:h-screen block" : "block"} `}
+           
+            <div id="book-dankova-font" className={`relative h-full w-full px-4 pt-2 flexscroll ${showPage ? "md:flex md:h-screen block" : "block"} `}
                      ref={bookContentRef} style={{ overflowY: 'auto' }}>
-       
+       <div className="absolute opacity-0">
+        <FontSizeControls targetId='book-dankova-font'/>
+       </div>
        <div className={`  ${showPage ? "px-3 mb-3 md:mb-0 border-2 border-border-primary-lite rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
  <h2 className="pt-0">«Сім ночей перед Різдвом» Н.Данькова</h2>
  <h3>Видавництво &rdquo;Книги ХХІ&rdquo;/&rdquo;Чорні вівці&rdquo; (З дозволу директора Василя Дроняка)</h3>
@@ -711,34 +716,50 @@
 
 {showPage && 
 <div className={`${showPage ? "px-3 md:pt-0 pt-3 border-2 border-border-primary-lite rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full" : "w-full"} `}>
-<button className="float-right text-gray-700 hover:text-primary-dark transition-colors duration-200" 
-    onClick={() => {setShowPage(false)}}>
-    <CircleX/>
-</button>
-<ul className="pl-0 pt-10 w-full ">
-    <li className="mb-3 block rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200">
-        <div className="flex justify-between items-start">
-            <Link   href='/library/avgustine/#imp&scroll=true'  
-                    onClick={() => {}}
-                    >
-                 <span className="text-primary underline">Одначе як я волатиму до Бога мого, Бога й Господа мого?</span>
-                <span className="text-black ml-2 dark:text-white">в книзі &rdquo;Сповідь&rdquo; блаженного Августина</span>
-            </Link>
+      
+      <button 
+        className="absolute top-0 right-0 p-2 text-gray-700 hover:text-primary-dark transition-colors duration-200" 
+        onClick={() => { setShowPage(false); }}
+      >
+        <CircleX/>
+      </button>
 
-            <button onClick={() => setExpanded1(curr => !curr)}
-                    className="">
-                {expanded1 ? <ChevronUp/> : <ChevronDown/>}
-            </button>
+      <div className="flex flex-col md:flex-row md:pt-10 pt-5 gap-4">
+        <div className="relative w-full m-0 md:w-1/2 h-auto max-h-96 p-2"> 
+          <Image
+            src='/images/avgustine.jpg'
+            alt={`Обкладинка книги Бл.Августина`}
+            width={200} 
+    height={300}
+            className="rounded-lg" 
+            sizes="(max-width: 768px) 100vw, 33vw"
+            priority 
+          />
         </div>
-        <p className={`text-gray-700 mt-5 ${expanded1 ? "" : "hidden"}`}>
+
+        <div className="flex-grow"> 
+          <ul className="pl-0 w-full">
+            <li className="mb-3 block rounded-lg dark:hover:text-stone-800 transition-colors duration-200">
+              <div className="flex justify-between items-start">
+                <Link href='/library/avgustine/#imp&scroll=true' onClick={() => {}}>
+                  <span className="text-primary underline">Одначе як я волатиму до Бога мого, Бога й Господа мого?</span>
+                  <span className="text-black ml-2 dark:text-white">в книзі &rdquo;Сповідь&rdquo; блаженного Августина</span>
+                </Link>
+                <button onClick={() => setExpanded1(curr => !curr)} className="">
+                  {expanded1 ? <ChevronUp/> : <ChevronDown/>}
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div> 
+
+      <p className={`text-gray-700 mt-5 ${expanded1 ? "" : "hidden"}`}>
         «Святий Авґустин (354—430) — християнський теолог, вчитель Церкви, філософ, ритор, єпископ. За його власними свідченнями, ним було створено 232 книги; збереглися також 224 листи і понад 500 текстів проповідей. Спосіб викладу матеріалу в цих працях відповідає бурхливому, неспокійному характеру автора. Про нього говорили, що ні в кого з великих мислителів не було таких перепадів між найвищим і найнижчим, що серед церковних святих він був найменш святим і найбільше людиною. <br />
-        «Сповідь» — автобіографічний твір, у якому Авґустин у формі молитви розповідає про своє життя, що відрізнялося занепокоєнням, постійним пошуком і багатьма помилками, про свій досвід грішника, котрий відкрив шлях до Бога, саме у Ньому віднайшов усе, чого шукав. Він вважав, що нема святих без минулого, нема грішників без майбутнього. У молодому віці Авґустин втратив віру в Бога, переживав духовну еволюцію і лише згодом повернувся до Церкви і був визнаний взірцем християнського способу життя і служіння».</p> 
-    </li>
+        «Сповідь» — автобіографічний твір, у якому Авґустин у формі молитви розповідає про своє життя, що відрізнялося занепокоєнням, постійним пошуком і багатьма помилками, про свій досвід грішника, котрий відкрив шлях до Бога, саме у Ньому віднайшов усе, чого шукав. Він вважав, що нема святих без минулого, нема грішників без майбутнього. У молодому віці Авґустин втратив віру в Бога, переживав духовну еволюцію і лише згодом повернувся до Церкви і був визнаний взірцем християнського способу життя і служіння».
+      </p>
 
-    
-
-    </ul>
-</div> }
+    </div> }
 </div>
          </div>  
          );
