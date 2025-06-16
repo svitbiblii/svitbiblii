@@ -53,9 +53,9 @@ const [isExpanded, setIsExpanded] = useState(false);
         
  {isAnotationStartWith ? (        
         <div className="mb-4">
-          <h3 className="text-left font-semibold text-gray-900 border-b border-gray-300 dark:text-white line-clamp-2">
+          <p className="text-left font-semibold text-gray-900 border-b border-gray-300 dark:text-white line-clamp-2">
             {title}
-          </h3>
+          </p>
           {author && (
             <p className="text-gray-600 dark:text-gray-400 line-clamp-1">
               {author}
