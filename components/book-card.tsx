@@ -57,11 +57,11 @@ const [isExpanded, setIsExpanded] = useState(false);
             {title}
           </h3>
           {author && (
-            <p className="text-lg text-gray-600 dark:text-gray-400 line-clamp-1">
+            <p className="text-gray-600 dark:text-gray-400 line-clamp-1">
               {author}
             </p>
           )}
-                   <p className="text-left text-l text-gray-500"> 
+                   <p className="text-left text-gray-500"> 
             Видавництво &rdquo;Книги ХХІ&rdquo;/&rdquo;Чорні вівці&rdquo; (З дозволу директора Василя Дроняка)
           </p>
         </div>) : (
@@ -70,7 +70,7 @@ const [isExpanded, setIsExpanded] = useState(false);
             {title}
           </h3>
           {author && (
-            <p className="text-lg text-gray-600 dark:text-gray-400 line-clamp-1">
+            <p className="text-gray-600 dark:text-gray-400 line-clamp-1">
               {author}
             </p>
           )}
@@ -94,10 +94,10 @@ const [isExpanded, setIsExpanded] = useState(false);
 
    
         <div className="mt-4 flex cursor-none">
-            <Link href={link} className="inline-flex cursor-none hover:cursor-none items-center px-4 py-2 mr-10 border-2 border-primary text-sm font-medium text-primary rounded-full shadow-sm hover:bg-primary hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+            <Link href={link} className="inline-flex cursor-none hover:cursor-none items-center px-4 py-2 mr-10 border-2 border-primary font-medium text-primary rounded-full shadow-sm hover:bg-primary hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
               Читати
             </Link>
-                        <Link href={link} className="inline-flex items-center px-4 py-2 border-2 border-primary text-sm font-medium text-primary rounded-full shadow-sm hover:bg-primary hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+                        <Link href={link} className="inline-flex items-center px-4 py-2 border-2 border-primary font-medium text-primary rounded-full shadow-sm hover:bg-primary hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
               Слухати
             </Link>
 
@@ -130,10 +130,10 @@ const [isExpanded, setIsExpanded] = useState(false);
     ) : (
         <div className="flex items-center justify-center w-full h-full">
             <div className="absolute inset-y-4 right-4 w-[calc(100%-1rem)] h-[calc(100%-2rem)] bg-primary rounded-lg shadow-lg flex flex-col items-center justify-center text-primary-foreground p-2 text-center">
-              <p className="text-base font-bold leading-tight mb-10 line-clamp-3">
+              <p className="font-bold leading-tight mb-10 line-clamp-3">
                 {author}
               </p>
-              <p className="text-base font-bold leading-tight line-clamp-3">
+              <p className="font-bold leading-tight line-clamp-3">
                 {title}
               </p>
             </div>

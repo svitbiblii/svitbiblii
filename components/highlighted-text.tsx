@@ -56,7 +56,7 @@ const HighlightedText = ({
   }, [isPlaying, text]); 
 
   return (
-    <p className="leading-relaxed text-lg flex flex-wrap">
+    <p className="leading-relaxed flex flex-wrap">
       {parts.map((part, index) => {
         const isWord = !/^\s+$/.test(part);
         const isHighlighted = index < highlightIndex; 
