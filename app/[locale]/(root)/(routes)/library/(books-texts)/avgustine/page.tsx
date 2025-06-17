@@ -180,7 +180,7 @@
           <section id="section2">
             <h3>Частина ІІ</h3>
           <h3 id="imp" ref={impRef}>Бог є в людині – людина в Бозі</h3>
-          <div className="group relative">
+          <div>
           <span className={isHighlighted ? 'text-primary': ''}>
             Одначе як я волатиму до Бога мого, Бога й Господа 
             мого?</span> Бо ж, волаючи до Нього, я мов би прохатиму, щоб Він увійшов у мене. 
@@ -190,7 +190,9 @@
            Чи обіймають Тебе «небо і земля», що Ти їх створив, і в лоні яких Ти створив і мене? 
            Чи, може, з того, що існує, виходить, що все суще охоплює Тебе? 
            Та якщо і я існую, то чому ж благаю Тебе, щоб Ти вступив в мене, у мене, що не існував би, 
-           коли б Тебе не було в мені? Бо нема мене ще в підземеллі, а Ти й там є, 
+           коли б Тебе не було в 
+           мені? <span  className="group relative">
+                       Бо нема мене ще в підземеллі, а Ти й там є, 
            бо <span className="relative italic text-primary hover:primary-dark">
            «хоча б я зійшов і до Пекла, той там би знайшов Тебе».
                          <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
@@ -198,10 +200,11 @@
         className="underline">Книга Псалмів, псалом 138</Link>
       </div>
            </span>
+           </span>
+
           </div>
-          <div className="group relative">«Отже, я не існував би, Боже мій, не існував би взагалі, 
-            якщо б Тебе не було б в мені. 
-            Або, скоріше, я б не існував, коли б не був у 
+          <div>«Отже, я не існував би, Боже мій, не існував би взагалі, 
+            якщо б Тебе не було б в мені. <span  className="group relative">             Або, скоріше, я б не існував, коли б не був у 
             Тобі, <span
             className="relative italic text-primary hover:text-primary-dark">
                 «з  Якого, через Якого і  в  Якому – усе»?
@@ -209,7 +212,8 @@
        <Link href="/library/bible/romans#romans-11-32&scroll=true"  
         className="underline">Послання апостола Павла до римлян, розділ 11, вірші 32-36</Link>
       </div>
-            </span>
+            </span></span>
+
             </div>
             <p>«Так, так, Господи, так воно є. 
                 Куди ж волаю до Тебе, коли я сам у Тобі? 
