@@ -137,6 +137,7 @@ export default [
 	{
 		ignores: [
 			'.next/**',
+			'.idea/**',
 			'node_modules/**',
 			'dist/**',
 			'build/**',
