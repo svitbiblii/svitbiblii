@@ -6,6 +6,8 @@
  import { ChevronDown, ChevronUp, CircleX } from "lucide-react";
  import { useNavigation } from "@/lib/navigation-context";
  import { BOOKS_DATA } from "@/books-data_for-del";
+ import FontSizeControls from "@/components/FontSizeControls";
+ import Image from 'next/image';
  
  export default function DankovaEnPage() {
     const t = useTranslations("BookContents");
@@ -94,9 +96,11 @@
   
      return (
         <div className="h-min-full flex">       
-                     <div className={`relative h-full w-full px-4 pt-2 flexscroll ${showPage ? "md:flex md:h-screen block" : "block"} `}
+                     <div id="book-dankovaEn-font" className={`relative h-full w-full px-4 pt-2 flexscroll ${showPage ? "md:flex md:h-screen block" : "block"} `}
                      ref={bookContentEnRef} style={{ overflowY: 'auto' }}>
-       
+              <div className="absolute opacity-0">
+               <FontSizeControls targetId='book-dankovaEn-font'/>
+              </div>
        <div className={`  ${showPage ? "px-3 mb-3 md:mb-0 border-2 border-primary-lite rounded-lg md:border-none md:w-1/2 md:h-screen h-40vh w-full overflow-y-scroll" : "w-full"} `}>
  <h2 className="pt-0">&rdquo;Seven Nights Before Christmas&rdquo; by N. Dankova</h2>
 <h3>Publisher &rdquo;Books XXI&rdquo;/&rdquo;Black Sheep Publishing House&rdquo; (With the permission of Vasyl Droniak, director of the publishing house)</h3>
@@ -523,19 +527,23 @@
     Jan was ardent; he could not bear his father&#39;s affliction. His eyes burned when he saw Jovan leaning on a cypress stick.
   </p>
   <blockquote>
-    <div className="group relative">
+    <p>
+    — Shall we accept good, and not accept adversity? — the father repeated each time.
+    </p>
+    {/* <div className="group relative">
       — <span className="relative inline-block italic text-primary hover:text-primary-dark">Shall we accept good, and not accept adversity?
         <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
           <p className="underline">Bible, book of Job, chapter 2, verse 10</p>
         </div>
       </span>
       — the father repeated each time.
-    </div>
+    </div> */}
 
   </blockquote>
   <div className="group relative">
     «No!»
-    — Everything inside Jan screamed. He resolved to go to the sea every day, <span className="relative inline-block italic text-primary hover:text-primary-dark">to catch a strange fish. If one washes with that fish, the scales fall from one’s eyes, and the blind see as they once did....
+    — Everything inside Jan screamed. He resolved to go to the sea every day, <span className="relative italic text-primary hover:text-primary-dark">to catch 
+      a strange fish. If one washes with that fish, the scales fall from one’s eyes, and the blind see as they once did....
       <div className="absolute bottom-full left-[10%] -translate-x-[10%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
         <p className="underline">Zebrafish that restores vision.</p>
         <p className="underline">Bible, book of Tobit, chapter 6, verses 6-9.</p>
@@ -645,26 +653,39 @@
     onClick={() => {setShowPage(false)}}>
     <CircleX/>
 </button>
-<ul className="pl-0 pt-10 w-full ">
-    <li className="mb-3 block rounded-lg hover:bg-primary-lite dark:hover:text-stone-800 transition-colors duration-200">
-        <div className="flex justify-between items-start">
-            <Link   href='/library/avgustine-en/#confes-part1-ch2&scroll=true'
-                    >
-                 <span className="text-primary underline">And how shall I call upon my God — my God and my Lord?</span>
-                <span className="text-black ml-2 dark:text-white">in the book &rdquo;Confession&rdquo; Blessed Augustine</span>
-            </Link>
-
-            <button onClick={() => setExpanded1(curr => !curr)}
-                    className="">
-                {expanded1 ? <ChevronUp/> : <ChevronDown/>}
-            </button>
+      <div className="flex flex-col md:flex-row md:pt-10 pt-5 gap-4">
+        <div className="relative w-full m-0 md:w-1/2 h-auto max-h-96 p-2"> 
+          <Image
+            src='/images/avgustine.jpg'
+            alt={`Обкладинка книги Бл.Августина`}
+            width={200} 
+            height={300}
+            className="rounded-lg" 
+            sizes="(max-width: 768px) 100vw, 33vw"
+            priority 
+          />
         </div>
-        <p className={`text-gray-700 mt-5 ${expanded1 ? "" : "hidden"}`}>
-        «St. Augustine (354–430) was a Christian theologian, Doctor of the Church, philosopher, rhetorician, and bishop. According to his own testimony, he wrote 232 books; in addition, 224 letters and more than 500 sermon texts have survived. The structure and style of these works reflect the restless nature of their author. It has been said of him that no great thinker embodied such extremes—that among the saints of the Church, he was the least holy and the most human. <br />
+
+        <div className="flex-grow"> 
+          <ul className="pl-0 w-full">
+            <li className="mb-3 block rounded-lg dark:hover:text-stone-800 transition-colors duration-200">
+              <div className="flex justify-between items-start">
+                <Link href='/library/avgustine-en/#confes-part1-ch2&scroll=true' onClick={() => {}}>
+                  <span className="text-primary underline">And how shall I call upon my God — my God and my Lord?</span>
+                  <span className="text-black ml-2 dark:text-white">in the book &rdquo;Confession&rdquo; Blessed Augustine</span>
+                </Link>
+                <button onClick={() => setExpanded1(curr => !curr)} className="">
+                  {expanded1 ? <ChevronUp/> : <ChevronDown/>}
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div> 
+      <p className={`text-gray-700 mt-5 ${expanded1 ? "" : "hidden"}`}>
         «Confessions» is an autobiographical work in which Augustine, in the form of a prayer, recounts his life, marked by anxiety, a constant search for truth, and many errors, as the journey of a sinner who ultimately found the path to God. In Him, Augustine discovered everything he had long sought. He believed that &rdquo;
-there are no saints without a past, no sinners without a future.&rdquo; In his youth, Augustine lost his faith in God, underwent a profound spiritual transformation, and only later returned to the Church, where he was ultimately recognized as a model of Christian life and ministry.»</p> 
-    </li>
-    </ul>
+        there are no saints without a past, no sinners without a future.&rdquo; In his youth, Augustine lost his faith in God, underwent a profound spiritual transformation, and only later returned to the Church, where he was ultimately recognized as a model of Christian life and ministry.»
+      </p> 
 </div> }
 </div>
          </div>  

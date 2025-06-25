@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "@/i18n/routing";
 import { ExpandableText } from "./expandable-text";
 import Image from 'next/image';
+import { useTranslations } from "next-intl";
 
 interface BookCardProps {
   title: string;
@@ -14,7 +15,9 @@ interface BookCardProps {
 }
 
 export function BookCard({ title, author, link, anotation, isHighlightingModeAvailable = false}: BookCardProps) {
-const [isExpanded, setIsExpanded] = useState(false); 
+  const t = useTranslations("BookCard")
+
+  const [isExpanded, setIsExpanded] = useState(false); 
   const [highlightIsPlaying, setHighlightIsPlaying] = useState(false);
 
   const highlightBgColor = "bg-primary";
@@ -43,16 +46,19 @@ const [isExpanded, setIsExpanded] = useState(false);
     isHighlightingModeAvailable && 
     anotation.startsWith("Злата заприсяглась");
 
-   const isAnotationStartWith = 
+  const isUaAnotationStartWith = 
     anotation.startsWith("Злата заприсяглась");
+
+  const isEnAnotationStartWith = 
+    anotation.startsWith("To Jan");
+
+  const shouldShowExtraInfo = isUaAnotationStartWith || isEnAnotationStartWith;
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-card-soft overflow-hidden flex h-auto">
 
       <div className="p-4 flex flex-col justify-between flex-grow w-2/3">
-        
- {isAnotationStartWith ? (        
-        <div className="mb-4">
+      <div className="mb-4">
           <p className="text-left font-semibold text-gray-900 border-b border-gray-300 dark:text-white line-clamp-2">
             {title}
           </p>
@@ -61,23 +67,20 @@ const [isExpanded, setIsExpanded] = useState(false);
               {author}
             </p>
           )}
-                   <p className="text-left text-gray-500"> 
-            Видавництво &rdquo;Книги ХХІ&rdquo;/&rdquo;Чорні вівці&rdquo; (З дозволу директора Василя Дроняка)
-          </p>
-        </div>) : (
-                  <div className="mb-4">
-          <h3 className="text-left font-semibold text-gray-900 border-b border-gray-300 dark:text-white line-clamp-2">
-            {title}
-          </h3>
-          {author && (
-            <p className="text-gray-600 dark:text-gray-400 line-clamp-1">
-              {author}
-            </p>
+        {shouldShowExtraInfo && (
+        <p className="text-left text-gray-500">
+          {isUaAnotationStartWith && (
+            <>Видавництво &rdquo;Книги ХХІ&rdquo;/&rdquo;Чорні вівці&rdquo; (З дозволу директора Василя Дроняка)</>
           )}
-        </div>
-        )}
+          {isEnAnotationStartWith && (
+            <>Publishing House &rdquo;Books XXI&rdquo;/&rdquo;Black Sheep Publishing House&rdquo; (With the permission of Vasyl Droniak, director of the publishing house)</>
+          )}
+        </p>
+      )}
 
-         <div>
+      </div>
+      
+               <div>
 
           <ExpandableText
             text={anotation}
@@ -95,10 +98,10 @@ const [isExpanded, setIsExpanded] = useState(false);
    
         <div className="mt-4 flex cursor-none">
             <Link href={link} className="inline-flex cursor-none hover:cursor-none items-center px-4 py-2 mr-10 border-2 border-primary font-medium text-primary rounded-full shadow-sm hover:bg-primary hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
-              Читати
+              {t('read')}
             </Link>
-                        <Link href={link} className="inline-flex items-center px-4 py-2 border-2 border-primary font-medium text-primary rounded-full shadow-sm hover:bg-primary hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
-              Слухати
+            <Link href={link} className="inline-flex items-center px-4 py-2 border-2 border-primary font-medium text-primary rounded-full shadow-sm hover:bg-primary hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+              {t('listen')}
             </Link>
 
             {isExpanded && isAnotationHighlightable && (
@@ -116,7 +119,7 @@ const [isExpanded, setIsExpanded] = useState(false);
       </div>
 
     <div className="relative w-1/4 flex-shrink-0 p-2">
-        {isAnotationStartWith ? (
+        {shouldShowExtraInfo ? (
                <div className="relative w-full h-full"> 
             <Image
               src='/images/dankova.jpg'
@@ -140,8 +143,6 @@ const [isExpanded, setIsExpanded] = useState(false);
           </div>
     )}
     </div>
-
-
     </div>
   );
 }

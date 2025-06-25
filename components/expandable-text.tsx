@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import clsx from 'clsx';
+import { useTranslations } from "next-intl";
 import HighlightedText from './highlighted-text'; 
 
 interface ExpandableTextProps {
@@ -27,6 +28,8 @@ export const ExpandableText: React.FC<ExpandableTextProps> = ({
   highlightColor,
   textColor,
 }) => {
+  const t = useTranslations("ExpandableText")
+  
   const textRef = useRef<HTMLParagraphElement>(null);
   const [showToggleButton, setShowToggleButton] = useState(false);
   const isCurrentlyClamped = !isExpanded;
@@ -99,7 +102,7 @@ export const ExpandableText: React.FC<ExpandableTextProps> = ({
           onClick={onToggle}
           className="mt-2 text-primary-dark dark:text-primary-light font-medium hover:underline focus:outline-none"
         >
-          {isExpanded ? 'Згорнути' : 'Розгорнути'}
+          {isExpanded ? t('collapse') : t('expand')}
         </button>
       )}
     </div>

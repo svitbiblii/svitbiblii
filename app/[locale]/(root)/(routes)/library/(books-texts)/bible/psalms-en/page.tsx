@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useState, useEffect, useRef } from "react";
 import { useNavigation } from "@/lib/navigation-context";
 import { BOOKS_DATA } from "@/books-data_for-del";
+import FontSizeControls from "@/components/FontSizeControls";
 
 export default function PsalmsENPage() {
   const t = useTranslations("BookContents");
@@ -52,7 +53,10 @@ export default function PsalmsENPage() {
   return (
     <div className="h-min-full flex">
       <div className="relative h-full w-full px-4 pt-2 block">
-        <div className="w-full">
+                                               <div className="absolute opacity-0">
+                                                <FontSizeControls targetId='book-psalmiEn-font'/>
+                                               </div>
+        <div id="book-psalmiEn-font" className="w-full">
           <h2 className="pt-0">The Book of Psalms (trans. New King James Version)</h2>
           <section id="section1" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 mb-2 px-2 border border-gray-300 rounded-md">
             <h2>Psalm  137</h2>
@@ -68,16 +72,16 @@ export default function PsalmsENPage() {
 
           <section id="section2" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 mb-2 px-2 border border-gray-300 rounded-md">
             <h2 id="psalomEn138" ref={psalomEn138Ref}>Psalm 138</h2>
-<p>1 <span className={isHighlighted ? 'text-primary ': ''}>O Lord, You have searched me and known me.</span></p>
-<p>2 <span className={isHighlighted ? 'text-primary ': ''}>You know my sitting down and my rising up You understand my thou;ght afar off.</span></p>
-<p>3 <span className={isHighlighted ? 'text-primary ': ''}>You comprehend my path and my lying down,and are acquainted with  all my ways.</span></p>
-<p>4 <span className={isHighlighted ? 'text-primary ': ''}>For there is not a word on my tongue, butbehold, O Lord, You kno w it altogether.</span></p>
-<p>5 <span className={isHighlighted ? 'text-primary ': ''}>You have hedged me behind and before, andlaid Your hand upon me. </span></p>
-<p>6 <span className={isHighlighted ? 'text-primary ': ''}>Such knowledge is too wonderful for me; i is high, I cannot attatin it.</span></p>
-<p>7 <span className={isHighlighted ? 'text-primary ': ''}>Where can I go from Your Spirit? Or wherecan I flee from Your pr esence?</span></p>
-<p>8 <span className={isHighlighted ? 'text-primary ': ''}>If I ascend into heaven, You are there; i I make my bed in hell,f behold, You are there.</span></p>
-<p>9 <span className={isHighlighted ? 'text-primary ': ''}>If I take the wings of the morning, and dell in the uttermost pawrts of the sea,</span></p>
-<p>10<span className={isHighlighted ? 'text-primary ': ''}> even there Your hand shall lead me, and our right hand shall hoYld me.</span></p>
+<p>1 O Lord, You have searched me and known me.</p>
+<p>2 You know my sitting down and my rising up You understand my thou;ght afar off.</p>
+<p>3 You comprehend my path and my lying down,and are acquainted with  all my ways.</p>
+<p>4 For there is not a word on my tongue, butbehold, O Lord, You kno w it altogether.</p>
+<p>5 You have hedged me behind and before, andlaid Your hand upon me.</p>
+<p>6 Such knowledge is too wonderful for me; i is high, I cannot attatin it.</p>
+<p>7 Where can I go from Your Spirit? Or wherecan I flee from Your pr esence?</p>
+<p>8 If I ascend into heaven, You are there; i I make my bed in hell,f behold, You are there</p>
+<p>9 If I take the wings of the morning, and dell in the uttermost pawrts of the sea,</p>
+<p>10 even there Your hand shall lead me, and our right hand shall hoYld me.</p>
 <p>11 If I say, “Surely the darkness shall fall on me,” even the night shall be light about me;</p>
 <p>12 indeed, the darkness shall not hide from You, but the night shines as the day; the darkness and the light are both alike to You.</p>
 <p>13 For You formed my inward parts; You covered me in my mother’s womb.</p>

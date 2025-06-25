@@ -112,5 +112,13 @@
     },
     "BibleUaPage": {
       "interpretation":"Interpretation"
-  }
+    },
+    "BookCard": {
+        "read":"Read",
+        "listen":"Listen"
+    },
+    "ExpandableText": {
+        "collapse":"Collapse",
+        "expand":"Expand"
+    }
   }

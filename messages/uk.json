@@ -112,5 +112,13 @@
     },
     "BibleUaPage": {
         "interpretation":"Тлумачення"
+    },
+    "BookCard": {
+        "read":"Читати",
+        "listen":"Слухати"
+    },
+    "ExpandableText": {
+        "collapse":"Згорнути",
+        "expand":"Розгорнути"
     }
 }

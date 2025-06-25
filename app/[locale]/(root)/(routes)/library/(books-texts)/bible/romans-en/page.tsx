@@ -4,6 +4,7 @@
  import { useState, useEffect, useRef } from "react";
  import { useNavigation } from "@/lib/navigation-context";
  import { BOOKS_DATA } from "@/books-data_for-del";
+ import FontSizeControls from "@/components/FontSizeControls";
  
  export default function RomansEnPage() {
     const t = useTranslations("BookContents");
@@ -52,8 +53,11 @@ useEffect(() => {
 
      return (
         <div className="h-min-full flex">
-                     <div className="relative h-full w-full px-4 pt-2 block">        
-  <div className="w-full">
+                     <div className="relative h-full w-full px-4 pt-2 block"> 
+                        <div className="absolute opacity-0">
+                         <FontSizeControls targetId='book-romansEn-font'/>
+                        </div>       
+  <div id="book-romansEn-font" className="w-full">
     <h2 className="pt-0">Epistle of Paul to the Romans (trans. New King James Version)</h2>
     <section id="section1" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 mb-2 px-2 border border-gray-300 rounded-md">
       <h2>Chapter 11</h2>
@@ -89,16 +93,15 @@ useEffect(() => {
 <p>30. For as you were once disobedient to God, yet now have obtained mercy through their disobedience,</p>
 <p>31. even so these also have now been disobedient, that through the mercy shown you they also may obtain mercy.</p>
 <p id="romansEn-11-32" ref={romansEn1132Ref}>
-  32. <span className={isHighlighted ? 'text-primary': ''}>
-    For God has committed them all to disobedience, that He might have mercy on all.</span></p>
+  32. For God has committed them all to disobedience, that He might have mercy on all.</p>
 <p>
-    33. <span className={isHighlighted ? 'text-primary' : ''}>Oh, the depth of the riches both of the wisdom and knowledge  of God! How unsearchable are His judgments and His ways past finding out!</span></p>
+    33. Oh, the depth of the riches both of the wisdom and knowledge  of God! How unsearchable are His judgments and His ways past finding out!</p>
 <p>
-    34. <span className={isHighlighted ? 'text-primary' : ''}>For who has known the mind of the Lord? Or who has become His  counselor?</span></p>
+    34. For who has known the mind of the Lord? Or who has become His  counselor?</p>
 <p>
-    35. <span className={isHighlighted ? 'text-primary' : ''}>Or who has first given to Him, and it shall be repaid to him?</span></p>
+    35. Or who has first given to Him, and it shall be repaid to him?</p>
 <p>
-    36. <span className={isHighlighted ? 'text-primary' : ''}>For of Him and through Him and to Him are all things, to whom  be glory forever. Amen.</span></p>
+    36. For of Him and through Him and to Him are all things, to whom  be glory forever. Amen.</p>
     </section>
 
     <section id="section2" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 px-2 border border-gray-300 rounded-md">

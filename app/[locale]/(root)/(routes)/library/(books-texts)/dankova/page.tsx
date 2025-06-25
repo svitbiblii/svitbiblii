@@ -727,7 +727,7 @@
             src='/images/avgustine.jpg'
             alt={`Обкладинка книги Бл.Августина`}
             width={200} 
-    height={300}
+            height={300}
             className="rounded-lg" 
             sizes="(max-width: 768px) 100vw, 33vw"
             priority 

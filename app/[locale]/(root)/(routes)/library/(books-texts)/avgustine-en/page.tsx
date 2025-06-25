@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useState, useEffect, useRef } from "react";
 import { useNavigation } from "@/lib/navigation-context";
 import { BOOKS_DATA } from "@/books-data_for-del";
+import FontSizeControls from "@/components/FontSizeControls";
  
  export default function AvgustineEnPage() {
     const t = useTranslations("BookContents");
@@ -59,7 +60,10 @@ import { BOOKS_DATA } from "@/books-data_for-del";
      return (
         <div className="h-min-full flex">      
          <div className="relative h-full w-full px-4 pt-2 block">
-                <div  className="w-full">
+                <div className="absolute opacity-0">
+                  <FontSizeControls targetId='book-avgustineEn-font'/>
+                </div>
+                <div id="book-avgustineEn-font" className="w-full">
                 <h2 className="pt-0">«Confession» Blessed Augustine </h2>
                 <section id="section1">
 <h3>Chapter I</h3>
@@ -92,7 +96,7 @@ import { BOOKS_DATA } from "@/books-data_for-del";
            Do indeed the very heaven and the earth, which You have made, and in which You have made me, contain You? 
            Or, as nothing could exist without You, does whatever exists contain You? Why, then, do I ask You to come 
            into me, since I indeed exist, and could not exist if You were not in me? Because I am not yet in hell, 
-           though You are even there; <span className="relative inline-block italic text-primary hover:text-primary-dark">
+           though You are even there; <span className="relative italic text-primary hover:text-primary-dark">
            «for if I go down into hell You are there».
                          <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
        <Link href="/library/bible/psalms-en/#psalomEn138&scroll=true" 
@@ -104,7 +108,7 @@ import { BOOKS_DATA } from "@/books-data_for-del";
             could not exist at all, O my God, unless You were in me. 
             Or should I not rather say, that I could not exist unless I were in 
             You <span
-            className="relative inline-block italic text-primary hover:text-primary-dark">
+            className="relative italic text-primary hover:text-primary-dark">
                 «from whom are all things, 
             by whom are all things, in whom are all things»?
                                          <div className="absolute bottom-full left-[25%] -translate-x-[25%] bg-yellow-300 text-gray-800 p-2 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-10">
@@ -130,6 +134,25 @@ poured out on us, Thou art not cast down, but Thou upliftest us; Thou art not di
 fillest all things, fillest Thou them with Thy whole self? or, since all things cannot contain Thee wholly, do they contain 
 part of Thee? and all at once the same part? or each its own part, the greater more, the smaller less? And is, then, one part 
 of Thee greater, another less? or, art Thou wholly every where, while nothing contains Thee wholly?
+  </p>
+</section>
+
+<section id="section4">
+    <h3>Chapter ІV</h3>
+  <h3>The majesty of God is supreme, and his virtues inexplicable.</h3>
+  <p>
+What art Thou then, my God? what, but the Lord God? For who is Lord but the Lord? or who is God save our God? Most highest, most good, most potent, most omnipotent; most merciful, yet most just; most hidden, yet most present; most beautiful, yet most strong, stable, yet incomprehensible; unchangeable, yet all-changing; never new, never old; all-renewing, and bringing age upon the proud, and they know it not; ever working, ever at rest; still gathering, yet nothing lacking; supporting, filling, and overspreading; creating, nourishing, and maturing; seeking, yet having all things. Thou lovest, without passion; art jealous, without anxiety; repentest, yet grievest not; art angry, yet serene; changest Thy works, Thy purpose unchanged; receivest again what Thou findest, yet didst never lose; never in need, yet rejoicing in gains; never covetous, yet exacting usury. Thou receivest over and above, that Thou mayest owe; and who hath aught that is not Thine? Thou payest debts, owing nothing; remittest debts, losing nothing. And what had I now said, my God, my life, my holy joy? or what saith any man when he speaks of Thee? Yet woe to him that speaketh not, since mute are even the most eloquent.
+  </p>
+</section>
+
+<section id="section5">
+    <h3>Chapter V</h3>
+  <h3>He seeks rest in God, and pardon of his sins.</h3>
+  <p>
+Oh! that I might repose on Thee! Oh! that Thou wouldest enter into my heart, and inebriate it, that I may forget my ills, and embrace Thee, my sole good! What art Thou to me? In Thy pity, teach me to utter it. Or what am I to Thee that Thou demandest my love, and, if I give it not, art wroth with me, and threatenest me with grievous woes? Is it then a slight woe to love Thee not? Oh! for Thy mercies’ sake, tell me, O Lord my God, what Thou art unto me. Say unto my soul, I am thy salvation. So speak, that I may hear. Behold, Lord, my heart is before Thee; open Thou the ears thereof, and say unto my soul, I am thy salvation. After this voice let me make haste, and take hold of Thee. Hide not Thy face from me. Let me die—lest I die—only let me see Thy face.
+  </p>
+  <p>
+    Narrow is the mansion of my soul; enlarge Thou it, that Thou mayest enter in. It is ruinous; repair Thou it. It has that within which must offend Thine eyes; I confess and know it. But who shall cleanse it? or to whom should I cry, save Thee? Lord, cleanse me from my secret faults and spare Thy servant from the power of the enemy. I believe, and therefore do I speak. Lord, Thou knowest. Have I not confessed against myself my transgressions unto Thee, and Thou, my God, hast forgiven the iniquity of my heart? I contend not in judgment with Thee, who art the truth; I fear to deceive myself; lest mine iniquity lie unto itself. Therefore I contend not in judgment with Thee; for if Thou, Lord, shouldest mark iniquities, O Lord, who shall abide it?
   </p>
 </section>
         </div>
