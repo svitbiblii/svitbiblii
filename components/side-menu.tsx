@@ -6,6 +6,7 @@ import { Mic, MicOff, Volume2, VolumeOff } from "lucide-react";
 import { useState} from "react";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/mode-toggle";
+import { useTranslations } from "next-intl";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -13,6 +14,7 @@ interface MobileMenuProps {
 }
 
 const SideMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+    const t = useTranslations("SideMenu")
     
     const [isVoiceControlActive, setIsVoiceControlActive] = useState(false);
     const [isSpeechSynthesisActive, setIsSpeechSynthesisActive] = useState(false);
@@ -86,7 +88,7 @@ const SideMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           <nav className="flex flex-col items-start space-y-4">
             <div className='hover:text-primary-dark'>
 <FontSizeControls targetId="book-content"/>
-<span>Шрифт</span>
+<span>{t('font')}</span>
             </div>
             
 
@@ -95,7 +97,7 @@ const SideMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                         onClick={toggleVoiceControl}
                         className={voiceControlButtonClassName}>
                         {isVoiceControlActive ? <Mic className="h-5 w-5"/> : <MicOff className="h-5 w-5"/>}
-                        <span>Звук</span>
+                        <span>{t('sound')}</span>
                     </button>
             </div>
 
@@ -104,14 +106,14 @@ const SideMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                         onClick={toggleSpeechSynthesis}
                         className={speechSynthesisButtonClassName}>
                         {isSpeechSynthesisActive ? <Volume2 className="h-5 w-5"/> : <VolumeOff className="h-5 w-5"/>}
-                                        <span>Голос</span>
+                                        <span>{t('voice')}</span>
                     </button>
 
                 </div>
 
                 <div className='flex flex-col hover:text-primary-dark'>
                    <ModeToggle/>
-                   <span>Тема</span>
+                   <span>{t('theme')}</span>
                 </div>
 
                 {/* <Link href="/onboarding">

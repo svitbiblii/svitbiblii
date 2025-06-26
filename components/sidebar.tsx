@@ -9,8 +9,11 @@ import BookmarkIcon from './icons/bookmarkIcon';
 import RouteIcon from './icons/routeIcon';
 import FavoriteIcon from './icons/favoriteIcon';
 import SearchIcon from './icons/searchIcon';
+import { useTranslations } from "next-intl";
 
 function Sidebar() {
+  const t = useTranslations("Sidebar")
+
   const pathname = usePathname();
 
   const isActive = (basePath: string) => {
@@ -67,9 +70,9 @@ function Sidebar() {
                 className={`w-6 h-6
                   ${isActive('/home') ? 'text-primary' : 'text-muted-foreground'}
                 `}
-                title="Головна сторінка"
+                title={t('home')}
               />
-              <span className="text-base font-sans">Головна</span>
+              <span className="text-base font-sans">{t('home')}</span>
             </Link>
           </li>
 
@@ -84,9 +87,9 @@ function Sidebar() {
                 className={`w-6 h-6
                   ${isActive('/') ? 'text-primary' : 'text-muted-foreground'}
                 `}
-                title="Пошук"
+                title={t('search')}
               />
-              <span className="text-base font-sans">Пошук</span>
+              <span className="text-base font-sans">{t('search')}</span>
             </Link>
           </li>
 
@@ -101,9 +104,9 @@ function Sidebar() {
                 className={`w-6 h-6
                   ${isActive('/library') ? 'text-primary' : 'text-muted-foreground'}
                 `}
-                title="Бібліотека книг"
+                title={t('library')}
               />
-              <span className="text-base font-sans">Бібліотека</span>
+              <span className="text-base font-sans">{t('library')}</span>
             </Link>
           </li>
 
@@ -118,9 +121,9 @@ function Sidebar() {
                 className={`w-6 h-6
                   ${isActive('/bookmark') ? 'text-primary' : 'text-muted-foreground'}
                 `}
-                title="Мої закладки"
+                title={t('bookmark')}
               />
-              <span className="text-base font-sans">Закладки</span>
+              <span className="text-base font-sans">{t('bookmark')}</span>
             </Link>
           </li>
 
@@ -135,9 +138,9 @@ function Sidebar() {
                 className={`w-6 h-6
                   ${isActive('/route') ? 'text-primary' : 'text-muted-foreground'}
                 `}
-                title="Маршрути"
+                title={t('route')}
               />
-              <span className="text-base font-sans">Маршрути</span>
+              <span className="text-base font-sans">{t('route')}</span>
             </Link>
           </li>
 
@@ -152,9 +155,9 @@ function Sidebar() {
                 className={`w-6 h-6
                   ${isActive('/favorites') ? 'text-primary' : 'text-muted-foreground'}
                 `}
-                title="Обрані"
+                title={t('favorites')}
               />
-              <span className="text-base font-sans">Обрані</span>
+              <span className="text-base font-sans">{t('favorites')}</span>
             </Link>
           </li>
 
