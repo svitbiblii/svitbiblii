@@ -44,32 +44,32 @@
 import { PrismaClient } from '@prisma/client';
 
 async function main() {
-  const prisma = new PrismaClient();
+	const prisma = new PrismaClient();
 
-  try {
-    const bookId = 23; // ID книги, яку потрібно оновити
-    const bookLink = '/library/bible/new-testament-new'; // Посилання, яке ви хочете додати
+	try {
+		const bookId = 23; // ID книги, яку потрібно оновити
+		const bookLink = '/library/bible/new-testament-new'; // Посилання, яке ви хочете додати
 
-    const existingBook = await prisma.library.findUnique({
-      where: { id: bookId },
-    });
+		const existingBook = await prisma.library.findUnique({
+			where: { id: bookId },
+		});
 
-    if (existingBook) {
-      await prisma.library.update({
-        where: { id: bookId },
-        data: {
-          link: bookLink, // Додаємо або оновлюємо поле link
-        },
-      });
-      console.log(`Посилання додано/оновлено для книги з ID ${bookId}: ${bookLink}`);
-    } else {
-      console.log(`Книгу з ID ${bookId} не знайдено.`);
-    }
-  } catch (error) {
-    console.error('Помилка додавання/оновлення посилання:', error);
-  } finally {
-    await prisma.$disconnect();
-  }
+		if (existingBook) {
+			await prisma.library.update({
+				where: { id: bookId },
+				data: {
+					link: bookLink, // Додаємо або оновлюємо поле link
+				},
+			});
+			console.log(`Посилання додано/оновлено для книги з ID ${bookId}: ${bookLink}`);
+		} else {
+			console.log(`Книгу з ID ${bookId} не знайдено.`);
+		}
+	} catch (error) {
+		console.error('Помилка додавання/оновлення посилання:', error);
+	} finally {
+		await prisma.$disconnect();
+	}
 }
 
 main();

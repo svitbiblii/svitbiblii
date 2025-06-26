@@ -1,56 +1,56 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 // import { useTranslations } from "next-intl";
-import {Library } from '@prisma/client';
+import { Library } from '@prisma/client';
 
 const NewTestamentPage = () => {
-  // const t = useTranslations("BookContents");
+	// const t = useTranslations("BookContents");
 
-  const [book, setBook] = useState<Library | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+	const [book, setBook] = useState<Library | null>(null);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    async function fetchBook() {
-      setLoading(true);
-      setError(null);
-      try {
-        // const response = await fetch(`/api/books/8`); // Явно вказуємо ID 8
-        const response = await fetch('/api/get-book/23');
-        if (!response.ok) {
-          const errorData = await response.json();
-          setError(errorData.error || "Сталася помилка при обробці запиту.");
-          return;
-        }
-        const data: Library = await response.json();
-        setBook(data);
-      } catch (err: any) {
-        setError("Сталася помилка при обробці запиту.");
-        console.error('Помилка отримання книги:', err);
-      } finally {
-        setLoading(false);
-      }
-    }
+	useEffect(() => {
+		async function fetchBook() {
+			setLoading(true);
+			setError(null);
+			try {
+				// const response = await fetch(`/api/books/8`); // Явно вказуємо ID 8
+				const response = await fetch('/api/get-book/23');
+				if (!response.ok) {
+					const errorData = await response.json();
+					setError(errorData.error || 'Сталася помилка при обробці запиту.');
+					return;
+				}
+				const data: Library = await response.json();
+				setBook(data);
+			} catch (err: any) {
+				setError('Сталася помилка при обробці запиту.');
+				console.error('Помилка отримання книги:', err);
+			} finally {
+				setLoading(false);
+			}
+		}
 
-    fetchBook();
-  }, []); // Пустий масив залежностей, щоб запит виконувався лише один раз при монтуванні компонента
+		fetchBook();
+	}, []); // Пустий масив залежностей, щоб запит виконувався лише один раз при монтуванні компонента
 
-  if (loading) {
-    return <div>Грузим...</div>;
-  }
+	if (loading) {
+		return <div>Грузим...</div>;
+	}
 
-  if (error) {
-    return <div>{error}</div>;
-  }
+	if (error) {
+		return <div>{error}</div>;
+	}
 
-  if (!book) {
-    return <div>Не знайдено</div>;
-  }
+	if (!book) {
+		return <div>Не знайдено</div>;
+	}
 
-  return (
-    <div className="h-min-full flex">
-      {/* <div className="relative">
+	return (
+		<div className="h-min-full flex">
+			{/* <div className="relative">
         <button onClick={() => setExpanded(curr => !curr)}
                 className={`absolute top-4 z-20 ${expanded ? "left-60 dark:bg-secondary" : "left-8 dark:bg-background"} hidden md:block p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 dark:color-white`}>
           {expanded ? <ChevronFirst/> : <ChevronLast/>}
@@ -94,15 +94,19 @@ const NewTestamentPage = () => {
         </div>
       </div> */}
 
-      <div className="relative md:flex h-full w-full px-4 pt-2">
-          <div>
-            <h1>{book?.title}</h1> {/* Додано опціональний ланцюжок */}
-            <div dangerouslySetInnerHTML={{ __html: book?.content?.replace(/\n/g, '<br />') ?? '' }} /> {/* Додано опціональний ланцюжок */}
-          </div>
-
-      </div>
-    </div>
-  );
+			<div className="relative md:flex h-full w-full px-4 pt-2">
+				<div>
+					<h1>{book?.title}</h1> {/* Додано опціональний ланцюжок */}
+					<div
+						dangerouslySetInnerHTML={{
+							__html: book?.content?.replace(/\n/g, '<br />') ?? '',
+						}}
+					/>{' '}
+					{/* Додано опціональний ланцюжок */}
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default NewTestamentPage;

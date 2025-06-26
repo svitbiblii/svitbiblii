@@ -8,21 +8,21 @@
     { id: "diction", name: "Словники та Енциклопедії" },
     { id: "theology", name: "Богослов'я" },
 ];*/
-"use client";
+'use client';
 
-import { useTranslations } from "next-intl"
+import { useTranslations } from 'next-intl';
 
 export const CATEGORIES = () => {
-    const t = useTranslations("CategoryComponent");
+	const t = useTranslations('CategoryComponent');
 
-    return [
-        { id: "all", name: t("all") },
-        { id: "bibl", name: t("bibl") },
-        { id: "cloud", name: t("cloud") },
-        { id: "bibl_studies", name: t("bibl_studies") },
-        { id: "patrist", name: t("patrist") },
-        { id: "phy_hist", name: t("phy_hist") },
-        { id: "diction", name: t("diction") },
-        { id: "theology", name: t("theology") },
-    ];
+	return [
+		{ id: 'all', name: t('all') },
+		{ id: 'bibl', name: t('bibl') },
+		{ id: 'cloud', name: t('cloud') },
+		{ id: 'bibl_studies', name: t('bibl_studies') },
+		{ id: 'patrist', name: t('patrist') },
+		{ id: 'phy_hist', name: t('phy_hist') },
+		{ id: 'diction', name: t('diction') },
+		{ id: 'theology', name: t('theology') },
+	];
 };
