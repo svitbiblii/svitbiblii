@@ -73,15 +73,15 @@ export default function PsalmsENPage() {
           <section id="section2" className="mx-auto w-4/5 md:w-3/5 lg:w-1/2 mb-2 px-2 border border-gray-300 rounded-md">
             <h2 id="psalomEn138" ref={psalomEn138Ref}>Psalm 138</h2>
 <p>1 O Lord, You have searched me and known me.</p>
-<p>2 You know my sitting down and my rising up You understand my thou;ght afar off.</p>
-<p>3 You comprehend my path and my lying down,and are acquainted with  all my ways.</p>
-<p>4 For there is not a word on my tongue, butbehold, O Lord, You kno w it altogether.</p>
-<p>5 You have hedged me behind and before, andlaid Your hand upon me.</p>
-<p>6 Such knowledge is too wonderful for me; i is high, I cannot attatin it.</p>
-<p>7 Where can I go from Your Spirit? Or wherecan I flee from Your pr esence?</p>
-<p>8 If I ascend into heaven, You are there; i I make my bed in hell,f behold, You are there</p>
-<p>9 If I take the wings of the morning, and dell in the uttermost pawrts of the sea,</p>
-<p>10 even there Your hand shall lead me, and our right hand shall hoYld me.</p>
+<p>2 You know my sitting down and my rising up; You understand my thought afar off.</p>
+<p>3 You comprehend my path and my lying down, And are acquainted with all my ways.</p>
+<p>4 For there is not a word on my tongue, But behold, O Lord, You know it altogether.</p>
+<p>5 You have hedged me behind and before, And laid Your hand upon me.</p>
+<p>6 Such knowledge is too wonderful for me; It is high, I cannot attain it.</p>
+<p>7 Where can I go from Your Spirit? Or where can I flee from Your presence?</p>
+<p>8 If I ascend into heaven, You are there; If I make my bed in Sheol, behold, You are there.</p>
+<p>9 If I take the wings of the morning, And dwell in the uttermost parts of the sea,</p>
+<p>10 Even there Your hand shall lead me, And Your right hand shall hold me.</p>
 <p>11 If I say, “Surely the darkness shall fall on me,” even the night shall be light about me;</p>
 <p>12 indeed, the darkness shall not hide from You, but the night shines as the day; the darkness and the light are both alike to You.</p>
 <p>13 For You formed my inward parts; You covered me in my mother’s womb.</p>
