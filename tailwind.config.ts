@@ -2,11 +2,7 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
 	darkMode: ['class'],
-	content: [
-		'./pages/**/*.{js,ts,jsx,tsx,mdx}',
-		'./components/**/*.{js,ts,jsx,tsx,mdx}',
-		'./app/**/*.{js,ts,jsx,tsx,mdx}',
-	],
+	content: ['./app/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {
 			screens: {
@@ -58,6 +54,7 @@ const config: Config = {
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))',
+					dark: 'hsl(var(--destructive-dark))',
 				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
