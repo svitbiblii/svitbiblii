@@ -52,6 +52,8 @@ function Sidebar() {
 		); // Або далі йде слеш
 	};
 
+    [{ link: '/home', label: 'main', title: 'Головна' }].map();
+
 	return (
 		<aside className="w-24 bg-card text-card-foreground p-4 shadow-lg min-h-screen">
 			<nav>

@@ -4,7 +4,7 @@ import { Transition } from '@headlessui/react';
 import FontSizeControls from './FontSizeControls';
 import { Mic, MicOff, Volume2, VolumeOff } from 'lucide-react';
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/src/lib/utils';
 import { ModeToggle } from '@/components/mode-toggle';
 
 interface MobileMenuProps {

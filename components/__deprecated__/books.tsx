@@ -1,7 +1,7 @@
 'use client';
 
 import { Library } from '@prisma/client';
-import { cn } from '@/lib/utils';
+import { cn } from '@/src/lib/utils';
 
 type BookWithLink = Library & { link: string };
 

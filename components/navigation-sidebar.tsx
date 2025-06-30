@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { usePathname } from '@/i18n/routing';
-import { useNavigation } from '@/lib/navigation-context'; // Імпорт useNavigation
+import { useNavigation } from '@/src/lib/navigation-context'; // Імпорт useNavigation
 import { useState } from 'react';
 import ArrowLeftIcon from './icons/arrowLeftIcon';
 import ArrowRightIcon from './icons/arrowRightIcon';
