@@ -2,36 +2,26 @@ import { NextRequest, NextResponse } from 'next/server';
 import UserService from '@/services/user.service';
 
 interface ParamsType {
-	id: string;
+	user_id: string;
 }
 
-export async function GET(req: NextRequest, { params }: { params: ParamsType }) {
-	console.log(params);
-	console.log('Fetching user with ID:', params.id);
-	const user = await UserService.get(params.id);
+export async function GET(_req: NextRequest, { params }: { params: ParamsType }) {
+	const user = await UserService.get(+params.user_id);
 
-	return NextResponse.json(user);
+	const dto = UserService.toDTO(user);
+
+	return NextResponse.json(dto);
 }
 
-export async function POST(req: NextRequest, { params }: { params: ParamsType }) {
-	const { id } = params;
-	const body = await req.json();
+// export async function POST(req: NextRequest, { params }: { params: ParamsType }) {
+// 	return NextResponse.json({ success: true });
+// }
 
-	if (!body.value) {
-		return NextResponse.json({ error: 'Missing value' }, { status: 400 });
-	}
+// export async function DELETE(req: NextRequest, { params }: { params: ParamsType }) {
+// 	const db = await getDb();
+// 	const { id } = params;
 
-	const db = await getDb();
-	await db.setStorageValue(id, key, body.value);
+// 	await db.deleteStorageValue(id, key);
 
-	return NextResponse.json({ success: true });
-}
-
-export async function DELETE(req: NextRequest, { params }: { params: ParamsType }) {
-	const db = await getDb();
-	const { id } = params;
-
-	await db.deleteStorageValue(id, key);
-
-	return NextResponse.json({ success: true });
-}
+// 	return NextResponse.json({ success: true });
+// }
