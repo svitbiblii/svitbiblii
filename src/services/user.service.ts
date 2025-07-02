@@ -1,25 +1,37 @@
-import { CreateUserDTO, UpdateUserDTO } from '@/types/user';
+import { UpdateUserDTO, UserDTO, UserRole } from '@/src/types/user.dto';
 import prismadb from '@/lib/prismadb';
+import { User } from '@prisma/client';
+import { NotFoundError } from '@/services/service';
 
 export default class UserService {
-	static async create(data: CreateUserDTO) {
-		await prismadb.User.create({ data });
-	}
-
-	static async get(id: string) {
-		const user = prismadb.User.findUnique({
+	static async get(id: UserDTO['id']): Promise<User> {
+		const user = await prismadb.user.findUnique({
 			where: { id },
 		});
+
+		if (!user) throw new NotFoundError('Could not find a user.');
 
 		return user;
 	}
 
-	static async update(id: string, data: UpdateUserDTO) {
-		// Simulate an API call to update user
+	static async getByEmail(email: UserDTO['email']): Promise<User> {
+		const user = await prismadb.user.findUnique({ where: { email } });
+
+		if (!user) throw new NotFoundError('Could not find a user.');
+
+		return user;
+	}
+
+	static async update(_id: string, _data: UpdateUserDTO) {}
+
+	static toDTO(user: User): UserDTO {
 		return {
-			id,
-			...data,
-			updatedAt: new Date().toISOString(),
+			id: user.id,
+			name: user.name,
+			email: user.email,
+			role: user.role as UserRole,
+			createdAt: user.createdAt.toISOString(),
+			updatedAt: user.updatedAt ? user.updatedAt.toISOString() : undefined,
 		};
 	}
 }
