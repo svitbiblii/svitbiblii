@@ -8,6 +8,8 @@ import Logo from '@/assets/svg/logogoryzont.svg';
 import HomePage from '@/pages/main/HomePage';
 import AboutPage from '@/pages/main/AboutPage';
 import { Button } from './Button';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
+import { LocaleSelect } from '@/components/LocaleSelect';
 
 const navPages: PageInterface[] = [AboutPage];
 
@@ -31,7 +33,15 @@ export default function Header(): ReactNode {
 			<div className="flex justify-end items-center gap-x-2">
 				<div className="w-16">M</div>
 				<div className="w-16">UA</div>
-				<div className="w-16">U</div>
+				<LocaleSelect />
+
+				<SignedOut>
+					<SignInButton mode="modal">Sign in</SignInButton>
+				</SignedOut>
+
+				<SignedIn>
+					<UserButton />
+				</SignedIn>
 			</div>
 		</header>
 	);
