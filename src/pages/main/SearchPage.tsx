@@ -27,7 +27,7 @@ const Page: PageInterface = {
 	sidebarTitle: 'Search History',
 	sidebarAlertMessage: 'Authorize to save your search history',
 	sidebarContent: outputSidebarContent(),
-	content: outputContent(),
+	content: outputContent,
 };
 
 export default Page;

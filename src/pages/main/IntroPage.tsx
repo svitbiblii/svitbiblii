@@ -20,7 +20,7 @@ const Page: PageInterface = {
 	href: '/intro',
 	icon: outputIcon,
 	sidebarContent: outputSidebarContent(),
-	content: outputContent(),
+	content: outputContent,
 };
 
 export default Page;

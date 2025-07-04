@@ -11,5 +11,5 @@ export interface PageInterface {
 	sidebarTitle?: string;
 	sidebarAlertMessage?: string;
 	sidebarContent?: ReactNode;
-	content: ReactNode;
+	content: () => ReactNode;
 }

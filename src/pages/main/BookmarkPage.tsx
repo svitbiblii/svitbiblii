@@ -18,7 +18,7 @@ const Page: PageInterface = {
 	icon: IoBookmarkOutline,
 	sidebarAlertMessage: 'Authroize to save your bookmarks',
 	sidebarContent: outputSidebarContent(),
-	content: outputContent(),
+	content: outputContent,
 };
 
 export default Page;

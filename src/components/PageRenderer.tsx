@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 
 import { Nav, NavItem } from '@/components/Nav';
 import SideBar from '@/components/SideBar';
@@ -14,13 +14,11 @@ import FavoritePage from '@/pages/main/FavoritePage';
 import LibraryPage from '@/pages/main/LibraryPage';
 import RoutePage from '@/pages/main/RoutePage';
 import SearchPage from '@/pages/main/SearchPage';
-import AuthTabsForm from './AuthForm';
+import { SignedOut } from '@clerk/nextjs';
 
 const navPages: PageInterface[] = [SearchPage, BookmarkPage, FavoritePage, LibraryPage, RoutePage];
 
 export default function PageRenderer({ page }: { page: PageInterface }): ReactNode {
-	const [showAuthForm, setShowAuthForm] = useState<boolean>(false);
-
 	const { setPage } = usePage();
 	setPage(page);
 
@@ -56,17 +54,17 @@ export default function PageRenderer({ page }: { page: PageInterface }): ReactNo
 					<SideBar className="flex flex-col">
 						<>
 							{page.sidebarAlertMessage && ( // additionaly check if user is logged in
-								<>
+								<SignedOut>
 									<span className="text-red-600 text-center text-sm">
 										{page.sidebarAlertMessage}
 									</span>
 									<Button
 										className="w-2/3 mx-auto"
-										onClick={() => setShowAuthForm(true)}
+										// onClick={() => setShowAuthForm(true)}
 									>
 										Sign In / Sign Up
 									</Button>
-								</>
+								</SignedOut>
 							)}
 
 							{page.sidebarTitle && (
@@ -80,21 +78,12 @@ export default function PageRenderer({ page }: { page: PageInterface }): ReactNo
 					</SideBar>
 				)}
 			</aside>
-			<main className="flex-1">{page.content}</main>
+			<main className="flex-1">{page.content()}</main>
 			<aside>
 				<Nav>
 					<></>
 				</Nav>
 			</aside>
-
-			{showAuthForm && (
-				<div
-					className="fixed inset-0 bg-black bg-opacity-50 z-50"
-					onClick={(_) => setShowAuthForm(false)}
-				>
-					<AuthTabsForm />
-				</div>
-			)}
 		</div>
 	);
 }

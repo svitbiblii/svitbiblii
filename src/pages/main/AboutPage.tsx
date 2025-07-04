@@ -1,6 +1,6 @@
 'use client';
 
-import { FunctionComponent, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { PageInterface } from '@/src/pages/main/PageInterface';
 import { useTranslations } from 'next-intl';
 
@@ -12,7 +12,7 @@ const outputIcon = (): ReactNode => {
 // 	return <></>;
 // };
 
-const OutputContent: FunctionComponent = () => {
+const OutputContent = () => {
 	const t = useTranslations('AboutUs');
 
 	return (
@@ -76,7 +76,7 @@ const Page: PageInterface = {
 	href: '/about',
 	title: 'About us',
 	icon: outputIcon,
-	content: <OutputContent />,
+	content: OutputContent,
 };
 
 export default Page;

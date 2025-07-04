@@ -30,7 +30,7 @@ const Page: PageInterface = {
 	href: '/home',
 	icon: outputIcon,
 	sidebarContent: outputSidebarContent(),
-	content: outputContent(),
+	content: outputContent,
 };
 
 export default Page;

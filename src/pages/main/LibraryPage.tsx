@@ -18,7 +18,7 @@ const Page: PageInterface = {
 	href: '/library',
 	icon: IoLibraryOutline,
 	sidebarContent: outputSidebarContent(),
-	content: outputContent(),
+	content: outputContent,
 };
 
 export default Page;

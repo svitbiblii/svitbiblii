@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect } from 'react';
 
-import { UserDTO } from '@/src/types/user';
+import { UserDTO } from '@/src/types/user.dto';
 
 interface UserContextType {
 	user: UserDTO | null;
