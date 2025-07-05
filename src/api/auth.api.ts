@@ -1,11 +1,8 @@
 import api from '@/api/axios';
-import { LoginRequest, RegisterRequest, AuthResponse } from '@/types/auth.dto';
+import { UserDTO } from '../types/user.dto';
 
 const authAPI = {
-	login: (data: LoginRequest) => api.post<AuthResponse>('/auth/login', data),
-	register: (data: RegisterRequest) => api.post<AuthResponse>('/auth/register', data),
-	logout: () => api.post('/auth/logout'),
-	getProfile: () => api.get('/auth/profile'),
+	sync: () => api.post<UserDTO>('/auth'),
 };
 
 export default authAPI;
