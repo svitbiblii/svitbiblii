@@ -4,7 +4,6 @@ import { ReactNode } from 'react';
 
 import { Nav, NavItem } from '@/components/Nav';
 import SideBar from '@/components/SideBar';
-import { Button } from '@/components/Button';
 
 import { PageInterface } from '@/pages/main/PageInterface';
 import { usePage } from '@/context/PageContext';
@@ -14,7 +13,6 @@ import FavoritePage from '@/pages/main/FavoritePage';
 import LibraryPage from '@/pages/main/LibraryPage';
 import RoutePage from '@/pages/main/RoutePage';
 import SearchPage from '@/pages/main/SearchPage';
-import { SignedOut } from '@clerk/nextjs';
 
 const navPages: PageInterface[] = [SearchPage, BookmarkPage, FavoritePage, LibraryPage, RoutePage];
 
@@ -53,7 +51,7 @@ export default function PageRenderer({ page }: { page: PageInterface }): ReactNo
 				{page.sidebarContent && (
 					<SideBar className="flex flex-col">
 						<>
-							{page.sidebarAlertMessage && ( // additionaly check if user is logged in
+							{/* {page.sidebarAlertMessage && ( // additionaly check if user is logged in
 								<SignedOut>
 									<span className="text-red-600 text-center text-sm">
 										{page.sidebarAlertMessage}
@@ -65,7 +63,7 @@ export default function PageRenderer({ page }: { page: PageInterface }): ReactNo
 										Sign In / Sign Up
 									</Button>
 								</SignedOut>
-							)}
+							)} */}
 
 							{page.sidebarTitle && (
 								<h2 className="px-2 py-3 my-3 text-left text-base text-primary font-semibold border-b border-primary">
