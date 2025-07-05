@@ -1,5 +1,6 @@
 export interface UserDTO {
 	id: number;
+	clerkId: string;
 	name: string;
 	email: string;
 	role: UserRole;
