@@ -1,14 +1,14 @@
 'use client';
 
-import { useLocale } from 'next-intl';
 import { ChangeEvent, useTransition } from 'react';
-import { useRouter, usePathname } from '@/i18n/routing';
+import { usePathname, useRouter } from '@/i18n/routing';
+import { useLocale } from 'next-intl';
 
 export const LocaleSelect = () => {
 	const [isPending, startTransition] = useTransition();
 	const router = useRouter();
 	const locale = useLocale();
-	const pathname = usePathname(); // без locale
+	const pathname = usePathname();
 
 	const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
 		const newLocale = e.target.value;
