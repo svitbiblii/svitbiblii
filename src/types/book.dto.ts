@@ -11,6 +11,6 @@ export interface BookDTO {
 }
 
 export interface BookSearchParams {
-	query: BookDTO['title'] | BookDTO['author'];
-	category: BookDTO['category'];
+	query?: BookDTO['title'] | BookDTO['author'];
+	category?: BookDTO['category'];
 }
