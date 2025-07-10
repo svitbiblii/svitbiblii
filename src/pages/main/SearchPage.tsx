@@ -6,7 +6,7 @@ import { IoSearchOutline } from 'react-icons/io5';
 import SearchBox from '@/components/SearchBox';
 
 const outputSidebarContent = (): ReactNode => {
-	return <></>;
+	return <>Тут я маю написати код для відображення історії переходів</>;
 };
 
 const outputContent = (): ReactNode => {
