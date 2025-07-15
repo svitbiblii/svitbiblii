@@ -6,14 +6,14 @@ import { Nav, NavItem } from '@/components/Nav';
 import SideBar from '@/components/SideBar';
 import { Button } from '@/components/Button';
 
-import { PageInterface } from '@/pages/main/PageInterface';
 import { usePage } from '@/context/PageContext';
 
-import BookmarkPage from '@/pages/main/BookmarkPage';
-import FavoritePage from '@/pages/main/FavoritePage';
-import LibraryPage from '@/pages/main/LibraryPage';
-import RoutePage from '@/pages/main/RoutePage';
-import SearchPage from '@/pages/main/SearchPage';
+import { PageInterface } from '@/pages/root/PageInterface';
+import BookmarkPage from '@/pages/root/BookmarkPage';
+import FavoritePage from '@/pages/root/FavoritePage';
+import LibraryPage from '@/pages/root/LibraryPage';
+import RoutePage from '@/pages/root/RoutePage';
+import SearchPage from '@/pages/root/SearchPage';
 import { SignedOut } from '@clerk/nextjs';
 
 const navPages: PageInterface[] = [SearchPage, BookmarkPage, FavoritePage, LibraryPage, RoutePage];

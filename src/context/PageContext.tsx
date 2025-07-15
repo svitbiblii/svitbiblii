@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, ReactNode } from 'react';
-import { PageInterface } from '@/pages/main/PageInterface';
+import { PageInterface } from '@/pages/root/PageInterface';
 
 interface PageContextValue {
 	page: PageInterface | null;
