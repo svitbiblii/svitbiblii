@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { PageInterface } from '@/src/pages/main/PageInterface';
+import { PageInterface } from '@/src/pages/root/PageInterface';
 import { IoLibraryOutline } from 'react-icons/io5';
 // import { BiSolidBible } from "react-icons/bi";
 

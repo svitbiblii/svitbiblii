@@ -4,7 +4,7 @@ import { ReactNode, useState } from 'react';
 import { PageInterface } from '@/src/pages/root/PageInterface';
 import { IoSearchOutline } from 'react-icons/io5';
 import SearchBox from '@/components/SearchBox';
-import { BookDTO } from '../../types/book.dto';
+import { BookDTO } from '@/types/book.dto';
 
 const OutputSidebarContent = (): ReactNode => {
 	return <>Here I have to write the code to display the browsing history</>;

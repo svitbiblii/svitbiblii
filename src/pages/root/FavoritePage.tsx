@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { PageInterface } from '@/src/pages/main/PageInterface';
+import { PageInterface } from '@/src/pages/root/PageInterface';
 import { IoStarOutline } from 'react-icons/io5';
 
 const outputSidebarContent = (): ReactNode => {
