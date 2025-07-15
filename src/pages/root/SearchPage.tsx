@@ -5,6 +5,7 @@ import { PageInterface } from '@/src/pages/root/PageInterface';
 import { IoSearchOutline } from 'react-icons/io5';
 import SearchBox from '@/components/SearchBox';
 import { BookDTO } from '@/types/book.dto';
+import Book from '@/components/Book';
 
 const OutputSidebarContent = (): ReactNode => {
 	return <>Here I have to write the code to display the browsing history</>;
@@ -19,7 +20,12 @@ const OutputContent = (): ReactNode => {
 				<h2>Search and Filter</h2>
 				<SearchBox className="w-2/6 shadow-md" setSearchResult={setBooks} />
 			</div>
-			{books.map((book) => book.title)}
+
+			<div className="mt-4 grid grid-cols-3 gap-4">
+				{books.map((book) => (
+					<Book key={book.id} book={book} variant="large" className="w-full" />
+				))}
+			</div>
 		</>
 	);
 };
