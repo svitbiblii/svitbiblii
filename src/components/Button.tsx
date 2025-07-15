@@ -10,7 +10,7 @@ const buttonVariants = cva('rounded transition', {
 			default: 'bg-primary hover:bg-primary-dark text-white',
 			destructive: 'bg-destructive hover:bg-destructive-dark text-white',
 			outline:
-				'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+				'border-2 border-primary hover:bg-primary hover:text-primary-foreground focus:outline-none',
 			secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
 			ghost: 'hover:bg-accent hover:text-accent-foreground',
 			link: 'text-primary underline-offset-4 hover:underline',
