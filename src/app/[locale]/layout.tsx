@@ -7,7 +7,18 @@ import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 import { ThemeProvider } from 'next-themes';
 import { ClerkProvider } from '@clerk/nextjs';
+import { Montserrat, Playfair_Display } from 'next/font/google';
 
+
+const montserrat = Montserrat({
+	subsets: ['latin'],
+	variable: '--font-montserrat',
+});
+
+const playfair = Playfair_Display({
+	subsets: ['latin'],
+	variable: '--font-playfair-display',
+});
 export default async function Layout({
 	children,
 	params: { locale },
@@ -23,9 +34,9 @@ export default async function Layout({
 
 	return (
 		<ClerkProvider>
-			<html lang={locale} suppressHydrationWarning>
-				<body className="flex flex-col min-h-screen">
-					<ThemeProvider>
+			<html lang={locale} className={`${montserrat.variable} ${playfair.variable}`} suppressHydrationWarning>
+			<body className="flex flex-col min-h-screen">
+				<ThemeProvider>
 						<NextIntlClientProvider locale={locale} messages={messages}>
 							{children}
 						</NextIntlClientProvider>
