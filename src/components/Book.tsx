@@ -3,17 +3,22 @@
 import React, { useState } from 'react';
 import { Link } from '@/i18n/routing';
 import { BookDTO } from '../types/book.dto';
+import { cn } from '@/src/lib/utils';
+import { Button } from '@/components/Button';
 
 interface BookProps {
 	book: BookDTO;
 	variant: 'large' | 'small';
+	className: string;
 }
 
-const Book: React.FC<BookProps> = ({ book, variant }) => {
+const Book: React.FC<BookProps> = ({ book, variant, className }) => {
 	const [isContentExpanded, setIsContentExpanded] = useState(false);
 	const MAX_CONTENT_LENGTH = 150;
-	const commonCardClasses =
-		'bg-white dark:bg-gray-800 rounded-lg shadow-card-soft overflow-hidden flex';
+	const commonCardClasses = cn(
+		'bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex',
+		className
+	);
 
 	if (!book) {
 		console.error('Book component received an undefined or null book prop.');
@@ -48,31 +53,24 @@ const Book: React.FC<BookProps> = ({ book, variant }) => {
 									{displayedContent}
 								</p>
 								{showExpandButton && (
-									<button
+									<Button
 										onClick={() => setIsContentExpanded(!isContentExpanded)}
-										className="text-primary hover:text-primary-dark font-medium focus:outline-none"
 									>
 										{isContentExpanded ? 'Згорнути' : 'Розгорнути'}
-									</button>
+									</Button>
 								)}
 							</>
 						)}
 					</div>
 
-					<div className="mt-4 flex">
+					<div className="mt-4 flex gap-2">
 						{book.link && (
 							<>
-								<Link
-									href={book.link}
-									className="inline-flex items-center px-4 py-2 mr-10 border-2 border-primary font-medium text-primary rounded-full shadow-sm hover:bg-primary hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
-								>
-									Читати
+								<Link href={book.link}>
+									<Button variant="outline">Читати</Button>
 								</Link>
-								<Link
-									href={book.link}
-									className="inline-flex items-center px-4 py-2 border-2 border-primary font-medium text-primary rounded-full shadow-sm hover:bg-primary hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
-								>
-									Слухати
+								<Link href={book.link}>
+									<Button variant="outline">Слухати</Button>
 								</Link>
 							</>
 						)}
