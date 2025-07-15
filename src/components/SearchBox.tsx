@@ -5,9 +5,13 @@ import { IoSearchOutline } from 'react-icons/io5';
 import { cn } from '@/src/lib/utils'; // если есть clsx/cn хелпер, или замени на className={...}
 import { Button } from '@/components/Button';
 
+import bookAPI from '../api/book.api';
+import { BookDTO } from '../types/book.dto';
+
 interface SearchBoxProps {
 	placeholder?: string;
 	className?: string;
+	setSearchResult?: (books: BookDTO[]) => void;
 }
 
 type SearchType = 'all' | 'audio' | 'video' | 'scientific';
@@ -21,9 +25,16 @@ const searchTypeMap: Record<SearchType, string> = {
 
 const searchTypes: SearchType[] = ['all', 'audio', 'video', 'scientific'];
 
-export default function SearchBox({ placeholder = 'Search...', className }: SearchBoxProps) {
-	const onSearch = (query: string) => {
-		console.log('Search query:', query);
+export default function SearchBox({
+	placeholder = 'Search...',
+	className,
+	setSearchResult,
+}: SearchBoxProps) {
+	const onSearch = async (query: string) => {
+		const resp = await bookAPI.getAll({ query, category: null });
+		if (resp && setSearchResult) {
+			setSearchResult(resp.data || []);
+		}
 	};
 
 	const [searchType, setSearchType] = useState<SearchType>('all');
