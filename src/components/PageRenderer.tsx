@@ -89,7 +89,7 @@ export default function PageRenderer({ page }: { page: PageInterface }): ReactNo
 					</SideBar>
 				)}
 			</aside>
-			<main className="flex-1">{page.content()}</main>
+			<main className="flex-1 p-4">{page.content()}</main>
 			<aside>
 				<Nav>
 					<></>
