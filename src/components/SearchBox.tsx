@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
-import { cn } from '@/src/lib/utils'; // если есть clsx/cn хелпер, или замени на className={...}
+import { cn } from '@/src/lib/utils';
 import { Button } from '@/components/Button';
 
 import bookAPI from '../api/book.api';
