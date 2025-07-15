@@ -30,7 +30,7 @@ const Page: PageInterface = {
 	icon: IoSearchOutline,
 	sidebarTitle: 'Search History',
 	sidebarAlertMessage: 'Authorize to save your search history',
-	sidebarContent: OutputSidebarContent(),
+	sidebarContent: OutputSidebarContent,
 	content: OutputContent,
 };
 

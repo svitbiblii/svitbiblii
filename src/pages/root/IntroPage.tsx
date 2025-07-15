@@ -19,7 +19,7 @@ const Page: PageInterface = {
 	id: 'intro',
 	href: '/intro',
 	icon: outputIcon,
-	sidebarContent: outputSidebarContent(),
+	sidebarContent: outputSidebarContent,
 	content: outputContent,
 };
 

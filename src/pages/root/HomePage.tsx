@@ -29,7 +29,7 @@ const Page: PageInterface = {
 	id: 'home',
 	href: '/home',
 	icon: outputIcon,
-	sidebarContent: outputSidebarContent(),
+	sidebarContent: outputSidebarContent,
 	content: outputContent,
 };
 

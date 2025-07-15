@@ -2,21 +2,21 @@
 
 import { ReactNode } from 'react';
 import { PageInterface } from '@/src/pages/root/PageInterface';
-import { IoBookmarkOutline } from 'react-icons/io5';
+import { LiaUserShieldSolid } from 'react-icons/lia';
 
 const outputSidebarContent = (): ReactNode => {
 	return <></>;
 };
 
 const outputContent = (): ReactNode => {
-	return <></>;
+	return <>admin</>;
 };
 
 const Page: PageInterface = {
-	id: 'bookmark',
-	href: '/bookmark',
-	icon: IoBookmarkOutline,
-	sidebarAlertMessage: 'Authroize to save your bookmarks',
+	id: 'admin',
+	href: '/admin',
+	icon: LiaUserShieldSolid,
+	sidebarAlertMessage: 'admin',
 	sidebarContent: outputSidebarContent,
 	content: outputContent,
 };

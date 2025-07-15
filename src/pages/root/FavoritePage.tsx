@@ -16,7 +16,7 @@ const Page: PageInterface = {
 	id: 'favorite',
 	href: '/favorite',
 	icon: IoStarOutline,
-	sidebarContent: outputSidebarContent(),
+	sidebarContent: outputSidebarContent,
 	content: outputContent,
 };
 

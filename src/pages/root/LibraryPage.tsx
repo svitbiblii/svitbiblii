@@ -17,7 +17,7 @@ const Page: PageInterface = {
 	id: 'library',
 	href: '/library',
 	icon: IoLibraryOutline,
-	sidebarContent: outputSidebarContent(),
+	sidebarContent: outputSidebarContent,
 	content: outputContent,
 };
 

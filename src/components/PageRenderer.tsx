@@ -14,9 +14,18 @@ import FavoritePage from '@/pages/root/FavoritePage';
 import LibraryPage from '@/pages/root/LibraryPage';
 import RoutePage from '@/pages/root/RoutePage';
 import SearchPage from '@/pages/root/SearchPage';
+import AdminPage from '@/pages/root/AdminPage';
+
 import { SignedOut } from '@clerk/nextjs';
 
-const navPages: PageInterface[] = [SearchPage, BookmarkPage, FavoritePage, LibraryPage, RoutePage];
+const navPages: PageInterface[] = [
+	SearchPage,
+	BookmarkPage,
+	FavoritePage,
+	LibraryPage,
+	RoutePage,
+	AdminPage,
+];
 
 export default function PageRenderer({ page }: { page: PageInterface }): ReactNode {
 	const { setPage } = usePage();
@@ -75,7 +84,7 @@ export default function PageRenderer({ page }: { page: PageInterface }): ReactNo
 								</h2>
 							)}
 
-							{page.sidebarContent}
+							{page.sidebarContent()}
 						</>
 					</SideBar>
 				)}

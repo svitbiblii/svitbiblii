@@ -16,7 +16,7 @@ const Page: PageInterface = {
 	id: 'route',
 	href: '/route',
 	icon: TbRouteSquare,
-	sidebarContent: outputSidebarContent(),
+	sidebarContent: outputSidebarContent,
 	content: outputContent,
 };
 

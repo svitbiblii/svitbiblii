@@ -10,6 +10,6 @@ export interface PageInterface {
 	icon?: IconType; // specify the type of custom icon component
 	sidebarTitle?: string;
 	sidebarAlertMessage?: string;
-	sidebarContent?: ReactNode;
+	sidebarContent?: () => ReactNode;
 	content: () => ReactNode;
 }
