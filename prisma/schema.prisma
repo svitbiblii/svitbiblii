@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "./node_modules/@prisma/client"
 }
 
 datasource db {
@@ -21,6 +20,18 @@ model Library {
   slug     String @unique @default("")
 }
 
+model Book {
+    id       Int     @id @default(autoincrement())
+    title    String @unique
+    author   String?
+    link     String?
+    content  String?
+    category String?
+    format   String?
+    filePath String?
+    slug     String @unique @default("")
+}
+
 model Route {
   id          Int     @id @default(autoincrement())
   name        String
@@ -29,4 +40,14 @@ model Route {
   distance    Float
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model User {
+    id         Int @id @default(autoincrement())
+    clerkId    String @unique
+    name       String
+    email      String @unique
+    role       String
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime? @updatedAt
 }
