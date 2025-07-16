@@ -112,5 +112,27 @@
 	},
 	"BibleUaPage": {
 		"interpretation": "Interpretation"
+	},
+	"BookCard": {
+		"read": "Read",
+		"listen": "Listen"
+	},
+	"ExpandableText": {
+		"collapse": "Collapse",
+		"expand": "Expand"
+	},
+	"SideMenu": {
+		"font": "Font",
+		"sound": "Sound",
+		"voice": "Voice",
+		"theme": "Theme"
+	},
+	"Sidebar": {
+		"home": "Home",
+		"search": "Search",
+		"library": "Library",
+		"bookmark": "Bookmark",
+		"route": "Route",
+		"favorites": "Favorites"
 	}
 }

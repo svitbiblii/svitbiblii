@@ -112,5 +112,27 @@
 	},
 	"BibleUaPage": {
 		"interpretation": "Тлумачення"
+	},
+	"BookCard": {
+		"read": "Читати",
+		"listen": "Слухати"
+	},
+	"ExpandableText": {
+		"collapse": "Згорнути",
+		"expand": "Розгорнути"
+	},
+	"SideMenu": {
+		"font": "Шрифт",
+		"sound": "Звук",
+		"voice": "Голос",
+		"theme": "Тема"
+	},
+	"Sidebar": {
+		"home": "Головна",
+		"search": "Пошук",
+		"library": "Бібліотека",
+		"bookmark": "Закладки",
+		"route": "Маршрути",
+		"favorites": "Обрані"
 	}
 }
