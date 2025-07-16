@@ -1,9 +1,11 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { PageInterface } from '@/src/pages/root/PageInterface';
-import { IoLibraryOutline } from 'react-icons/io5';
-// import { BiSolidBible } from "react-icons/bi";
+import { PageInterface } from '@/components/pages/root/PageInterface';
+
+const outputIcon = (): ReactNode => {
+	return <i>intro</i>;
+};
 
 const outputSidebarContent = (): ReactNode => {
 	return <></>;
@@ -14,9 +16,9 @@ const outputContent = (): ReactNode => {
 };
 
 const Page: PageInterface = {
-	id: 'library',
-	href: '/library',
-	icon: IoLibraryOutline,
+	id: 'intro',
+	href: '/intro',
+	icon: outputIcon,
 	sidebarContent: outputSidebarContent,
 	content: outputContent,
 };

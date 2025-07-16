@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { PageInterface } from '@/src/pages/root/PageInterface';
+import { PageInterface } from '@/components/pages/root/PageInterface';
 import { useTranslations } from 'next-intl';
 
 const outputIcon = (): ReactNode => {

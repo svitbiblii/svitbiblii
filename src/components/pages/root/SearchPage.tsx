@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode, useState } from 'react';
-import { PageInterface } from '@/src/pages/root/PageInterface';
+import { PageInterface } from '@/components/pages/root/PageInterface';
 import { IoSearchOutline } from 'react-icons/io5';
 import SearchBox from '@/components/SearchBox';
 import { BookDTO } from '@/types/book.dto';

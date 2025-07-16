@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { PageInterface } from '@/src/pages/root/PageInterface';
+import { PageInterface } from '@/components/pages/root/PageInterface';
 
 const outputIcon = (): ReactNode => {
 	return <i>home</i>;

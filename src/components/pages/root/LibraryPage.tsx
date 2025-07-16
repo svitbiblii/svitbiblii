@@ -1,8 +1,9 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { PageInterface } from '@/src/pages/root/PageInterface';
-import { TbRouteSquare } from 'react-icons/tb';
+import { PageInterface } from '@/components/pages/root/PageInterface';
+import { IoLibraryOutline } from 'react-icons/io5';
+// import { BiSolidBible } from "react-icons/bi";
 
 const outputSidebarContent = (): ReactNode => {
 	return <></>;
@@ -13,9 +14,9 @@ const outputContent = (): ReactNode => {
 };
 
 const Page: PageInterface = {
-	id: 'route',
-	href: '/route',
-	icon: TbRouteSquare,
+	id: 'library',
+	href: '/library',
+	icon: IoLibraryOutline,
 	sidebarContent: outputSidebarContent,
 	content: outputContent,
 };

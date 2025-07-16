@@ -1,8 +1,8 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { PageInterface } from '@/src/pages/root/PageInterface';
-import { IoStarOutline } from 'react-icons/io5';
+import { PageInterface } from '@/components/pages/root/PageInterface';
+import { IoBookmarkOutline } from 'react-icons/io5';
 
 const outputSidebarContent = (): ReactNode => {
 	return <></>;
@@ -13,9 +13,10 @@ const outputContent = (): ReactNode => {
 };
 
 const Page: PageInterface = {
-	id: 'favorite',
-	href: '/favorite',
-	icon: IoStarOutline,
+	id: 'bookmark',
+	href: '/bookmark',
+	icon: IoBookmarkOutline,
+	sidebarAlertMessage: 'Authroize to save your bookmarks',
 	sidebarContent: outputSidebarContent,
 	content: outputContent,
 };

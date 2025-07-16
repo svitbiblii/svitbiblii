@@ -1,5 +1,5 @@
-import PageRenderer from '@/src/components/PageRenderer';
-import HomePage from '@/src/pages/root/HomePage';
+import PageRenderer from '@/components/pages/root/PageRenderer';
+import HomePage from '@/components/pages/root/HomePage';
 
 export default function Page() {
 	return <PageRenderer page={HomePage} />;

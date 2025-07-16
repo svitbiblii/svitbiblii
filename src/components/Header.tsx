@@ -2,11 +2,11 @@
 
 import { Link } from '@/i18n/routing';
 import { ReactNode } from 'react';
-import { PageInterface } from '@/pages/root/PageInterface';
+import { PageInterface } from '@/components/pages/root/PageInterface';
 import { usePage } from '@/src/context/PageContext';
 import Logo from '@/assets/svg/logogoryzont.svg';
-import HomePage from '@/pages/root/HomePage';
-import AboutPage from '@/pages/root/AboutPage';
+import HomePage from '@/components/pages/root/HomePage';
+import AboutPage from '@/components/pages/root/AboutPage';
 import { Button } from './Button';
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 import { LocaleSelect } from '@/components/LocaleSelect';

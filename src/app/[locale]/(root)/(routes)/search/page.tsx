@@ -1,5 +1,5 @@
-import PageRenderer from '@/src/components/PageRenderer';
-import SearchPage from '@/src/pages/root/SearchPage';
+import PageRenderer from '@/components/pages/root/PageRenderer';
+import SearchPage from '@/components/pages/root/SearchPage';
 
 export default function Page() {
 	return <PageRenderer page={SearchPage} />;

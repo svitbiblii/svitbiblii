@@ -1,24 +1,22 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { PageInterface } from '@/src/pages/root/PageInterface';
-
-const outputIcon = (): ReactNode => {
-	return <i>intro</i>;
-};
+import { PageInterface } from '@/components/pages/root/PageInterface';
+import { LiaUserShieldSolid } from 'react-icons/lia';
 
 const outputSidebarContent = (): ReactNode => {
 	return <></>;
 };
 
 const outputContent = (): ReactNode => {
-	return <></>;
+	return <>admin</>;
 };
 
 const Page: PageInterface = {
-	id: 'intro',
-	href: '/intro',
-	icon: outputIcon,
+	id: 'admin',
+	href: '/admin',
+	icon: LiaUserShieldSolid,
+	sidebarAlertMessage: 'admin',
 	sidebarContent: outputSidebarContent,
 	content: outputContent,
 };

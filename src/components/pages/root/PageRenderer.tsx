@@ -8,13 +8,13 @@ import { Button } from '@/components/Button';
 
 import { usePage } from '@/context/PageContext';
 
-import { PageInterface } from '@/pages/root/PageInterface';
-import BookmarkPage from '@/pages/root/BookmarkPage';
-import FavoritePage from '@/pages/root/FavoritePage';
-import LibraryPage from '@/pages/root/LibraryPage';
-import RoutePage from '@/pages/root/RoutePage';
-import SearchPage from '@/pages/root/SearchPage';
-import AdminPage from '@/pages/root/AdminPage';
+import { PageInterface } from '@/components/pages/root/PageInterface';
+import BookmarkPage from '@/components/pages/root/BookmarkPage';
+import FavoritePage from '@/components/pages/root/FavoritePage';
+import LibraryPage from '@/components/pages/root/LibraryPage';
+import RoutePage from '@/components/pages/root/RoutePage';
+import SearchPage from '@/components/pages/root/SearchPage';
+import AdminPage from '@/components/pages/root/AdminPage';
 
 import { SignedOut } from '@clerk/nextjs';
 

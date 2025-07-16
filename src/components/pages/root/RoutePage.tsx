@@ -1,8 +1,8 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { PageInterface } from '@/src/pages/root/PageInterface';
-import { IoBookmarkOutline } from 'react-icons/io5';
+import { PageInterface } from '@/components/pages/root/PageInterface';
+import { TbRouteSquare } from 'react-icons/tb';
 
 const outputSidebarContent = (): ReactNode => {
 	return <></>;
@@ -13,10 +13,9 @@ const outputContent = (): ReactNode => {
 };
 
 const Page: PageInterface = {
-	id: 'bookmark',
-	href: '/bookmark',
-	icon: IoBookmarkOutline,
-	sidebarAlertMessage: 'Authroize to save your bookmarks',
+	id: 'route',
+	href: '/route',
+	icon: TbRouteSquare,
 	sidebarContent: outputSidebarContent,
 	content: outputContent,
 };
