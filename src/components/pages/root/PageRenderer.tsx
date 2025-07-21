@@ -1,12 +1,13 @@
 'use client';
 
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
 import { Nav, NavItem } from '@/components/Nav';
 import SideBar from '@/components/SideBar';
 import { Button } from '@/components/Button';
 
 import { usePage } from '@/context/PageContext';
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
 import { PageInterface } from '@/components/pages/root/PageInterface';
 import BookmarkPage from '@/components/pages/root/BookmarkPage';
@@ -29,6 +30,7 @@ const navPages: PageInterface[] = [
 
 export default function PageRenderer({ page }: { page: PageInterface }): ReactNode {
 	const { setPage } = usePage();
+	const [isSideBarVisible, setSideBarVisibility] = useState<boolean>(false);
 	useEffect(() => {
 		setPage(page);
 	}, [page, setPage]);
@@ -62,31 +64,47 @@ export default function PageRenderer({ page }: { page: PageInterface }): ReactNo
 					})}
 				</Nav>
 				{page.sidebarContent && (
-					<SideBar className="flex flex-col">
-						<>
-							{page.sidebarAlertMessage && ( // additionaly check if user is logged in
-								<SignedOut>
-									<span className="text-red-600 text-center text-sm">
-										{page.sidebarAlertMessage}
-									</span>
-									<Button
-										className="w-2/3 mx-auto"
-										// onClick={() => setShowAuthForm(true)}
-									>
-										Sign In / Sign Up
-									</Button>
-								</SignedOut>
-							)}
+					<div className="relative">
+						{isSideBarVisible && (
+							<SideBar className="flex flex-col">
+								<>
+									{page.sidebarAlertMessage && ( // additionaly check if user is logged in
+										<SignedOut>
+											<span className="text-red-600 text-center text-sm">
+												{page.sidebarAlertMessage}
+											</span>
+											<Button
+												className="w-2/3 mx-auto"
+												// onClick={() => setShowAuthForm(true)}
+											>
+												Sign In / Sign Up
+											</Button>
+										</SignedOut>
+									)}
 
-							{page.sidebarTitle && (
-								<h2 className="px-2 py-3 my-3 text-left text-base text-primary font-semibold border-b border-primary">
-									{page.sidebarTitle}
-								</h2>
-							)}
+									{page.sidebarTitle && (
+										<h2 className="px-2 py-3 my-3 text-left text-base text-primary font-semibold border-b border-primary">
+											{page.sidebarTitle}
+										</h2>
+									)}
 
-							{page.sidebarContent()}
-						</>
-					</SideBar>
+									{page.sidebarContent()}
+								</>
+							</SideBar>
+						)}
+
+						<Button
+							className="absolute top-[.5em] left-[calc(100%+.5em)] p-0 h-auto"
+							// size="sm"
+							onClick={() => setSideBarVisibility(!isSideBarVisible)}
+						>
+							{isSideBarVisible ? (
+								<MdOutlineKeyboardArrowLeft size={24} />
+							) : (
+								<MdOutlineKeyboardArrowRight size={24} />
+							)}
+						</Button>
+					</div>
 				)}
 			</aside>
 			<main className="flex-1 p-4">{page.content()}</main>
