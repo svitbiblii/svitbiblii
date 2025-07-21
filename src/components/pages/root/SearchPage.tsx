@@ -21,7 +21,7 @@ const OutputContent = (): ReactNode => {
 				<SearchBox className="w-2/6 shadow-md" setSearchResult={setBooks} />
 			</div>
 
-			<div className="mt-4 grid grid-cols-3 gap-4">
+			<div className="mt-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
 				{books.map((book) => (
 					<Book key={book.id} book={book} variant="large" className="w-full" />
 				))}

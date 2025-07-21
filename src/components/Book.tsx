@@ -34,7 +34,7 @@ const Book: React.FC<BookProps> = ({ book, variant, className }) => {
 
 		return (
 			<div className={`${commonCardClasses} h-auto max-w-2xl mx-auto`}>
-				<div className="p-4 flex flex-col justify-between flex-grow w-2/3">
+				<div className="p-4 flex flex-col justify-between flex-grow w-1/2 sm:w-2/3 md:w-1/2 lg:w-2/3">
 					<div className="mb-4">
 						<p className="text-left font-semibold text-gray-900 border-b border-gray-300 dark:text-white line-clamp-2">
 							{book.title}
@@ -63,21 +63,21 @@ const Book: React.FC<BookProps> = ({ book, variant, className }) => {
 						)}
 					</div>
 
-					<div className="mt-4 flex gap-2">
+					<div className="mt-4 flex flex-col sm:flex-row md:flex-col lg:flex-row gap-2">
 						{book.link && (
 							<>
 								<Link href={book.link}>
-									<Button variant="outline">Читати</Button>
+									<Button variant="outline" layout="responsive">Читати</Button>
 								</Link>
 								<Link href={book.link}>
-									<Button variant="outline">Слухати</Button>
+									<Button variant="outline" layout="responsive">Слухати</Button>
 								</Link>
 							</>
 						)}
 					</div>
 				</div>
 
-				<div className="relative w-1/4 flex-shrink-0 p-2">
+				<div className="relative w-1/2 sm:w-1/3 md:w-1/2 lg:w-1/3 flex-shrink-0 p-2">
 					<div className="flex items-center justify-center w-full h-full">
 						<div className="absolute inset-y-4 right-4 w-[calc(100%-1rem)] h-[calc(100%-2rem)] bg-primary rounded-lg shadow-lg flex flex-col items-center justify-center text-primary-foreground p-2 text-center">
 							<p className="font-bold leading-tight mb-10 line-clamp-3">
