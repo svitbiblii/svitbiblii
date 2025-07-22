@@ -1,11 +1,22 @@
-import { ReactNode } from 'react';
+'use client';
 
-export default function SideBar({
-	children,
-	className,
-}: {
-	children: ReactNode;
-	className?: string;
-}): ReactNode {
-	return <div className={`w-96 h-full px-2 py-3 shadow-md ${className || ''}`}>{children}</div>;
+import { ReactNode } from 'react';
+import clsx from 'clsx';
+
+interface SideBarProps {
+    children?: ReactNode;
+    className?: string;
+}
+
+export default function SideBar({ children, className }: SideBarProps): ReactNode {
+    return (
+        <aside
+            className={clsx(
+                'w-12 h-full py-3 shadow-md',
+                className 
+            )}
+        >
+            {children}
+        </aside>
+    );
 }
