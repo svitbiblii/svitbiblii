@@ -1,10 +1,9 @@
-import PageRenderer from '@/components/pages/root/PageRenderer';
-import BookmarkPage from '@/components/pages/root/BookmarkPage';
+import { ReactNode } from 'react';
 
-export default function Page() {
+export default function BookmarkPage(): ReactNode {
 	return (
 		<>
-		Bookmark
+		BookmarkPage
 		</>
 	)
 }

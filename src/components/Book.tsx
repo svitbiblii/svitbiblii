@@ -33,7 +33,9 @@ const Book: React.FC<BookProps> = ({ book, variant, className }) => {
 				: book.content;
 
 		return (
-			<div className={`${commonCardClasses} h-auto max-w-2xl mx-auto`}>
+			<div className={cn(commonCardClasses,
+    							'h-auto max-w-2xl mx-auto',
+    							className )}>
 				<div className="p-4 flex flex-col justify-between flex-grow w-2/3">
 					<div className="mb-4">
 						<p className="text-left font-semibold text-gray-900 border-b border-gray-300 dark:text-white line-clamp-2">
@@ -91,9 +93,9 @@ const Book: React.FC<BookProps> = ({ book, variant, className }) => {
 		);
 	} else {
 		return (
-			<div
-				className={`${commonCardClasses} w-48 md:w-56 lg:w-64 transform transition duration-300 hover:scale-105 flex-col`}
-			>
+			<div className={cn(commonCardClasses,
+    							'w-48 md:w-56 lg:w-64 transform transition duration-300 hover:scale-105 flex-col',
+    							className )}>
 				<div className="p-4 flex flex-col flex-grow">
 					<p className="italic text-gray-600">{book.author}</p>
 					<p className="font-bold text-gray-600">{book.title}</p>

@@ -1,8 +1,9 @@
 'use client';
 
+import { ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
 
-export default function AboutUsPage () {
+export default function AboutUsPage(): ReactNode {
 	const t = useTranslations('AboutUs');
 
 	return (

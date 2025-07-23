@@ -1,6 +1,7 @@
-import PageRenderer from '@/components/pages/root/PageRenderer';
-import RoutePage from '@/components/pages/root/RoutePage';
+import { ReactNode } from 'react';
 
-export default function Page() {
-	return <PageRenderer page={RoutePage} />;
+export default function RoutePage(): ReactNode {
+	return <>
+	RoutePage
+	</>; 
 }

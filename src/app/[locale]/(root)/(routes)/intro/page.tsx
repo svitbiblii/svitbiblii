@@ -1,6 +1,7 @@
-import PageRenderer from '@/components/pages/root/PageRenderer';
-import IntroPage from '@/components/pages/root/IntroPage';
+import { ReactNode } from 'react';
 
-export default function Page() {
-	return <PageRenderer page={IntroPage} />;
+export default function IntroPage(): ReactNode {
+	return <>
+	IntroPage
+	</>;
 }

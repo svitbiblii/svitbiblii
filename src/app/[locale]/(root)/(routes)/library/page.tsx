@@ -1,6 +1,7 @@
-import PageRenderer from '@/components/pages/root/PageRenderer';
-import LibraryPage from '@/components/pages/root/LibraryPage';
+import { ReactNode } from 'react';
 
-export default function Page() {
-	return <PageRenderer page={LibraryPage} />;
+export default function LibraryPage(): ReactNode {
+	return <>
+	LibraryPage
+	</>;
 }

@@ -31,9 +31,9 @@ export default function AppSideBar(): ReactNode {
                         <Link 
 							key={p.id} 
 							href={p.href}
-							className={clsx( // Використовуємо clsx для об'єднання класів
+							className={clsx(
                             'flex items-center justify-center mx-auto size-10 rounded-md transition-colors duration-200',
-                            isCurrent ? 'bg-primary text-white' : 'text-primary' // Збережено ваші кольори
+                            isCurrent ? 'bg-primary text-white' : 'text-primary'
                         )}
 						>
                             {p.icon}
