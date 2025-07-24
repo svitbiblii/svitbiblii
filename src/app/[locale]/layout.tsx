@@ -1,7 +1,6 @@
 import '@/src/app/globals.css';
 import { ReactNode } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
-
 import { getMessages } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
