@@ -4,22 +4,17 @@ import { ReactNode } from 'react';
 import { PageInterface } from '@/components/pages/root/PageInterface';
 
 const outputIcon = (): ReactNode => {
-	return <i>intro</i>;
+	return <>123</>;
 };
 
-const outputSidebarContent = (): ReactNode => {
-	return <></>;
-};
-
-const outputContent = (): JSX.Element => {
-	return <></>;
+const outputContent = (): ReactNode => {
+	return <>admin upload page</>;
 };
 
 const Page: PageInterface = {
-	id: 'intro',
-	href: '/intro',
+	id: 'admin_upload',
+	href: '/upload',
 	icon: outputIcon,
-	sidebarContent: outputSidebarContent,
 	content: outputContent,
 };
 

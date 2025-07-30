@@ -11,7 +11,7 @@ const OutputSidebarContent = (): ReactNode => {
 	return <>Here I have to write the code to display the browsing history</>;
 };
 
-const OutputContent = (): ReactNode => {
+const OutputContent = (): JSX.Element => {
 	const [books, setBooks] = useState<BookDTO[]>([]);
 
 	return (

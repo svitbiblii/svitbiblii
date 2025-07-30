@@ -16,7 +16,7 @@ const outputSidebarContent = (): ReactNode => {
 	);
 };
 
-const outputContent = (): ReactNode => {
+const outputContent = (): JSX.Element => {
 	return (
 		<div>
 			<h1>Welcome to Home</h1>

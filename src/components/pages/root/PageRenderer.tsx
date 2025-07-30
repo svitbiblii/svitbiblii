@@ -18,6 +18,7 @@ import SearchPage from '@/components/pages/root/SearchPage';
 import AdminPage from '@/components/pages/root/AdminPage';
 
 import { SignedOut } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
 
 const navPages: PageInterface[] = [
 	SearchPage,
@@ -29,6 +30,13 @@ const navPages: PageInterface[] = [
 ];
 
 export default function PageRenderer({ page }: { page: PageInterface }): ReactNode {
+	const router = useRouter();
+	useEffect(() => {
+		router.prefetch('/admin');
+		router.prefetch('/library');
+		router.prefetch('/roads');
+	}, [router]);
+
 	const { setPage } = usePage();
 	const [isSideBarVisible, setSideBarVisibility] = useState<boolean>(false);
 	useEffect(() => {
@@ -49,9 +57,8 @@ export default function PageRenderer({ page }: { page: PageInterface }): ReactNo
 							>
 								{p.icon &&
 									(() => {
-										const Icon = p.icon;
 										return (
-											<Icon
+											<p.icon
 												size={32}
 												className={
 													isCurrent ? 'text-white' : 'text-primary'
@@ -63,6 +70,7 @@ export default function PageRenderer({ page }: { page: PageInterface }): ReactNo
 						);
 					})}
 				</Nav>
+
 				{page.sidebarContent && (
 					<div className="relative">
 						{isSideBarVisible && (
@@ -88,7 +96,7 @@ export default function PageRenderer({ page }: { page: PageInterface }): ReactNo
 										</h2>
 									)}
 
-									{page.sidebarContent()}
+									{<page.sidebarContent />}
 								</>
 							</SideBar>
 						)}
@@ -107,7 +115,7 @@ export default function PageRenderer({ page }: { page: PageInterface }): ReactNo
 					</div>
 				)}
 			</aside>
-			<main className="flex-1 p-4">{page.content()}</main>
+			<main className="flex-1 p-4">{<page.content />}</main>
 			<aside>
 				<Nav>
 					<></>

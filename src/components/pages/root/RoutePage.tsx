@@ -8,7 +8,7 @@ const outputSidebarContent = (): ReactNode => {
 	return <></>;
 };
 
-const outputContent = (): ReactNode => {
+const outputContent = (): JSX.Element => {
 	return <></>;
 };
 
